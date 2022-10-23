@@ -1,2 +1,2 @@
-# abcd2
-Project ABCD : Version 2
+# abcd
+A Bite of Culture in Dresses (ABCD)

@@ -1,0 +1,89 @@
+body {
+
+    height: 100%;
+
+}
+
+button[type=submit] {
+
+    background-color: orangered;
+    border: 0px;
+    color: white;
+    font-weight: bold;
+
+}
+
+.fa-solid {
+    
+    padding-top: 10px;
+    padding-left: 3px;
+    font-size: 68px;
+
+}
+
+.logoStyle {
+
+    padding-right: 50px;
+
+}
+
+
+.navbar {
+
+    padding: 0px !important;
+    position: fixed;
+    top: 0px;
+    width: 100%;
+
+}
+
+.navbar-nav {
+
+    height: 100%;
+
+}
+
+.navbar-collapse {
+
+    background-color: orangered;
+    color: white !important;
+
+}
+
+.nav-link {
+
+    color: white !important;
+    font-size: 20px;
+    font-weight: bold !important;
+    transition: transform 1s;
+    
+
+}
+
+.nav-link:hover {
+
+    transform: rotateZ(-25deg);
+    
+
+}
+
+.profileInfo {
+
+    display: flex;
+    text-align: center;
+    padding-left: 50px;
+    flex-direction: column;
+
+}
+
+.profileInfo p {
+    font-weight: bold;
+}
+
+.search-container {
+
+    font-size: 20px;
+    padding-top: 5px;
+    padding-right: 50px;
+
+}

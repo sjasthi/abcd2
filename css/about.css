@@ -1,0 +1,55 @@
+body {
+
+    margin-top: 60px;
+
+}
+
+.image {
+
+    width: 200px;
+    height: 200px;
+    padding: 20px 20px 20px 20px;
+
+}
+
+
+#title {
+
+    text-align: center;
+    color: orangered;
+
+}
+
+#table_1 {
+
+    border-spacing: 100px 0px;
+
+}
+
+.directions {
+
+    text-align: center;
+    padding: 20px 40px 0px 40px;
+    color: darkgreen;
+
+}
+
+.description {
+
+    padding: 0px 40px 0px 0px;
+    color: darkgoldenrod;
+
+}
+
+#silc {
+
+    width: 300;
+    height: 85;
+
+}
+
+.Name {
+
+    color: darkgreen;
+
+}
