@@ -1,0 +1,29 @@
+#title {
+
+    text-align: center;
+    color: orangered;
+
+}
+
+thead input {
+
+    width: 100%;
+
+}
+
+.thumbnailSize{
+
+    height: 100px;
+
+    width: 100px;
+
+    transition:transform 0.25s ease;
+
+}
+.thumbnailSize:hover {
+
+    -webkit-transform:scale(3.5);
+
+    transform:scale(3.5);
+
+}

@@ -1,0 +1,33 @@
+body {
+
+    padding-top: 100px;
+
+}
+
+#title {
+    color: black;
+    text-align: center;
+}
+#toggle {
+    color: 	#4397fb;
+}
+#toggle:hover {
+    color: #467bc7
+}
+thead input {
+    width: 100%;
+}
+.thumbnailSize{
+    height: 100px;
+    width: 100px;
+    transition:transform 0.25s ease;
+}
+.thumbnailSize:hover {
+    -webkit-transform:scale(3.5);
+    transform:scale(3.5);
+}
+
+#title2 {
+    text-align: center;
+    color: orangered;
+}
