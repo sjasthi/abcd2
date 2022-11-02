@@ -1,0 +1,117 @@
+body {
+
+    margin-top: 120px;
+    width: 100%;
+    background: white;
+    background-image: radial-gradient(black 1px, transparent 0);
+    background-size: 60px 60px;
+    background-position: -19px -19px;
+    right: 0;
+
+}
+
+.testbox {
+
+    margin: 10px 200px 40px 200px;
+    display: flex;
+    justify-content: center;
+    background-color: white;
+    padding-top: 30px;
+
+}
+
+#pptTitle {
+
+    font-family: 'Kanit';
+    font-weight: bold;
+    color: #000080;
+    text-transform: uppercase;
+    font-size: 70px;
+    text-shadow: 2px 2px 4px #cec6bd;
+
+}
+
+.banner {
+
+    padding-bottom: 40px;
+
+}
+
+#queryTitle {
+
+    font-size: 25px;
+
+}
+
+#displayTitle {
+
+    font-size: 25px;
+
+}
+
+#formatTitle {
+
+    font-style: italic;
+    font-weight: normal;
+
+}
+
+.numPages {
+
+    padding-bottom: 20px;
+
+}
+
+.question-answer {
+
+    padding-top: 10px;
+    padding-bottom: 10px;
+
+}
+
+.dialog {
+
+    font-family: 'Kanit';
+
+}
+
+.quantity {
+
+    font-family: 'Kanit';
+
+}
+
+label {
+
+    font-family: 'Kanit';
+
+}
+
+.btn-block {
+
+    display: flex;
+    justify-content: center;
+    padding-bottom: 40px;
+    padding-top: 40px;
+
+}
+
+button.pptBtn {
+
+    font-family: 'Kanit';
+    background-color: #138808;
+    color:white;
+    padding: 8px 20px;
+    font-weight: normal;
+    border-radius: 5px;
+
+}
+
+.pptBtn:hover {
+
+    background-color: white;
+    color: #138808;
+    font-weight: normal;
+    border: #138808 1px solid;
+
+}

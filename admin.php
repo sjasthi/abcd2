@@ -43,6 +43,7 @@
             <td><a href="reports_summary.php"><i class="fa fa-file-lines" id="adIconNine"></i><p class="iconLabel"><strong>reports summary</strong></p></a></td>
             <td><a href="preferences.php"><i class="fa fa-gear" id="adIconTen"></i><p class="iconLabel"><strong>preferences</strong></p></a></td>
             <td><a href="artistEdit.php"><i class="fa fa-palette" id="adIconEleven"></i><p class="iconLabel"><strong>artists</strong></p></a></td>
+            <td><a href="resources.php"><i class="fa-solid fa-scroll" id="adIconTwelve"></i><p class="iconLabel"><strong>resources</strong></p></a></td>
         </tr>
     </table>
 </div>

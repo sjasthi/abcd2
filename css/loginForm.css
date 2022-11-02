@@ -1,0 +1,137 @@
+html {
+
+    height: 100%;
+
+}
+
+body {
+
+    min-height: 100%;
+  background: linear-gradient(to bottom, #ff4500, #FF9933),
+    repeating-linear-gradient(
+      to bottom,
+      #ffffff00 0,
+      #ffffff00 32px,
+      #fff 32px,
+      #fff 40px,
+      #ffffff00 40px
+    ),
+    repeating-linear-gradient(
+      to right,
+      #ffffff00 0,
+      #ffffff00 32px,
+      #fff 32px,
+      #fff 40px,
+      #ffffff00 40px
+    ),
+    radial-gradient(
+        circle at 5px 5px,
+        #2f4e7940 1px,
+        #ffffff00 1px,
+        #ffffff00 8px
+      )
+      0 0 / 8px 8px;
+  background-blend-mode: multiply;
+
+}
+
+.tab-content {
+
+    display: flex;
+    justify-content: space-evenly;
+    margin-top: 50px;
+
+}
+
+.tab-content label {
+
+    font-family: 'Kanit';
+
+}
+
+.tab-content button {
+
+    background-color: #138808;
+    color: white;
+    border:#138808 1px solid;
+    border-radius: 5px;
+    padding: 5px 10px;
+    margin-top: 20px;
+
+}
+
+.tab-content button:hover {
+
+    background-color: white;
+    color: #138808;
+
+}
+
+#login {
+
+    display:flex;
+    flex-direction: column;
+    background-color: white;
+    padding: 80px 60px;
+    border-radius: 80px;
+    justify-content: space-evenly;
+
+}
+
+#register {
+
+    display: flex;
+    flex-direction: column;
+    background-color: white;
+    padding: 80px 60px;
+    border-radius: 80px;
+
+}
+
+#welcomeText {
+
+    font-family: 'Kanit';
+    padding-bottom: 20px;
+    color: #000080;
+    font-weight: bold;
+    text-transform: uppercase;
+    text-shadow: 2px 2px 4px #cec6bd;
+
+}
+
+#newUser {
+
+    font-family: 'Kanit';
+    padding-bottom: 20px;
+    color: #000080;
+    font-weight: bold;
+    text-transform: uppercase;
+    text-shadow: 2px 2px 4px #cec6bd;
+
+}
+
+.btnContainer {
+
+    
+
+}
+
+label {
+
+    font-family: 'Kanit';
+
+}
+
+
+label {
+    width:230px;
+    clear:left;
+    text-align:right;
+    padding-right:50px;
+    padding-bottom: 10px;
+    font-weight: bold;
+}
+
+input, label {
+    float:left;
+}

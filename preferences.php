@@ -152,7 +152,7 @@ $form_action = "set_cookie.php";
             <td><input required type="int" name="row_count" maxlength="2" size="13" value="<?php echo $row_count; ?>" ></td>
         </tr>
         <tr>
-            <td style="width:300px">Number of Dresses to Display:</td>
+            <td style="width:300px">Number of Dresses to Display Per Page:</td>
             <td><input disabled type="int" maxlength="3" size="13" value="<?php echo $dresses_count; ?>" title="Current value"></td> 
             <td><input required type="int" name="dresses_count" maxlength="3" size="13" value="<?php echo $dresses_count; ?>" ></td>
         </tr>

@@ -30,7 +30,7 @@ $GLOBALS['data'] = mysqli_query($db, $query);
     <h2 id="title">Scroll down to view artists and their products available for purchase using the site art.</h2><br>
     
     <div id="customerTableView">
-        <button><a class="btn btn-sm" href="artistForm.php">Become an Affiliated Artist</a></button>
+        <button class="artistEditBtn"><a class="btn btn-sm" href="artistForm.php">Become an Affiliated Artist</a></button>
         <table class="display" id="ceremoniesTable" style="width:100%">
             <div class="table responsive">
                 <thead>

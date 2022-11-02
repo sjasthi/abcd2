@@ -13,9 +13,7 @@ $imageName = basename($_FILES["fileToUpload"]["name"]);
 $whatsapp = mysqli_real_escape_string($db,$_POST['whatsapp']);
 $art_site = mysqli_real_escape_string($db,$_POST['art_site']);
 $other = mysqli_real_escape_string($db,$_POST['other']);
-$approval_status = 'pending';
-
-if($validate){
+$approval_status = mysqli_real_escape_string($db, 'pending');
         
     $target_dir = "images/profile_images/";
     $id = $_SESSION["id"];
@@ -40,13 +38,18 @@ if($validate){
         if (move_uploaded_file($_FILES["fileToUpload"]["tmp_name"], $target_file)) {
             
             $sql = "INSERT INTO `artists` (`user_id`, `profile_picture`, `description`, `country`, `facebook`, `instagram`, `twitter`, `whatsapp`, `art_site`, `other`, `approval_status`)
-            VALUES ('$id', '$imageName', '$description', '$country', '$facebook', '$instagram', '$twitter', '$whatsapp', '$art_site', '$other', $approval_status)";
+            VALUES ('$id', '$imageName', '$description', '$country', '$facebook', '$instagram', '$twitter', '$whatsapp', '$art_site', '$other', '$approval_status')";
 
-            mysqli_query($db, $sql);
-            header('location: artistEdit.php?create_artist=success');
+            $test = mysqli_query($db, $sql);
+            if($test){
+                echo "success";
+                header('location: artistShowcase.php?registerArtist=success');
+            }
+            else {
+                echo mysqli_error($db);
+            }
+            
         }
     } 
-
-}
 
 ?>

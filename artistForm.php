@@ -23,6 +23,10 @@ $mysqli = new MySQLi('localhost', 'root', '', 'abcd_db');
 <html>
 <head>
   <title>Register/Login Form</title>
+  <link href="css/artistForm.css" rel="stylesheet">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Kanit:wght@300&display=swap" rel="stylesheet">
 </head>
 <body>
   <div class="form">
@@ -34,11 +38,22 @@ $mysqli = new MySQLi('localhost', 'root', '', 'abcd_db');
 
       <div class="tab-content">
 
-        <div id="registerArtist">
-          <h1>Register as an artist affiliate</h1>
-          <h2>Please submit this form if you would like to be able to use the images on this website to create products to sell! We will create an artist profile on the site and link to your pages for people to view.</h2>
+        <div class="registerArtistContainer">
+          <div class="registerText">
+          <h1 id="artistHead">Register as an artist affiliate</h1>
+          <h2 id="artistDescription">Please submit this form if you would like to be able to use the images on this website to create products to sell! We will create an artist profile on the site and link to your pages for people to view.</h2>
+          </div>
 <br>
+          <div class="artistBoxes">
           <form action="createArtist.php" method="POST" autocomplete="off" enctype="multipart/form-data">
+
+          <div class="field-wrap">
+              <label>
+                Profile Picture: <span class="req">*</span>
+              </label>
+              <input style=width:400px type="file" onchange="loadFile(event)" name="fileToUpload" id="fileToUpload" accept="image/jpg, image/jpeg, image/png" required title="Please enter an image file"></input><br>
+              <img id="output" width="200" />
+            </div>
 
             <div class="field-wrap">
               <label>
@@ -46,19 +61,11 @@ $mysqli = new MySQLi('localhost', 'root', '', 'abcd_db');
               </label>
               <input type="text" required autocomplete="off" name='description' />
             </div>
-
-            <div class="field-wrap">
-              <label>
-                Profile Picture:<span class="req">*</span>
-              </label>
-              <input style=width:400px type="file" onchange="loadFile(event)" name="fileToUpload" id="fileToUpload" accept="image/jpg, image/jpeg, image/png" required title="Please enter an image file"></input><br>
-              <img id="output" width="200" />
-            </div>
           
 
           <div class="field-wrap">
             <label>
-              Country:<span class="req">*</span>
+              Country: <span class="req">*</span>
             </label>
             <input type="text" required autocomplete="off" name='country' />
           </div>
@@ -104,10 +111,13 @@ $mysqli = new MySQLi('localhost', 'root', '', 'abcd_db');
             </label>
             <input type="text" autocomplete="off" name='other'/>
           </div>
+        
           
+</div>
+          <div class="submitContainer">
+                    <input type="submit" name="submit" value="Submit" id="submitBtn"> 
+          </div>
 
-          <input type="submit" name="submit" value="Submit"> 
-          
           
           </form>
 

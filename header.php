@@ -29,22 +29,6 @@ if(!isset($page_title)) { $page_title = 'Project ABCD'; }
     <script src="https://kit.fontawesome.com/f40040d297.js" crossorigin="anonymous"></script>
     <script>
         // When the user scrolls the page, execute myFunction
-window.onscroll = function() {myFunction()};
-
-// Get the navbar
-var navbar = document.getElementById("navbar");
-
-// Get the offset position of the navbar
-var sticky = navbar.offsetTop;
-
-// Add the sticky class to the navbar when you reach its scroll position. Remove "sticky" when you leave the scroll position
-function myFunction() {
-  if (window.pageYOffset >= sticky) {
-    navbar.classList.add("sticky")
-  } else {
-    navbar.classList.remove("sticky");
-  }
-}
 </script>
 
 </head>
@@ -66,8 +50,8 @@ function myFunction() {
                 echo '<a href="index.php" title="SILC Project ABCD"><img src="images/about_images/abcd_logo2.png"></a>';
                 if(isset($_SESSION['role'])){
                     echo '<div class="profileInfo">';
-                    echo '<i class="fa-solid fa-user"></i>';
-                    echo "<p>".$_SESSION["first_name"]." ".$_SESSION["last_name"]. " / ".$_SESSION["role"]. "</p>";
+                    echo '<i class="fa-solid fa-user" id="userIcon"></i>';
+                    echo "<p>".$_SESSION["first_name"]." ".$_SESSION["last_name"]. " / <i>".$_SESSION["role"]. "</i></p>";
                     echo '</div>';
                 }
         //     }  
@@ -100,7 +84,6 @@ function myFunction() {
             
                 if ($_SESSION['role'] == 'admin'){
                     echo '<li class="nav-item active"><a class="nav-link" id="header" href="admin.php">Admin<span class="sr-only">(current)</span></a></li>';
-                    echo '<li class="nav-item active"><a class="nav-link" id="header" href="resources.php">Resources</a>';
                 }
             
             echo '<li class="nav-item active"><a class="nav-link" id="header" href="logout.php">Logout<span class="sr-only">(current)</span></a></li>';
