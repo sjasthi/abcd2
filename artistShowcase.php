@@ -4,6 +4,7 @@ session_start();
 require 'bin/functions.php';
 require 'db_configuration.php';
 include('header.php');
+
 $query = "SELECT id, CONCAT(first_name,' ',last_name) AS name, profile_picture, description, country, facebook, instagram, twitter, whatsapp, art_site, other FROM artists LEFT JOIN users ON id = user_id";
 $GLOBALS['data'] = mysqli_query($db, $query);
 ob_end_flush();
@@ -13,11 +14,17 @@ ob_end_flush();
     <title>ABCD</title>
 
     <link rel="stylesheet" href="css/artistShowcase.css">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Kanit:wght@300&display=swap" rel="stylesheet">
     <script src="https://kit.fontawesome.com/f40040d297.js" crossorigin="anonymous"></script>
 </head>
 <body>
     <h2 class="artistTitle">Artist Showcase</h2>
+    <div class="btnContainer">
+        <button class="artistBtn"><a class="btn btn-sm" href="artistForm.php">Become an Affiliated Artist</a></button>
+    </div>
     <div class="contentContainer">
+    
     <?php
 
     if ($data->num_rows > 0) {

@@ -91,6 +91,10 @@ echo '<div text-align: left>
         $dresses_count = $_COOKIE[$dresses_count_cookie_name];
     }
 
+    else {
+        $dresses_count = 20;
+    }
+
     if (isset($_COOKIE[$image_height_cookie_name])) {
         $image_height = $_COOKIE[$image_height_cookie_name];
     }
@@ -150,7 +154,7 @@ echo '<div text-align: left>
         $no_of_records_per_page = 1000000;
     }
     else{
-        $no_of_records_per_page = 20;
+        $no_of_records_per_page = $dresses_count;
     }
     
     $total_pages_sql = ceil($num_results / $no_of_records_per_page);

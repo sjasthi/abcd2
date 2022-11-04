@@ -133,14 +133,18 @@ a:active {
     text-decoration: none;
 }
 
-.sortLink {
-    color: orangered;
+button.sortLink {
+    background-color: orangered;
+    color: white;
+    border: 1px solid white !important;
+    font-weight:  normal;
 }
 
 .sortLink:hover {
     background-color: white;
-    border: 1px solid orangered;
+    border: 1px solid orangered !important;
     color: orangered;
+    font-weight: normal;
 }
 
 #sorting {

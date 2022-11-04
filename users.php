@@ -1,5 +1,5 @@
 <?php
-
+session_start();
 require 'bin/functions.php';
 require 'db_configuration.php';
 

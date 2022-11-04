@@ -18,11 +18,49 @@ body {
     width: fit-content;
     margin: auto;
     font-weight: bold;
-    font-size: 55px;
+    font-size: 70px;
     font-family: 'Kanit';
     text-shadow: 2px 2px 4px #cec6bd;
     letter-spacing: 1rem;
     text-align: center;
+
+}
+
+.btnContainer {
+
+    display: flex;
+    justify-content: center;
+    margin: auto;
+    padding: 20px;
+
+}
+
+.artistBtn {
+
+    border-radius: 5px;
+    border: 1px solid #138808;
+    background-color: white;
+
+}
+
+.btn-sm {
+
+    color: #138808;
+
+}
+
+
+.artistBtn:hover{
+
+    background-color: #138808;
+    border: 1px solid white;
+    color: white !important;
+
+}
+
+.btn-sm:hover {
+
+    color: white;
 
 }
 
@@ -102,3 +140,5 @@ body {
     width: 600px;
 
 }
+
+

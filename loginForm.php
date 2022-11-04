@@ -11,6 +11,10 @@ ob_flush();
 <html>
 <head>
   <title>Register/Login Form</title>
+  <link href="css/loginForm.css" rel="stylesheet">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Kanit:wght@300&display=swap" rel="stylesheet">
 </head>
 
 <?php
@@ -40,7 +44,7 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST')
       <div class="tab-content">
 
          <div id="login">
-          <h1>Welcome Back!</h1>
+          <h1 id="welcomeText">Welcome Back!</h1>
 
           <form action="loginForm.php" method="post" autocomplete="off">
 
@@ -54,19 +58,19 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST')
 
           <div class="field-wrap">
             <label>
-              Password<span class="req">*</span>
+              Password <span class="req">*</span>
             </label>
             <input type="password" required autocomplete="off" name="password"/>
           </div>
-
+<div class="btnContainer">
           <button class="button button-block" name="login" />Log In</button>
-
+</div>
           </form>
 
         </div>
 
         <div id="register">
-          <h1>Register as a new user</h1>
+          <h1 id="newUser">Register as a new user</h1>
 
           <form action="register.php" method="post" autocomplete="off">
 
@@ -80,28 +84,28 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST')
 
             <div class="field-wrap">
               <label>
-                Last Name<span class="req">*</span>
+                Last Name <span class="req">*</span>
               </label>
               <input type="text"required autocomplete="off" name='last_name' />
             </div>
-          // </div>
+           </div>
 
           <div class="field-wrap">
             <label>
-              Email Address<span class="req">*</span>
+              Email Address <span class="req">*</span>
             </label>
             <input type="email"required autocomplete="off" name='email' />
           </div>
 
           <div class="field-wrap">
             <label>
-              Set A Password<span class="req">*</span>
+              Set A Password <span class="req">*</span>
             </label>
             <input type="password"required autocomplete="off" name='password'/>
           </div>
 
           <button class="button button-block" name="register">Register</button> 
-          
+
           </form>
 
         </div>
