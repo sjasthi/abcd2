@@ -1,0 +1,100 @@
+body {
+
+    background: linear-gradient(#ff4500, #FF9933);
+
+}
+
+.registerArtistContainer {
+
+    margin: 40px 80px 80px 80px;
+    background-color: white;
+    border-radius: 85px;
+
+}
+
+.registerText{
+
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+
+}
+
+.artistBoxes {
+
+    display: flex;
+    justify-content: center;
+
+}
+
+#artistHead {
+
+    font-family: 'Kanit';
+    font-size: 70px;
+    color: #000080;
+    padding: 30px;
+    text-shadow: 2px 2px 4px #cec6bd;
+    font-weight: bold;
+    text-transform: uppercase;
+    margin-top: 40px;
+
+}
+
+#artistDescription {
+
+    font-family: 'Kanit';
+    font-size: 20px;
+    padding: 0px 100px 30px 100px;
+    text-align: justify;
+
+}
+
+.submitContainer {
+
+    padding: 20px;
+    display: flex;
+    justify-content: center;
+    padding-bottom: 50px;
+
+}
+
+#submitBtn {
+
+    font-family: 'Kanit';
+    color:#138808;
+    border: #138808 1px solid;
+    border-radius: 3px;
+    padding: 5px 8px;
+
+}
+
+#submitBtn:hover {
+
+    background-color: #138808;
+    color: white;
+    text-decoration: none;
+    border:#138808 1px solid;
+    font-weight: normal;
+
+}
+
+label {
+
+    font-family: 'Kanit';
+
+}
+
+
+label {
+    width:230px;
+    clear:left;
+    text-align:right;
+    padding-right:50px;
+    padding-bottom: 10px;
+    font-weight: bold;
+}
+
+input, label {
+    float:left;
+}
+

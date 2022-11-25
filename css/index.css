@@ -1,0 +1,153 @@
+body {
+
+    margin-top: 120px;
+    width: 100%;
+    background: white;
+    background-image: radial-gradient(black 1px, transparent 0);
+    background-size: 60px 60px;
+    background-position: -19px -19px;
+    right: 0;
+
+}
+
+.contentContainer {
+
+    width: fit-content;
+    margin: auto;
+    background-color: white;
+
+}
+
+.mainTitle {
+
+    text-transform: uppercase;
+    color: #000080;
+    width: fit-content;
+    margin: auto;
+    font-weight: bold;
+    font-size: 75px;
+    font-family: 'Kanit';
+    text-shadow: 2px 2px 4px #cec6bd;
+    letter-spacing: 1rem;
+    text-align: center;
+
+}
+
+.pageLinksContainer {
+    display: flex;
+    justify-content: space-between;
+    padding-top: 50px;
+    padding-bottom: 50px;
+}
+
+.pageNavContainer {
+    margin: auto;
+
+}
+
+
+.pageNav {
+    text-align: center;
+    width: fit-content;
+}
+
+
+a.pageButton:hover {
+    color: white;
+    background-color: #138808;
+}
+
+a.pageButton {
+    padding: 8px;
+    color: #138808;
+    border: 1px solid grey;
+}
+
+
+.subTitle {
+
+    text-transform: uppercase;
+    color: #000080;
+    width: fit-content;
+    margin: auto;
+    font-family: 'Kanit';
+    text-shadow: 2px 2px 4px #cec6bd;
+    letter-spacing: 1rem;
+    text-align: center;
+
+}
+
+.dressSorting {
+
+   justify-content: flex-start;
+   padding-left: 50px;
+
+}
+
+.selectTitle {
+
+    padding-top: 50px;
+    text-align: center;
+
+}
+
+.image {
+    /* width: 125px;
+    height: 175px; */
+   /* width: 250px;
+    height: 350px;*/
+    padding: 8px 8px 8px 8px;
+    transition: transform .2s;
+}
+
+.image:hover {
+    transform: scale(1.2)
+}
+
+#table_1 {
+    border-spacing: 300px 0px;
+}
+
+#table_2 {
+    margin-left: auto;
+    margin-right: auto;
+}
+
+#silc {
+    width: 300;
+    height: 85;
+}
+
+#welcome {
+    text-align: center;
+}
+
+#title {
+    color: black;
+    text-align: center;
+}
+
+a:visited,
+a:link,
+a:active {
+    text-decoration: none;
+}
+
+button.sortLink {
+    background-color: orangered;
+    color: white;
+    border: 1px solid white !important;
+    font-weight:  normal;
+}
+
+.sortLink:hover {
+    background-color: white;
+    border: 1px solid orangered !important;
+    color: orangered;
+    font-weight: normal;
+}
+
+#sorting {
+    display: inline;
+    font-weight: bold;
+}

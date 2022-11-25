@@ -1,0 +1,144 @@
+body {
+
+    padding-top: 140px;
+    width: 100%;
+    background: white;
+    background-image: radial-gradient(black 1px, transparent 0);
+    background-size: 60px 60px;
+    background-position: -19px -19px;
+    right: 0;
+
+}
+
+.artistTitle {
+
+    text-transform: uppercase;
+    background-color: white;
+    color: #000080;
+    width: fit-content;
+    margin: auto;
+    font-weight: bold;
+    font-size: 70px;
+    font-family: 'Kanit';
+    text-shadow: 2px 2px 4px #cec6bd;
+    letter-spacing: 1rem;
+    text-align: center;
+
+}
+
+.btnContainer {
+
+    display: flex;
+    justify-content: center;
+    margin: auto;
+    padding: 20px;
+
+}
+
+.artistBtn {
+
+    border-radius: 5px;
+    border: 1px solid #138808;
+    background-color: white;
+
+}
+
+.btn-sm {
+
+    color: #138808;
+
+}
+
+
+.artistBtn:hover{
+
+    background-color: #138808;
+    border: 1px solid white;
+    color: white !important;
+
+}
+
+.btn-sm:hover {
+
+    color: white;
+
+}
+
+.contentContainer {
+
+    background-color: white;
+    padding-top: 30px;
+    display: flex;
+    flex-wrap: wrap;
+    margin: auto;
+    width: fit-content;
+
+}
+
+.fa-facebook {
+
+   color: #3B5998;
+
+}
+
+.fa-instagram {
+
+   color: #3B5998;
+
+}
+
+.fa-twitter {
+
+    color: #55ACEE;
+
+}
+
+.fa-whatsapp {
+
+    color: #25D366;
+
+}
+
+.profile {
+
+    width: 600px;
+    padding: 20px;
+    
+
+
+}
+
+.aboutArtist {
+
+    background-color: #F4F4F4;
+
+}
+
+.aboutArtist i {
+
+    padding-top: 5px;
+    padding-right: 5px;
+    font-size: 30px;
+
+}
+
+.aboutArtistContent {
+
+    padding: 10px;
+
+}
+
+.profile a {
+
+    text-decoration: none;
+
+}
+
+.profile img{
+
+    height: 400px;
+    width: 600px;
+
+}
+
+

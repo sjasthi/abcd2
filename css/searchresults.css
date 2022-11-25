@@ -1,0 +1,93 @@
+#title {
+
+    text-align: center;
+    color: #000080;
+    font-family: 'Kanit';
+    font-size: 60px;
+    font-weight: bold;
+    text-shadow: 2px 2px 4px #cec6bd;
+    letter-spacing: 1rem;
+    text-transform: uppercase;
+
+}
+#toggle {
+    color: 	#4397fb;
+}
+#toggle:hover {
+    color: #467bc7
+}
+thead input {
+    width: 100%;
+}
+.thumbnailSize{
+    height: 100px;
+    width: 100px;
+    transition:transform 0.25s ease;
+}
+.thumbnailSize:hover {
+    -webkit-transform:scale(3.5);
+    transform:scale(3.5);
+}
+
+.container-fluid {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+.searchContOut {
+
+    display: flex;
+    width: 1100px;
+    padding: 20px 40px;
+    background-color: #F9F9F9;
+    margin-bottom: 10px;
+    border-radius: 30px;
+
+}
+
+.searchContainIn {
+
+    display: flex;
+    flex: 1;
+    flex-direction: column;
+    justify-content: space-evenly;
+    
+}
+
+.dressName {
+
+    font-family: 'Kanit';
+    font-weight: bold;
+    text-transform: uppercase;
+    font-size: 25px;
+
+}
+
+.dressDesc {
+
+    font-family: 'Kanit';
+    font-weight: normal;
+    text-align: justify;
+
+}
+
+.dressImg {
+
+    width: 150px;
+    height: 210px;
+    margin-left: 40px;
+
+}
+
+a.dressLink {
+
+    color: #138808;
+
+}
+
+a.dressLink:hover {
+
+   
+
+}

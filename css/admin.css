@@ -1,0 +1,160 @@
+body {
+    height: 1800px;
+    background: white;
+    background-image: radial-gradient(black 1px, transparent 0);
+    background-size: 60px 60px;
+    background-position: -19px -19px;
+    right: 0;
+
+}
+
+.container {
+    margin-top: 100px;
+    text-align: center;
+    padding: 20px;
+    background-color:white;
+    width: 50%;
+}
+
+.iconsContainer {
+    display: flex;
+    align-content: center;
+    padding: 50px;
+    background-color: white;
+    width: 50%;
+    margin: auto;
+    z-index: -1;
+}
+
+.lastCol {
+    align-content: center;
+}
+
+#title {
+    text-align: center;
+    color: #000080;
+    font-family: 'Kanit';
+    text-transform: uppercase;
+    font-weight: bold;
+    font-size: 70px;
+}
+
+#img {
+    height: 250px;
+    width: 250px;
+}
+
+table.center {
+    margin-left: auto;
+    margin-right: auto;
+}
+
+td {
+    padding: 30px;
+
+    text-align: center;
+    vertical-align: center;
+}
+
+a:link { text-decoration: none; }
+
+
+a:visited { text-decoration: none; }
+
+
+a:active { text-decoration: none; }
+
+.iconLabel {
+    color: #000080;
+    font-size: 15px;
+    text-align: center;
+    font-family: 'Kanit';
+}
+
+
+#adIconOne {
+    background-color: white;
+    color: #138808;
+    border: none;
+    font-size: 70px;
+}
+
+#adIconTwo {
+    background-color: white;
+    color: #138808;
+    border: none;
+    font-size: 70px;
+}
+
+
+#adIconThree {
+    background-color: white;
+    color: #138808;
+    border: none;
+    font-size: 70px;
+}
+
+#adIconFour {
+    background-color: white;
+    color: #138808;
+    border: none;
+    font-size: 70px;
+}
+
+#adIconFive {
+    background-color: white;
+    color: #138808;
+    border: none;
+    font-size: 70px;
+}
+
+#adIconSix {
+    background-color: white;
+    color: #138808;
+    border: none;
+    font-size: 70px;
+}
+
+#adIconSeven {
+    background-color: white;
+    color: #138808;
+    border: none;
+    font-size: 70px;
+}
+
+#adIconEight {
+    background-color: white;
+    color: #138808;
+    border: none;
+    font-size: 70px;
+}
+
+#adIconNine {
+    background-color: white;
+    color: #138808;
+    border: none;
+    font-size: 70px;
+}
+
+#adIconTen {
+    background-color: white;
+    color: #138808;
+    border: none;
+    font-size: 70px;
+}
+
+#adIconEleven {
+    background-color: white;
+    color: #138808;
+    border: none;
+    font-size: 70px;
+}
+
+#adIconTwelve {
+    background-color: white;
+    color: #138808;
+    border: none;
+    font-size: 70px;
+}
+
+
