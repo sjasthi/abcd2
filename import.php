@@ -1,4 +1,5 @@
 <?php 
+session_start();
 require 'bin/functions.php';
 require 'db_configuration.php';
 include('header.php');
@@ -54,13 +55,21 @@ if(isset($_POST["upload"])){
 }
 
 ?>
-
+<html>
+    <head>
+    <link rel="stylesheet" href="css/import.css">
+    </head>
+<body>
+<div class="inputContainer">
+    <div class="inputBox">
 <form class="form-horizontal" action="" method="post" name="uploadCSV" enctype="multipart/form-data">
 
-<div>
 <label> Import CSV File </label>
 <input type="file" name="file" accept=".csv">
 <button type="submit" name="upload">Upload</button>
 
-</div>
+
 </form>
+</div>
+</div>
+</html>

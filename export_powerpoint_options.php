@@ -21,7 +21,7 @@ include('header.php');
           <label>Number of Pages to Export (1 - 100)</label>
           <div class="numPages">
             <div>
-            <input type="number" id="quantity" name="quantity" min="1" max="100">
+            <input type="number" id="quantity" name="quantity" value="1" min="1" max="100">
             </div>
           </div>
         </div>
@@ -32,13 +32,69 @@ include('header.php');
           <label id="labelText"><b id="formatTitle">Page Format Option</b></label>
           <div class="question-answer">
             <div>
-              <input type="radio" value="1" id="radio_1" name="option2"/>
+              <input type="radio" value="1" id="radio_1" name="option2"/ checked>
               <label for="radio_1" class="radio"><span>Images on odd pages, Text on even pages</span></label>
             </div>
             <div>
               <input type="radio" value="2" id="radio_2" name="option2"/>
               <label for="radio_2" class="radio"><span>Images on even pages, Text on odd pages</span></label>
             </div>
+            <br>
+            <div>
+              <input type="checkbox" value="sort" id="check1" name="sort"/>
+              <label for="sort" class="check"><span>Sort by Dress Name</span></label>
+            </div>
+            <br>
+            <div>
+              <input type="radio" value="state_name" id="radio_3" name="option3"/>
+              <label for="radio_1" class="radio"><span>Sort by State</span></label>
+            </div>
+            <div>
+              <input type="radio" value="type" id="radio_4" name="option3"/>
+              <label for="radio_2" class="radio"><span>Sort by Type</span></label>
+            </div>
+            <br>
+            <select name="category" id="category">
+              <option value=''>--</option>
+              <option value="All">All</option>
+              <option value="Casual">Casual</option>
+              <option value="Casual Wear">Casual Wear</option>
+              <option value="Dance">Dance</option>
+              <option value="Dances">Dances</option>
+              <option value="Doctor">Doctor</option>
+              <option value="Dresses">Dresses</option>
+              <option value="Fancy Dress">Fancy Dress</option>
+              <option value="Folk Arts">Folk Arts</option>
+              <option value="Historical">Historical</option>
+              <option value="Movies">Movies</option>
+              <option value="North India">North India</option>
+              <option value="Occassional">Occassional</option>
+              <option value="Occupational">Occupational</option>
+              <option value="Other">Other</option>
+              <option value="Other">Other</option>
+              <option value="Other (religious)">Other (religious)</option>
+              <option value="People">People</option>
+              <option value="Police">Police</option>
+              <option value="Profession">Profession</option>
+              <option value="Professions">Professions</option>
+              <option value="Punjab">Punjab</option>
+              <option value="Regional">Regional</option>
+              <option value="Religious">Religious</option>
+              <option value="Sample">Sample</option>
+              <option value="Seasonal">Seasonal</option>
+              <option value="Southern India">Southern India</option>
+              <option value="Special Occasion">Special Occasion</option>
+              <option value="Tribal">Tribal</option>
+              <option value="TBD">TBD/option>
+            </select>
+            <br>
+            <?php
+              require 'db_configuration.php';
+              $keySql = "SELECT DISTINCT key_words from `dresses`";
+              $categorySql = "SELECT DISTINCT category FROM dresses";
+              $typeSql = "SELECT DISTINCT type FROM dresses";
+
+            ?>
           </div>
         </div>
         <div class="btn-block">

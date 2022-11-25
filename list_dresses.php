@@ -8,6 +8,7 @@ if(!isset($_SESSION))
 require 'bin/functions.php';
 require 'db_configuration.php';
 
+
 //Read cookies for description and did you know length, use defauts if not set.
 $description_length = 1000;
 $did_you_know_length = 1000;
@@ -38,31 +39,13 @@ $GLOBALS['data'] = mysqli_query($db, $query);
    // verifyLogin($page);
 ?>
 
-<style>
-    #title {
-        text-align: center;
-        color: darkgoldenrod;
-    }
-    #toggle {
-        color: 	#4397fb;
-    }
-    #toggle:hover {
-        color: #467bc7
-    }
-    thead input {
-        width: 100%;
-    }
-    .thumbnailSize{
-        height: 100px;
-        width: 100px;
-        transition:transform 0.25s ease;
-    }
-    .thumbnailSize:hover {
-        -webkit-transform:scale(3.5);
-        transform:scale(3.5);
-    }
-    
-</style>
+<head>
+<link href="css/list_dresses.css" rel="stylesheet">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Kanit:wght@300&display=swap" rel="stylesheet">
+  
+</head>
 
 <!-- Page Content -->
 <br><br>
@@ -94,14 +77,18 @@ $GLOBALS['data'] = mysqli_query($db, $query);
     ?>
    
     <h2 id="title">Dresses List</h2><br>
+
+    <div id="buttonContainer">
+    <button><a class="btn btn-sm" href="create_dress.php">Create a Dress</a></button>
+    </div>
     
     <div id="customerTableView">
-        <button><a class="btn btn-sm" href="create_dress.php">Create a Dress</a></button>
+        
         <table class="display" id="ceremoniesTable" style="width:100%">
             <div class="table responsive">
                 <thead>
                 <tr>
-                    <th>ID</th>
+                    
                     <th>Name</th>
                     <th>Description</th>
                     <th>Did you know?</th>
@@ -109,13 +96,16 @@ $GLOBALS['data'] = mysqli_query($db, $query);
                     <th>Type</th>
                     <th>State Name </th>
                     <th>Key Words</th>
-                    <th>Status</th>
-                    <th>Notes</th>
+                    
+                    
                     <th>Image</th>
                     <th>Display</th>
                     <?php
 
                         if(isset($_SESSION['role'])) {
+                        echo '<th>ID</th>';
+                        echo '<th>Status</th>';
+                        echo '<th>Notes</th>';
                         echo '<th>Resource</th>';
                         echo '<th>Modify</th>';
                         echo '<th>Delete</th>';
@@ -124,23 +114,35 @@ $GLOBALS['data'] = mysqli_query($db, $query);
                 </tr>
                 </thead>
                 <tbody>
-                <div>
+                <div class="toggles">
                     <strong> Toggle column: </strong> 
-                    <a id="toggle" class="toggle-vis" data-column="0">Id</a> - 
-                    <a id="toggle" class="toggle-vis" data-column="1">Name</a> - 
-                    <a id="toggle" class="toggle-vis" data-column="2">Description</a> - 
-                    <a id="toggle" class="toggle-vis" data-column="3">Did You Know</a> - 
-                    <a id="toggle" class="toggle-vis" data-column="4">Category</a> - 
-                    <a id="toggle" class="toggle-vis" data-column="5">Type</a> - 
-                    <a id="toggle" class="toggle-vis" data-column="6">State Name</a> -
-                    <a id="toggle" class="toggle-vis" data-column="7">Key Words</a> - 
-                    <a id="toggle" class="toggle-vis" data-column="8">Status</a> -
-                    <a id="toggle" class="toggle-vis" data-column="9">Notes</a> - 
-                    <a id="toggle" class="toggle-vis" data-column="10">Image</a> - 
-                    <a id="toggle" class="toggle-vis" data-column="11">Resource</a> - 
-                    <a id="toggle" class="toggle-vis" data-column="11">Display</a> -
-                    <a id="toggle" class="toggle-vis" data-column="12">Modify</a> - 
-                    <a id="toggle" class="toggle-vis" data-column="13">Delete</a> 
+                    <a id="toggle" class="toggle-vis" data-column="0">Name</a> - 
+                    <a id="toggle" class="toggle-vis" data-column="1">Description</a> -
+                    <a id="toggle" class="toggle-vis" data-column="2">Did You Know</a> -
+                    <a id="toggle" class="toggle-vis" data-column="3">Category</a> - 
+                    <a id="toggle" class="toggle-vis" data-column="4">Type</a> -
+                    <a id="toggle" class="toggle-vis" data-column="5">State Name</a> - 
+                    <a id="toggle" class="toggle-vis" data-column="6">Key Words</a> - 
+                    <a id="toggle" class="toggle-vis" data-column="7">Image</a> - 
+                    <a id="toggle" class="toggle-vis" data-column="8">Display</a> -
+
+                    <?php
+
+                        if(isset($_SESSION['role'])) {
+                        echo '<a id="toggle" class="toggle-vis" data-column="9">ID</a> - ';
+                        echo '<a id="toggle" class="toggle-vis" data-column="10">Status</a> - ';
+                        echo '<a id="toggle" class="toggle-vis" data-column="11">Notes</a> - ';
+                        echo '<a id="toggle" class="toggle-vis" data-column="12">Resource</a> - ';
+                        echo '<a id="toggle" class="toggle-vis" data-column="13">Modify</a> - ';
+                        echo '<a id="toggle" class="toggle-vis" data-column="14">Delete</a> ';
+                        }
+                    ?>
+                    
+                    
+                     
+                    
+                    
+                    
                 </div> <br>
                 
                 <?php
@@ -148,7 +150,7 @@ $GLOBALS['data'] = mysqli_query($db, $query);
                 if ($data->num_rows > 0) {
                     // output data of each row
                     while($row = $data->fetch_assoc()) {
-                    $ID = $row["id"];
+                    
                     $name = $row["name"];
                     $description = $row["description"];
                     $did_you_know = $row["did_you_know"];
@@ -156,14 +158,16 @@ $GLOBALS['data'] = mysqli_query($db, $query);
                     $type = $row["type"];
                     $state_name = $row["state_name"];
                     $key_words = $row["key_words"];
+                    $image = $row["image_url"];
+                    $ID = $row["id"];
                     $status = $row["status"];
                     $notes = $row["notes"];
-                    $image = $row["image_url"];
+                    
 
                     if(isset($_SESSION['role'])) {
                         ?>
                 <tr>
-                    <td><?php echo $ID; ?></td>
+                    
                     <td><div contenteditable="true" onBlur="updateValue(this,'name','<?php echo $ID; ?>')"><?php echo $name; ?></div></span> </td>
                     <td><div contenteditable="true" onBlur="updateValue(this,'description','<?php echo $ID; ?>')"><?php echo $description; ?></div></span> </td>
                     <td><div contenteditable="true" onBlur="updateValue(this,'did_you_know','<?php echo $ID; ?>')"><?php echo $did_you_know; ?></div></span> </td>
@@ -171,13 +175,25 @@ $GLOBALS['data'] = mysqli_query($db, $query);
                     <td><div contenteditable="true" onBlur="updateValue(this,'type','<?php echo $ID; ?>')"><?php echo $type; ?></div></span> </td>
                     <td><div contenteditable="true" onBlur="updateValue(this,'state_name','<?php echo $ID; ?>')"><?php echo $state_name; ?></div></span> </td>
                     <td><div contenteditable="true" onBlur="updateValue(this,'key_words','<?php echo $ID; ?>')"><?php echo $key_words; ?></div></span> </td>
-                    <td><div contenteditable="true" onBlur="updateValue(this,'status','<?php echo $ID; ?>')"><?php echo $status; ?></div></span> </td>
-                    <td><div contenteditable="true" onBlur="updateValue(this,'notes','<?php echo $ID; ?>')"><?php echo $notes; ?></div></span> </td>
                     <?php echo '<td><img src="images/dress_images/'.$row["image_url"].'" style="width:100px;height:120px;">' ?>
-                    <?php echo '<td><a class="btn btn-info btn-sm" href="display_the_dress.php?id='.$row["id"].'">Display</a></td>' ?>
-                    <?php echo '<td><a class="btn btn-info btn-sm" href="display_the_resource.php?name='.$row["name"].'">Resource</a></td>' ?>
+                    <?php echo '<td><a class="btn btn-info btn-sm" href="display_the_dress.php?id='.$row["id"].'">Display</a></td>'; ?>
+                    
+                    
+                    
+                    
+                    
                     <?php
                     if ($_SESSION['role'] == 'admin'){
+                        echo '<td>';
+                        echo $ID;
+                        echo '</td>';
+                        echo '<td><div contenteditable="false" onBlur="updateValue(this,"status",<?php echo $ID; ?>';
+                        echo $status;
+                        echo '</div></span> </td>';
+                        echo '<td><div contenteditable="false" onBlur="updateValue(this,"notes",<?php echo $ID; ?>';
+                        echo $notes; 
+                        echo'</div></span> </td>';
+                        echo '<td><a class="btn btn-info btn-sm" href="display_the_resource.php?name='.$row["name"].'">Resource</a></td>';
                         echo '<td><a class="btn btn-warning btn-sm" href="modify_dress.php?id='.$row["id"].'">Modify</a></td>';
                         echo '<td><a class="btn btn-danger btn-sm" href="deleteDress.php?id='.$row["id"].'">Delete</a></td>';
                     }
@@ -186,19 +202,18 @@ $GLOBALS['data'] = mysqli_query($db, $query);
                  <?php  
                     } else{
                         echo '<tr>
-                        <td>'.$row["id"].'</td>
-                        <td> </span> <a href="display_the_dress.php?id='.$row["id"].'">'.$row["name"].'</a></td>
+                        
+                        <td> </span> <a href="displaythedress.php?id='.$row["id"].'">'.$row["name"].'</a></td>
                         <td>'.$row["description"].'</td>
                         <td>'.$row["did_you_know"].'</td>
                         <td>'.$row["category"].' </span> </td>
                         <td>'.$row["type"].'</td>
                         <td>'.$row["state_name"].'</td>
                         <td>'.$row["key_words"].' </span> </td>
-                        <td>'.$row["status"].' </span> </td>
-                        <td>'.$row["notes"].' </span> </td>
                         <td><img class="thumbnailSize" src="' . "images/dress_images/" .$row["image_url"]. '" alt="'.$row["image_url"].'"></td>
-                        <td><a class="btn btn-info btn-sm" href="display_the_dress.php?id='.$row["id"].'">Display</a></td>
-                       
+                        <td><a class="btn btn-info btn-sm" href="displaythedress.php?id='.$row["id"].'">Display</a></td>
+
+                        
                     </tr>';    
 
                     }//end while

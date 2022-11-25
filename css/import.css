@@ -1,0 +1,64 @@
+body {
+
+    min-height: 100%;
+    background: linear-gradient(to bottom, #ff4500, #FF9933),
+    repeating-linear-gradient(
+      to bottom,
+      #ffffff00 0,
+      #ffffff00 32px,
+      #fff 32px,
+      #fff 40px,
+      #ffffff00 40px
+    ),
+    repeating-linear-gradient(
+      to right,
+      #ffffff00 0,
+      #ffffff00 32px,
+      #fff 32px,
+      #fff 40px,
+      #ffffff00 40px
+    ),
+    radial-gradient(
+        circle at 5px 5px,
+        #2f4e7940 1px,
+        #ffffff00 1px,
+        #ffffff00 8px
+      )
+      0 0 / 8px 8px;
+    background-blend-mode: multiply;
+    
+}
+
+button {
+
+    background-color: #138808;
+    color: white;
+    border:#138808 1px solid;
+    border-radius: 5px;
+    padding: 5px 10px;
+    margin-top: 20px;
+
+}
+
+button:hover {
+
+    background-color: white;
+    color: #138808;
+
+}
+
+.inputContainer {
+    padding-top: 80px;
+}
+
+.inputBox {
+    border-radius:5px;
+    width: 600px;
+    height: 150px;
+    margin: auto;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background-color: white;
+    font-weight: bold;
+}

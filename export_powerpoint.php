@@ -6,13 +6,24 @@
       justify-content: center;
       align-items: center;
       height: inherit;
-      padding: 20px;
+      padding-top: 100px;
+    }
+
+    h2 {
+
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      height: inherit;
+      padding-bottom: 50px;
+
     }
     </style>
     <?php
     include('header.php'); 
     ?>
-    <h1>PowerPoint Downloaded...</h1>
+    <h1>PowerPoint Downloaded!</h1>
+    <h2>Please check you downloads folder...</h2>
     <form form style="text-align: center;">
         <input type="button" value="Go back!" onclick="history.back()">
     </form>
@@ -32,8 +43,24 @@ require_once 'vendor/autoload.php';
 
 //Option Variables
 $quantity = ($_POST['quantity']);
+
 $display = 1;
+
 $display2 = ($_POST['option2']);
+
+if(isset($_POST['option3'])){
+
+    $sortStateType = $_POST['option3'];
+
+}
+
+if($_POST['category'] != ""){
+
+    $category = $_POST['category'];
+
+}
+
+
 
 $portraitLayout = new DocumentLayout();
 $portraitLayout->setDocumentLayout(DocumentLayout::LAYOUT_SCREEN_16X9, false);
@@ -81,9 +108,37 @@ else {
 require 'bin/functions.php';
 require 'db_configuration.php';
 
-// $mysqli = mysqli_connect('localhost', 'root', '', 'abcd_db');
+$mysqli = mysqli_connect('localhost', 'root', '', 'abcd_db');
 $TableName = "dresses";
-$strSQL = "SELECT * FROM $TableName";
+
+if(isset($_POST['sort']) && isset($_POST['option3']) && $_POST['category'] != ""){
+    $strSQL = "SELECT * FROM $TableName WHERE category LIKE '%$category%' ORDER BY $sortStateType, name";
+}
+
+else if(isset($_POST['sort']) && $_POST['category'] != ""){
+    $strSQL = "SELECT * FROM $TableName WHERE category LIKE '%$category%' ORDER BY name";
+}
+
+else if(isset($_POST['option3']) && $_POST['category'] != ""){
+    $strSQL = "SELECT * FROM $TableName WHERE category LIKE '%$category%' ORDER BY $sortStateType";
+}
+
+else if(isset($_POST['sort']) && isset($_POST['option3'])){
+    $strSQL = "SELECT * FROM $TableName ORDER BY $sortStateType, name";
+}
+
+else if(isset($_POST['sort'])){
+    $strSQL = "SELECT * FROM $TableName ORDER BY name";
+}
+
+else if(isset($_POST['option3'])){
+    $strSQL = "SELECT * FROM $TableName ORDER BY $sortStateType";
+}
+
+else {
+    $strSQL = "SELECT * FROM $TableName";
+}
+
 $sql = mysqli_query($db, $strSQL);
 
 if (mysqli_error($db)) {
@@ -229,8 +284,9 @@ if (mysqli_error($db)) {
                         
         // $oWriterPPTX = IOFactory::createWriter($objPHPPowerPoint, 'PowerPoint2007');
         // $oWriterPPTX->save(getenv("HOMEDRIVE").getenv("HOMEPATH")."\Downloads" . "\sample.pptx");
-        $oWriter = IOFactory::createWriter($objPHPPowerPoint, 'PowerPoint2007');
-        $oWriter->save('images\PPTX' . '/abcdsample.pptx');
+        $oWriterPPTX = IOFactory::createWriter($objPHPPowerPoint, 'PowerPoint2007');
+        //$oWriterPPTX->save(__DIR__ . "/sample.pptx");
+        $oWriterPPTX->save(getenv("HOMEDRIVE").getenv("HOMEPATH")."\Downloads" . "\abcdsample.pptx");
     }
 }
 ?>

@@ -35,32 +35,13 @@ $GLOBALS['data'] = mysqli_query($db, $query);
     $page="searchbar.php";
    // verifyLogin($page);
 ?>
-
-<style>
-    #title {
-        text-align: center;
-        color: darkgoldenrod;
-    }
-    #toggle {
-        color: 	#4397fb;
-    }
-    #toggle:hover {
-        color: #467bc7
-    }
-    thead input {
-        width: 100%;
-    }
-    .thumbnailSize{
-        height: 100px;
-        width: 100px;
-        transition:transform 0.25s ease;
-    }
-    .thumbnailSize:hover {
-        -webkit-transform:scale(3.5);
-        transform:scale(3.5);
-    }
-    
-</style>
+<head>
+<link href="css/searchbar.css" rel="stylesheet">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Kanit:wght@300&display=swap" rel="stylesheet">
+  
+</head>
 
 <!-- Page Content -->
 <br><br>
@@ -69,72 +50,44 @@ $GLOBALS['data'] = mysqli_query($db, $query);
     <h2 id="title">Search Results</h2><br>
     
     <div id="customerTableView">
-        <table class="display" id="ceremoniesTable" style="width:100%">
+        
             <div class="table responsive">
-                <thead>
-                <tr>
-                    <th>ID</th>
-                    <th>Name</th>
-                    <th>Description</th>
-                    <th>Did you know?</th>
-                    <th>Category</th>
-                    <th>Type</th>
-                    <th>State Name </th>
-                    <th>Key Words</th>
-                    <th>Status</th>
-                    <th>Notes</th>
-                    <th>Image</th>
-                </tr>
-                </thead>
-                <tbody>
+                
                 
                 <?php
                 // fetch the data from $_GLOBALS
                 if ($data->num_rows > 0) {
                     // output data of each row
                     while($row = $data->fetch_assoc()) {
-                    $ID = $row["id"];
+                        $ID = $row["id"];
                     $name = $row["name"];
                     $description = $row["description"];
-                    $did_you_know = $row["did_you_know"];
-                    $category = $row["category"];
-                    $type = $row["type"];
-                    $state_name = $row["state_name"];
                     $key_words = $row["key_words"];
-                    $status = $row["status"];
-                    $notes = $row["notes"];
                     $image = $row["image_url"];
 
                     if(isset($_SESSION['role'])) {
                         ?>
-                <tr>
-                    <td><?php echo $ID; ?></td>
-                    <td><div onBlur="updateValue(this,'name','<?php echo $ID; ?>')"><?php echo"<a href='./display_the_dress.php?id=$ID'>$name</a>"; ?></div></span> </td>
-                    <td><div contenteditable="true" onBlur="updateValue(this,'description','<?php echo $ID; ?>')"><?php echo $description; ?></div></span> </td>
-                    <td><div contenteditable="true" onBlur="updateValue(this,'did_you_know','<?php echo $ID; ?>')"><?php echo $did_you_know; ?></div></span> </td>
-                    <td><div contenteditable="true" onBlur="updateValue(this,'category','<?php echo $ID; ?>')"><?php echo $category; ?></div></span> </td>
-                    <td><div contenteditable="true" onBlur="updateValue(this,'type','<?php echo $ID; ?>')"><?php echo $type; ?></div></span> </td>
-                    <td><div contenteditable="true" onBlur="updateValue(this,'state_name','<?php echo $ID; ?>')"><?php echo $state_name; ?></div></span> </td>
-                    <td><div contenteditable="true" onBlur="updateValue(this,'key_words','<?php echo $ID; ?>')"><?php echo $key_words; ?></div></span> </td>
-                    <td><div contenteditable="true" onBlur="updateValue(this,'status','<?php echo $ID; ?>')"><?php echo $status; ?></div></span> </td>
-                    <td><div contenteditable="true" onBlur="updateValue(this,'notes','<?php echo $ID; ?>')"><?php echo $notes; ?></div></span> </td>
-                    <?php echo '<td><a href="./display_the_dress.php?id='.$ID.'"><img src="images/dress_images/'.$row["image_url"].'" style="width:100px;height:120px;"></a></td>' ?>
-                </tr>
+
+                    <div class="searchContOut">
+                    <div class="searchContIn">
+                    <div class="dressName" onBlur="updateValue(this,'name','<?php echo $ID; ?>')"><?php echo"<a class='dressLink' href='./display_the_dress.php?id=$ID'>$name</a>"; ?></div>
+                    <div class="dressDesc" contenteditable="false" onBlur="updateValue(this,'description','<?php echo $ID; ?>')"><?php echo $description; ?></div>
+                    <div contenteditable="false" onBlur="updateValue(this,'key_words','<?php echo $ID; ?>')"><?php echo $key_words; ?></div> 
+                    </div>
+                    <?php echo '<img class="dressImg" src="images/dress_images/'.$row["image_url"].'" >' ?>
+                    
+                    </div>
+           
                  <?php  
                     } else{
-                      echo '<tr>
-                      <td>'.$row["id"].'</td>
-                      <td> </span> <a href="display_the_dress.php?id='.$row["id"].'">'.$row["name"].'</a></td>
-                      <td>'.$row["description"].'</td>
-                      <td>'.$row["did_you_know"].'</td>
-                      <td>'.$row["category"].' </span> </td>
-                      <td>'.$row["type"].'</td>
-                      <td>'.$row["state_name"].'</td>
-                      <td>'.$row["key_words"].' </span> </td>
-                      <td>'.$row["status"].' </span> </td>
-                      <td>'.$row["notes"].' </span> </td>
-                      <td><img class="thumbnailSize" src="' . "images/dress_images/" .$row["image_url"]. '" alt="'.$row["image_url"].'"></td>
-                  </tr>';    
+                      echo '
+                      <a href="display_the_dress.php?id='.$row["id"].'">'.$row["name"].'</a>
+                      '.$row["description"].'
+                      '.$row["type"].'
+                      '.$row["state_name"].'
+                      '.$row["key_words"].' 
+                      <img class="thumbnailSize" src="' . "images/dress_images/" .$row["image_url"]. '" alt="'.$row["image_url"].'">
+                  ';    
 
                     }//end while
                 }//end if
@@ -142,9 +95,9 @@ $GLOBALS['data'] = mysqli_query($db, $query);
   
                 ?>
 
-                </tbody>
+               
             </div>
-        </table>
+       
     </div>
 </div>
     
