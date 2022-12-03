@@ -1,0 +1,56 @@
+#title {
+    text-align: center;
+    color: #000080;
+    font-family: 'Kanit';
+    text-transform: uppercase;
+    font-weight: bold;
+    font-size: 70px;
+    text-shadow: 2px 2px 4px #cec6bd;
+}
+thead input {
+    width: 100%;
+}
+.thumbnailSize{
+    height: 100px;
+    width: 100px;
+    transition:transform 0.25s ease;
+}
+.thumbnailSize:hover {
+    -webkit-transform:scale(3.5);
+    transform:scale(3.5);
+}
+
+.btnUser {
+
+    border-radius: 5px;
+    border: 1px solid #138808;
+    background-color: white;
+
+}
+
+.btnUser:hover{
+
+    background-color: #138808;
+    border: 1px solid white;
+    color: white !important;
+
+}
+
+.btnUser a {
+
+    color: #138808;
+
+}
+
+.btnUser a:hover {
+
+    color: white;
+
+}
+
+.btnContainer {
+
+    display: flex;
+    justify-content: center;
+
+}

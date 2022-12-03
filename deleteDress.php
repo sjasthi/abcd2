@@ -7,26 +7,23 @@ if ($status == PHP_SESSION_NONE) {
     require 'bin/functions.php';
     require 'db_configuration.php';
     include('header.php'); 
+    include_once 'db_configuration.php';
     $page_title = 'Project ABCD > Delete Dress';
     $page="deleteDress.php";
     verifyLogin($page);
 
 ?>
-<div class="container">
-<style>#title {text-align: center; color: darkgoldenrod;}
-.thumbnailSize{
-        height: 100px;
-        width: 100px;
-        transition:transform 0.25s ease;
-    }
-    .thumbnailSize:hover {
-        -webkit-transform:scale(3.5);
-        transform:scale(3.5);
-    }
-</style>
-<?php
-include_once 'db_configuration.php';
 
+<head>
+<link href="css/deleteDress.css" rel="stylesheet">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Kanit:wght@300&display=swap" rel="stylesheet">
+  
+</head>
+
+<div class="container">
+<?php
 if (isset($_GET['id'])){
 
     $id = $_GET['id'];
@@ -45,7 +42,13 @@ if ($result->num_rows > 0) {
         echo '<form action="delete_the_dress.php" method="POST">
     <br>
     <h3 id="title">Delete Dress?</h3><br>
-    <h2>'.$row["name"].' - '.$row["description"].' - <img class="thumbnailSize" src="' . "images/dress_images/" .$row["image_url"]. '" alt="'.$row["image_url"].'"> </h2> <br>
+    <h2 id="description">'.$row["name"].' - '.$row["description"].'   </h2> <br>
+
+    <div class="imgCont">
+    <img class="thumbnailSize" src="' . "images/dress_images/" .$row["image_url"]. '" alt="'.$row["image_url"].'">
+    </div>
+    <br>
+    <br>
 
     
     <div class="form-group col-md-4">
@@ -89,7 +92,7 @@ if ($result->num_rows > 0) {
     </div>
            
     <br>
-    <div class="text-left">
+    <div class="btnContainer">
         <button type="submit" name="submit" class="btn btn-danger btn-md align-items-center">Delete</button>
     </div>
     <br> <br>

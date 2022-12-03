@@ -10,31 +10,16 @@
  
 ?>
 <html>
+<head>
+<link href="css/modify_users.css" rel="stylesheet">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Kanit:wght@300&display=swap" rel="stylesheet">
+  
+</head>
 
-<style>
-.head {
-  text-align: center;
-  font-family: "Times New Roman";
-  color: rgb(200,55,0);
-}
-
-.title {
-  text-align: center;
-  font-family: "Times New Roman";
-  color: rgb(0,200,55);
-}
-
-.words{
-  text-align: center;
-  font-family: "Times New Roman";
-}
-
-#guidance {
-        color: grey;
-        font-size: 10px;
-</style>
 <div class="container">
-<style>#title {text-align: center; color: darkgoldenrod;}</style>
+
 
 <?php
 include_once 'db_configuration.php';
@@ -96,7 +81,7 @@ if ($result->num_rows > 0) {
       echo '<h2 id="title">Modify User</h2><br>';
       echo '<form action="modify_the_user.php" method="POST" enctype="multipart/form-data">
       <br>
-      <h3>'.$row["first_name"].' </h3> <br>
+      <h3 id="userName">'.$row["first_name"].' </h3> <br>
       
       <div>
         <label for="id">Id</label>
@@ -128,7 +113,7 @@ if ($result->num_rows > 0) {
        
        
        
-      <div class="text-left">
+      <div class="btnContainer">
           <button type="submit" name="submit" class="btn btn-primary btn-md align-items-center">Modify User</button>
       </div>
       <br>
