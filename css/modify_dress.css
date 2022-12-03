@@ -1,0 +1,70 @@
+body {
+
+    padding-top: 140px;
+    width: 100%;
+    background: white;
+    background-image: radial-gradient(black 1px, transparent 0);
+    background-size: 60px 60px;
+    background-position: -19px -19px;
+    right: 0;
+
+}
+
+.head {
+    text-align: center;
+    font-family: "Times New Roman";
+    color: rgb(200, 55, 0);
+}
+
+#title {
+
+    text-transform: uppercase;
+    color: #000080;
+    height: 100px;
+    font-size: 60px;
+    font-family: 'Kanit';
+    font-weight: bold;
+    text-shadow: 2px 2px 4px #cec6bd;
+    letter-spacing: 1rem;
+    padding: 20px;
+    text-align: center;
+}
+
+.container {
+
+    background-color: white;
+    font-family: 'Kanit';
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+
+}
+
+#dressName {
+
+    color: #138808;
+
+}
+
+.words {
+    text-align: center;
+    font-family: "Times New Roman";
+}
+
+#guidance {
+    color: grey;
+    font-size: 10px;
+}
+
+.container label {
+
+    font-weight: bold;
+
+}
+
+.btnContainer {
+
+    display: flex;
+    justify-content: center;
+
+}

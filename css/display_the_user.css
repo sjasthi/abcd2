@@ -1,0 +1,45 @@
+body {
+
+    padding-top: 140px;
+    width: 100%;
+    background: white;
+    background-image: radial-gradient(black 1px, transparent 0);
+    background-size: 60px 60px;
+    background-position: -19px -19px;
+    right: 0;
+  
+  }
+
+.head {
+    text-align: center;
+    color: #000080;
+    font-family: 'Kanit';
+    text-transform: uppercase;
+    font-weight: bold;
+    font-size: 70px;
+    text-shadow: 2px 2px 4px #cec6bd;
+}
+
+.title {
+    font-family: "Kanit";
+    color: #138808;
+    font-size: 1.5rem;
+}
+
+.words {
+    font-family: "Times New Roman";
+}
+
+.userContainer {
+    background-color: white;
+    display: flex;
+    flex-direction: column;
+    margin-top: 90px;
+    align-items: center;
+    padding: 20px 5px;
+}
+
+.image {
+    height: 300px;
+    padding: 8px 8px 8px 8px;
+}
