@@ -1,0 +1,28 @@
+.head {
+    font-family: "Times New Roman";
+    color: darkgoldenrod;
+    text-align: center;
+  }
+  
+  .title {
+    font-family: "Times New Roman";
+    color: rgb(0,200,55);
+    font-size: 1.5rem;
+  }
+  
+  .words{
+    font-family: "Times New Roman";
+  }
+  
+  .container {
+      width: 100%;
+      padding-right: 15px;
+      padding-left: 15px;
+      margin-right: auto;
+      margin-left: auto;
+  }
+  
+  .image {
+      height: 300px;
+      padding: 8px 8px 8px 8px;
+  }

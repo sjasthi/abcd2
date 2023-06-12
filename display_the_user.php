@@ -1,42 +1,23 @@
 <html>
 
-<style>
-.head {
-  font-family: "Times New Roman";
-  color: darkgoldenrod;
-  text-align: center;
-}
-
-.title {
-  font-family: "Times New Roman";
-  color: rgb(0,200,55);
-  font-size: 1.5rem;
-}
-
-.words{
-  font-family: "Times New Roman";
-}
-
-.container {
-    width: 100%;
-    padding-right: 15px;
-    padding-left: 15px;
-    margin-right: auto;
-    margin-left: auto;
-}
-
-.image {
-    height: 300px;
-    padding: 8px 8px 8px 8px;
-}
-</style>
+<head>
+<link href="css/display_the_user.css" rel="stylesheet">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Kanit:wght@300&display=swap" rel="stylesheet">
+  
+</head>
 
 <body>
-<div class="container">
+
 <?php
 include('header.php');
 include_once 'db_configuration.php';
+?>
 
+
+<div class="userContainer">
+<?php
 if (isset($_GET['id'])) {
 
     $id = mysqli_real_escape_string($db, $_GET['id']);
