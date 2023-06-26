@@ -1,14 +1,13 @@
 -- phpMyAdmin SQL Dump
--- version 4.9.7
+-- version 5.2.1
 -- https://www.phpmyadmin.net/
 --
--- Host: localhost:3306
--- Generation Time: Jun 07, 2022 at 06:52 PM
--- Server version: 5.7.23-23
--- PHP Version: 7.4.29
+-- Host: 127.0.0.1
+-- Generation Time: Jun 26, 2023 at 08:26 PM
+-- Server version: 10.4.28-MariaDB
+-- PHP Version: 8.2.4
 
 SET SQL_MODE = "NO_AUTO_VALUE_ON_ZERO";
-SET AUTOCOMMIT = 0;
 START TRANSACTION;
 SET time_zone = "+00:00";
 
@@ -25,21 +24,48 @@ SET time_zone = "+00:00";
 -- --------------------------------------------------------
 
 --
+-- Table structure for table `artists`
+--
+
+CREATE TABLE `artists` (
+  `user_id` int(11) NOT NULL,
+  `profile_picture` varchar(100) NOT NULL,
+  `description` varchar(2000) NOT NULL,
+  `country` varchar(50) NOT NULL,
+  `facebook` varchar(100) NOT NULL,
+  `instagram` varchar(100) NOT NULL,
+  `twitter` varchar(100) NOT NULL,
+  `whatsapp` varchar(100) NOT NULL,
+  `art_site` varchar(100) NOT NULL,
+  `other` varchar(100) NOT NULL,
+  `approval_status` varchar(10) NOT NULL DEFAULT 'pending'
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
+
+--
+-- Dumping data for table `artists`
+--
+
+INSERT INTO `artists` (`user_id`, `profile_picture`, `description`, `country`, `facebook`, `instagram`, `twitter`, `whatsapp`, `art_site`, `other`, `approval_status`) VALUES
+(1, 'maddypfp.png', 'This is a test description for an artist. I can tell users what I make, more about who I am, etc.', 'United States', 'testfacebook', 'testinstagram', 'testtwitter', 'testwhatsapp', 'testartsite', 'other', 'pending');
+
+-- --------------------------------------------------------
+
+--
 -- Table structure for table `dresses`
 --
 
 CREATE TABLE `dresses` (
   `id` int(11) NOT NULL,
-  `name` varchar(150) COLLATE utf8mb4_unicode_ci NOT NULL,
-  `description` varchar(2000) COLLATE utf8mb4_unicode_ci NOT NULL,
-  `did_you_know` varchar(500) COLLATE utf8mb4_unicode_ci NOT NULL,
-  `category` varchar(100) COLLATE utf8mb4_unicode_ci DEFAULT NULL COMMENT 'regional, religious, people, dresses, festivals, other',
-  `type` varchar(10) COLLATE utf8mb4_unicode_ci NOT NULL COMMENT 'boys, girls, men, women, other',
-  `state_name` varchar(100) COLLATE utf8mb4_unicode_ci DEFAULT NULL,
-  `key_words` varchar(500) COLLATE utf8mb4_unicode_ci DEFAULT NULL COMMENT 'any key words separate by comma',
-  `image_url` varchar(100) COLLATE utf8mb4_unicode_ci DEFAULT NULL,
-  `status` varchar(50) COLLATE utf8mb4_unicode_ci NOT NULL DEFAULT 'proposed' COMMENT 'proposed, approved, writeup_done, art_work_done, designed, completed',
-  `notes` varchar(500) COLLATE utf8mb4_unicode_ci NOT NULL
+  `name` varchar(150) NOT NULL,
+  `description` varchar(2000) NOT NULL,
+  `did_you_know` varchar(500) NOT NULL,
+  `category` varchar(100) DEFAULT NULL COMMENT 'regional, religious, people, dresses, festivals, other',
+  `type` varchar(10) NOT NULL COMMENT 'boys, girls, men, women, other',
+  `state_name` varchar(100) DEFAULT NULL,
+  `key_words` varchar(500) DEFAULT NULL COMMENT 'any key words separate by comma',
+  `image_url` varchar(100) DEFAULT NULL,
+  `status` varchar(50) NOT NULL DEFAULT 'proposed' COMMENT 'proposed, approved, writeup_done, art_work_done, designed, completed',
+  `notes` varchar(500) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
 
 --
@@ -564,7 +590,7 @@ CREATE TABLE `preferences` (
   `name` varchar(60) NOT NULL,
   `value` int(11) NOT NULL,
   `comments` varchar(100) NOT NULL
-) ENGINE=InnoDB DEFAULT CHARSET=latin1;
+) ENGINE=InnoDB DEFAULT CHARSET=latin1 COLLATE=latin1_swedish_ci;
 
 --
 -- Dumping data for table `preferences`
@@ -577,17 +603,17 @@ INSERT INTO `preferences` (`id`, `name`, `value`, `comments`) VALUES
 
 -- --------------------------------------------------------
 
----
+--
 -- Table structure for table `resources`
 --
 
 CREATE TABLE `resources` (
-  `id` int(10) NOT NULL,
+  `id` mediumint(9) NOT NULL,
   `name` varchar(50) NOT NULL,
   `url` varchar(500) NOT NULL,
   `type` varchar(20) NOT NULL,
   `notes` varchar(500) NOT NULL
-) ENGINE=InnoDB DEFAULT CHARSET=latin1;
+) ENGINE=InnoDB DEFAULT CHARSET=latin1 COLLATE=latin1_swedish_ci;
 
 --
 -- Dumping data for table `resources`
@@ -598,7 +624,9 @@ INSERT INTO `resources` (`id`, `name`, `url`, `type`, `notes`) VALUES
 (2, 'Gagracholi', 'https://www.youtube.com/embed/6EeLwYPUVHM', 'video', 'Gagracholi wiki'),
 (3, 'Crop Top', 'https://en.wikipedia.org/wiki/Gagra_choli', 'wiki.', '12345678910'),
 (4, 'Saree Wiki', 'https://en.wikipedia.org/wiki/Gagra_choli', 'url', 'Saree wiki'),
-(7, 'Test', 'https://i.pinimg.com/564x/36/82/e7/3682e7caa082b9e86d9085180339e5f5.jpg', 'IMAGE', 'test notes');
+(7, 'Test', 'https://i.pinimg.com/564x/36/82/e7/3682e7caa082b9e86d9085180339e5f5.jpg', 'IMAGE', 'test notes'),
+(25, 'Namasthe', 'https://www.youtube.com/embed/dQw4w9WgXcQ', 'video', 'testing'),
+(26, 'Salwar Kameez', 'https://www.youtube.com/embed/9NE33fpQuw8', 'video', 'testing');
 
 -- --------------------------------------------------------
 
@@ -616,17 +644,11 @@ CREATE TABLE `users` (
   `role` varchar(20) NOT NULL,
   `modified_time` date NOT NULL,
   `created_time` date NOT NULL
-) ENGINE=InnoDB DEFAULT CHARSET=latin1;
+) ENGINE=InnoDB DEFAULT CHARSET=latin1 COLLATE=latin1_swedish_ci;
 
 --
 -- Dumping data for table `users`
 --
---
--- Indexes for table `resources`
---
-ALTER TABLE `resources`
-  ADD PRIMARY KEY (`id`);
-
 
 INSERT INTO `users` (`id`, `first_name`, `last_name`, `email`, `hash`, `active`, `role`, `modified_time`, `created_time`) VALUES
 (1, 'Siva', 'Jasthi', 'siva@silcmn.com', '$2y$10$zFAG5GBNtf.5BpowMqZSputSLeG8OzfKACpjAMsePjZhu.TnvU/Bu', 'yes', 'admin', '0000-00-00', '0000-00-00'),
@@ -641,6 +663,12 @@ INSERT INTO `users` (`id`, `first_name`, `last_name`, `email`, `hash`, `active`,
 --
 
 --
+-- Indexes for table `artists`
+--
+ALTER TABLE `artists`
+  ADD PRIMARY KEY (`user_id`);
+
+--
 -- Indexes for table `dresses`
 --
 ALTER TABLE `dresses`
@@ -650,63 +678,7 @@ ALTER TABLE `dresses`
 -- Indexes for table `preferences`
 --
 ALTER TABLE `preferences`
-  ADD UNIQUE KEY `id` (`id`);
-
---
--- Indexes for table `users`
---
-ALTER TABLE `users`
-  ADD UNIQUE KEY `id` (`id`);
-
---
--- AUTO_INCREMENT for dumped tables
---
-
---
--- AUTO_INCREMENT for table `dresses`
---
-ALTER TABLE `dresses`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=257;
-
---
--- AUTO_INCREMENT for table `resources`
---
-ALTER TABLE `resources`
-  MODIFY `id` int(10) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=9;
-
---
--- Create ARTISTS table
---
-CREATE TABLE `mysql`.`artists` ( `user_id` int(11) NOT NULL, `profile_picture` varchar(100) COLLATE utf8mb4_unicode_ci NOT NULL, `description` varchar(2000) COLLATE utf8mb4_unicode_ci NOT NULL, `country` varchar(50) COLLATE utf8mb4_unicode_ci NOT NULL, `facebook` varchar(100) COLLATE utf8mb4_unicode_ci NOT NULL, `instagram` varchar(100) COLLATE utf8mb4_unicode_ci NOT NULL, `twitter` varchar(100) COLLATE utf8mb4_unicode_ci NOT NULL, `whatsapp` varchar(100) COLLATE utf8mb4_unicode_ci NOT NULL, `art_site` varchar(100) COLLATE utf8mb4_unicode_ci NOT NULL, `other` varchar(100) COLLATE utf8mb4_unicode_ci NOT NULL, `approval_status` varchar(10) COLLATE utf8mb4_unicode_ci NOT NULL DEFAULT 'pending' ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci; ALTER TABLE `mysql`.`artists` ADD PRIMARY KEY (`user_id`);
-
---
--- Insert into Artists
---
-INSERT INTO `artists` (`user_id`, `profile_picture`, `description`, `country`, `facebook`, `instagram`, `twitter`, `whatsapp`, `art_site`, `other`, `approval_status`) VALUES ('0', 'maddypfp.png', 'This is a test description for an artist. I can tell users what I make, more about who I am, etc.', 'United States', 'testfacebook', 'testinstagram', 'testtwitter', 'testwhatsapp', 'testartsite', 'other', 'pending');
-
---
--- Table structure for table `resources`
---
-
-CREATE TABLE `resources` (
-  `id` mediumint NOT NULL,
-  `name` varchar(255) DEFAULT NULL,
-  `url` varchar(255) DEFAULT NULL,
-  `type` varchar(255) DEFAULT NULL,
-  `notes` varchar(255) DEFAULT NULL
-) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
-
---
--- Dumping data for table `resources`
---
-
-INSERT INTO `resources` (`id`, `name`, `url`, `type`, `notes`) VALUES
-(25, 'Namasthe', 'https://www.youtube.com/embed/dQw4w9WgXcQ', 'video', 'testing'),
-(26, 'Salwar Kameez', 'https://www.youtube.com/embed/9NE33fpQuw8', 'video', 'testing');
-
---
--- Indexes for dumped tables
---
+  ADD PRIMARY KEY (`id`) USING BTREE;
 
 --
 -- Indexes for table `resources`
@@ -715,14 +687,44 @@ ALTER TABLE `resources`
   ADD PRIMARY KEY (`id`);
 
 --
+-- Indexes for table `users`
+--
+ALTER TABLE `users`
+  ADD PRIMARY KEY (`id`) USING BTREE;
+
+--
 -- AUTO_INCREMENT for dumped tables
 --
+
+--
+-- AUTO_INCREMENT for table `artists`
+--
+ALTER TABLE `artists`
+  MODIFY `user_id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=2;
+
+--
+-- AUTO_INCREMENT for table `dresses`
+--
+ALTER TABLE `dresses`
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=501;
+
+--
+-- AUTO_INCREMENT for table `preferences`
+--
+ALTER TABLE `preferences`
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=4;
 
 --
 -- AUTO_INCREMENT for table `resources`
 --
 ALTER TABLE `resources`
-  MODIFY `id` mediumint NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=27;
+  MODIFY `id` mediumint(9) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=27;
+
+--
+-- AUTO_INCREMENT for table `users`
+--
+ALTER TABLE `users`
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=9;
 COMMIT;
 
 /*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;
