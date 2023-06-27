@@ -1,28 +1,31 @@
 <?php
-// required headers
-header("Access-Control-Allow-Origin: *");
-header("Content-Type: application/json; charset=UTF-8");
-
 require 'objects\dress.php';
 
 // initialize
-$dress = new Dress();
 $id = intval($_GET['id']);
-$result = "";
-
-// run query
-$data = $dress->read($id);
+$dress = Dress::getById($id);
 
 // prepare results
-if ($data->num_rows > 0) {
-    http_response_code(200);
-    // there will be at most 1 result since id is primary key
-    $result = mysqli_fetch_assoc($data);
+if($dress) {
+    response(200, "Dress found", $dress);
 }
 else {
-    http_response_code(404);
-    $result = array("message" => "No dress found for id " . $id . ".");
+    invalidResponse("No dress found for id " . $id);
 }
 
-// send results
-echo json_encode($result);
+function invalidResponse($message) {
+    response(400, $message, NULL);
+}
+
+function response($responseCode, $message, $data) {
+    // Locally cache results for two hours
+    header('Cache-Control: max-age=7200');
+
+    // JSON Header
+    header('Content-type:application/json;charset=utf-8');
+
+    http_response_code($responseCode);
+    $response = array("response_code" => $responseCode, "message" => $message, "data" => $data);
+    $json = json_encode($response);
+    echo $json;
+}
