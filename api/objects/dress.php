@@ -2,11 +2,8 @@
 require '../db_configuration.php';
 
 class Dress{
-    // database
-    private $table_name = "dresses";
-
     // properties
-    public $id;
+    public int $id;
     public $name;
     public $description;
     public $did_you_know;
@@ -19,12 +16,20 @@ class Dress{
     public $notes;
 
     // constructor
-    public function __construct(){}
+    public function __construct() {}
 
-    // read
-    function read($id){  
-        $sql = "SELECT * FROM `$this->table_name` WHERE id = " . $id;
-        return run_sql($sql);
+    // getter
+    public static function getById($id){  
+        $sql = "SELECT * FROM `dresses` WHERE id = " . $id;
+        $result = run_sql($sql);
+
+        if ($result->num_rows > 0) {
+            $obj = $result->fetch_object('Dress');
+            return $obj;
+        }
+        else {
+            return false;
+        }
     }
 }
 ?>
