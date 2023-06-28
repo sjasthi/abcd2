@@ -2,7 +2,7 @@
 
     if(!isset($_SESSION)) 
     { 
-        session_start(); 
+        session_start();
     } 
 
 require 'bin/functions.php';
@@ -50,8 +50,14 @@ echo '<div text-align: left>
 </head>
 
 <body>
-    
+        
         <div class="contentContainer">
+    <?php
+        if(isset($_SESSION['status']) == "Success") {
+            echo "<br><h3 alignt=center style='color:green'> Account Successfully Created! </h3>";
+            unset($_SESSION['status']);
+        }
+    ?>
 
     <?php
     if (isset($_GET['preferencesUpdated'])) {
@@ -186,6 +192,7 @@ echo '<div text-align: left>
     $res_data = mysqli_query($db, $sql);
 
     ?>
+    
     <h1 class="mainTitle">Welcome to Project ABCD</h1>
     <h2 class="subTitle">A Bite of Culture in Dresses</h2>
     <h2 class="selectTitle">Select a dress to know more about it</h2><br>
