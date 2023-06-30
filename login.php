@@ -26,8 +26,12 @@ else { // User exists
         $_SESSION['active'] = $user['active'];
         $_SESSION['role'] = $user['role'];
         $_SESSION['logged_in'] = true;
-
-        header("location: index.php");
+        if ($_SESSION['role'] == "admin"){
+            header("location: admin.php");
+        }
+        else {
+            header("location: index.php");
+        }
     }
     else {
         $_SESSION['message'] = "You have entered wrong password, try again!";
