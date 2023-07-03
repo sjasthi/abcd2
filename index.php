@@ -214,7 +214,7 @@ echo '<div text-align: left>
         <button class="sortLink" type="submit" name="sort" value="name">Name</button>
         <button class="sortLink" type="submit" name="sort" value="category">Category</button>
         <button class="sortLink" type="submit" name="sort" value="type">Type</button>
-        <button class="sortLink" type="submit" name="sort" value="state">State</button>
+        <button class="sortLink" type="submit" name="sort" value="state_name">State</button>
     </form>
 
     </span>
