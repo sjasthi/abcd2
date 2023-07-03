@@ -635,7 +635,7 @@ INSERT INTO `resources` (`id`, `name`, `url`, `type`, `notes`) VALUES
 --
 
 CREATE TABLE `users` (
-  `id` int(11) NOT NULL,
+  `id` int(11) NOT NULL AUTO_INCREMEMNT,
   `first_name` varchar(30) NOT NULL,
   `last_name` varchar(30) NOT NULL,
   `email` varchar(75) NOT NULL,
