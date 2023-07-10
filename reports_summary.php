@@ -163,38 +163,32 @@ include('header.php');
 
 
 <!-- Start Key Words Table -->
-    <br>
-    <div class="right-content">
+<br>
+<div class="right-content">
+  <div class="container">
+    <table class="datatable table table-striped table-bordered datatable-style" style="width: 40%; font-weight: bold;">
+      <?php
+      $result = mysqli_query($db, "SELECT key_words FROM `dresses` WHERE key_words != '' and key_words != ' '");
 
-      <div class="container">
-        <table class="datatable table table-striped table-bordered datatable-style" style="width: 40%; font-weight: bold;">
+      $db_values = array();
+      $key_words = array();
 
+      while ($key_result = mysqli_fetch_assoc($result)) {
+        $keywords = explode(",",  $key_result['key_words']);
+        $db_values = array_merge($db_values, $keywords);
+      }
 
-          <?php
-          $result = mysqli_query($db, "SELECT key_words FROM `dresses` WHERE key_words != '' or key_words != ' '");
+      foreach ($db_values as $val) {
+        array_push($key_words, $val);
+      }
 
-          $db_values = array();
-          $key_words = array();
+      $trimmed_key_words = array_map('trim', $key_words);
+      sort($trimmed_key_words);
+      $count = array_count_values($trimmed_key_words);
 
-          while ($key_result = mysqli_fetch_assoc($result)) {
-            while (list($key, $val) = each($key_result)) {
-              array_push($db_values, explode(",",  $val));
-            }
-          }
+      arsort($count);
 
-          while (list($key,  $val) = each($db_values)) {
-            while (list($t, $p) = each($val)) {
-              array_push($key_words, $p);
-            }
-          }
-
-          $trimmed_key_words = array_map('trim', $key_words);
-          sort($trimmed_key_words);
-          $count = array_count_values($trimmed_key_words);
-
-          arsort($count);
-
-          echo "
+      echo "
         <h3 style = 'color: #01B0F1;'>Key Word Summary:</h3>
         <center>
         <tr>
@@ -202,122 +196,92 @@ include('header.php');
           <th>Frequency</th>
         </tr> ";
 
-          while (list($key,  $val) = each($count)) {
-            echo "
+      foreach ($count as $key => $val) {
+        echo "
          <tr>
           <td>$key</td>
           <td>$val</td>
           </tr> ";
-          }
-          ?>
-        </table>
-
-      </div> 
-      </center>
+      }
+      ?>
+    </table>
+  </div> 
+</div>
 <!--End Key Words Table-->
 
+
 <!-- Start Type table -->
-      <br>
-      <div class="right-content">
-        <div class="container">
+<br>
+<div class="right-content">
+  <div class="container">
 
-          <table class="datatable table table-striped table-bordered datatable-style" style="width: 40%; font-weight: bold;">
-          
+    <table class="datatable table table-striped table-bordered datatable-style" style="width: 40%; font-weight: bold;">
+    
 
-            <h3 style='color: #01B0F1;'>Status of Type:</h3>
-            <center>
-            <tr>
-              <th>Type</th>
-              <th>Count</th>
-            </tr>
+      <h3 style='color: #01B0F1;'>Status of Type:</h3>
+      <center>
+      <tr>
+        <th>Type</th>
+        <th>Count</th>
+      </tr>
 
+      <?php
+      // Get distinct types from the 'dresses' table
+      $typesResult = mysqli_query($db, "SELECT DISTINCT type FROM `dresses`");
 
-            <tr>
-              <td>Boys</td>
-              <td>
-                <?php
-                $result = mysqli_query($db, "SELECT * FROM `dresses` WHERE type='boys'");
-                $boys = mysqli_num_rows($result);
-                echo $boys;
-                ?>
-              </td>
-            </tr>
+      // Iterate over each type
+      while ($typeRow = mysqli_fetch_assoc($typesResult)) {
+        $type = $typeRow['type'];
 
-            <tr>
-              <td>Men</td>
-              <td>
-                <?php
-                $result = mysqli_query($db, "SELECT * FROM `dresses` WHERE type='men'");
-                $men = mysqli_num_rows($result);
-                echo $men;
-                ?>
-              </td>
-            </tr>
+        // Count frequency of the current type
+        $result = mysqli_query($db, "SELECT * FROM `dresses` WHERE type='$type'");
+        $typeCount = mysqli_num_rows($result);
 
-            <tr>
-              <td>Women</td>
-              <td>
-                <?php
-                $result = mysqli_query($db, "SELECT * FROM dresses WHERE type='women'");
-                $women = mysqli_num_rows($result);
-                echo $women;
-                ?>
-              </td>
-            </tr>
+        // Print type and its count in a table row
+        echo "<tr>
+                <td>$type</td>
+                <td>$typeCount</td>
+              </tr>";
+      }
+      ?>
+      
+    </table>
 
-            <tr>
-              <td>Girls</td>
-              <td>
-                <?php
-                $result = mysqli_query($db, "SELECT * FROM dresses WHERE type='girls'");
-                $girls = mysqli_num_rows($result);
-                echo $girls;
-                ?>
-              </td>
-            </tr>
-
-            <tr>
-              <td>Other</td>
-              <td>
-                <?php
-                $result = mysqli_query($db, "SELECT * FROM dresses WHERE type='other'");
-                $other = mysqli_num_rows($result);
-                echo $other;
-                ?>
-              </td>
-            </tr>
-
-        </div>
-        </center>
+  </div>
+  </center>
 <!-- End Type Table -->
 
 <!-- Start Pie Chart for Type Table -->
 <center>
-    <script type="text/javascript" src="https://www.gstatic.com/charts/loader.js"></script>
-    <script type="text/javascript">
+  <script type="text/javascript" src="https://www.gstatic.com/charts/loader.js"></script>
+  <script type="text/javascript">
     
-      //Setting value of javascript variables to the php ones in table 
-      var boys = "<?php echo $boys ?>"; 
-      var men = "<?php echo $men ?>"; 
-      var women = "<?php echo $women ?>";
-      var girls = "<?php echo $girls ?>";
-      var other = "<?php echo $other ?>";
+    var type_array = [
+      ['Type', 'Count'],
+      <?php
+      // Reset typesResult to fetch data again
+      mysqli_data_seek($typesResult, 0);
 
-        var type_array = [
-          ['Type', 'Count'],
-          ['Boys', boys],
-          ['Men', men],
-          ['Women', women],
-          ['Girls', girls],
-          ['Other', other]
-        ];
+      // Iterate over each type
+      while ($typeRow = mysqli_fetch_assoc($typesResult)) {
+        $type = $typeRow['type'];
 
-      google.charts.load("visualization", "1", { packages: ["table", "corechart"] });
-      google.charts.setOnLoadCallback(function() { 
-            drawChart(type_array, 'piechart_2d');
-        });
+        // Count frequency of the current type
+        $result = mysqli_query($db, "SELECT * FROM `dresses` WHERE type='$type'");
+        $typeCount = mysqli_num_rows($result);
 
-    </script>
+        // Print type and its count in JavaScript syntax
+        echo "['$type', $typeCount],";
+      }
+      ?>
+    ];
+
+    google.charts.load("visualization", "1", { packages: ["table", "corechart"] });
+    google.charts.setOnLoadCallback(function() { 
+          drawChart(type_array, 'piechart_2d');
+    });
+
+  </script>
   <body>
     <div id="piechart_2d" style="width: 900px; height: 500px;"></div>
   </body>
@@ -325,58 +289,51 @@ include('header.php');
 <!-- End Pie Chart for Type Table -->
 
 <!-- Start Category Table -->
-        <br>
-        <center>
-        <div class="right-content">
+<br>
+<center>
+<div class="right-content">
+  <div class="container">
+    <table class="datatable table table-striped table-bordered datatable-style" style="width: 40%; font-weight: bold;">
+      <?php
+      $result = mysqli_query($db, "SELECT category FROM `dresses` WHERE category != '' and category != ' '");
 
-          <div class="container">
+      $db_values = array();
+      $key_words = array();
 
-            <table class="datatable table table-striped table-bordered datatable-style" style="width: 40%; font-weight: bold;">
+      while ($key_result = mysqli_fetch_assoc($result)) {
+        $keywords = explode(",",  $key_result['category']);
+        $db_values = array_merge($db_values, $keywords);
+      }
 
+      foreach ($db_values as $val) {
+        array_push($key_words, $val);
+      }
 
-              <?php
-              $result = mysqli_query($db, "SELECT category FROM `dresses` WHERE category != '' or category != ' '");
+      $trimmed_key_words = array_map('trim', $key_words);
+      sort($trimmed_key_words);
+      $count = array_count_values($trimmed_key_words);
 
-              $db_values = array();
-              $key_words = array();
+      arsort($count);
 
-              while ($key_result = mysqli_fetch_assoc($result)) {
-                while (list($key, $val) = each($key_result)) {
-                  array_push($db_values, explode(",",  $val));
-                }
-              }
+      echo "
+    <h3 style = 'color: #01B0F1;'>Category Summary:</h3>
+    <tr>
+      <th>Category</th>
+      <th>Frequency</th>
+    </tr> ";
 
-              while (list($key,  $val) = each($db_values)) {
-                while (list($t, $p) = each($val)) {
-                  array_push($key_words, $p);
-                }
-              }
-
-              $trimmed_key_words = array_map('trim', $key_words);
-              sort($trimmed_key_words);
-              $count = array_count_values($trimmed_key_words);
-
-              arsort($count);
-
-              echo "
-        <h3 style = 'color: #01B0F1;'>Category Summary:</h3>
-        <tr>
-          <th>Category</th>
-          <th>Frequency</th>
-        </tr> ";
-
-              while (list($key,  $val) = each($count)) {
-                echo "
-         <tr>
-          <td>$key</td>
-          <td>$val</td>
-          </tr> ";
-              }
-              ?>
-            </table>
-
-          </div> 
-          </center>
+      foreach ($count as $key => $val) {
+        echo "
+     <tr>
+      <td>$key</td>
+      <td>$val</td>
+      </tr> ";
+      }
+      ?>
+    </table>
+  </div> 
+</div>
+</center>
 <!-- End Category Table -->
 
 </body>
