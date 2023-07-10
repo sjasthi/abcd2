@@ -31,5 +31,19 @@ class Dress{
             return false;
         }
     }
+
+    public static function getByCategoryAndTypeAndKeyword($category, $type, $keyword){
+        $sql = "SELECT * FROM `dresses` WHERE `category` LIKE '%".$category."%' AND `type` LIKE '%".$type."%' AND `key_words` LIKE '%".$keyword."%'";
+        $result = run_sql($sql);
+
+        $objs = array();
+        if ($result->num_rows > 0) {
+            // while...
+            while ($obj = $result->fetch_object('Dress')) {
+                array_push($objs, $obj);
+            }
+        }
+        return $objs;
+    }
 }
 ?>
