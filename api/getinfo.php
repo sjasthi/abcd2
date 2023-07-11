@@ -1,5 +1,5 @@
 <?php
-require 'objects\dress.php';
+require 'objects/dress.php';
 require 'api_tools.php';
 
 // initialize
