@@ -37,6 +37,8 @@
 
 <?php include('header.php'); ?> 
 
+<br>
+<br>
 <div id="column1"> <h1 id="title">Bingo!</h1> </div>
 
 <div class="row">
