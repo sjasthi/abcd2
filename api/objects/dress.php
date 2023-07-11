@@ -18,17 +18,21 @@ class Dress{
     // constructor
     public function __construct() {}
 
-    // getter
+    /**
+     * this function takes 1 parameters which is the integer id to be searched. the function
+     * returns the dress object with that id, or null if none exists.
+     */
     public static function getById($id){  
         $sql = "SELECT * FROM `dresses` WHERE id = " . $id;
         $result = run_sql($sql);
 
+        // since id is the unique key, there is at most one result to return
         if ($result->num_rows > 0) {
             $obj = $result->fetch_object('Dress');
             return $obj;
         }
         else {
-            return false;
+            return null;
         }
     }
 
