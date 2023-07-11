@@ -1,5 +1,5 @@
 <?php
-require '../db_configuration.php';
+require_once __DIR__ . "/../../db_configuration.php";
 
 class Dress{
     // properties
