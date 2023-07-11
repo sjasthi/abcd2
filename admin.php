@@ -44,6 +44,7 @@
             <td><a href="preferences.php"><i class="fa fa-gear" id="adIconTen"></i><p class="iconLabel"><strong>preferences</strong></p></a></td>
             <td><a href="artistEdit.php"><i class="fa fa-palette" id="adIconEleven"></i><p class="iconLabel"><strong>artists</strong></p></a></td>
             <td><a href="resources.php"><i class="fa-solid fa-scroll" id="adIconTwelve"></i><p class="iconLabel"><strong>resources</strong></p></a></td>
+            <td><a href="admin_query.php" class="adminLinks"><i class="fa fa-user IconUse" id="adIconOne"></i><p class="iconLabel"><strong>advanced query</strong></p></a></td>
         </tr>
     </table>
 </div>
