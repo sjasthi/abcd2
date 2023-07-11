@@ -24,7 +24,8 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
     $type = $_POST['type'];
     $keywords = $_POST['keywords'];
     
-    $result = Dress::getByCategoryAndTypeAndKeyword($category, $type, $keywords);
+    
+    $result = Dress::getByCategoryAndTypeAndKeyword(array($category), array($type), array($keywords));
 }
 ?>
 
