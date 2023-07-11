@@ -37,35 +37,30 @@ class Dress{
     }
 
     /**
-     * this function takes 3 parameters which are arrays of strings. the parameters correspond
-     * to the database columns being searched. the function returns an array of dress objects
-     * which satisfy all of the parameters. an empty array is returned if none match.
+     * this function takes an associative array of parameters. the keys should be the
+     * database columns to query. the values should be the database row values to match.
+     * multiple values can be provided if separated by a comma.
      */
-    public static function getByCategoryAndTypeAndKeyword($categories, $types, $keywords){
+    public static function getByParams($params){
         // build string
-        $sql = "SELECT * FROM `dresses` WHERE ";
-        foreach ($categories as $category) {
-            $sql .= "`category` LIKE '%".$category."%' AND ";
-        }
-        foreach ($types as $type) {
-            $sql .= "`type` LIKE '%".$type."%' AND ";
-        }
-        foreach ($keywords as $keyword) {
-            $sql .= "`key_words` LIKE '%".$keyword."%' AND ";
-        }
-
-        // remove the last "AND " from the string
-        $sql = substr($sql, 0, -4);
-
-        // store the results
-        $objs = array();
-        $result = run_sql($sql);
-        if ($result->num_rows > 0) {
-            while ($obj = $result->fetch_object('Dress')) {
-                array_push($objs, $obj);
+        $sql = "SELECT `id` FROM `dresses` WHERE ";
+        foreach($params as $key => $values){
+            $values = explode(",", $values);
+            foreach($values as $value) {
+                $sql .= "`" . $key . "` LIKE '%" . $value . "%' AND ";
             }
         }
-        return $objs;
+
+        // remove the last " AND " from the string
+        $sql = substr($sql, 0, -5);
+
+        // store the results
+        $result = run_sql($sql);
+        $ids = array();
+        while ($obj = $result->fetch_object('Dress')) {
+            array_push($ids, $obj->id);
+        }
+        return $ids;
     }
 }
 ?>
