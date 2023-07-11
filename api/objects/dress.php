@@ -32,13 +32,31 @@ class Dress{
         }
     }
 
-    public static function getByCategoryAndTypeAndKeyword($category, $type, $keyword){
-        $sql = "SELECT * FROM `dresses` WHERE `category` LIKE '%".$category."%' AND `type` LIKE '%".$type."%' AND `key_words` LIKE '%".$keyword."%'";
-        $result = run_sql($sql);
+    /**
+     * this function takes 3 parameters which are arrays of strings. the parameters correspond
+     * to the database columns being searched. the function returns an array of dress objects
+     * which satisfy all of the parameters. an empty array is returned if none match.
+     */
+    public static function getByCategoryAndTypeAndKeyword($categories, $types, $keywords){
+        // build string
+        $sql = "SELECT * FROM `dresses` WHERE ";
+        foreach ($categories as $category) {
+            $sql .= "`category` LIKE '%".$category."%' AND ";
+        }
+        foreach ($types as $type) {
+            $sql .= "`type` LIKE '%".$type."%' AND ";
+        }
+        foreach ($keywords as $keyword) {
+            $sql .= "`key_words` LIKE '%".$keyword."%' AND ";
+        }
 
+        // remove the last "AND " from the string
+        $sql = substr($sql, 0, -4);
+
+        // store the results
         $objs = array();
+        $result = run_sql($sql);
         if ($result->num_rows > 0) {
-            // while...
             while ($obj = $result->fetch_object('Dress')) {
                 array_push($objs, $obj);
             }

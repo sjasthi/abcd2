@@ -1,25 +1,20 @@
 <?php
-require 'objects\dress.php';
+require 'objects/dress.php';
 
 // initialize
-$category = "";
-$type = "";
-$keywords = "";
+$category = array();
+$type = array();
+$keywords = array();
 
-if (isset($_GET['category'])) $category = $_GET['category'];
-if (isset($_GET['type'])) $type = $_GET['type'];
-if (isset($_GET['keywords'])) $keywords = $_GET['keywords'];
+if (isset($_GET['category'])) $category = json_decode($_GET['category']);
+if (isset($_GET['type'])) $type = json_decode($_GET['type']);
+if (isset($_GET['keywords'])) $keywords = json_decode($_GET['keywords']);
 
 // run query
 $dressList = Dress::getByCategoryAndTypeAndKeyword($category, $type, $keywords);
 
-// prepare results
-if(!is_null($dressList)) {
-        response(200, count($dressList) . " matching results", $dressList);
-}
-else {
-    //invalidResponse("No dresses found with category " . $category . ", type " . $type . ", and keywords " . $keywords);
-}
+// prepare result
+response(200, count($dressList) . " matching results", $dressList);
 
 function invalidResponse($message) {
     response(400, $message, NULL);
