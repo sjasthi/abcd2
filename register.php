@@ -29,14 +29,41 @@
         $first_name = $db->escape_string($_POST['first_name']);
         $last_name = $db->escape_string($_POST['last_name']);
 
-        //insert user info into DB
+        // (SU23-30) (Feature) create an email validation token
+        // reference https://code.tutsplus.com/how-to-implement-email-verification-for-new-members--net-3824t
+        $email_validation = md5(rand(0, 1000));
 
-        $sql = "INSERT INTO users (first_name, last_name, email, hash, active, role, modified_time, created_time)
-                VALUES ('$first_name', '$last_name', '$email', '$hashPass', 'no', 'user', '0000-00-00', '0000-00-00')";
+        //insert user info into DB
+        $sql = "INSERT INTO users (first_name, last_name, email, hash, email_validation, active, role, modified_time, created_time)
+                VALUES ('$first_name', '$last_name', '$email', '$hashPass', '$email_validation', 'no', 'user', '0000-00-00', '0000-00-00')";
 
         if (mysqli_query($db, $sql)) {
-            $_SESSION['status'] = "Sucess";
-            header("location: index.php");
+
+            // SMTP server
+            // reference https://stackoverflow.com/questions/25909348/how-to-send-email-with-smtp-in-php
+            ini_set('SMTP', "smtp.TODO.com");
+            ini_set('smtp_port', "465");
+            ini_set('sendmail_from', "email@domain.com");
+
+            // send validation email
+            // TODO update the activation link URL to match the deployed server
+            $email_subject = 'Signup | Validation';
+            $email_message = '
+
+            Your account has been created. Please click this link to activate your account:
+            https://abcd2.projectabcd.com/validation.php?email='.$email.'&email_validation='.$email_validation.'
+            
+            ';
+            $email_headers = 'From:noreply@projectabcd.com'."\r\n";
+            // TODO uncomment the following code after the SMTP server is working
+            //if(mail($email, $email_subject, $email_message, $email_headers)){
+                $_SESSION['status'] = "Sucess";
+                $_SESSION['email'] = $email;
+                header("location: validation.php");
+            /*}
+            else {
+                echo "email failed";
+            }*/
         } else {
             echo "Error: " . $sql . "<br>" . mysqli_error($db);
         }

@@ -19,18 +19,27 @@ else { // User exists
     $user = $result->fetch_assoc();
 
     if ( password_verify($_POST['password'], $user['hash']) ) {
-        $_SESSION['id'] = $user['id'];
         $_SESSION['email'] = $user['email'];
-        $_SESSION['first_name'] = $user['first_name'];
-        $_SESSION['last_name'] = $user['last_name'];
         $_SESSION['active'] = $user['active'];
-        $_SESSION['role'] = $user['role'];
-        $_SESSION['logged_in'] = true;
-        if ($_SESSION['role'] == "admin"){
-            header("location: admin.php");
+        
+        // (SU23-30) (Feature) user email validation
+        if($_SESSION['active'] == "no") {
+            // email validation was not completed
+            header("location: validation.php");
         }
         else {
-            header("location: index.php");
+            // email validation already completed
+            $_SESSION['id'] = $user['id'];
+            $_SESSION['first_name'] = $user['first_name'];
+            $_SESSION['last_name'] = $user['last_name'];
+            $_SESSION['role'] = $user['role'];
+            $_SESSION['logged_in'] = true;
+            if ($_SESSION['role'] == "admin"){
+                header("location: admin.php");
+            }
+            else {
+                header("location: index.php");
+            }
         }
     }
     else {
