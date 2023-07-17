@@ -16,6 +16,7 @@ include('header.php');
   </head>
 <body>
 
+
 <!-- Start Status of Dresses Table -->
   <div class="right-content">
     <div class="container">
@@ -100,6 +101,7 @@ include('header.php');
     </div>  
 <!-- End Dresses Table -->
 
+
 <!-- Start Pie Chart for Status of Dresses -->
 <center>
       <head>
@@ -162,6 +164,82 @@ include('header.php');
 <!-- End of Status of Dresses Pie Chart -->
 
 
+<!-- Start Exception Report Table -->
+<br>
+<div class="right-content">
+  <div class="container">
+    <table class="datatable table table-striped table-bordered datatable-style" style="width: 40%; font-weight: bold;">
+
+      <?php
+      $result_type = mysqli_query($db, "SELECT COUNT(*) as count FROM `dresses` WHERE type = '' OR type IS NULL");
+      $result_category = mysqli_query($db, "SELECT COUNT(*) as count FROM `dresses` WHERE category = '' OR category IS NULL");
+      
+      $missing_type = mysqli_fetch_assoc($result_type)['count'];
+      $missing_category = mysqli_fetch_assoc($result_category)['count'];
+
+      echo "
+    <h3 style = 'color: #01B0F1;'>Exception Report:</h3>
+    <tr>
+      <th>Field</th>
+      <th>Missing Count</th>
+    </tr>
+    <tr>
+      <td>Type</td>
+      <td>$missing_type</td>
+    </tr>
+    <tr>
+      <td>Category</td>
+      <td>$missing_category</td>
+    </tr> ";
+      ?>
+    </table>
+  </div> 
+</div>
+<!-- End Exception Report Table -->
+
+
+<!-- Start Pie Chart for Exception Report -->
+<center>
+  <script type="text/javascript" src="https://www.gstatic.com/charts/loader.js"></script>
+  <script type="text/javascript">
+    // Create data array
+    var data_array = [
+      ['Field', 'Missing Count'],
+      <?php
+      $result_type = mysqli_query($db, "SELECT COUNT(*) as count FROM `dresses` WHERE type = '' OR type IS NULL");
+      $result_category = mysqli_query($db, "SELECT COUNT(*) as count FROM `dresses` WHERE category = '' OR category IS NULL");
+      
+      $missing_type = mysqli_fetch_assoc($result_type)['count'];
+      $missing_category = mysqli_fetch_assoc($result_category)['count'];
+      
+      echo "['Type', $missing_type],";
+      echo "['Category', $missing_category],";
+      ?>
+    ];
+
+    // Load Google Charts
+    google.charts.load("current", { packages: ["corechart"] });
+    google.charts.setOnLoadCallback(drawExceptionReportChart);
+
+    // Draw the chart
+    function drawExceptionReportChart() {
+      var data = google.visualization.arrayToDataTable(data_array);
+
+      var options = {
+        title: ''
+      };
+
+      var chart = new google.visualization.PieChart(document.getElementById('exception_piechart'));
+      chart.draw(data, options);
+    }
+  </script>
+  <body>
+    <div id="exception_piechart" style="width: 900px; height: 500px;"></div>
+  </body>
+</center>
+<!-- End Pie Chart for Exception Report -->
+
+
 <!-- Start Key Words Table -->
 <br>
 <div class="right-content">
@@ -171,43 +249,37 @@ include('header.php');
       $result = mysqli_query($db, "SELECT key_words FROM `dresses` WHERE key_words != '' and key_words != ' '");
 
       $db_values = array();
-      $key_words = array();
 
       while ($key_result = mysqli_fetch_assoc($result)) {
         $keywords = explode(",",  $key_result['key_words']);
         $db_values = array_merge($db_values, $keywords);
       }
 
-      foreach ($db_values as $val) {
-        array_push($key_words, $val);
-      }
+      $trimmed_db_values = array_map('trim', $db_values);
+      $count = array_count_values($trimmed_db_values);
 
-      $trimmed_key_words = array_map('trim', $key_words);
-      sort($trimmed_key_words);
-      $count = array_count_values($trimmed_key_words);
-
-      arsort($count);
+      // Sorting the keywords alphabetically (case-insensitive)
+      uksort($count, 'strcasecmp');
 
       echo "
-        <h3 style = 'color: #01B0F1;'>Key Word Summary:</h3>
-        <center>
-        <tr>
-          <th>Key Words</th>
-          <th>Frequency</th>
-        </tr> ";
+    <h3 style = 'color: #01B0F1;'>Key Word Summary:</h3>
+    <tr>
+      <th>Key Words</th>
+      <th>Frequency</th>
+    </tr> ";
 
       foreach ($count as $key => $val) {
         echo "
-         <tr>
-          <td>$key</td>
-          <td>$val</td>
-          </tr> ";
+     <tr>
+      <td>$key</td>
+      <td>$val</td>
+      </tr> ";
       }
       ?>
     </table>
   </div> 
 </div>
-<!--End Key Words Table-->
+<!-- End Key Words Table -->
 
 
 <!-- Start Type table -->
@@ -288,6 +360,7 @@ include('header.php');
 </center>
 <!-- End Pie Chart for Type Table -->
 
+
 <!-- Start Category Table -->
 <br>
 <center>
@@ -335,6 +408,7 @@ include('header.php');
 </div>
 </center>
 <!-- End Category Table -->
+
 
 </body>
 </html>
