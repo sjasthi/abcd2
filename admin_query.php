@@ -17,6 +17,14 @@ include('header.php');
 
 ob_end_flush();
 
+$query = "SELECT DISTINCT category FROM dresses";
+$result = mysqli_query($db, $query);
+$categories = $result->fetch_all(MYSQLI_ASSOC);
+
+$query = "SELECT DISTINCT key_words FROM dresses";
+$result = mysqli_query($db, $query);
+$keywords = $result->fetch_all(MYSQLI_ASSOC);
+
 $result = [];
 
 if ($_SERVER['REQUEST_METHOD'] === 'POST') {
@@ -25,7 +33,7 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
     $keywords = $_POST['keywords'];
     
     
-    $result = Dress::getByCategoryAndTypeAndKeyword(array($category), array($type), array($keywords));
+    $result = Dress::getByParams(array($category), array($type), array($keywords));
 }
 ?>
 
@@ -39,22 +47,30 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
 </head>
 <body>
     <div style="padding: 50px;">
-        <form method="POST" action="admin_query.php">
-            <label for="category">Category:</label>
-            <input type="text" name="category">
+    <form method="POST" action="admin_query.php">
+        <label for="category">Category:</label>
+        <select multiple name="category[]">
+        <?php foreach($categories as $category): ?>
+            <option value="<?= htmlspecialchars($category['category']) ?>"><?= htmlspecialchars($category['category']) ?></option>
+        <?php endforeach; ?>
+        </select>
 
-            <label for="type">Type:</label>
-            <select name="type">
-                <option value="boy">Boy</option>
-                <option value="women">women</option>
-                <option value="other">Other</option>
-            </select>
+        <label for="type">Type:</label>
+        <select name="type">
+            <option value="boy">Boy</option>
+            <option value="women">women</option>
+            <option value="other">Other</option>
+        </select>
 
-            <label for="keywords">Keywords:</label>
-            <input type="text" name="keywords">
+        <label for="key_words">Keywords:</label>
+        <select multiple name="key_words[]">
+            <?php foreach($keywords as $key_words): ?>
+                <option value="<?= htmlspecialchars($key_words['key_words']) ?>"><?= htmlspecialchars($key_words['key_words']) ?></option>
+            <?php endforeach; ?>
+        </select>
 
-            <button type="submit">Search</button>
-        </form>
+        <button type="submit">Search</button>
+    </form>
     </div>
 
     <div style="padding: 50px;">
