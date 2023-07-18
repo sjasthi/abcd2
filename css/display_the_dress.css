@@ -19,7 +19,7 @@
   }
 
 .containerTitle {
-    display: flex;
+    display: block;
     width: 50%;
     margin: auto;
     height: 150px;
@@ -52,6 +52,7 @@
     text-transform: uppercase;
     font-weight: bold;
     z-index: 0;
+    display: inline-block;
   }
   
   .words{
@@ -110,4 +111,34 @@
     transform: rotate(-2deg);
   }
   
+  .pageNav {
+    text-align: center;
+    width: fit-content;
+  }
+
+  .pageNavContainer {
+    margin: auto;
+    text-align: center;
+    justify-content: center;
+    margin-top: 50px;
+  }
+
+  .pageLinksContainer {
+    display: flex;
+    justify-content: space-between;
+    padding-top: 50px;
+    padding-bottom: 50px;
+}
+
+a.pageButton:hover {
+  color: white;
+  background-color: #138808;
+}
+
+a.pageButton {
+  padding: 8px;
+  color: #138808;
+  border: 1px solid grey;
+}
+
 
