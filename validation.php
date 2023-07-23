@@ -15,13 +15,15 @@ include('header.php');
 
             <?php
             // (SU23-30) (Feature) user email validation
+            // this path is followed when user clicks the link in their validation email
             if(isset($_GET['email']) && !empty($_GET['email']) AND isset($_GET['email_validation']) && !empty($_GET['email_validation'])){
-                // Verify data 
+                // Verify user submission against database
                 $email = $db->escape_string($_GET['email']);
                 $email_validation = $db->escape_string($_GET['email_validation']);
                 $sql = "SELECT email, email_validation, active FROM users WHERE email='".$email."' AND email_validation='".$email_validation."' AND active='no'";
                 $match = run_sql($sql)->num_rows;
 
+                // valid match
                 if($match > 0) {
                     $sql = "UPDATE users SET active='yes' WHERE email='".$email."' AND email_validation='".$email_validation."' AND active='no'";
                     if (mysqli_query($db, $sql)) {
@@ -37,12 +39,12 @@ include('header.php');
                 }
 
             }
+            // this path is followed if the user's account is created but not activated
             else if (isset($_SESSION['email'])){
                 // this shows after registration
                 echo "A validation link was sent to your email ".$_SESSION['email'].".</br>
-                Please click the link to activate your account.</br>
-                </br>
-                Click here to send a new email. (Not implemented)";
+                Please click the link to activate your account.";
+                // TODO: add a button "click here to send a new validation email"
             }
             else {
                 // invalid URL or account already activated

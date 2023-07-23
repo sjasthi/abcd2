@@ -38,33 +38,39 @@
                 VALUES ('$first_name', '$last_name', '$email', '$hashPass', '$email_validation', 'no', 'user', '0000-00-00', '0000-00-00')";
 
         if (mysqli_query($db, $sql)) {
-
-            // SMTP server
-            // reference https://stackoverflow.com/questions/25909348/how-to-send-email-with-smtp-in-php
-            ini_set('SMTP', "smtp.TODO.com");
-            ini_set('smtp_port', "465");
-            ini_set('sendmail_from', "email@domain.com");
-
-            // send validation email
-            // TODO update the activation link URL to match the deployed server
-            $email_subject = 'Signup | Validation';
-            $email_message = '
-
-            Your account has been created. Please click this link to activate your account:
-            https://abcd2.projectabcd.com/validation.php?email='.$email.'&email_validation='.$email_validation.'
-            
-            ';
-            $email_headers = 'From:noreply@projectabcd.com'."\r\n";
-            // TODO uncomment the following code after the SMTP server is working
-            //if(mail($email, $email_subject, $email_message, $email_headers)){
-                $_SESSION['status'] = "Sucess";
-                $_SESSION['email'] = $email;
-                header("location: validation.php");
-            /*}
+            // read config.ini
+            $email_settings = parse_ini_file("config.ini");
+            // case where unable to read config file
+            if(!$email_settings) echo "failed to read config.ini";
             else {
-                echo "email failed";
-            }*/
-        } else {
+                // SMTP server
+                // reference https://stackoverflow.com/questions/25909348/how-to-send-email-with-smtp-in-php
+                ini_set('SMTP', $email_settings["SMTP"]);
+                ini_set('smtp_port', $email_settings["smtp_port"]);
+                ini_set('sendmail_from', $email_settings["sendmail_from"]);
+
+                // send validation email
+                $email_subject = 'Signup | Validation';
+                $email_message = '
+
+                Your account has been created. Please click this link to activate your account:
+                '.$email_settings["URL"].'/validation.php?email='.$email.'&email_validation='.$email_validation.'
+                
+                ';
+                $email_headers = 'From:noreply@projectabcd.com'."\r\n";
+                // TODO uncomment the following code after the SMTP server is working
+                //if(mail($email, $email_subject, $email_message, $email_headers)){
+                    $_SESSION['status'] = "Sucess";
+                    $_SESSION['email'] = $email;
+                    header("location: validation.php");
+                /*}
+                else {
+                    echo "email failed";
+                }*/
+            }
+        }
+        // case where the sql insert failed
+        else {
             echo "Error: " . $sql . "<br>" . mysqli_error($db);
         }
     }
