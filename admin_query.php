@@ -30,7 +30,7 @@ $result = [];
 if ($_SERVER['REQUEST_METHOD'] === 'POST') {
     $category = $_POST['category'];
     $type = $_POST['type'];
-    $keywords = $_POST['keywords'];
+    $keywords = $_POST['key_words'];
     
     
     $result = Dress::getByParams(array($category), array($type), array($keywords));
