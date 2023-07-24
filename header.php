@@ -73,7 +73,7 @@ if(!isset($page_title)) { $page_title = 'Project ABCD'; }
         <?php
         
         if (isset($_SESSION['role'])){
-            echo '<div class="search-container"><form action="./searchbar.php" method="POST"><input type="text" placeholder="Search.." name="search"><button class="btn" type="submit"><i class="fa fa-search"></i></button></form></div>';
+            echo '<div class="search-container"><form action="./searchbar.php" method="POST"><input required type="text" placeholder="Search.." name="search"><button class="btn" type="submit"><i class="fa fa-search"></i></button></form></div>';
             echo '<li class="nav-item active"><a class="nav-link" id="header" href="list_dresses.php">Dresses<span class="sr-only">(current)</span></a>';
             echo '<li class="nav-item active"><a class="nav-link" id="header" href="artistShowcase.php">Artists<span class="sr-only">(current)</span></a>';
             echo '<li class="nav-item active"><a class="nav-link" id="header" href="about.php">About<span class="sr-only">(current)</span></a></li>';
@@ -89,7 +89,7 @@ if(!isset($page_title)) { $page_title = 'Project ABCD'; }
             echo '<li class="nav-item active"><a class="nav-link" id="header" href="logout.php">Logout<span class="sr-only">(current)</span></a></li>';
 
             } else {
-            echo '<div class="search-container"><form action="./searchbar.php" method="POST"><input type="text" placeholder="Search.." name="search"><button class="btn" type="submit"><i class="fa fa-search"></i></button></form></div>';
+            echo '<div class="search-container"><form action="./searchbar.php" method="POST"><input required type="text" placeholder="Search.." name="search"><button class="btn" type="submit"><i class="fa fa-search"></i></button></form></div>';
             echo '<li class="nav-item active"><a class="nav-link" id="header" href="list_dresses.php">Dresses<span class="sr-only">(current)</span></a>';
             echo '<li class="nav-item active"><a class="nav-link" id="header" href="artistShowcase.php">Artists<span class="sr-only">(current)</span></a>';
             echo '<li class="nav-item active"><a class="nav-link" id="header" href="about.php">About<span class="sr-only">(current)</span></a></li>';
