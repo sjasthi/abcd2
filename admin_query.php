@@ -28,9 +28,10 @@ $keywords = $result->fetch_all(MYSQLI_ASSOC);
 $result = [];
 
 if ($_SERVER['REQUEST_METHOD'] === 'POST') {
-    $category = $_POST['category'];
+    $category = implode(',', $_POST['category']);
     $type = $_POST['type'];
-    $keywords = $_POST['key_words'];
+    $keywords = implode(',', $_POST['key_words']);
+
     
     
     $result = Dress::getByParams(array($category), array($type), array($keywords));
