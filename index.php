@@ -119,7 +119,7 @@ echo '<div text-align: left>
     $name_sql = "SELECT `name` FROM `dresses`";
     $pic_sql = "SELECT `image_url` FROM `dresses`";
     
-    $Sort_string = @$_GET['option'];
+    $Sort_string = @$_GET['sort'];
 
         if(empty($Sort_string)) {
             $Sort_string = 'name' ;
@@ -163,19 +163,28 @@ echo '<div text-align: left>
         $no_of_records_per_page = $dresses_count;
     }
     
-    $total_pages_sql = ceil($num_results / $no_of_records_per_page);
+    $total_pages = ceil($num_results / $no_of_records_per_page);
 
     if (!isset($_GET['page'])) {
         $page = 1;
     }
     else {
         $page = $_GET['page'];
+        if ($page < 1){
+            $page = 1;
+        } elseif ($page > $total_pages){
+            $page = $total_pages;
+        }
     }
 
     $page_first_result = ($page - 1) * $no_of_records_per_page; 
 
-    $sql = "SELECT * FROM dresses LIMIT " . $page_first_result . ',' . $no_of_records_per_page;
+    $sort_param = isset($_GET['sort']) ? $_GET['sort'] : 'id'; // default to 'id' if no sort param is given
+    $sql = "SELECT * FROM dresses ORDER BY ".$sort_param." ASC LIMIT " . $page_first_result . ',' . $no_of_records_per_page;
 
+    if(isset($_POST["id"])){
+        $sql = "SELECT * FROM dresses ORDER BY id ASC LIMIT " . $page_first_result . ',' . $no_of_records_per_page;
+    }
     if(isset($_POST["name"])){
         $sql = "SELECT * FROM dresses ORDER BY name ASC LIMIT " . $page_first_result . ',' . $no_of_records_per_page;
     }
@@ -200,24 +209,25 @@ echo '<div text-align: left>
     <span class="pageLinksContainer">
     <span class="dressSorting">
 
-    <form action="index.php" method="post">
-        <p id="sorting">Sort by:&nbsp;&nbsp;</p>
-        <button class="sortLink" type="submit" name="name">Name</button>
-        <button class="sortLink" type="submit" name="category">Category</button>
-        <button class="sortLink" type="submit" name="type">Type</button>
-        <button class="sortLink" type="submit" name="state">State</button>
+    <form action="index.php" method="get">
+        <button class="sortLink" type="submit" name="sort" value="ID">I.D.</button>
+        <button class="sortLink" type="submit" name="sort" value="name">Name</button>
+        <button class="sortLink" type="submit" name="sort" value="category">Category</button>
+        <button class="sortLink" type="submit" name="sort" value="type">Type</button>
+        <button class="sortLink" type="submit" name="sort" value="state_name">State</button>
     </form>
+
     </span>
     <span class="pageNavConatiner">
         <tr class="pageNav">
-            <td><a class="pageLink pageFirst pageButton" href="?page=1"><< First</a></td>
+            <a class="pageLink pageFirst pageButton" href="?page=1&sort=<?php echo $Sort_string; ?>"><< First</a>
             <td class="<?php if($page <= 1){ echo 'disabled'; } ?>">
-                <a class="pageLink pageMid pageButton" href="<?php if($page <= 1){ echo '#'; } else { echo "?page=".($page - 1); } ?>">Prev</a>
+                <a class="pageLink pageMid pageButton" href="<?php if($page <= 1){ echo '#'; } else { echo "?page=".($page - 1). "&sort=".$Sort_string; } ?>">Prev</a>
             </td>
             <td class="<?php if($page >= $total_pages_sql){ echo 'disabled'; } ?>">
-                <a class="pageLink pageMid pageButton"  href="<?php if($page >= $total_pages_sql){ echo '#'; } else { echo "?page=".($page + 1); } ?>">Next</a>
+                <a class="pageLink pageMid pageButton" href="<?php if($page >= $total_pages){ echo '#'; } else { echo "?page=".($page + 1). "&sort=".$Sort_string; } ?>">Next</a>
             </td>
-            <td><a class="pageLink pageMid pageLast pageButton" href="?page=<?php echo $total_pages_sql; ?>">Last >></a></td>
+                <a class="pageLink pageMid pageLast pageButton" href="?page=<?php echo $total_pages; ?>&sort=<?php echo $Sort_string; ?>">Last >></a>
             </tr>
 </span>
 </span>
