@@ -85,9 +85,9 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
 
         <label for="type">Type:</label>
         <select name="type">
-            <option value="Boy">Boy</option>
-            <option value="Girl">Girl</option>
-            <option value="Other">Other</option>
+            <option value="boy">boy</option>
+            <option value="girl">girl</option>
+            <option value="other">other</option>
         </select>
 
         <label for="key_words">Keywords:</label>
