@@ -32,7 +32,7 @@ function Bingo() {
     if (!isset($_POST['submit'])){
 
       if ($_POST['cols'] == "" || $_POST['rows'] == "" || $_POST['cards'] == "" || $_POST['title'] == "") {
-        echo 'Please be sure to fill out every field of the form! <br> If you are still having issues, check that you entered a numerical value for the number of columns and rows.';
+        echo 'Please be sure to fill out every field of the form! <br> <br> If you are still having issues, check that you entered a numerical value for the number of columns and rows.';
       } else {
         $title = $_POST['title'];
         $words = array();

@@ -1,4 +1,16 @@
 <?php
+if (isset($_POST["correct"])){
+    $answer2 = $_POST["answer"];
+    $correctanswer2 = $_POST["correct"];
+    $dress_Image = $_POST["dress_Image"];
+    if ($answer2 == $correctanswer2){
+        header('location: quiz.php?questionAnswered=correct');
+     } 
+     else {
+        header('location: quiz.php?questionAnswered=Incorrect&answer='.$answer2.'&dress_Image3='.$dress_Image.'&correctAnswer='.$correctanswer2);
+     }
+}
+
 require 'db_configuration.php';
 include('header.php');
 
@@ -23,9 +35,10 @@ if ($status == PHP_SESSION_NONE) {
 }
 
 .title {
-    padding: 8px 8px 8px 8px;
+    /* TODO: top padding of 50px is needed because nav bar overlaps some pages */
+    padding: 50px 8px 8px 8px;
     text-align: center;
-    color: darkgoldenrod;
+    color: darkgoldenrod;    
 }
 
 .question {
@@ -47,19 +60,9 @@ if ($status == PHP_SESSION_NONE) {
 
 <div>
 <?php
-if (isset($_POST["correct"])){
-    $answer2 = $_POST["answer"];
-    $correctanswer2 = $_POST["correct"];
-    $dress_Image = $_POST["dress_Image"];
-    if ($answer2 == $correctanswer2){
-        header('location: quiz.php?questionAnswered=correct');
-     } 
-     else {
-        header('location: quiz.php?questionAnswered=Incorrect&answer='.$answer2.'&dress_Image3='.$dress_Image.'&correctAnswer='.$correctanswer2);
-     }
-}
 
- if(isset($_GET['questionAnswered'])){
+
+if(isset($_GET['questionAnswered'])){
     if($_GET["questionAnswered"] == "correct"){
         echo '<h5 class = "response" >Success! Your answer was Correct!</h5>';
     }
@@ -87,11 +90,12 @@ if(isset($_GET['answer'])){
     <button type="submit">Continue to Next Question</button>
 </form>
 </br>
-<form method="get" action="display_the_dress.php?name=<?php echo($correctanswer3);?>&">
-    <button type="submit">Click Here to learn more about this Dress</button>
+<form method="get" action="display_the_dress.php">
+    <button type="submit" name="name" value="<?php echo($correctanswer3); ?>">
+        Click Here to learn more about this Dress
+    </button>
 </form>
 </div>
-
 
 <div class="<?= $to_hide ? 'isHidden' : '' ?>">
 <?php
