@@ -4,20 +4,6 @@ ob_start();
 /* Main page with two forms: sign up and log in */
 require 'db_configuration.php';
 include('header.php');
-
-ob_flush();
-?>
-<!DOCTYPE html>
-<html>
-<head>
-  <title>Register/Login Form</title>
-  <link href="css/loginForm.css" rel="stylesheet">
-    <link rel="preconnect" href="https://fonts.googleapis.com">
-<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link href="https://fonts.googleapis.com/css2?family=Kanit:wght@300&display=swap" rel="stylesheet">
-</head>
-
-<?php
 if ($_SERVER['REQUEST_METHOD'] == 'POST')
 
 {
@@ -32,7 +18,17 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST')
 
     }
 }
+ob_flush();
 ?>
+<!DOCTYPE html>
+<html>
+<head>
+  <title>Register/Login Form</title>
+  <link href="css/loginForm.css" rel="stylesheet">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Kanit:wght@300&display=swap" rel="stylesheet">
+</head>
 <body>
   <div class="form">
 

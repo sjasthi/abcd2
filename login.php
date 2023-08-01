@@ -14,6 +14,7 @@ $result = $db->query("SELECT * FROM users WHERE email='$email'");
 if ( $result->num_rows == 0 ){ // User doesn't exist
     $_SESSION['message'] = "User with that email doesn't exist!";
     header("location: error.php");
+    exit();
 }
 else { // User exists
     $user = $result->fetch_assoc();
@@ -23,9 +24,10 @@ else { // User exists
         $_SESSION['active'] = $user['active'];
         
         // (SU23-30) (Feature) user email validation
-        if($_SESSION['active'] == "no") {
+        if(strcmp($_SESSION['active'], "yes") != 0) {
             // email validation was not completed
             header("location: validation.php");
+            exit();
         }
         else {
             // email validation already completed
@@ -39,11 +41,14 @@ else { // User exists
             }
             else {
                 header("location: index.php");
+                exit();
             }
         }
     }
     else {
         $_SESSION['message'] = "You have entered wrong password, try again!";
         header("location: error.php");
+        exit();
     }
 }
+?>
