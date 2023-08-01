@@ -92,6 +92,10 @@ include('header.php');
         font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, sans-serif, "Apple Color Emoji", "Segoe UI Emoji", "Segoe UI Symbol" !important;
         font-size: initial !important;
     }
+
+    .search-container input {
+        color: black;
+    }
 </style>
 
 <body>

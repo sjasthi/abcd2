@@ -64,6 +64,7 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST')
           </div>
 <div class="btnContainer">
           <button class="button button-block" name="login" />Log In</button>
+          <a href="confirmEmail.php">Forgot password</a>
 </div>
           </form>
 
@@ -113,7 +114,7 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST')
       </div><!-- tab-content -->
 
 </div> <!-- /form -->
-  <script src='http://cdnjs.cloudflare.com/ajax/libs/jquery/2.1.3/jquery.min.js'></script>
+  <script src='https://cdnjs.cloudflare.com/ajax/libs/jquery/2.1.3/jquery.min.js'></script>
   <script src="js/loginForm.js"></script>
 </body>
 </html>

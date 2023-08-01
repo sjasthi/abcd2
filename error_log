@@ -1,0 +1,463 @@
+[24-Jul-2023 19:14:01 America/Boise] PHP Warning:  session_start(): Session cannot be started after headers have already been sent in /home2/icsbinco/public_html/abcd2/header.php on line 5
+[24-Jul-2023 19:14:02 America/Boise] PHP Warning:  session_start(): Session cannot be started after headers have already been sent in /home2/icsbinco/public_html/abcd2/header.php on line 5
+[24-Jul-2023 19:14:03 America/Boise] PHP Warning:  session_start(): Session cannot be started after headers have already been sent in /home2/icsbinco/public_html/abcd2/header.php on line 5
+[24-Jul-2023 19:14:04 America/Boise] PHP Warning:  session_start(): Session cannot be started after headers have already been sent in /home2/icsbinco/public_html/abcd2/header.php on line 5
+[24-Jul-2023 19:14:05 America/Boise] PHP Warning:  session_start(): Session cannot be started after headers have already been sent in /home2/icsbinco/public_html/abcd2/header.php on line 5
+[24-Jul-2023 19:14:05 America/Boise] PHP Warning:  session_start(): Session cannot be started after headers have already been sent in /home2/icsbinco/public_html/abcd2/header.php on line 5
+[24-Jul-2023 19:14:06 America/Boise] PHP Warning:  session_start(): Session cannot be started after headers have already been sent in /home2/icsbinco/public_html/abcd2/header.php on line 5
+[24-Jul-2023 19:14:07 America/Boise] PHP Warning:  session_start(): Session cannot be started after headers have already been sent in /home2/icsbinco/public_html/abcd2/header.php on line 5
+[24-Jul-2023 19:14:07 America/Boise] PHP Warning:  session_start(): Session cannot be started after headers have already been sent in /home2/icsbinco/public_html/abcd2/header.php on line 5
+[24-Jul-2023 19:14:08 America/Boise] PHP Warning:  session_start(): Session cannot be started after headers have already been sent in /home2/icsbinco/public_html/abcd2/header.php on line 5
+[24-Jul-2023 19:14:09 America/Boise] PHP Warning:  session_start(): Session cannot be started after headers have already been sent in /home2/icsbinco/public_html/abcd2/header.php on line 5
+[24-Jul-2023 19:14:09 America/Boise] PHP Warning:  session_start(): Session cannot be started after headers have already been sent in /home2/icsbinco/public_html/abcd2/header.php on line 5
+[24-Jul-2023 19:14:22 America/Boise] PHP Warning:  Cannot modify header information - headers already sent by (output started at /home2/icsbinco/public_html/abcd2/loginForm.php:8) in /home2/icsbinco/public_html/abcd2/login.php on line 30
+[24-Jul-2023 19:15:23 America/Boise] PHP Warning:  mysqli_connect(): (HY000/1045): Access denied for user 'root'@'localhost' (using password: NO) in /home2/icsbinco/public_html/abcd2/import.php on line 9
+[24-Jul-2023 19:16:07 America/Boise] PHP Warning:  session_start(): Session cannot be started after headers have already been sent in /home2/icsbinco/public_html/abcd2/header.php on line 5
+[24-Jul-2023 19:16:08 America/Boise] PHP Warning:  session_start(): Session cannot be started after headers have already been sent in /home2/icsbinco/public_html/abcd2/header.php on line 5
+[24-Jul-2023 19:16:09 America/Boise] PHP Warning:  session_start(): Session cannot be started after headers have already been sent in /home2/icsbinco/public_html/abcd2/header.php on line 5
+[24-Jul-2023 19:16:10 America/Boise] PHP Warning:  session_start(): Session cannot be started after headers have already been sent in /home2/icsbinco/public_html/abcd2/header.php on line 5
+[24-Jul-2023 19:16:17 America/Boise] PHP Warning:  mysqli::__construct(): (HY000/1045): Access denied for user 'root'@'localhost' (using password: NO) in /home2/icsbinco/public_html/abcd2/artistForm.php on line 19
+[24-Jul-2023 19:16:58 America/Boise] PHP Warning:  Cannot modify header information - headers already sent by (output started at /home2/icsbinco/public_html/abcd2/loginForm.php:8) in /home2/icsbinco/public_html/abcd2/login.php on line 30
+[24-Jul-2023 19:17:30 America/Boise] PHP Warning:  session_regenerate_id(): Session ID cannot be regenerated when there is no active session in /home2/icsbinco/public_html/abcd2/logout.php on line 8
+[24-Jul-2023 19:17:38 America/Boise] PHP Warning:  foreach() argument must be of type array|object, string given in /home2/icsbinco/public_html/abcd2/admin_query.php on line 95
+[24-Jul-2023 19:17:44 America/Boise] PHP Warning:  foreach() argument must be of type array|object, string given in /home2/icsbinco/public_html/abcd2/admin_query.php on line 95
+[24-Jul-2023 19:17:47 America/Boise] PHP Warning:  Undefined array key "category" in /home2/icsbinco/public_html/abcd2/admin_query.php on line 45
+[24-Jul-2023 19:17:47 America/Boise] PHP Fatal error:  Uncaught TypeError: implode(): Argument #1 ($pieces) must be of type array, string given in /home2/icsbinco/public_html/abcd2/admin_query.php:45
+Stack trace:
+#0 /home2/icsbinco/public_html/abcd2/admin_query.php(45): implode(',', NULL)
+#1 {main}
+  thrown in /home2/icsbinco/public_html/abcd2/admin_query.php on line 45
+[24-Jul-2023 19:18:09 America/Boise] PHP Warning:  Cannot modify header information - headers already sent by (output started at /home2/icsbinco/public_html/abcd2/loginForm.php:8) in /home2/icsbinco/public_html/abcd2/login.php on line 30
+[24-Jul-2023 19:19:10 America/Boise] PHP Warning:  session_start(): Session cannot be started after headers have already been sent in /home2/icsbinco/public_html/abcd2/header.php on line 5
+[24-Jul-2023 19:19:11 America/Boise] PHP Warning:  session_start(): Session cannot be started after headers have already been sent in /home2/icsbinco/public_html/abcd2/header.php on line 5
+[24-Jul-2023 19:19:12 America/Boise] PHP Warning:  session_start(): Session cannot be started after headers have already been sent in /home2/icsbinco/public_html/abcd2/header.php on line 5
+[25-Jul-2023 10:37:29 America/Boise] PHP Warning:  session_start(): Session cannot be started after headers have already been sent in /home2/icsbinco/public_html/abcd2/header.php on line 5
+[25-Jul-2023 17:04:46 America/Boise] PHP Warning:  Undefined variable $to_hide in /home2/icsbinco/public_html/abcd2/quiz.php on line 83
+[25-Jul-2023 17:04:46 America/Boise] PHP Warning:  Undefined variable $dress_Image2 in /home2/icsbinco/public_html/abcd2/quiz.php on line 85
+[25-Jul-2023 17:04:46 America/Boise] PHP Warning:  Undefined variable $correctanswer3 in /home2/icsbinco/public_html/abcd2/quiz.php on line 86
+[25-Jul-2023 17:04:46 America/Boise] PHP Warning:  Undefined variable $answer3 in /home2/icsbinco/public_html/abcd2/quiz.php on line 86
+[25-Jul-2023 17:04:46 America/Boise] PHP Warning:  Undefined variable $correctanswer3 in /home2/icsbinco/public_html/abcd2/quiz.php on line 94
+[25-Jul-2023 17:04:46 America/Boise] PHP Warning:  Undefined variable $to_hide in /home2/icsbinco/public_html/abcd2/quiz.php on line 100
+[25-Jul-2023 17:05:46 America/Boise] PHP Warning:  session_start(): Session cannot be started after headers have already been sent in /home2/icsbinco/public_html/abcd2/register.php on line 10
+[28-Jul-2023 13:03:36 America/Boise] PHP Warning:  Cannot modify header information - headers already sent by (output started at /home2/icsbinco/public_html/abcd2/loginForm.php:8) in /home2/icsbinco/public_html/abcd2/login.php on line 30
+[28-Jul-2023 13:04:05 America/Boise] PHP Warning:  session_regenerate_id(): Session ID cannot be regenerated when there is no active session in /home2/icsbinco/public_html/abcd2/logout.php on line 8
+[28-Jul-2023 13:04:22 America/Boise] PHP Warning:  session_start(): Session cannot be started after headers have already been sent in /home2/icsbinco/public_html/abcd2/register.php on line 10
+[28-Jul-2023 13:04:22 America/Boise] PHP Warning:  Cannot modify header information - headers already sent by (output started at /home2/icsbinco/public_html/abcd2/register.php:1) in /home2/icsbinco/public_html/abcd2/register.php on line 39
+[28-Jul-2023 13:04:55 America/Boise] PHP Warning:  session_start(): Session cannot be started after headers have already been sent in /home2/icsbinco/public_html/abcd2/header.php on line 5
+[28-Jul-2023 13:04:56 America/Boise] PHP Warning:  session_start(): Session cannot be started after headers have already been sent in /home2/icsbinco/public_html/abcd2/header.php on line 5
+[28-Jul-2023 13:04:57 America/Boise] PHP Warning:  session_start(): Session cannot be started after headers have already been sent in /home2/icsbinco/public_html/abcd2/header.php on line 5
+[28-Jul-2023 13:04:59 America/Boise] PHP Warning:  session_start(): Session cannot be started after headers have already been sent in /home2/icsbinco/public_html/abcd2/header.php on line 5
+[28-Jul-2023 13:05:00 America/Boise] PHP Warning:  session_start(): Session cannot be started after headers have already been sent in /home2/icsbinco/public_html/abcd2/header.php on line 5
+[28-Jul-2023 21:16:23 America/Boise] PHP Warning:  Cannot modify header information - headers already sent by (output started at /home2/icsbinco/public_html/abcd2/loginForm.php:8) in /home2/icsbinco/public_html/abcd2/login.php on line 30
+[28-Jul-2023 21:17:01 America/Boise] PHP Warning:  session_regenerate_id(): Session ID cannot be regenerated when there is no active session in /home2/icsbinco/public_html/abcd2/logout.php on line 8
+[29-Jul-2023 10:44:39 America/Boise] PHP Warning:  Cannot modify header information - headers already sent by (output started at /home2/icsbinco/public_html/abcd2/loginForm.php:8) in /home2/icsbinco/public_html/abcd2/login.php on line 30
+[29-Jul-2023 10:44:55 America/Boise] PHP Warning:  Undefined variable $to_hide in /home2/icsbinco/public_html/abcd2/quiz.php on line 83
+[29-Jul-2023 10:44:55 America/Boise] PHP Warning:  Undefined variable $dress_Image2 in /home2/icsbinco/public_html/abcd2/quiz.php on line 85
+[29-Jul-2023 10:44:55 America/Boise] PHP Warning:  Undefined variable $correctanswer3 in /home2/icsbinco/public_html/abcd2/quiz.php on line 86
+[29-Jul-2023 10:44:55 America/Boise] PHP Warning:  Undefined variable $answer3 in /home2/icsbinco/public_html/abcd2/quiz.php on line 86
+[29-Jul-2023 10:44:55 America/Boise] PHP Warning:  Undefined variable $correctanswer3 in /home2/icsbinco/public_html/abcd2/quiz.php on line 94
+[29-Jul-2023 10:44:55 America/Boise] PHP Warning:  Undefined variable $to_hide in /home2/icsbinco/public_html/abcd2/quiz.php on line 100
+[29-Jul-2023 10:44:58 America/Boise] PHP Warning:  Undefined variable $to_hide in /home2/icsbinco/public_html/abcd2/quiz.php on line 83
+[29-Jul-2023 10:44:58 America/Boise] PHP Warning:  Undefined variable $dress_Image2 in /home2/icsbinco/public_html/abcd2/quiz.php on line 85
+[29-Jul-2023 10:44:58 America/Boise] PHP Warning:  Undefined variable $correctanswer3 in /home2/icsbinco/public_html/abcd2/quiz.php on line 86
+[29-Jul-2023 10:44:58 America/Boise] PHP Warning:  Undefined variable $answer3 in /home2/icsbinco/public_html/abcd2/quiz.php on line 86
+[29-Jul-2023 10:44:58 America/Boise] PHP Warning:  Undefined variable $correctanswer3 in /home2/icsbinco/public_html/abcd2/quiz.php on line 94
+[29-Jul-2023 10:44:58 America/Boise] PHP Warning:  Undefined variable $to_hide in /home2/icsbinco/public_html/abcd2/quiz.php on line 100
+[29-Jul-2023 11:00:44 America/Boise] PHP Warning:  Undefined variable $to_hide in /home2/icsbinco/public_html/abcd2/quiz.php on line 83
+[29-Jul-2023 11:00:44 America/Boise] PHP Warning:  Undefined variable $dress_Image2 in /home2/icsbinco/public_html/abcd2/quiz.php on line 85
+[29-Jul-2023 11:00:44 America/Boise] PHP Warning:  Undefined variable $correctanswer3 in /home2/icsbinco/public_html/abcd2/quiz.php on line 86
+[29-Jul-2023 11:00:44 America/Boise] PHP Warning:  Undefined variable $answer3 in /home2/icsbinco/public_html/abcd2/quiz.php on line 86
+[29-Jul-2023 11:00:44 America/Boise] PHP Warning:  Undefined variable $correctanswer3 in /home2/icsbinco/public_html/abcd2/quiz.php on line 94
+[29-Jul-2023 11:00:44 America/Boise] PHP Warning:  Undefined variable $to_hide in /home2/icsbinco/public_html/abcd2/quiz.php on line 100
+[29-Jul-2023 11:00:48 America/Boise] PHP Warning:  Undefined variable $to_hide in /home2/icsbinco/public_html/abcd2/quiz.php on line 83
+[29-Jul-2023 11:00:48 America/Boise] PHP Warning:  Undefined variable $dress_Image2 in /home2/icsbinco/public_html/abcd2/quiz.php on line 85
+[29-Jul-2023 11:00:48 America/Boise] PHP Warning:  Undefined variable $correctanswer3 in /home2/icsbinco/public_html/abcd2/quiz.php on line 86
+[29-Jul-2023 11:00:48 America/Boise] PHP Warning:  Undefined variable $answer3 in /home2/icsbinco/public_html/abcd2/quiz.php on line 86
+[29-Jul-2023 11:00:48 America/Boise] PHP Warning:  Undefined variable $correctanswer3 in /home2/icsbinco/public_html/abcd2/quiz.php on line 94
+[29-Jul-2023 11:00:48 America/Boise] PHP Warning:  Undefined variable $to_hide in /home2/icsbinco/public_html/abcd2/quiz.php on line 100
+[29-Jul-2023 11:00:52 America/Boise] PHP Warning:  Undefined variable $to_hide in /home2/icsbinco/public_html/abcd2/quiz.php on line 83
+[29-Jul-2023 11:00:52 America/Boise] PHP Warning:  Undefined variable $dress_Image2 in /home2/icsbinco/public_html/abcd2/quiz.php on line 85
+[29-Jul-2023 11:00:52 America/Boise] PHP Warning:  Undefined variable $correctanswer3 in /home2/icsbinco/public_html/abcd2/quiz.php on line 86
+[29-Jul-2023 11:00:52 America/Boise] PHP Warning:  Undefined variable $answer3 in /home2/icsbinco/public_html/abcd2/quiz.php on line 86
+[29-Jul-2023 11:00:52 America/Boise] PHP Warning:  Undefined variable $correctanswer3 in /home2/icsbinco/public_html/abcd2/quiz.php on line 94
+[29-Jul-2023 11:00:52 America/Boise] PHP Warning:  Undefined variable $to_hide in /home2/icsbinco/public_html/abcd2/quiz.php on line 100
+[29-Jul-2023 11:00:52 America/Boise] PHP Warning:  Undefined variable $to_hide in /home2/icsbinco/public_html/abcd2/quiz.php on line 83
+[29-Jul-2023 11:00:52 America/Boise] PHP Warning:  Undefined variable $dress_Image2 in /home2/icsbinco/public_html/abcd2/quiz.php on line 85
+[29-Jul-2023 11:00:52 America/Boise] PHP Warning:  Undefined variable $correctanswer3 in /home2/icsbinco/public_html/abcd2/quiz.php on line 86
+[29-Jul-2023 11:00:52 America/Boise] PHP Warning:  Undefined variable $answer3 in /home2/icsbinco/public_html/abcd2/quiz.php on line 86
+[29-Jul-2023 11:00:52 America/Boise] PHP Warning:  Undefined variable $correctanswer3 in /home2/icsbinco/public_html/abcd2/quiz.php on line 94
+[29-Jul-2023 11:00:52 America/Boise] PHP Warning:  Undefined variable $to_hide in /home2/icsbinco/public_html/abcd2/quiz.php on line 100
+[29-Jul-2023 11:01:01 America/Boise] PHP Warning:  Undefined variable $to_hide in /home2/icsbinco/public_html/abcd2/quiz.php on line 83
+[29-Jul-2023 11:01:01 America/Boise] PHP Warning:  Undefined variable $dress_Image2 in /home2/icsbinco/public_html/abcd2/quiz.php on line 85
+[29-Jul-2023 11:01:01 America/Boise] PHP Warning:  Undefined variable $correctanswer3 in /home2/icsbinco/public_html/abcd2/quiz.php on line 86
+[29-Jul-2023 11:01:01 America/Boise] PHP Warning:  Undefined variable $answer3 in /home2/icsbinco/public_html/abcd2/quiz.php on line 86
+[29-Jul-2023 11:01:01 America/Boise] PHP Warning:  Undefined variable $correctanswer3 in /home2/icsbinco/public_html/abcd2/quiz.php on line 94
+[29-Jul-2023 11:01:01 America/Boise] PHP Warning:  Undefined variable $to_hide in /home2/icsbinco/public_html/abcd2/quiz.php on line 100
+[29-Jul-2023 11:01:05 America/Boise] PHP Warning:  Undefined variable $to_hide in /home2/icsbinco/public_html/abcd2/quiz.php on line 83
+[29-Jul-2023 11:01:05 America/Boise] PHP Warning:  Undefined variable $dress_Image2 in /home2/icsbinco/public_html/abcd2/quiz.php on line 85
+[29-Jul-2023 11:01:05 America/Boise] PHP Warning:  Undefined variable $correctanswer3 in /home2/icsbinco/public_html/abcd2/quiz.php on line 86
+[29-Jul-2023 11:01:05 America/Boise] PHP Warning:  Undefined variable $answer3 in /home2/icsbinco/public_html/abcd2/quiz.php on line 86
+[29-Jul-2023 11:01:05 America/Boise] PHP Warning:  Undefined variable $correctanswer3 in /home2/icsbinco/public_html/abcd2/quiz.php on line 94
+[29-Jul-2023 11:01:05 America/Boise] PHP Warning:  Undefined variable $to_hide in /home2/icsbinco/public_html/abcd2/quiz.php on line 100
+[29-Jul-2023 11:01:06 America/Boise] PHP Warning:  Undefined variable $to_hide in /home2/icsbinco/public_html/abcd2/quiz.php on line 83
+[29-Jul-2023 11:01:06 America/Boise] PHP Warning:  Undefined variable $dress_Image2 in /home2/icsbinco/public_html/abcd2/quiz.php on line 85
+[29-Jul-2023 11:01:06 America/Boise] PHP Warning:  Undefined variable $correctanswer3 in /home2/icsbinco/public_html/abcd2/quiz.php on line 86
+[29-Jul-2023 11:01:06 America/Boise] PHP Warning:  Undefined variable $answer3 in /home2/icsbinco/public_html/abcd2/quiz.php on line 86
+[29-Jul-2023 11:01:06 America/Boise] PHP Warning:  Undefined variable $correctanswer3 in /home2/icsbinco/public_html/abcd2/quiz.php on line 94
+[29-Jul-2023 11:01:06 America/Boise] PHP Warning:  Undefined variable $to_hide in /home2/icsbinco/public_html/abcd2/quiz.php on line 100
+[29-Jul-2023 11:01:16 America/Boise] PHP Warning:  Undefined variable $to_hide in /home2/icsbinco/public_html/abcd2/quiz.php on line 83
+[29-Jul-2023 11:01:16 America/Boise] PHP Warning:  Undefined variable $dress_Image2 in /home2/icsbinco/public_html/abcd2/quiz.php on line 85
+[29-Jul-2023 11:01:16 America/Boise] PHP Warning:  Undefined variable $correctanswer3 in /home2/icsbinco/public_html/abcd2/quiz.php on line 86
+[29-Jul-2023 11:01:16 America/Boise] PHP Warning:  Undefined variable $answer3 in /home2/icsbinco/public_html/abcd2/quiz.php on line 86
+[29-Jul-2023 11:01:16 America/Boise] PHP Warning:  Undefined variable $correctanswer3 in /home2/icsbinco/public_html/abcd2/quiz.php on line 94
+[29-Jul-2023 11:01:16 America/Boise] PHP Warning:  Undefined variable $to_hide in /home2/icsbinco/public_html/abcd2/quiz.php on line 100
+[29-Jul-2023 11:01:16 America/Boise] PHP Warning:  Undefined variable $to_hide in /home2/icsbinco/public_html/abcd2/quiz.php on line 83
+[29-Jul-2023 11:01:16 America/Boise] PHP Warning:  Undefined variable $dress_Image2 in /home2/icsbinco/public_html/abcd2/quiz.php on line 85
+[29-Jul-2023 11:01:16 America/Boise] PHP Warning:  Undefined variable $correctanswer3 in /home2/icsbinco/public_html/abcd2/quiz.php on line 86
+[29-Jul-2023 11:01:16 America/Boise] PHP Warning:  Undefined variable $answer3 in /home2/icsbinco/public_html/abcd2/quiz.php on line 86
+[29-Jul-2023 11:01:16 America/Boise] PHP Warning:  Undefined variable $correctanswer3 in /home2/icsbinco/public_html/abcd2/quiz.php on line 94
+[29-Jul-2023 11:01:16 America/Boise] PHP Warning:  Undefined variable $to_hide in /home2/icsbinco/public_html/abcd2/quiz.php on line 100
+[29-Jul-2023 11:01:28 America/Boise] PHP Warning:  Undefined variable $to_hide in /home2/icsbinco/public_html/abcd2/quiz.php on line 83
+[29-Jul-2023 11:01:28 America/Boise] PHP Warning:  Undefined variable $dress_Image2 in /home2/icsbinco/public_html/abcd2/quiz.php on line 85
+[29-Jul-2023 11:01:28 America/Boise] PHP Warning:  Undefined variable $correctanswer3 in /home2/icsbinco/public_html/abcd2/quiz.php on line 86
+[29-Jul-2023 11:01:28 America/Boise] PHP Warning:  Undefined variable $answer3 in /home2/icsbinco/public_html/abcd2/quiz.php on line 86
+[29-Jul-2023 11:01:28 America/Boise] PHP Warning:  Undefined variable $correctanswer3 in /home2/icsbinco/public_html/abcd2/quiz.php on line 94
+[29-Jul-2023 11:01:28 America/Boise] PHP Warning:  Undefined variable $to_hide in /home2/icsbinco/public_html/abcd2/quiz.php on line 100
+[29-Jul-2023 11:01:28 America/Boise] PHP Warning:  Undefined variable $to_hide in /home2/icsbinco/public_html/abcd2/quiz.php on line 83
+[29-Jul-2023 11:01:28 America/Boise] PHP Warning:  Undefined variable $dress_Image2 in /home2/icsbinco/public_html/abcd2/quiz.php on line 85
+[29-Jul-2023 11:01:28 America/Boise] PHP Warning:  Undefined variable $correctanswer3 in /home2/icsbinco/public_html/abcd2/quiz.php on line 86
+[29-Jul-2023 11:01:28 America/Boise] PHP Warning:  Undefined variable $answer3 in /home2/icsbinco/public_html/abcd2/quiz.php on line 86
+[29-Jul-2023 11:01:28 America/Boise] PHP Warning:  Undefined variable $correctanswer3 in /home2/icsbinco/public_html/abcd2/quiz.php on line 94
+[29-Jul-2023 11:01:28 America/Boise] PHP Warning:  Undefined variable $to_hide in /home2/icsbinco/public_html/abcd2/quiz.php on line 100
+[29-Jul-2023 11:01:33 America/Boise] PHP Warning:  Undefined variable $to_hide in /home2/icsbinco/public_html/abcd2/quiz.php on line 83
+[29-Jul-2023 11:01:33 America/Boise] PHP Warning:  Undefined variable $dress_Image2 in /home2/icsbinco/public_html/abcd2/quiz.php on line 85
+[29-Jul-2023 11:01:33 America/Boise] PHP Warning:  Undefined variable $correctanswer3 in /home2/icsbinco/public_html/abcd2/quiz.php on line 86
+[29-Jul-2023 11:01:33 America/Boise] PHP Warning:  Undefined variable $answer3 in /home2/icsbinco/public_html/abcd2/quiz.php on line 86
+[29-Jul-2023 11:01:33 America/Boise] PHP Warning:  Undefined variable $correctanswer3 in /home2/icsbinco/public_html/abcd2/quiz.php on line 94
+[29-Jul-2023 11:01:33 America/Boise] PHP Warning:  Undefined variable $to_hide in /home2/icsbinco/public_html/abcd2/quiz.php on line 100
+[29-Jul-2023 11:01:33 America/Boise] PHP Warning:  Undefined variable $to_hide in /home2/icsbinco/public_html/abcd2/quiz.php on line 83
+[29-Jul-2023 11:01:33 America/Boise] PHP Warning:  Undefined variable $dress_Image2 in /home2/icsbinco/public_html/abcd2/quiz.php on line 85
+[29-Jul-2023 11:01:33 America/Boise] PHP Warning:  Undefined variable $correctanswer3 in /home2/icsbinco/public_html/abcd2/quiz.php on line 86
+[29-Jul-2023 11:01:33 America/Boise] PHP Warning:  Undefined variable $answer3 in /home2/icsbinco/public_html/abcd2/quiz.php on line 86
+[29-Jul-2023 11:01:33 America/Boise] PHP Warning:  Undefined variable $correctanswer3 in /home2/icsbinco/public_html/abcd2/quiz.php on line 94
+[29-Jul-2023 11:01:33 America/Boise] PHP Warning:  Undefined variable $to_hide in /home2/icsbinco/public_html/abcd2/quiz.php on line 100
+[29-Jul-2023 11:01:38 America/Boise] PHP Warning:  Undefined variable $to_hide in /home2/icsbinco/public_html/abcd2/quiz.php on line 83
+[29-Jul-2023 11:01:38 America/Boise] PHP Warning:  Undefined variable $dress_Image2 in /home2/icsbinco/public_html/abcd2/quiz.php on line 85
+[29-Jul-2023 11:01:38 America/Boise] PHP Warning:  Undefined variable $correctanswer3 in /home2/icsbinco/public_html/abcd2/quiz.php on line 86
+[29-Jul-2023 11:01:38 America/Boise] PHP Warning:  Undefined variable $answer3 in /home2/icsbinco/public_html/abcd2/quiz.php on line 86
+[29-Jul-2023 11:01:38 America/Boise] PHP Warning:  Undefined variable $correctanswer3 in /home2/icsbinco/public_html/abcd2/quiz.php on line 94
+[29-Jul-2023 11:01:38 America/Boise] PHP Warning:  Undefined variable $to_hide in /home2/icsbinco/public_html/abcd2/quiz.php on line 100
+[31-Jul-2023 10:05:04 America/Boise] PHP Warning:  Cannot modify header information - headers already sent by (output started at /home2/icsbinco/public_html/abcd2/loginForm.php:8) in /home2/icsbinco/public_html/abcd2/login.php on line 30
+[31-Jul-2023 10:06:26 America/Boise] PHP Warning:  session_regenerate_id(): Session ID cannot be regenerated when there is no active session in /home2/icsbinco/public_html/abcd2/logout.php on line 8
+[31-Jul-2023 10:07:05 America/Boise] PHP Warning:  session_start(): Session cannot be started after headers have already been sent in /home2/icsbinco/public_html/abcd2/register.php on line 10
+[31-Jul-2023 10:07:06 America/Boise] PHP Warning:  Cannot modify header information - headers already sent by (output started at /home2/icsbinco/public_html/abcd2/register.php:1) in /home2/icsbinco/public_html/abcd2/register.php on line 39
+[31-Jul-2023 17:00:25 America/Boise] PHP Warning:  Cannot modify header information - headers already sent by (output started at /home2/icsbinco/public_html/abcd2/loginForm.php:8) in /home2/icsbinco/public_html/abcd2/login.php on line 30
+[31-Jul-2023 17:00:32 America/Boise] PHP Warning:  Undefined variable $to_hide in /home2/icsbinco/public_html/abcd2/quiz.php on line 85
+[31-Jul-2023 17:00:32 America/Boise] PHP Warning:  Undefined variable $dress_Image2 in /home2/icsbinco/public_html/abcd2/quiz.php on line 87
+[31-Jul-2023 17:00:32 America/Boise] PHP Warning:  Undefined variable $correctanswer3 in /home2/icsbinco/public_html/abcd2/quiz.php on line 88
+[31-Jul-2023 17:00:32 America/Boise] PHP Warning:  Undefined variable $answer3 in /home2/icsbinco/public_html/abcd2/quiz.php on line 88
+[31-Jul-2023 17:00:32 America/Boise] PHP Warning:  Undefined variable $correctanswer3 in /home2/icsbinco/public_html/abcd2/quiz.php on line 96
+[31-Jul-2023 17:00:32 America/Boise] PHP Warning:  Undefined variable $to_hide in /home2/icsbinco/public_html/abcd2/quiz.php on line 102
+[31-Jul-2023 17:00:40 America/Boise] PHP Warning:  Undefined variable $to_hide in /home2/icsbinco/public_html/abcd2/quiz.php on line 85
+[31-Jul-2023 17:00:40 America/Boise] PHP Warning:  Undefined variable $dress_Image2 in /home2/icsbinco/public_html/abcd2/quiz.php on line 87
+[31-Jul-2023 17:00:40 America/Boise] PHP Warning:  Undefined variable $correctanswer3 in /home2/icsbinco/public_html/abcd2/quiz.php on line 88
+[31-Jul-2023 17:00:40 America/Boise] PHP Warning:  Undefined variable $answer3 in /home2/icsbinco/public_html/abcd2/quiz.php on line 88
+[31-Jul-2023 17:00:40 America/Boise] PHP Warning:  Undefined variable $correctanswer3 in /home2/icsbinco/public_html/abcd2/quiz.php on line 96
+[31-Jul-2023 17:00:40 America/Boise] PHP Warning:  Undefined variable $to_hide in /home2/icsbinco/public_html/abcd2/quiz.php on line 102
+[31-Jul-2023 17:00:46 America/Boise] PHP Warning:  Undefined variable $to_hide in /home2/icsbinco/public_html/abcd2/quiz.php on line 85
+[31-Jul-2023 17:00:46 America/Boise] PHP Warning:  Undefined variable $dress_Image2 in /home2/icsbinco/public_html/abcd2/quiz.php on line 87
+[31-Jul-2023 17:00:46 America/Boise] PHP Warning:  Undefined variable $correctanswer3 in /home2/icsbinco/public_html/abcd2/quiz.php on line 88
+[31-Jul-2023 17:00:46 America/Boise] PHP Warning:  Undefined variable $answer3 in /home2/icsbinco/public_html/abcd2/quiz.php on line 88
+[31-Jul-2023 17:00:46 America/Boise] PHP Warning:  Undefined variable $correctanswer3 in /home2/icsbinco/public_html/abcd2/quiz.php on line 96
+[31-Jul-2023 17:00:46 America/Boise] PHP Warning:  Undefined variable $to_hide in /home2/icsbinco/public_html/abcd2/quiz.php on line 102
+[31-Jul-2023 17:00:49 America/Boise] PHP Warning:  Undefined variable $to_hide in /home2/icsbinco/public_html/abcd2/quiz.php on line 85
+[31-Jul-2023 17:00:49 America/Boise] PHP Warning:  Undefined variable $dress_Image2 in /home2/icsbinco/public_html/abcd2/quiz.php on line 87
+[31-Jul-2023 17:00:49 America/Boise] PHP Warning:  Undefined variable $correctanswer3 in /home2/icsbinco/public_html/abcd2/quiz.php on line 88
+[31-Jul-2023 17:00:49 America/Boise] PHP Warning:  Undefined variable $answer3 in /home2/icsbinco/public_html/abcd2/quiz.php on line 88
+[31-Jul-2023 17:00:49 America/Boise] PHP Warning:  Undefined variable $correctanswer3 in /home2/icsbinco/public_html/abcd2/quiz.php on line 96
+[31-Jul-2023 17:00:49 America/Boise] PHP Warning:  Undefined variable $to_hide in /home2/icsbinco/public_html/abcd2/quiz.php on line 102
+[31-Jul-2023 17:00:59 America/Boise] PHP Warning:  Undefined variable $to_hide in /home2/icsbinco/public_html/abcd2/quiz.php on line 85
+[31-Jul-2023 17:00:59 America/Boise] PHP Warning:  Undefined variable $dress_Image2 in /home2/icsbinco/public_html/abcd2/quiz.php on line 87
+[31-Jul-2023 17:00:59 America/Boise] PHP Warning:  Undefined variable $correctanswer3 in /home2/icsbinco/public_html/abcd2/quiz.php on line 88
+[31-Jul-2023 17:00:59 America/Boise] PHP Warning:  Undefined variable $answer3 in /home2/icsbinco/public_html/abcd2/quiz.php on line 88
+[31-Jul-2023 17:00:59 America/Boise] PHP Warning:  Undefined variable $correctanswer3 in /home2/icsbinco/public_html/abcd2/quiz.php on line 96
+[31-Jul-2023 17:00:59 America/Boise] PHP Warning:  Undefined variable $to_hide in /home2/icsbinco/public_html/abcd2/quiz.php on line 102
+[31-Jul-2023 17:02:48 America/Boise] PHP Warning:  Undefined variable $to_hide in /home2/icsbinco/public_html/abcd2/quiz.php on line 83
+[31-Jul-2023 17:02:48 America/Boise] PHP Warning:  Undefined variable $dress_Image2 in /home2/icsbinco/public_html/abcd2/quiz.php on line 85
+[31-Jul-2023 17:02:48 America/Boise] PHP Warning:  Undefined variable $correctanswer3 in /home2/icsbinco/public_html/abcd2/quiz.php on line 86
+[31-Jul-2023 17:02:48 America/Boise] PHP Warning:  Undefined variable $answer3 in /home2/icsbinco/public_html/abcd2/quiz.php on line 86
+[31-Jul-2023 17:02:48 America/Boise] PHP Warning:  Undefined variable $correctanswer3 in /home2/icsbinco/public_html/abcd2/quiz.php on line 94
+[31-Jul-2023 17:02:48 America/Boise] PHP Warning:  Undefined variable $to_hide in /home2/icsbinco/public_html/abcd2/quiz.php on line 100
+[31-Jul-2023 17:02:56 America/Boise] PHP Warning:  Undefined variable $to_hide in /home2/icsbinco/public_html/abcd2/quiz.php on line 83
+[31-Jul-2023 17:02:56 America/Boise] PHP Warning:  Undefined variable $dress_Image2 in /home2/icsbinco/public_html/abcd2/quiz.php on line 85
+[31-Jul-2023 17:02:56 America/Boise] PHP Warning:  Undefined variable $correctanswer3 in /home2/icsbinco/public_html/abcd2/quiz.php on line 86
+[31-Jul-2023 17:02:56 America/Boise] PHP Warning:  Undefined variable $answer3 in /home2/icsbinco/public_html/abcd2/quiz.php on line 86
+[31-Jul-2023 17:02:56 America/Boise] PHP Warning:  Undefined variable $correctanswer3 in /home2/icsbinco/public_html/abcd2/quiz.php on line 94
+[31-Jul-2023 17:02:56 America/Boise] PHP Warning:  Undefined variable $to_hide in /home2/icsbinco/public_html/abcd2/quiz.php on line 100
+[31-Jul-2023 17:02:59 America/Boise] PHP Warning:  Undefined variable $to_hide in /home2/icsbinco/public_html/abcd2/quiz.php on line 83
+[31-Jul-2023 17:02:59 America/Boise] PHP Warning:  Undefined variable $dress_Image2 in /home2/icsbinco/public_html/abcd2/quiz.php on line 85
+[31-Jul-2023 17:02:59 America/Boise] PHP Warning:  Undefined variable $correctanswer3 in /home2/icsbinco/public_html/abcd2/quiz.php on line 86
+[31-Jul-2023 17:02:59 America/Boise] PHP Warning:  Undefined variable $answer3 in /home2/icsbinco/public_html/abcd2/quiz.php on line 86
+[31-Jul-2023 17:02:59 America/Boise] PHP Warning:  Undefined variable $correctanswer3 in /home2/icsbinco/public_html/abcd2/quiz.php on line 94
+[31-Jul-2023 17:02:59 America/Boise] PHP Warning:  Undefined variable $to_hide in /home2/icsbinco/public_html/abcd2/quiz.php on line 100
+[31-Jul-2023 17:03:06 America/Boise] PHP Warning:  Undefined variable $to_hide in /home2/icsbinco/public_html/abcd2/quiz.php on line 83
+[31-Jul-2023 17:03:06 America/Boise] PHP Warning:  Undefined variable $dress_Image2 in /home2/icsbinco/public_html/abcd2/quiz.php on line 85
+[31-Jul-2023 17:03:06 America/Boise] PHP Warning:  Undefined variable $correctanswer3 in /home2/icsbinco/public_html/abcd2/quiz.php on line 86
+[31-Jul-2023 17:03:06 America/Boise] PHP Warning:  Undefined variable $answer3 in /home2/icsbinco/public_html/abcd2/quiz.php on line 86
+[31-Jul-2023 17:03:06 America/Boise] PHP Warning:  Undefined variable $correctanswer3 in /home2/icsbinco/public_html/abcd2/quiz.php on line 94
+[31-Jul-2023 17:03:06 America/Boise] PHP Warning:  Undefined variable $to_hide in /home2/icsbinco/public_html/abcd2/quiz.php on line 100
+[31-Jul-2023 17:03:17 America/Boise] PHP Warning:  Undefined variable $to_hide in /home2/icsbinco/public_html/abcd2/quiz.php on line 83
+[31-Jul-2023 17:03:17 America/Boise] PHP Warning:  Undefined variable $dress_Image2 in /home2/icsbinco/public_html/abcd2/quiz.php on line 85
+[31-Jul-2023 17:03:17 America/Boise] PHP Warning:  Undefined variable $correctanswer3 in /home2/icsbinco/public_html/abcd2/quiz.php on line 86
+[31-Jul-2023 17:03:17 America/Boise] PHP Warning:  Undefined variable $answer3 in /home2/icsbinco/public_html/abcd2/quiz.php on line 86
+[31-Jul-2023 17:03:17 America/Boise] PHP Warning:  Undefined variable $correctanswer3 in /home2/icsbinco/public_html/abcd2/quiz.php on line 94
+[31-Jul-2023 17:03:17 America/Boise] PHP Warning:  Undefined variable $to_hide in /home2/icsbinco/public_html/abcd2/quiz.php on line 100
+[31-Jul-2023 17:03:27 America/Boise] PHP Warning:  Undefined variable $to_hide in /home2/icsbinco/public_html/abcd2/quiz.php on line 83
+[31-Jul-2023 17:03:27 America/Boise] PHP Warning:  Undefined variable $dress_Image2 in /home2/icsbinco/public_html/abcd2/quiz.php on line 85
+[31-Jul-2023 17:03:27 America/Boise] PHP Warning:  Undefined variable $correctanswer3 in /home2/icsbinco/public_html/abcd2/quiz.php on line 86
+[31-Jul-2023 17:03:27 America/Boise] PHP Warning:  Undefined variable $answer3 in /home2/icsbinco/public_html/abcd2/quiz.php on line 86
+[31-Jul-2023 17:03:27 America/Boise] PHP Warning:  Undefined variable $correctanswer3 in /home2/icsbinco/public_html/abcd2/quiz.php on line 94
+[31-Jul-2023 17:03:27 America/Boise] PHP Warning:  Undefined variable $to_hide in /home2/icsbinco/public_html/abcd2/quiz.php on line 100
+[31-Jul-2023 17:03:32 America/Boise] PHP Warning:  Undefined variable $to_hide in /home2/icsbinco/public_html/abcd2/quiz.php on line 83
+[31-Jul-2023 17:03:32 America/Boise] PHP Warning:  Undefined variable $dress_Image2 in /home2/icsbinco/public_html/abcd2/quiz.php on line 85
+[31-Jul-2023 17:03:32 America/Boise] PHP Warning:  Undefined variable $correctanswer3 in /home2/icsbinco/public_html/abcd2/quiz.php on line 86
+[31-Jul-2023 17:03:32 America/Boise] PHP Warning:  Undefined variable $answer3 in /home2/icsbinco/public_html/abcd2/quiz.php on line 86
+[31-Jul-2023 17:03:32 America/Boise] PHP Warning:  Undefined variable $correctanswer3 in /home2/icsbinco/public_html/abcd2/quiz.php on line 94
+[31-Jul-2023 17:03:32 America/Boise] PHP Warning:  Undefined variable $to_hide in /home2/icsbinco/public_html/abcd2/quiz.php on line 100
+[31-Jul-2023 17:07:29 America/Boise] PHP Warning:  Undefined variable $to_hide in /home2/icsbinco/public_html/abcd2/quiz.php on line 83
+[31-Jul-2023 17:07:29 America/Boise] PHP Warning:  Undefined variable $dress_Image2 in /home2/icsbinco/public_html/abcd2/quiz.php on line 85
+[31-Jul-2023 17:07:29 America/Boise] PHP Warning:  Undefined variable $correctanswer3 in /home2/icsbinco/public_html/abcd2/quiz.php on line 86
+[31-Jul-2023 17:07:29 America/Boise] PHP Warning:  Undefined variable $answer3 in /home2/icsbinco/public_html/abcd2/quiz.php on line 86
+[31-Jul-2023 17:07:29 America/Boise] PHP Warning:  Undefined variable $correctanswer3 in /home2/icsbinco/public_html/abcd2/quiz.php on line 94
+[31-Jul-2023 17:07:29 America/Boise] PHP Warning:  Undefined variable $to_hide in /home2/icsbinco/public_html/abcd2/quiz.php on line 100
+[31-Jul-2023 17:07:32 America/Boise] PHP Warning:  Undefined variable $to_hide in /home2/icsbinco/public_html/abcd2/quiz.php on line 83
+[31-Jul-2023 17:07:32 America/Boise] PHP Warning:  Undefined variable $dress_Image2 in /home2/icsbinco/public_html/abcd2/quiz.php on line 85
+[31-Jul-2023 17:07:32 America/Boise] PHP Warning:  Undefined variable $correctanswer3 in /home2/icsbinco/public_html/abcd2/quiz.php on line 86
+[31-Jul-2023 17:07:32 America/Boise] PHP Warning:  Undefined variable $answer3 in /home2/icsbinco/public_html/abcd2/quiz.php on line 86
+[31-Jul-2023 17:07:32 America/Boise] PHP Warning:  Undefined variable $correctanswer3 in /home2/icsbinco/public_html/abcd2/quiz.php on line 94
+[31-Jul-2023 17:07:32 America/Boise] PHP Warning:  Undefined variable $to_hide in /home2/icsbinco/public_html/abcd2/quiz.php on line 100
+[31-Jul-2023 17:07:34 America/Boise] PHP Warning:  Undefined variable $to_hide in /home2/icsbinco/public_html/abcd2/quiz.php on line 83
+[31-Jul-2023 17:07:34 America/Boise] PHP Warning:  Undefined variable $dress_Image2 in /home2/icsbinco/public_html/abcd2/quiz.php on line 85
+[31-Jul-2023 17:07:34 America/Boise] PHP Warning:  Undefined variable $correctanswer3 in /home2/icsbinco/public_html/abcd2/quiz.php on line 86
+[31-Jul-2023 17:07:34 America/Boise] PHP Warning:  Undefined variable $answer3 in /home2/icsbinco/public_html/abcd2/quiz.php on line 86
+[31-Jul-2023 17:07:34 America/Boise] PHP Warning:  Undefined variable $correctanswer3 in /home2/icsbinco/public_html/abcd2/quiz.php on line 94
+[31-Jul-2023 17:07:34 America/Boise] PHP Warning:  Undefined variable $to_hide in /home2/icsbinco/public_html/abcd2/quiz.php on line 100
+[31-Jul-2023 17:07:36 America/Boise] PHP Warning:  Undefined variable $to_hide in /home2/icsbinco/public_html/abcd2/quiz.php on line 83
+[31-Jul-2023 17:07:36 America/Boise] PHP Warning:  Undefined variable $dress_Image2 in /home2/icsbinco/public_html/abcd2/quiz.php on line 85
+[31-Jul-2023 17:07:36 America/Boise] PHP Warning:  Undefined variable $correctanswer3 in /home2/icsbinco/public_html/abcd2/quiz.php on line 86
+[31-Jul-2023 17:07:36 America/Boise] PHP Warning:  Undefined variable $answer3 in /home2/icsbinco/public_html/abcd2/quiz.php on line 86
+[31-Jul-2023 17:07:36 America/Boise] PHP Warning:  Undefined variable $correctanswer3 in /home2/icsbinco/public_html/abcd2/quiz.php on line 94
+[31-Jul-2023 17:07:36 America/Boise] PHP Warning:  Undefined variable $to_hide in /home2/icsbinco/public_html/abcd2/quiz.php on line 100
+[31-Jul-2023 17:07:41 America/Boise] PHP Warning:  Undefined variable $to_hide in /home2/icsbinco/public_html/abcd2/quiz.php on line 83
+[31-Jul-2023 17:07:41 America/Boise] PHP Warning:  Undefined variable $dress_Image2 in /home2/icsbinco/public_html/abcd2/quiz.php on line 85
+[31-Jul-2023 17:07:41 America/Boise] PHP Warning:  Undefined variable $correctanswer3 in /home2/icsbinco/public_html/abcd2/quiz.php on line 86
+[31-Jul-2023 17:07:41 America/Boise] PHP Warning:  Undefined variable $answer3 in /home2/icsbinco/public_html/abcd2/quiz.php on line 86
+[31-Jul-2023 17:07:41 America/Boise] PHP Warning:  Undefined variable $correctanswer3 in /home2/icsbinco/public_html/abcd2/quiz.php on line 94
+[31-Jul-2023 17:07:41 America/Boise] PHP Warning:  Undefined variable $to_hide in /home2/icsbinco/public_html/abcd2/quiz.php on line 100
+[31-Jul-2023 17:07:43 America/Boise] PHP Warning:  Undefined variable $to_hide in /home2/icsbinco/public_html/abcd2/quiz.php on line 83
+[31-Jul-2023 17:07:43 America/Boise] PHP Warning:  Undefined variable $dress_Image2 in /home2/icsbinco/public_html/abcd2/quiz.php on line 85
+[31-Jul-2023 17:07:43 America/Boise] PHP Warning:  Undefined variable $correctanswer3 in /home2/icsbinco/public_html/abcd2/quiz.php on line 86
+[31-Jul-2023 17:07:43 America/Boise] PHP Warning:  Undefined variable $answer3 in /home2/icsbinco/public_html/abcd2/quiz.php on line 86
+[31-Jul-2023 17:07:43 America/Boise] PHP Warning:  Undefined variable $correctanswer3 in /home2/icsbinco/public_html/abcd2/quiz.php on line 94
+[31-Jul-2023 17:07:43 America/Boise] PHP Warning:  Undefined variable $to_hide in /home2/icsbinco/public_html/abcd2/quiz.php on line 100
+[31-Jul-2023 17:13:07 America/Boise] PHP Warning:  Undefined variable $to_hide in /home2/icsbinco/public_html/abcd2/quiz.php on line 83
+[31-Jul-2023 17:13:07 America/Boise] PHP Warning:  Undefined variable $dress_Image2 in /home2/icsbinco/public_html/abcd2/quiz.php on line 85
+[31-Jul-2023 17:13:07 America/Boise] PHP Warning:  Undefined variable $correctanswer3 in /home2/icsbinco/public_html/abcd2/quiz.php on line 86
+[31-Jul-2023 17:13:07 America/Boise] PHP Warning:  Undefined variable $answer3 in /home2/icsbinco/public_html/abcd2/quiz.php on line 86
+[31-Jul-2023 17:13:07 America/Boise] PHP Warning:  Undefined variable $correctanswer3 in /home2/icsbinco/public_html/abcd2/quiz.php on line 94
+[31-Jul-2023 17:13:07 America/Boise] PHP Warning:  Undefined variable $to_hide in /home2/icsbinco/public_html/abcd2/quiz.php on line 100
+[31-Jul-2023 17:13:13 America/Boise] PHP Warning:  Undefined variable $to_hide in /home2/icsbinco/public_html/abcd2/quiz.php on line 83
+[31-Jul-2023 17:13:13 America/Boise] PHP Warning:  Undefined variable $dress_Image2 in /home2/icsbinco/public_html/abcd2/quiz.php on line 85
+[31-Jul-2023 17:13:13 America/Boise] PHP Warning:  Undefined variable $correctanswer3 in /home2/icsbinco/public_html/abcd2/quiz.php on line 86
+[31-Jul-2023 17:13:13 America/Boise] PHP Warning:  Undefined variable $answer3 in /home2/icsbinco/public_html/abcd2/quiz.php on line 86
+[31-Jul-2023 17:13:13 America/Boise] PHP Warning:  Undefined variable $correctanswer3 in /home2/icsbinco/public_html/abcd2/quiz.php on line 94
+[31-Jul-2023 17:13:13 America/Boise] PHP Warning:  Undefined variable $to_hide in /home2/icsbinco/public_html/abcd2/quiz.php on line 100
+[31-Jul-2023 17:13:16 America/Boise] PHP Warning:  Undefined variable $to_hide in /home2/icsbinco/public_html/abcd2/quiz.php on line 83
+[31-Jul-2023 17:13:16 America/Boise] PHP Warning:  Undefined variable $dress_Image2 in /home2/icsbinco/public_html/abcd2/quiz.php on line 85
+[31-Jul-2023 17:13:16 America/Boise] PHP Warning:  Undefined variable $correctanswer3 in /home2/icsbinco/public_html/abcd2/quiz.php on line 86
+[31-Jul-2023 17:13:16 America/Boise] PHP Warning:  Undefined variable $answer3 in /home2/icsbinco/public_html/abcd2/quiz.php on line 86
+[31-Jul-2023 17:13:16 America/Boise] PHP Warning:  Undefined variable $correctanswer3 in /home2/icsbinco/public_html/abcd2/quiz.php on line 94
+[31-Jul-2023 17:13:16 America/Boise] PHP Warning:  Undefined variable $to_hide in /home2/icsbinco/public_html/abcd2/quiz.php on line 100
+[31-Jul-2023 17:13:29 America/Boise] PHP Warning:  Undefined array key "role" in /home2/icsbinco/public_html/abcd2/admin.php on line 5
+[31-Jul-2023 17:13:39 America/Boise] PHP Warning:  Cannot modify header information - headers already sent by (output started at /home2/icsbinco/public_html/abcd2/loginForm.php:8) in /home2/icsbinco/public_html/abcd2/login.php on line 30
+[31-Jul-2023 17:15:08 America/Boise] PHP Warning:  session_regenerate_id(): Session ID cannot be regenerated when there is no active session in /home2/icsbinco/public_html/abcd2/logout.php on line 8
+[31-Jul-2023 17:15:19 America/Boise] PHP Warning:  Cannot modify header information - headers already sent by (output started at /home2/icsbinco/public_html/abcd2/loginForm.php:8) in /home2/icsbinco/public_html/abcd2/login.php on line 30
+[31-Jul-2023 17:17:34 America/Boise] PHP Warning:  Cannot modify header information - headers already sent by (output started at /home2/icsbinco/public_html/abcd2/loginForm.php:8) in /home2/icsbinco/public_html/abcd2/login.php on line 16
+[31-Jul-2023 17:23:59 America/Boise] PHP Warning:  session_regenerate_id(): Session ID cannot be regenerated when there is no active session in /home2/icsbinco/public_html/abcd2/logout.php on line 8
+[31-Jul-2023 17:24:01 America/Boise] PHP Warning:  session_regenerate_id(): Session ID cannot be regenerated when there is no active session in /home2/icsbinco/public_html/abcd2/logout.php on line 8
+[31-Jul-2023 17:24:22 America/Boise] PHP Warning:  session_start(): Session cannot be started after headers have already been sent in /home2/icsbinco/public_html/abcd2/header.php on line 5
+[31-Jul-2023 17:24:24 America/Boise] PHP Warning:  session_start(): Session cannot be started after headers have already been sent in /home2/icsbinco/public_html/abcd2/header.php on line 5
+[31-Jul-2023 17:24:25 America/Boise] PHP Warning:  session_start(): Session cannot be started after headers have already been sent in /home2/icsbinco/public_html/abcd2/header.php on line 5
+[31-Jul-2023 17:25:13 America/Boise] PHP Warning:  Cannot modify header information - headers already sent by (output started at /home2/icsbinco/public_html/abcd2/loginForm.php:8) in /home2/icsbinco/public_html/abcd2/login.php on line 30
+[31-Jul-2023 17:26:19 America/Boise] PHP Warning:  Cannot modify header information - headers already sent by (output started at /home2/icsbinco/public_html/abcd2/loginForm.php:8) in /home2/icsbinco/public_html/abcd2/login.php on line 30
+[31-Jul-2023 17:32:09 America/Boise] PHP Warning:  Undefined variable $to_hide in /home2/icsbinco/public_html/abcd2/quiz.php on line 85
+[31-Jul-2023 17:32:09 America/Boise] PHP Warning:  Undefined variable $dress_Image2 in /home2/icsbinco/public_html/abcd2/quiz.php on line 87
+[31-Jul-2023 17:32:09 America/Boise] PHP Warning:  Undefined variable $correctanswer3 in /home2/icsbinco/public_html/abcd2/quiz.php on line 88
+[31-Jul-2023 17:32:09 America/Boise] PHP Warning:  Undefined variable $answer3 in /home2/icsbinco/public_html/abcd2/quiz.php on line 88
+[31-Jul-2023 17:32:09 America/Boise] PHP Warning:  Undefined variable $correctanswer3 in /home2/icsbinco/public_html/abcd2/quiz.php on line 96
+[31-Jul-2023 17:32:09 America/Boise] PHP Warning:  Undefined variable $to_hide in /home2/icsbinco/public_html/abcd2/quiz.php on line 102
+[31-Jul-2023 17:32:10 America/Boise] PHP Warning:  Undefined variable $to_hide in /home2/icsbinco/public_html/abcd2/quiz.php on line 85
+[31-Jul-2023 17:32:11 America/Boise] PHP Warning:  Undefined variable $dress_Image2 in /home2/icsbinco/public_html/abcd2/quiz.php on line 87
+[31-Jul-2023 17:32:11 America/Boise] PHP Warning:  Undefined variable $correctanswer3 in /home2/icsbinco/public_html/abcd2/quiz.php on line 88
+[31-Jul-2023 17:32:11 America/Boise] PHP Warning:  Undefined variable $answer3 in /home2/icsbinco/public_html/abcd2/quiz.php on line 88
+[31-Jul-2023 17:32:11 America/Boise] PHP Warning:  Undefined variable $correctanswer3 in /home2/icsbinco/public_html/abcd2/quiz.php on line 96
+[31-Jul-2023 17:32:11 America/Boise] PHP Warning:  Undefined variable $to_hide in /home2/icsbinco/public_html/abcd2/quiz.php on line 102
+[31-Jul-2023 17:32:13 America/Boise] PHP Warning:  Undefined variable $to_hide in /home2/icsbinco/public_html/abcd2/quiz.php on line 85
+[31-Jul-2023 17:32:13 America/Boise] PHP Warning:  Undefined variable $dress_Image2 in /home2/icsbinco/public_html/abcd2/quiz.php on line 87
+[31-Jul-2023 17:32:13 America/Boise] PHP Warning:  Undefined variable $correctanswer3 in /home2/icsbinco/public_html/abcd2/quiz.php on line 88
+[31-Jul-2023 17:32:13 America/Boise] PHP Warning:  Undefined variable $answer3 in /home2/icsbinco/public_html/abcd2/quiz.php on line 88
+[31-Jul-2023 17:32:13 America/Boise] PHP Warning:  Undefined variable $correctanswer3 in /home2/icsbinco/public_html/abcd2/quiz.php on line 96
+[31-Jul-2023 17:32:13 America/Boise] PHP Warning:  Undefined variable $to_hide in /home2/icsbinco/public_html/abcd2/quiz.php on line 102
+[31-Jul-2023 17:32:48 America/Boise] PHP Warning:  Cannot modify header information - headers already sent by (output started at /home2/icsbinco/public_html/abcd2/loginForm.php:8) in /home2/icsbinco/public_html/abcd2/login.php on line 30
+[31-Jul-2023 17:32:50 America/Boise] PHP Warning:  Cannot modify header information - headers already sent by (output started at /home2/icsbinco/public_html/abcd2/loginForm.php:8) in /home2/icsbinco/public_html/abcd2/login.php on line 30
+[31-Jul-2023 17:32:57 America/Boise] PHP Warning:  Cannot modify header information - headers already sent by (output started at /home2/icsbinco/public_html/abcd2/loginForm.php:8) in /home2/icsbinco/public_html/abcd2/login.php on line 30
+[31-Jul-2023 17:37:49 America/Boise] PHP Warning:  Undefined variable $to_hide in /home2/icsbinco/public_html/abcd2/quiz.php on line 85
+[31-Jul-2023 17:37:49 America/Boise] PHP Warning:  Undefined variable $dress_Image2 in /home2/icsbinco/public_html/abcd2/quiz.php on line 87
+[31-Jul-2023 17:37:49 America/Boise] PHP Warning:  Undefined variable $correctanswer3 in /home2/icsbinco/public_html/abcd2/quiz.php on line 88
+[31-Jul-2023 17:37:49 America/Boise] PHP Warning:  Undefined variable $answer3 in /home2/icsbinco/public_html/abcd2/quiz.php on line 88
+[31-Jul-2023 17:37:49 America/Boise] PHP Warning:  Undefined variable $correctanswer3 in /home2/icsbinco/public_html/abcd2/quiz.php on line 96
+[31-Jul-2023 17:37:49 America/Boise] PHP Warning:  Undefined variable $to_hide in /home2/icsbinco/public_html/abcd2/quiz.php on line 102
+[31-Jul-2023 17:37:50 America/Boise] PHP Warning:  Undefined variable $to_hide in /home2/icsbinco/public_html/abcd2/quiz.php on line 85
+[31-Jul-2023 17:37:50 America/Boise] PHP Warning:  Undefined variable $dress_Image2 in /home2/icsbinco/public_html/abcd2/quiz.php on line 87
+[31-Jul-2023 17:37:50 America/Boise] PHP Warning:  Undefined variable $correctanswer3 in /home2/icsbinco/public_html/abcd2/quiz.php on line 88
+[31-Jul-2023 17:37:50 America/Boise] PHP Warning:  Undefined variable $answer3 in /home2/icsbinco/public_html/abcd2/quiz.php on line 88
+[31-Jul-2023 17:37:50 America/Boise] PHP Warning:  Undefined variable $correctanswer3 in /home2/icsbinco/public_html/abcd2/quiz.php on line 96
+[31-Jul-2023 17:37:50 America/Boise] PHP Warning:  Undefined variable $to_hide in /home2/icsbinco/public_html/abcd2/quiz.php on line 102
+[31-Jul-2023 17:37:53 America/Boise] PHP Warning:  Undefined variable $to_hide in /home2/icsbinco/public_html/abcd2/quiz.php on line 85
+[31-Jul-2023 17:37:53 America/Boise] PHP Warning:  Undefined variable $dress_Image2 in /home2/icsbinco/public_html/abcd2/quiz.php on line 87
+[31-Jul-2023 17:37:53 America/Boise] PHP Warning:  Undefined variable $correctanswer3 in /home2/icsbinco/public_html/abcd2/quiz.php on line 88
+[31-Jul-2023 17:37:53 America/Boise] PHP Warning:  Undefined variable $answer3 in /home2/icsbinco/public_html/abcd2/quiz.php on line 88
+[31-Jul-2023 17:37:53 America/Boise] PHP Warning:  Undefined variable $correctanswer3 in /home2/icsbinco/public_html/abcd2/quiz.php on line 96
+[31-Jul-2023 17:37:53 America/Boise] PHP Warning:  Undefined variable $to_hide in /home2/icsbinco/public_html/abcd2/quiz.php on line 102
+[31-Jul-2023 17:37:55 America/Boise] PHP Warning:  Undefined variable $to_hide in /home2/icsbinco/public_html/abcd2/quiz.php on line 85
+[31-Jul-2023 17:37:55 America/Boise] PHP Warning:  Undefined variable $dress_Image2 in /home2/icsbinco/public_html/abcd2/quiz.php on line 87
+[31-Jul-2023 17:37:55 America/Boise] PHP Warning:  Undefined variable $correctanswer3 in /home2/icsbinco/public_html/abcd2/quiz.php on line 88
+[31-Jul-2023 17:37:55 America/Boise] PHP Warning:  Undefined variable $answer3 in /home2/icsbinco/public_html/abcd2/quiz.php on line 88
+[31-Jul-2023 17:37:55 America/Boise] PHP Warning:  Undefined variable $correctanswer3 in /home2/icsbinco/public_html/abcd2/quiz.php on line 96
+[31-Jul-2023 17:37:55 America/Boise] PHP Warning:  Undefined variable $to_hide in /home2/icsbinco/public_html/abcd2/quiz.php on line 102
+[31-Jul-2023 17:50:42 America/Boise] PHP Warning:  Undefined array key "role" in /home2/icsbinco/public_html/abcd2/admin_query.php on line 8
+[31-Jul-2023 17:50:52 America/Boise] PHP Warning:  Cannot modify header information - headers already sent by (output started at /home2/icsbinco/public_html/abcd2/loginForm.php:8) in /home2/icsbinco/public_html/abcd2/login.php on line 30
+[31-Jul-2023 17:54:23 America/Boise] PHP Warning:  foreach() argument must be of type array|object, string given in /home2/icsbinco/public_html/abcd2/admin_query.php on line 95
+[31-Jul-2023 17:54:33 America/Boise] PHP Warning:  foreach() argument must be of type array|object, string given in /home2/icsbinco/public_html/abcd2/admin_query.php on line 95
+[31-Jul-2023 17:54:48 America/Boise] PHP Warning:  Undefined array key "category" in /home2/icsbinco/public_html/abcd2/admin_query.php on line 45
+[31-Jul-2023 17:54:48 America/Boise] PHP Fatal error:  Uncaught TypeError: implode(): Argument #1 ($pieces) must be of type array, string given in /home2/icsbinco/public_html/abcd2/admin_query.php:45
+Stack trace:
+#0 /home2/icsbinco/public_html/abcd2/admin_query.php(45): implode(',', NULL)
+#1 {main}
+  thrown in /home2/icsbinco/public_html/abcd2/admin_query.php on line 45
+[31-Jul-2023 17:54:59 America/Boise] PHP Warning:  Undefined array key "key_words" in /home2/icsbinco/public_html/abcd2/admin_query.php on line 47
+[31-Jul-2023 17:54:59 America/Boise] PHP Fatal error:  Uncaught TypeError: implode(): Argument #1 ($pieces) must be of type array, string given in /home2/icsbinco/public_html/abcd2/admin_query.php:47
+Stack trace:
+#0 /home2/icsbinco/public_html/abcd2/admin_query.php(47): implode(',', NULL)
+#1 {main}
+  thrown in /home2/icsbinco/public_html/abcd2/admin_query.php on line 47
+[31-Jul-2023 17:55:06 America/Boise] PHP Warning:  foreach() argument must be of type array|object, string given in /home2/icsbinco/public_html/abcd2/admin_query.php on line 95
+[31-Jul-2023 17:55:25 America/Boise] PHP Warning:  foreach() argument must be of type array|object, string given in /home2/icsbinco/public_html/abcd2/admin_query.php on line 95
+[31-Jul-2023 17:56:12 America/Boise] PHP Warning:  foreach() argument must be of type array|object, string given in /home2/icsbinco/public_html/abcd2/admin_query.php on line 95
+[31-Jul-2023 17:58:28 America/Boise] PHP Warning:  Cannot modify header information - headers already sent by (output started at /home2/icsbinco/public_html/abcd2/loginForm.php:8) in /home2/icsbinco/public_html/abcd2/login.php on line 30
+[31-Jul-2023 17:58:50 America/Boise] PHP Warning:  foreach() argument must be of type array|object, string given in /home2/icsbinco/public_html/abcd2/admin_query.php on line 95
+[31-Jul-2023 17:58:55 America/Boise] PHP Warning:  Undefined array key "key_words" in /home2/icsbinco/public_html/abcd2/admin_query.php on line 47
+[31-Jul-2023 17:58:55 America/Boise] PHP Fatal error:  Uncaught TypeError: implode(): Argument #1 ($pieces) must be of type array, string given in /home2/icsbinco/public_html/abcd2/admin_query.php:47
+Stack trace:
+#0 /home2/icsbinco/public_html/abcd2/admin_query.php(47): implode(',', NULL)
+#1 {main}
+  thrown in /home2/icsbinco/public_html/abcd2/admin_query.php on line 47
+[31-Jul-2023 17:58:58 America/Boise] PHP Warning:  Undefined array key "key_words" in /home2/icsbinco/public_html/abcd2/admin_query.php on line 47
+[31-Jul-2023 17:58:58 America/Boise] PHP Fatal error:  Uncaught TypeError: implode(): Argument #1 ($pieces) must be of type array, string given in /home2/icsbinco/public_html/abcd2/admin_query.php:47
+Stack trace:
+#0 /home2/icsbinco/public_html/abcd2/admin_query.php(47): implode(',', NULL)
+#1 {main}
+  thrown in /home2/icsbinco/public_html/abcd2/admin_query.php on line 47
+[31-Jul-2023 17:59:10 America/Boise] PHP Warning:  foreach() argument must be of type array|object, string given in /home2/icsbinco/public_html/abcd2/admin_query.php on line 95
+[31-Jul-2023 17:59:28 America/Boise] PHP Warning:  session_regenerate_id(): Session ID cannot be regenerated when there is no active session in /home2/icsbinco/public_html/abcd2/logout.php on line 8
+[31-Jul-2023 18:04:02 America/Boise] PHP Warning:  Cannot modify header information - headers already sent by (output started at /home2/icsbinco/public_html/abcd2/loginForm.php:8) in /home2/icsbinco/public_html/abcd2/login.php on line 30
+[31-Jul-2023 18:05:28 America/Boise] PHP Warning:  session_regenerate_id(): Session ID cannot be regenerated when there is no active session in /home2/icsbinco/public_html/abcd2/logout.php on line 8
+[31-Jul-2023 18:06:11 America/Boise] PHP Warning:  session_start(): Session cannot be started after headers have already been sent in /home2/icsbinco/public_html/abcd2/register.php on line 10
+[31-Jul-2023 18:08:52 America/Boise] PHP Warning:  session_start(): Session cannot be started after headers have already been sent in /home2/icsbinco/public_html/abcd2/header.php on line 5
+[31-Jul-2023 18:08:53 America/Boise] PHP Warning:  session_start(): Session cannot be started after headers have already been sent in /home2/icsbinco/public_html/abcd2/header.php on line 5
+[31-Jul-2023 18:08:54 America/Boise] PHP Warning:  session_start(): Session cannot be started after headers have already been sent in /home2/icsbinco/public_html/abcd2/header.php on line 5
+[31-Jul-2023 18:08:55 America/Boise] PHP Warning:  session_start(): Session cannot be started after headers have already been sent in /home2/icsbinco/public_html/abcd2/header.php on line 5
+[31-Jul-2023 18:08:57 America/Boise] PHP Warning:  session_start(): Session cannot be started after headers have already been sent in /home2/icsbinco/public_html/abcd2/header.php on line 5
+[31-Jul-2023 18:08:58 America/Boise] PHP Warning:  session_start(): Session cannot be started after headers have already been sent in /home2/icsbinco/public_html/abcd2/header.php on line 5
+[31-Jul-2023 18:08:59 America/Boise] PHP Warning:  session_start(): Session cannot be started after headers have already been sent in /home2/icsbinco/public_html/abcd2/header.php on line 5
+[31-Jul-2023 18:08:59 America/Boise] PHP Warning:  session_start(): Session cannot be started after headers have already been sent in /home2/icsbinco/public_html/abcd2/header.php on line 5
+[31-Jul-2023 18:09:02 America/Boise] PHP Warning:  session_start(): Session cannot be started after headers have already been sent in /home2/icsbinco/public_html/abcd2/header.php on line 5
+[31-Jul-2023 18:09:04 America/Boise] PHP Warning:  session_start(): Session cannot be started after headers have already been sent in /home2/icsbinco/public_html/abcd2/header.php on line 5
+[31-Jul-2023 18:09:09 America/Boise] PHP Warning:  session_start(): Session cannot be started after headers have already been sent in /home2/icsbinco/public_html/abcd2/header.php on line 5
+[31-Jul-2023 18:09:12 America/Boise] PHP Warning:  session_start(): Session cannot be started after headers have already been sent in /home2/icsbinco/public_html/abcd2/header.php on line 5
+[31-Jul-2023 18:10:58 America/Boise] PHP Warning:  session_regenerate_id(): Session ID cannot be regenerated when there is no active session in /home2/icsbinco/public_html/abcd2/logout.php on line 8
+[31-Jul-2023 18:11:05 America/Boise] PHP Warning:  Cannot modify header information - headers already sent by (output started at /home2/icsbinco/public_html/abcd2/loginForm.php:8) in /home2/icsbinco/public_html/abcd2/login.php on line 30
+[31-Jul-2023 18:11:26 America/Boise] PHP Warning:  session_regenerate_id(): Session ID cannot be regenerated when there is no active session in /home2/icsbinco/public_html/abcd2/logout.php on line 8
+[31-Jul-2023 18:11:33 America/Boise] PHP Warning:  Cannot modify header information - headers already sent by (output started at /home2/icsbinco/public_html/abcd2/loginForm.php:8) in /home2/icsbinco/public_html/abcd2/login.php on line 30
+[31-Jul-2023 18:11:39 America/Boise] PHP Warning:  session_regenerate_id(): Session ID cannot be regenerated when there is no active session in /home2/icsbinco/public_html/abcd2/logout.php on line 8
+[31-Jul-2023 18:12:18 America/Boise] PHP Warning:  Cannot modify header information - headers already sent by (output started at /home2/icsbinco/public_html/abcd2/loginForm.php:8) in /home2/icsbinco/public_html/abcd2/login.php on line 30
+[31-Jul-2023 18:14:54 America/Boise] PHP Warning:  Undefined variable $to_hide in /home2/icsbinco/public_html/abcd2/quiz.php on line 85
+[31-Jul-2023 18:14:54 America/Boise] PHP Warning:  Undefined variable $dress_Image2 in /home2/icsbinco/public_html/abcd2/quiz.php on line 87
+[31-Jul-2023 18:14:54 America/Boise] PHP Warning:  Undefined variable $correctanswer3 in /home2/icsbinco/public_html/abcd2/quiz.php on line 88
+[31-Jul-2023 18:14:54 America/Boise] PHP Warning:  Undefined variable $answer3 in /home2/icsbinco/public_html/abcd2/quiz.php on line 88
+[31-Jul-2023 18:14:54 America/Boise] PHP Warning:  Undefined variable $correctanswer3 in /home2/icsbinco/public_html/abcd2/quiz.php on line 96
+[31-Jul-2023 18:14:54 America/Boise] PHP Warning:  Undefined variable $to_hide in /home2/icsbinco/public_html/abcd2/quiz.php on line 102
+[31-Jul-2023 18:15:02 America/Boise] PHP Warning:  Undefined variable $to_hide in /home2/icsbinco/public_html/abcd2/quiz.php on line 85
+[31-Jul-2023 18:15:02 America/Boise] PHP Warning:  Undefined variable $dress_Image2 in /home2/icsbinco/public_html/abcd2/quiz.php on line 87
+[31-Jul-2023 18:15:02 America/Boise] PHP Warning:  Undefined variable $correctanswer3 in /home2/icsbinco/public_html/abcd2/quiz.php on line 88
+[31-Jul-2023 18:15:02 America/Boise] PHP Warning:  Undefined variable $answer3 in /home2/icsbinco/public_html/abcd2/quiz.php on line 88
+[31-Jul-2023 18:15:02 America/Boise] PHP Warning:  Undefined variable $correctanswer3 in /home2/icsbinco/public_html/abcd2/quiz.php on line 96
+[31-Jul-2023 18:15:02 America/Boise] PHP Warning:  Undefined variable $to_hide in /home2/icsbinco/public_html/abcd2/quiz.php on line 102
+[31-Jul-2023 18:16:12 America/Boise] PHP Warning:  Cannot modify header information - headers already sent by (output started at /home2/icsbinco/public_html/abcd2/loginForm.php:8) in /home2/icsbinco/public_html/abcd2/login.php on line 30
+[31-Jul-2023 18:17:48 America/Boise] PHP Warning:  session_start(): Session cannot be started after headers have already been sent in /home2/icsbinco/public_html/abcd2/header.php on line 5
+[31-Jul-2023 18:17:49 America/Boise] PHP Warning:  session_start(): Session cannot be started after headers have already been sent in /home2/icsbinco/public_html/abcd2/header.php on line 5
+[31-Jul-2023 18:17:50 America/Boise] PHP Warning:  session_start(): Session cannot be started after headers have already been sent in /home2/icsbinco/public_html/abcd2/header.php on line 5
+[31-Jul-2023 18:17:51 America/Boise] PHP Warning:  session_start(): Session cannot be started after headers have already been sent in /home2/icsbinco/public_html/abcd2/header.php on line 5
+[31-Jul-2023 18:17:52 America/Boise] PHP Warning:  session_start(): Session cannot be started after headers have already been sent in /home2/icsbinco/public_html/abcd2/header.php on line 5
+[31-Jul-2023 18:18:32 America/Boise] PHP Warning:  session_regenerate_id(): Session ID cannot be regenerated when there is no active session in /home2/icsbinco/public_html/abcd2/logout.php on line 8
+[31-Jul-2023 18:18:35 America/Boise] PHP Warning:  Cannot modify header information - headers already sent by (output started at /home2/icsbinco/public_html/abcd2/loginForm.php:8) in /home2/icsbinco/public_html/abcd2/login.php on line 30
+[31-Jul-2023 18:18:38 America/Boise] PHP Warning:  session_regenerate_id(): Session ID cannot be regenerated when there is no active session in /home2/icsbinco/public_html/abcd2/logout.php on line 8
+[31-Jul-2023 18:18:53 America/Boise] PHP Warning:  Cannot modify header information - headers already sent by (output started at /home2/icsbinco/public_html/abcd2/loginForm.php:8) in /home2/icsbinco/public_html/abcd2/login.php on line 30
+[31-Jul-2023 18:19:03 America/Boise] PHP Warning:  Cannot modify header information - headers already sent by (output started at /home2/icsbinco/public_html/abcd2/loginForm.php:8) in /home2/icsbinco/public_html/abcd2/login.php on line 30
+[31-Jul-2023 18:19:13 America/Boise] PHP Warning:  session_regenerate_id(): Session ID cannot be regenerated when there is no active session in /home2/icsbinco/public_html/abcd2/logout.php on line 8
+[31-Jul-2023 18:19:20 America/Boise] PHP Warning:  Cannot modify header information - headers already sent by (output started at /home2/icsbinco/public_html/abcd2/loginForm.php:8) in /home2/icsbinco/public_html/abcd2/login.php on line 30
+[31-Jul-2023 18:19:31 America/Boise] PHP Warning:  session_regenerate_id(): Session ID cannot be regenerated when there is no active session in /home2/icsbinco/public_html/abcd2/logout.php on line 8
+[31-Jul-2023 18:19:41 America/Boise] PHP Warning:  Cannot modify header information - headers already sent by (output started at /home2/icsbinco/public_html/abcd2/loginForm.php:8) in /home2/icsbinco/public_html/abcd2/login.php on line 30
+[31-Jul-2023 18:19:49 America/Boise] PHP Warning:  Cannot modify header information - headers already sent by (output started at /home2/icsbinco/public_html/abcd2/loginForm.php:8) in /home2/icsbinco/public_html/abcd2/login.php on line 30
+[31-Jul-2023 18:20:46 America/Boise] PHP Warning:  session_regenerate_id(): Session ID cannot be regenerated when there is no active session in /home2/icsbinco/public_html/abcd2/logout.php on line 8
+[31-Jul-2023 18:20:55 America/Boise] PHP Warning:  Cannot modify header information - headers already sent by (output started at /home2/icsbinco/public_html/abcd2/loginForm.php:8) in /home2/icsbinco/public_html/abcd2/login.php on line 30
+[31-Jul-2023 18:22:03 America/Boise] PHP Warning:  foreach() argument must be of type array|object, string given in /home2/icsbinco/public_html/abcd2/admin_query.php on line 95
+[31-Jul-2023 18:22:41 America/Boise] PHP Warning:  Undefined array key "category" in /home2/icsbinco/public_html/abcd2/admin_query.php on line 45
+[31-Jul-2023 18:22:41 America/Boise] PHP Fatal error:  Uncaught TypeError: implode(): Argument #1 ($pieces) must be of type array, string given in /home2/icsbinco/public_html/abcd2/admin_query.php:45
+Stack trace:
+#0 /home2/icsbinco/public_html/abcd2/admin_query.php(45): implode(',', NULL)
+#1 {main}
+  thrown in /home2/icsbinco/public_html/abcd2/admin_query.php on line 45
+[31-Jul-2023 18:23:46 America/Boise] PHP Warning:  Cannot modify header information - headers already sent by (output started at /home2/icsbinco/public_html/abcd2/loginForm.php:8) in /home2/icsbinco/public_html/abcd2/login.php on line 30
+[31-Jul-2023 18:23:59 America/Boise] PHP Warning:  Undefined variable $to_hide in /home2/icsbinco/public_html/abcd2/quiz.php on line 85
+[31-Jul-2023 18:23:59 America/Boise] PHP Warning:  Undefined variable $dress_Image2 in /home2/icsbinco/public_html/abcd2/quiz.php on line 87
+[31-Jul-2023 18:23:59 America/Boise] PHP Warning:  Undefined variable $correctanswer3 in /home2/icsbinco/public_html/abcd2/quiz.php on line 88
+[31-Jul-2023 18:23:59 America/Boise] PHP Warning:  Undefined variable $answer3 in /home2/icsbinco/public_html/abcd2/quiz.php on line 88
+[31-Jul-2023 18:23:59 America/Boise] PHP Warning:  Undefined variable $correctanswer3 in /home2/icsbinco/public_html/abcd2/quiz.php on line 96
+[31-Jul-2023 18:23:59 America/Boise] PHP Warning:  Undefined variable $to_hide in /home2/icsbinco/public_html/abcd2/quiz.php on line 102
+[31-Jul-2023 18:24:34 America/Boise] PHP Warning:  Undefined variable $to_hide in /home2/icsbinco/public_html/abcd2/quiz.php on line 85
+[31-Jul-2023 18:24:34 America/Boise] PHP Warning:  Undefined variable $dress_Image2 in /home2/icsbinco/public_html/abcd2/quiz.php on line 87
+[31-Jul-2023 18:24:34 America/Boise] PHP Warning:  Undefined variable $correctanswer3 in /home2/icsbinco/public_html/abcd2/quiz.php on line 88
+[31-Jul-2023 18:24:34 America/Boise] PHP Warning:  Undefined variable $answer3 in /home2/icsbinco/public_html/abcd2/quiz.php on line 88
+[31-Jul-2023 18:24:34 America/Boise] PHP Warning:  Undefined variable $correctanswer3 in /home2/icsbinco/public_html/abcd2/quiz.php on line 96
+[31-Jul-2023 18:24:34 America/Boise] PHP Warning:  Undefined variable $to_hide in /home2/icsbinco/public_html/abcd2/quiz.php on line 102
+[31-Jul-2023 18:33:48 America/Boise] PHP Warning:  session_regenerate_id(): Session ID cannot be regenerated when there is no active session in /home2/icsbinco/public_html/abcd2/logout.php on line 8
+[31-Jul-2023 18:33:48 America/Boise] PHP Warning:  session_regenerate_id(): Session ID cannot be regenerated when there is no active session in /home2/icsbinco/public_html/abcd2/logout.php on line 8
+[31-Jul-2023 18:34:00 America/Boise] PHP Warning:  Cannot modify header information - headers already sent by (output started at /home2/icsbinco/public_html/abcd2/loginForm.php:8) in /home2/icsbinco/public_html/abcd2/login.php on line 30
+[31-Jul-2023 18:37:38 America/Boise] PHP Warning:  session_start(): Session cannot be started after headers have already been sent in /home2/icsbinco/public_html/abcd2/header.php on line 5
+[31-Jul-2023 18:37:41 America/Boise] PHP Warning:  session_start(): Session cannot be started after headers have already been sent in /home2/icsbinco/public_html/abcd2/header.php on line 5
+[31-Jul-2023 18:37:42 America/Boise] PHP Warning:  session_start(): Session cannot be started after headers have already been sent in /home2/icsbinco/public_html/abcd2/header.php on line 5
+[31-Jul-2023 18:37:43 America/Boise] PHP Warning:  session_start(): Session cannot be started after headers have already been sent in /home2/icsbinco/public_html/abcd2/header.php on line 5
+[31-Jul-2023 18:37:44 America/Boise] PHP Warning:  session_start(): Session cannot be started after headers have already been sent in /home2/icsbinco/public_html/abcd2/header.php on line 5
+[31-Jul-2023 18:37:44 America/Boise] PHP Warning:  session_start(): Session cannot be started after headers have already been sent in /home2/icsbinco/public_html/abcd2/header.php on line 5
+[31-Jul-2023 18:37:45 America/Boise] PHP Warning:  session_start(): Session cannot be started after headers have already been sent in /home2/icsbinco/public_html/abcd2/header.php on line 5
+[31-Jul-2023 18:37:45 America/Boise] PHP Warning:  session_start(): Session cannot be started after headers have already been sent in /home2/icsbinco/public_html/abcd2/header.php on line 5
+[31-Jul-2023 18:37:46 America/Boise] PHP Warning:  session_start(): Session cannot be started after headers have already been sent in /home2/icsbinco/public_html/abcd2/header.php on line 5
+[31-Jul-2023 18:37:46 America/Boise] PHP Warning:  session_start(): Session cannot be started after headers have already been sent in /home2/icsbinco/public_html/abcd2/header.php on line 5
+[31-Jul-2023 18:37:47 America/Boise] PHP Warning:  session_start(): Session cannot be started after headers have already been sent in /home2/icsbinco/public_html/abcd2/header.php on line 5
+[31-Jul-2023 18:37:48 America/Boise] PHP Warning:  session_start(): Session cannot be started after headers have already been sent in /home2/icsbinco/public_html/abcd2/header.php on line 5
+[31-Jul-2023 18:37:49 America/Boise] PHP Warning:  session_start(): Session cannot be started after headers have already been sent in /home2/icsbinco/public_html/abcd2/header.php on line 5
+[31-Jul-2023 18:37:49 America/Boise] PHP Warning:  session_start(): Session cannot be started after headers have already been sent in /home2/icsbinco/public_html/abcd2/header.php on line 5
+[31-Jul-2023 18:37:50 America/Boise] PHP Warning:  session_start(): Session cannot be started after headers have already been sent in /home2/icsbinco/public_html/abcd2/header.php on line 5
+[31-Jul-2023 18:37:51 America/Boise] PHP Warning:  session_start(): Session cannot be started after headers have already been sent in /home2/icsbinco/public_html/abcd2/header.php on line 5
+[31-Jul-2023 18:37:52 America/Boise] PHP Warning:  session_start(): Session cannot be started after headers have already been sent in /home2/icsbinco/public_html/abcd2/header.php on line 5

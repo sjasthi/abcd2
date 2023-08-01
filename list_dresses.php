@@ -164,11 +164,11 @@ $GLOBALS['data'] = mysqli_query($db, $query);
                     $notes = $row["notes"];
                     
 
-                    if(isset($_SESSION['role'])) {
+                    if(isset($_SESSION['role']) && $_SESSION['role'] == 'admin') {
                         ?>
                 <tr>
-                    
-                    <td><div contenteditable="true" onBlur="updateValue(this,'name','<?php echo $ID; ?>')"><?php echo $name; ?></div></span> </td>
+                <td>
+                    <div contenteditable="true" onBlur="updateValue(this,'name','<?php echo $ID; ?>')"><?php echo $name; ?></div></span> </td>
                     <td><div contenteditable="true" onBlur="updateValue(this,'description','<?php echo $ID; ?>')"><?php echo $description; ?></div></span> </td>
                     <td><div contenteditable="true" onBlur="updateValue(this,'did_you_know','<?php echo $ID; ?>')"><?php echo $did_you_know; ?></div></span> </td>
                     <td><div contenteditable="true" onBlur="updateValue(this,'category','<?php echo $ID; ?>')"><?php echo $category; ?></div></span> </td>
