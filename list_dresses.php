@@ -164,16 +164,17 @@ $GLOBALS['data'] = mysqli_query($db, $query);
                     $notes = $row["notes"];
                     
 
-                    if(isset($_SESSION['role'])) {
+                    if(isset($_SESSION['role']) && $_SESSION['role'] == 'admin') {
                         ?>
                 <tr>
-                    <td><div><?php echo $name; ?></div></span> </td>
-                    <td><div><?php echo $description; ?></div></span> </td>
-                    <td><div><?php echo $did_you_know; ?></div></span> </td>
-                    <td><div><?php echo $category; ?></div></span> </td>
-                    <td><div><?php echo $type; ?></div></span> </td>
-                    <td><div><?php echo $state_name; ?></div></span> </td>
-                    <td><div><?php echo $key_words; ?></div></span> </td>
+                <td>
+                    <div contenteditable="true" onBlur="updateValue(this,'name','<?php echo $ID; ?>')"><?php echo $name; ?></div></span> </td>
+                    <td><div contenteditable="true" onBlur="updateValue(this,'description','<?php echo $ID; ?>')"><?php echo $description; ?></div></span> </td>
+                    <td><div contenteditable="true" onBlur="updateValue(this,'did_you_know','<?php echo $ID; ?>')"><?php echo $did_you_know; ?></div></span> </td>
+                    <td><div contenteditable="true" onBlur="updateValue(this,'category','<?php echo $ID; ?>')"><?php echo $category; ?></div></span> </td>
+                    <td><div contenteditable="true" onBlur="updateValue(this,'type','<?php echo $ID; ?>')"><?php echo $type; ?></div></span> </td>
+                    <td><div contenteditable="true" onBlur="updateValue(this,'state_name','<?php echo $ID; ?>')"><?php echo $state_name; ?></div></span> </td>
+                    <td><div contenteditable="true" onBlur="updateValue(this,'key_words','<?php echo $ID; ?>')"><?php echo $key_words; ?></div></span> </td>
                     <?php echo '<td><img src="images/dress_images/'.$row["image_url"].'" style="width:100px;height:120px;">' ?>
                     <?php echo '<td><a class="btn btn-info btn-sm" href="display_the_dress.php?id='.$row["id"].'">Display</a></td>'; ?>
                     
