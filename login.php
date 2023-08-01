@@ -1,9 +1,10 @@
 <?php
+ob_start();
 $status = session_status();
 if($status == PHP_SESSION_NONE){
     session_start();
 }
-ob_start();
+
 /* User login process, checks if user exists and password is correct */
 
 // Escape email to protect against SQL injections
