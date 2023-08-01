@@ -64,6 +64,7 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST')
           </div>
 <div class="btnContainer">
           <button class="button button-block" name="login" />Log In</button>
+          <a href="confirmEmail.php">Forgot password</a>
 </div>
           </form>
 
