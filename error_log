@@ -461,3 +461,25 @@ Stack trace:
 [31-Jul-2023 18:37:50 America/Boise] PHP Warning:  session_start(): Session cannot be started after headers have already been sent in /home2/icsbinco/public_html/abcd2/header.php on line 5
 [31-Jul-2023 18:37:51 America/Boise] PHP Warning:  session_start(): Session cannot be started after headers have already been sent in /home2/icsbinco/public_html/abcd2/header.php on line 5
 [31-Jul-2023 18:37:52 America/Boise] PHP Warning:  session_start(): Session cannot be started after headers have already been sent in /home2/icsbinco/public_html/abcd2/header.php on line 5
+[31-Jul-2023 19:49:35 America/Boise] PHP Warning:  Cannot modify header information - headers already sent by (output started at /home2/icsbinco/public_html/abcd2/loginForm.php:8) in /home2/icsbinco/public_html/abcd2/login.php on line 38
+[31-Jul-2023 19:49:39 America/Boise] PHP Warning:  session_regenerate_id(): Session ID cannot be regenerated when there is no active session in /home2/icsbinco/public_html/abcd2/logout.php on line 8
+[31-Jul-2023 19:50:16 America/Boise] PHP Warning:  session_start(): Session cannot be started after headers have already been sent in /home2/icsbinco/public_html/abcd2/register.php on line 10
+[31-Jul-2023 19:50:16 America/Boise] PHP Warning:  Cannot modify header information - headers already sent by (output started at /home2/icsbinco/public_html/abcd2/register.php:1) in /home2/icsbinco/public_html/abcd2/register.php on line 65
+[31-Jul-2023 19:50:34 America/Boise] PHP Warning:  Cannot modify header information - headers already sent by (output started at /home2/icsbinco/public_html/abcd2/loginForm.php:8) in /home2/icsbinco/public_html/abcd2/login.php on line 41
+[31-Jul-2023 19:50:39 America/Boise] PHP Warning:  session_regenerate_id(): Session ID cannot be regenerated when there is no active session in /home2/icsbinco/public_html/abcd2/logout.php on line 8
+[31-Jul-2023 19:51:42 America/Boise] PHP Warning:  Cannot modify header information - headers already sent by (output started at /home2/icsbinco/public_html/abcd2/loginForm.php:8) in /home2/icsbinco/public_html/abcd2/login.php on line 38
+[31-Jul-2023 19:53:04 America/Boise] PHP Warning:  session_regenerate_id(): Session ID cannot be regenerated when there is no active session in /home2/icsbinco/public_html/abcd2/logout.php on line 8
+[31-Jul-2023 19:53:20 America/Boise] PHP Warning:  require(confirmEmailCheck.php): Failed to open stream: No such file or directory in /home2/icsbinco/public_html/abcd2/confirmEmail.php on line 23
+[31-Jul-2023 19:53:20 America/Boise] PHP Fatal error:  Uncaught Error: Failed opening required 'confirmEmailCheck.php' (include_path='.:/opt/cpanel/ea-php80/root/usr/share/pear') in /home2/icsbinco/public_html/abcd2/confirmEmail.php:23
+Stack trace:
+#0 {main}
+  thrown in /home2/icsbinco/public_html/abcd2/confirmEmail.php on line 23
+[31-Jul-2023 19:53:27 America/Boise] PHP Warning:  session_regenerate_id(): Session ID cannot be regenerated when there is no active session in /home2/icsbinco/public_html/abcd2/logout.php on line 8
+[31-Jul-2023 19:53:29 America/Boise] PHP Warning:  Cannot modify header information - headers already sent by (output started at /home2/icsbinco/public_html/abcd2/loginForm.php:9) in /home2/icsbinco/public_html/abcd2/login.php on line 28
+[31-Jul-2023 19:53:33 America/Boise] PHP Warning:  Cannot modify header information - headers already sent by (output started at /home2/icsbinco/public_html/abcd2/loginForm.php:9) in /home2/icsbinco/public_html/abcd2/login.php on line 41
+[31-Jul-2023 19:53:37 America/Boise] PHP Warning:  Cannot modify header information - headers already sent by (output started at /home2/icsbinco/public_html/abcd2/loginForm.php:9) in /home2/icsbinco/public_html/abcd2/login.php on line 38
+[31-Jul-2023 19:53:37 America/Boise] PHP Warning:  session_regenerate_id(): Session ID cannot be regenerated when there is no active session in /home2/icsbinco/public_html/abcd2/logout.php on line 8
+[31-Jul-2023 19:55:31 America/Boise] PHP Warning:  Cannot modify header information - headers already sent by (output started at /home2/icsbinco/public_html/abcd2/loginForm.php:9) in /home2/icsbinco/public_html/abcd2/login.php on line 28
+[31-Jul-2023 19:55:45 America/Boise] PHP Warning:  Cannot modify header information - headers already sent by (output started at /home2/icsbinco/public_html/abcd2/loginForm.php:9) in /home2/icsbinco/public_html/abcd2/login.php on line 28
+[31-Jul-2023 19:57:56 America/Boise] PHP Warning:  Cannot modify header information - headers already sent by (output started at /home2/icsbinco/public_html/abcd2/loginForm.php:9) in /home2/icsbinco/public_html/abcd2/login.php on line 50
+[31-Jul-2023 19:58:20 America/Boise] PHP Warning:  Cannot modify header information - headers already sent by (output started at /home2/icsbinco/public_html/abcd2/loginForm.php:9) in /home2/icsbinco/public_html/abcd2/login.php on line 43
