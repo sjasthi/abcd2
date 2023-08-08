@@ -1,4 +1,6 @@
 <?php
+//Load Composer's autoloader
+require 'vendor/autoload.php';
 include_once 'db_configuration.php';
 $status = session_status();
 if($status == PHP_SESSION_NONE){
