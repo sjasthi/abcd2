@@ -13,8 +13,8 @@
       $row = $result->fetch_assoc();
       $expDate = $row['expDate'];
       if ($expDate >= $curDate) {
-      ?>
-<!DOCTYPE html>
+      echo
+'<!DOCTYPE html>
 <html>
    <head>
       <title>Register/Login Form</title>
@@ -55,10 +55,11 @@
          <!-- tab-content -->
       </div>
       <!-- /form -->
-      <script src='http://cdnjs.cloudflare.com/ajax/libs/jquery/2.1.3/jquery.min.js'></script>
+      <script src="http://cdnjs.cloudflare.com/ajax/libs/jquery/2.1.3/jquery.min.js"></script>
       <script src="js/loginForm.js"></script>
    </body>
-</html>
+</html>'
+?>
 <?php
       }
    }
