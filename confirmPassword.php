@@ -12,9 +12,8 @@
    if ($result !== FALSE && $result->num_rows > 0 ){ 
       $row = $result->fetch_assoc();
       $expDate = $row['expDate'];
-      if ($expDate >= $curDate) {
-      echo
-'<!DOCTYPE html>
+      if ($expDate >= $curDate) { ?>
+<!DOCTYPE html>
 <html>
    <head>
       <title>Register/Login Form</title>
@@ -58,13 +57,11 @@
       <script src="http://cdnjs.cloudflare.com/ajax/libs/jquery/2.1.3/jquery.min.js"></script>
       <script src="js/loginForm.js"></script>
    </body>
-</html>'
-?>
-<?php
-      }
+</html>
+<?php }
    }
-}
-
+}?>
+<?php
 if (isset($_POST["email"]) && isset($_POST["action"]) && ($_POST["action"]=="update")){
    $error="";
    $pass1 = $db->escape_string($_POST['pass']);
@@ -84,6 +81,6 @@ if (isset($_POST["email"]) && isset($_POST["action"]) && ($_POST["action"]=="upd
    
    mysqli_query($db,"DELETE FROM `password_reset_temp` WHERE `email`='".$email."';");
    header("Location: loginForm.php");
-}
+   }
 }
 ?>
