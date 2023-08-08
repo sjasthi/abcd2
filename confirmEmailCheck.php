@@ -1,9 +1,5 @@
 <?php
-//Load Composer's autoloader
-require 'vendor/autoload.php';
 include_once 'db_configuration.php';
-
-
 $status = session_status();
 if($status == PHP_SESSION_NONE){
     session_start();
@@ -25,7 +21,6 @@ if ($result !== false && $result->num_rows == 0 ){ // User doesn't exist
    exit();
    //ob_flush();
 }
-
 // Function to send the reset password email
 function sendResetPasswordEmail($db,$email, $resetPasswordLink,$hashToken)
 {
@@ -61,8 +56,4 @@ function sendResetPasswordEmail($db,$email, $resetPasswordLink,$hashToken)
    }catch (Exception $e) {
       //echo var_dump($mail->ErrorInfo);
   }
-
-
-}
-
-?>
+}?>
