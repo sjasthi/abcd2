@@ -10,8 +10,9 @@ if($status == PHP_SESSION_NONE){
 }
 ob_start();
 $email = $db->escape_string($_POST['email']);
-$result = $db->query("SELECT * FROM users WHERE email='$email'");
-if ( $result->num_rows == 0 ){ // User doesn't exist
+$sql = "SELECT * FROM users WHERE email='$email'";
+$result = mysqli_query($db, $sql);
+if ( $result->num_rows == 0 ){ // User doesn't exist   
    header("Location: confirmEmail.php?status=error");
    exit();
 }else{

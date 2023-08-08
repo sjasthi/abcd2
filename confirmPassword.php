@@ -7,13 +7,12 @@
    $token = $_GET["token"];
    $email = $_GET["email"];
    $curDate = date("Y-m-d H:i:s");
-   $result = $db->query("SELECT * FROM `password_reset_temp` WHERE `token`='".$token."' and `email`='".$email."';");
-   if ( $result->num_rows == 0 ){ // User doesn't exist   
-   }
-   else {
-      $row = mysqli_fetch_assoc($query);
+   $sql = "SELECT * FROM `password_reset_temp` WHERE `token`='".$token."' and `email`='".$email."';";
+   $result = mysqli_query($db, $sql);
+   if ( $result->num_rows > 0 ){ // User doesn't exist   
+      $row = $result->fetch_assoc();
       $expDate = $row['expDate'];
-      if ($expDate >= $curDate){
+      if ($excpDate >= $curDate) {
       ?>
 <!DOCTYPE html>
 <html>
@@ -62,7 +61,8 @@
 </html>
 <?php
       }
-    } }
+   }
+}
 
 if (isset($_POST["email"]) && isset($_POST["action"]) && ($_POST["action"]=="update")){
    $error="";
