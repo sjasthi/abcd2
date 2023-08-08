@@ -23,6 +23,7 @@ if ( $result->num_rows == 0 ){ // User doesn't exist
    sendResetPasswordEmail($db,$email, $link,$hashToken); // You need to implement this function to send the reset password email
    header("Location: confirmEmail.php?status=success");
    exit();
+   ob_flush();
 }
 
 // Function to send the reset password email

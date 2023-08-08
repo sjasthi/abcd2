@@ -22,8 +22,7 @@
       if (isset($_POST["RESET"])) {
           require "confirmEmailCheck.php";
       } 
-      } 
-   ?>
+      } ?>
    <body>
       <div class="form">
          <div class="tab-content">
