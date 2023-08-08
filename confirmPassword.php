@@ -9,7 +9,7 @@
    $curDate = date("Y-m-d H:i:s");
    $sql = "SELECT * FROM `password_reset_temp` WHERE `token`='".$token."' and `email`='".$email."';";
    $result = mysqli_query($db, $sql);
-   if ($result !== false && $result->num_rows > 0 ){ // User doesn't exist   
+   if ($result !== FALSE && $result->num_rows > 0 ){ 
       $row = $result->fetch_assoc();
       $expDate = $row['expDate'];
       if ($excpDate >= $curDate) {

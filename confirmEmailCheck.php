@@ -12,7 +12,7 @@ ob_start();
 $email = $db->escape_string($_POST['email']);
 $sql = "SELECT * FROM users WHERE email='$email'";
 $result = mysqli_query($db, $sql);
-if ($result !== false && $result->num_rows == 0 ){ // User doesn't exist   
+if ($result !== FALSE && $result->num_rows == 0 ){ // User doesn't exist   
    header("Location: confirmEmail.php?status=error");
    exit();
 }else{
