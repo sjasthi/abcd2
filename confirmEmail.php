@@ -1,8 +1,14 @@
+<?php if ($_SERVER["REQUEST_METHOD"] == "POST") {
+      if (isset($_POST["RESET"])) {
+          require_once "confirmEmailCheck.php";
+      } 
+   }
+?>
 <?php   
    /* Main page with two forms: sign up and log in */
    require_once "db_configuration.php";
    include_once "header.php";
-   ?>
+?>
 <!DOCTYPE html>
 <html>
    <head>
@@ -14,11 +20,7 @@
    </head>
    <br>
    <br>
-   <?php if ($_SERVER["REQUEST_METHOD"] == "POST") {
-      if (isset($_POST["RESET"])) {
-          require "confirmEmailCheck.php";
-      } 
-      } ?>
+
    <body>
       <div class="form">
          <div class="tab-content">
