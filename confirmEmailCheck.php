@@ -1,8 +1,4 @@
 <?php
-use PHPMailer\PHPMailer\PHPMailer;
-use PHPMailer\PHPMailer\SMTP;
-use PHPMailer\PHPMailer\Exception;
-
 //Load Composer's autoloader
 require 'vendor/autoload.php';
 include_once 'db_configuration.php';
@@ -32,23 +28,28 @@ if ( $result->num_rows == 0 ){ // User doesn't exist
 function sendResetPasswordEmail($db,$email, $resetPasswordLink,$hashToken)
 {
    try{
+      $email_settings = parse_ini_file("config.ini");
+      ini_set('SMTP', $email_settings["SMTP"]);
+      ini_set('smtp_port', $email_settings["smtp_port"]);
+      ini_set('sendmail_from', $email_settings["sendmail_from"]);
       $message = "Dear user,\n\n";
       $message .= "Click on the link below to reset your password:\n";
       $message .= $resetPasswordLink;
       $message .= "\n\nIf you did not request a password reset, please ignore this email.";
-      $mail = new PHPMailer;
-      $mail->isSMTP();                                      // Set mailer to use SMTP
-      $mail->Host = 'smtp.gmail.com';  // Specify main and backup SMTP servers
-      $mail->SMTPAuth = true;                               // Enable SMTP authentication
-      $mail->Username = 'ics_abcd@projectabcd.com';                 // SMTP username
-      $mail->Password = 'iLoveMetro';                           // SMTP password
-      $mail->SMTPSecure = 'tls';
-      $mail->Port = 465;                                    // TCP port to connect to
-      $mail->setFrom('email@projectabcd.com', 'Mailer');
-      $mail->addAddress($email, 'You');     // Add a recipient
-      $mail->Subject = "Reset Your Password";
-      $mail->Body    = $message; 
-      $mail->send();
+      //$mail->isSMTP();                                      // Set mailer to use SMTP
+      //$mail->Host = 'ssl://smtp.gmail.com';  // Specify main and backup SMTP servers
+      //$mail->SMTPAuth = true;                               // Enable SMTP authentication
+      //$mail->Username = 'ics_abcd@projectabcd.com';                 // SMTP username
+      //$mail->Password = 'iLoveMetro';                           // SMTP password
+      //$mail->SMTPSecure = 'tls';                              
+      //$mail->setFrom('email@projectabcd.com', 'Mailer');
+      //$mail->addAddress($email, 'You');     // Add a recipient
+      //$mail->Subject = "Reset Your Password";
+      //$mail->Body    = $message; 
+      //$mail->send();
+      $email_subject = "Password Reset Link";
+      $email_headers = 'From:noreply@projectabcd.com'."\r\n";
+      mail($email, $email_subject, $message, $email_headers);
       $expFormat = mktime(
          date("H"), date("i"), date("s"), date("m") ,date("d")+1, date("Y")
          );
@@ -56,7 +57,7 @@ function sendResetPasswordEmail($db,$email, $resetPasswordLink,$hashToken)
       $sql = "INSERT INTO `password_reset_temp` (`email`, `token`, `expDate`) VALUES ('".$email."', '".$hashToken."', '".$expDate."');";
       $result = mysqli_query($db, $sql);
    }catch (Exception $e) {
-      echo var_dump($mail->ErrorInfo);
+      //echo var_dump($mail->ErrorInfo);
   }
 
 
