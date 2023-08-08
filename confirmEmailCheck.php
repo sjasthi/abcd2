@@ -1,12 +1,7 @@
 <?php
 //Load Composer's autoloader
-require 'vendor/autoload.php';
-include_once 'db_configuration.php';
-$status = session_status();
-if($status == PHP_SESSION_NONE){
-    session_start();
-}
-ob_start();
+require_once 'vendor/autoload.php';
+require_once 'db_configuration.php';
 $email = $db->escape_string($_POST['email']);
 $sql = "SELECT * FROM users WHERE email='$email'";
 $result = mysqli_query($db, $sql);

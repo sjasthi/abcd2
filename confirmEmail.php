@@ -1,11 +1,7 @@
-<?php
-   ob_start();
-   
+<?php   
    /* Main page with two forms: sign up and log in */
-   require "db_configuration.php";
-   include "header.php";
-   
-   //ob_flush();
+   require_once "db_configuration.php";
+   include_once "header.php";
    ?>
 <!DOCTYPE html>
 <html>

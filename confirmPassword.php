@@ -1,8 +1,26 @@
 <?php
-   ob_start();
-   require "db_configuration.php";
-   include "header.php"; 
-   ob_flush();
+   require_once "db_configuration.php";
+if (isset($_POST["email"]) && isset($_POST["action"]) && ($_POST["action"]=="update")){
+   $error="";
+   $pass1 = $db->escape_string($_POST['pass']);
+   $pass2 = $db->escape_string($_POST['cpass']);
+   $email = $_POST["email"];
+   if ($pass1!=$pass2){
+   $error.= "<p>Password do not match, both password should be same.<br /><br /></p>";
+     }
+     if($error!=""){
+      header("Location: confirmEmail.php?status=errorPassword");
+   }else{
+      $pass1 = password_hash($token, PASSWORD_DEFAULT);
+      mysqli_query($db, "UPDATE `users` SET `hash`='".$pass1."' WHERE `email`='".$email."';");
+      mysqli_query($db,"DELETE FROM `password_reset_temp` WHERE `email`='".$email."';");
+      header("Location: loginForm.php");
+   }
+   exit();
+}
+?>
+<?php
+   include_once "header.php"; 
    if (isset($_GET["token"])){
    $token = $_GET["token"];
    $email = $_GET["email"];
@@ -61,26 +79,3 @@
 <?php }
    }
 }?>
-<?php
-if (isset($_POST["email"]) && isset($_POST["action"]) && ($_POST["action"]=="update")){
-   $error="";
-   $pass1 = $db->escape_string($_POST['pass']);
-   $pass2 = $db->escape_string($_POST['cpass']);
-   $email = $_POST["email"];
-   if ($pass1!=$pass2){
-   $error.= "<p>Password do not match, both password should be same.<br /><br /></p>";
-     }
-     if($error!=""){
-      header("Location: confirmEmail.php?status=errorPassword");
-   }else{
-   $pass1 = password_hash($token, PASSWORD_DEFAULT);
-   mysqli_query($db,
-   "UPDATE `users` SET `hash`='".$pass1."'
-   WHERE `email`='".$email."';"
-   );
-   
-   mysqli_query($db,"DELETE FROM `password_reset_temp` WHERE `email`='".$email."';");
-   header("Location: loginForm.php");
-   }
-}
-?>
