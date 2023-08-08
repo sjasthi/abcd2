@@ -1,14 +1,18 @@
 <?php
+//Load Composer's autoloader
+require 'vendor/autoload.php';
 include_once 'db_configuration.php';
+
+
 $status = session_status();
 if($status == PHP_SESSION_NONE){
-   session_start();
+    session_start();
 }
 ob_start();
 $email = $db->escape_string($_POST['email']);
 $sql = "SELECT * FROM users WHERE email='$email'";
 $result = mysqli_query($db, $sql);
-if ($result !== FALSE && $result->num_rows == 0 ){ // User doesn't exist   
+if ($result !== false && $result->num_rows == 0 ){ // User doesn't exist   
    header("Location: confirmEmail.php?status=error");
    exit();
 }else{
@@ -19,7 +23,7 @@ if ($result !== FALSE && $result->num_rows == 0 ){ // User doesn't exist
    sendResetPasswordEmail($db,$email, $link,$hashToken); // You need to implement this function to send the reset password email
    header("Location: confirmEmail.php?status=success");
    exit();
-   ob_flush();
+   //ob_flush();
 }
 
 // Function to send the reset password email
@@ -57,5 +61,8 @@ function sendResetPasswordEmail($db,$email, $resetPasswordLink,$hashToken)
    }catch (Exception $e) {
       //echo var_dump($mail->ErrorInfo);
   }
+
+
 }
+
 ?>

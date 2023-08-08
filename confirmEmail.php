@@ -5,7 +5,7 @@
    require "db_configuration.php";
    include "header.php";
    
-   ob_flush();
+   //ob_flush();
    ?>
 <!DOCTYPE html>
 <html>
