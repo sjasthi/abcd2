@@ -12,7 +12,7 @@
    if ($result !== FALSE && $result->num_rows > 0 ){ 
       $row = $result->fetch_assoc();
       $expDate = $row['expDate'];
-      if ($excpDate >= $curDate) {
+      if ($expDate >= $curDate) {
       ?>
 <!DOCTYPE html>
 <html>
