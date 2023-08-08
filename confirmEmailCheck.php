@@ -15,7 +15,7 @@ if ( $result->num_rows == 0 ){ // User doesn't exist
    header("Location: confirmEmail.php?status=error");
    exit();
 }else{
-   $baseURL = "https://abcd2.projectabcd.com"; // Replace with your actual domain and resetpassword.php path
+   $baseURL = "https://abcd2.projectabcd.com/confirmPassword.php"; // Replace with your actual domain and resetpassword.php path
    $token = bin2hex(random_bytes(32)); // Generate a random token for the link
    $hashToken = password_hash($token, PASSWORD_DEFAULT);
    $link = $baseURL . "?token=" . $hashToken."&email=".$email; // Append the token as a query parameter to the link
