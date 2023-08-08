@@ -1,12 +1,8 @@
 <?php
-//Load Composer's autoloader
-require 'vendor/autoload.php';
 include_once 'db_configuration.php';
-
-
 $status = session_status();
 if($status == PHP_SESSION_NONE){
-    session_start();
+   session_start();
 }
 ob_start();
 $email = $db->escape_string($_POST['email']);
@@ -61,8 +57,5 @@ function sendResetPasswordEmail($db,$email, $resetPasswordLink,$hashToken)
    }catch (Exception $e) {
       //echo var_dump($mail->ErrorInfo);
   }
-
-
 }
-
 ?>
