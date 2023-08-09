@@ -42,9 +42,9 @@ $categories = array_unique($categories);
 $result = [];
 
 if ($_SERVER['REQUEST_METHOD'] === 'POST') {
-    $category = implode(',', $_POST['category']);
-    $type = $_POST['type'];
-    $keywords = implode(',', $_POST['key_words']);
+    $category = (isset($_POST['category'])) ? implode(',', $_POST['category']) : "";
+    $type = (isset($_POST['type'])) ? $_POST['type'] : "";
+    $keywords = (isset($_POST['key_words'])) ? implode(',', $_POST['key_words']) : "";
 
     $params = [
         'category' => $category,
@@ -85,9 +85,9 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
 
         <label for="type">Type:</label>
         <select name="type">
-            <option value="Boy">Boy</option>
-            <option value="Girl">Girl</option>
-            <option value="Other">Other</option>
+            <option value="boy">boy</option>
+            <option value="girl">girl</option>
+            <option value="other">other</option>
         </select>
 
         <label for="key_words">Keywords:</label>
@@ -102,15 +102,14 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
     </div>
 
     <div style="padding: 50px;">
-    <textarea readonly id="resbox">
-    <?php if (!empty($result)) { 
-        foreach($result as $dress){ 
-          echo ($dress);
-    }
-}
+        <textarea readonly id="resbox">
+            <?php 
+                if (!empty($result)) { 
+                    echo implode(", ", $result);
+                } 
+            ?>
 
-         ?>
-         </textarea>
-        </div>
+        </textarea>
+    </div>
 </body>
 </html>
