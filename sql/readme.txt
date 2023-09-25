@@ -1,5 +1,7 @@
 
 [1] Download abcd.zip and deploy into xampp/htdocs/abcd
+You can download the abcd repo at https://github.com/sjasthi/abcd2
+(Click the green "Download" button and select "Download ZIP" option)
 
 [2] Launch XAMPP; Start Apache Server and SQL Server; 
 
