@@ -4,8 +4,7 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Generate Book</title>
-    <link rel="stylesheet" href="css/book_form_styles.css"> <!-- Assuming you have a CSS file for styling -->
-</head>
+    <link rel="stylesheet" href="css/book_form_styles.css"> 
 <body>
 
 <div class="form-container">
