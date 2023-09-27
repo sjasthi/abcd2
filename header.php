@@ -79,6 +79,9 @@ if(!isset($page_title)) { $page_title = 'Project ABCD'; }
             echo '<li class="nav-item active"><a class="nav-link" id="header" href="about.php">About<span class="sr-only">(current)</span></a></li>';
             echo '<li class="nav-item active"><a class="nav-link" id="header" href="help.php">Help<span class="sr-only">(current)</span></a></li>';
             echo '<li class="nav-item active"><a class="nav-link" id="header" href="shop.php">Shop<span class="sr-only">(current)</span></a></li>';
+            // Yeliz: Go to the Book Form Added 
+            echo '<li class="nav-item active"><a class="nav-link" id="header" href="book_form.php">Go to the Book Form<span class="sr-only">(current)</span></a></li>';
+
 
 
             

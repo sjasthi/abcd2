@@ -1,0 +1,117 @@
+body {
+  font-family: "Arial", sans-serif;
+  background-color: #e8e8e8;
+  margin: 0;
+  padding: 0;
+  transition: background-color 0.5s;
+}
+
+.form-container {
+  background-color: #f9fafb;
+  margin: 100px auto;
+  padding: 40px 60px;
+  max-width: 650px;
+  box-shadow: 0 10px 20px rgba(0, 0, 0, 0.2);
+  border-top: 5px solid #007bff;
+  border-radius: 20px;
+  overflow: hidden;
+  transition: transform 0.3s, box-shadow 0.3s;
+}
+
+.form-container:hover {
+  transform: translateY(-10px);
+  box-shadow: 0 12px 24px rgba(0, 0, 0, 0.25);
+}
+
+h2 {
+  text-align: center;
+  margin-bottom: 30px;
+  color: #007bff;
+  border-bottom: 3px solid #007bff;
+  padding-bottom: 15px;
+}
+
+.form-group {
+  margin-bottom: 28px;
+}
+
+label {
+  display: block;
+  margin-bottom: 12px;
+  font-weight: 600;
+  color: #444;
+}
+
+input[type="text"],
+input[type="number"],
+select {
+  width: 100%;
+  padding: 14px 18px;
+  border: 1.5px solid #b0b0b0;
+  border-radius: 7px;
+  font-size: 17px;
+  transition: border-color 0.3s, box-shadow 0.3s;
+}
+
+input[type="text"]:focus,
+input[type="number"]:focus,
+select:focus {
+  border-color: #007bff;
+  outline: none;
+  box-shadow: 0 0 10px rgba(0, 123, 255, 0.5);
+}
+
+input[type="submit"] {
+  background-color: #007bff;
+  color: #fff;
+  padding: 14px 30px;
+  border: none;
+  border-radius: 7px;
+  cursor: pointer;
+  font-size: 18px;
+  display: block;
+  margin: 0 auto;
+  transition: background-color 0.3s, transform 0.2s, box-shadow 0.2s;
+}
+
+input[type="submit"]:hover,
+input[type="submit"]:focus {
+  background-color: #0056b3;
+  transform: translateY(-3px);
+  box-shadow: 0 0 10px rgba(0, 123, 255, 0.5);
+}
+
+input[type="checkbox"] {
+  margin-right: 12px;
+  cursor: pointer;
+}
+
+input[type="checkbox"]:before {
+  content: "\2714";
+  color: transparent;
+  display: inline-block;
+  border: 2px solid #b0b0b0;
+  border-radius: 4px;
+  width: 24px;
+  height: 24px;
+  text-align: center;
+  line-height: 21px;
+  margin-right: 7px;
+  transition: background-color 0.3s, color 0.3s;
+}
+
+input[type="checkbox"]:checked:before {
+  background-color: #007bff;
+  color: #fff;
+  border-color: #007bff;
+}
+
+/* some space between the checkbox and its label text */
+input[type="checkbox"] + label {
+  margin-left: 40px;
+}
+
+/* Additional space above the Generate button */
+input[type="submit"] {
+  margin-top: 20px;
+}
