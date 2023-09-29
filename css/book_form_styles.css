@@ -61,7 +61,18 @@ select:focus {
   box-shadow: 0 0 10px rgba(0, 123, 255, 0.5);
 }
 
-input[type="submit"] {
+/* Reset default button styles */
+button {
+  appearance: none;
+  -webkit-appearance: none;
+  -moz-appearance: none;
+  background-color: transparent;
+  border: none;
+  padding: 0;
+}
+
+/* Style for both the submit input and the Help button */
+.form-group .action-button {
   background-color: #007bff;
   color: #fff;
   padding: 14px 30px;
@@ -69,16 +80,22 @@ input[type="submit"] {
   border-radius: 7px;
   cursor: pointer;
   font-size: 18px;
-  display: block;
-  margin: 0 auto;
+  margin-right: 20px; /* Add right margin for spacing between the buttons */
   transition: background-color 0.3s, transform 0.2s, box-shadow 0.2s;
+  display: inline-block; /* This ensures consistent styling between input and button elements */
 }
 
-input[type="submit"]:hover,
-input[type="submit"]:focus {
+/* Hover and focus styles for both the submit input and the Help button */
+.form-group .action-button:hover,
+.form-group .action-button:focus {
   background-color: #0056b3;
   transform: translateY(-3px);
   box-shadow: 0 0 10px rgba(0, 123, 255, 0.5);
+}
+
+button.action-button {
+  margin: 0;
+  padding: 0;
 }
 
 input[type="checkbox"] {
@@ -112,6 +129,6 @@ input[type="checkbox"] + label {
 }
 
 /* Additional space above the Generate button */
-input[type="submit"] {
+.action-button {
   margin-top: 20px;
 }

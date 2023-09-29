@@ -5,6 +5,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Generate Book</title>
     <link rel="stylesheet" href="css/book_form_styles.css"> 
+</head>
 <body>
 
 <div class="form-container">
@@ -14,16 +15,17 @@
 
         <!-- Textbox for Dress IDs -->
         <div class="form-group">
-            <label for="dress_numbers">Enter Dress IDs:</label>
+            <label for="dress_numbers">Dress Numbers:</label>
             <input type="text" id="dress_numbers" name="dress_numbers" placeholder="Example: 1,2,3,4">
         </div>
 
         <!-- Layout Choices -->
         <div class="form-group">
-            <label for="layout">Choose a layout:</label>
+            <label for="layout">Layout:</label>
             <select id="layout" name="layout">
-                <option value="portrait">Portrait</option>
-                <option value="landscape">Landscape</option>
+                <option value="portrait">Picture on the left Page - Text on Right Page - Two Page Mode - Portrait Mode</option>
+                <option value="landscape_right">Picture on Right - Text on Left - Single Page - Landscape Mode</option>
+                <option value="landscape_left">Picture on Left - Text on Right - Single Page - Landscape Mode</option>
             </select>
         </div>
 
@@ -31,61 +33,87 @@
         <div class="form-group">
             <label for="sort_order">Sort Order:</label>
             <select id="sort_order" name="sort_order">
-                <option value="ascending">Ascending</option>
-                <option value="descending">Descending</option>
+                <option value="name">By Name</option>
+                <option value="id">By ID</option>
+                <option value="input_order">By Input Order</option>
             </select>
         </div>
 
         <!-- Preferences -->
         <div class="form-group">
-            <label for="text_size">Text Size:</label>
+            <label for="text_size">Text size:</label>
             <input type="number" id="text_size" name="text_size" placeholder="Example: 14">
         </div>
 
         <div class="form-group">
-            <label for="font_choice">Font:</label>
-            <select id="font_choice" name="font_choice">
-                <option value="Arial">Arial</option>
-                <option value="Verdana">Verdana</option>
-                <!-- We can add other font options here -->
+            <label for="title_size">Title size:</label>
+            <input type="number" id="title_size" name="title_size" placeholder="Example: 18">
+        </div>
+
+        <div class="form-group">
+            <label for="subtitle_size">Subtitle size:</label>
+            <input type="number" id="subtitle_size" name="subtitle_size" placeholder="Example: 16">
+        </div>
+
+        <div class="form-group">
+            <label for="text_font">Text Font:</label>
+            <select id="text_font" name="text_font">
+                <option value="Times New Roman">Times New Roman (serif)</option>
+                <option value="Arial">Arial (sans-serif)</option>
             </select>
         </div>
 
         <div class="form-group">
-            <label for="picture_dimensions">Picture Dimensions:</label>
-            <input type="text" id="picture_dimensions" name="picture_dimensions" placeholder="Example: 200x300">
+            <label for="title_font">Title Font:</label>
+            <select id="title_font" name="title_font">
+                <option value="Arial">Arial (sans-serif)</option>
+            </select>
+        </div>
+
+        <div class="form-group">
+            <label for="subtitle_font">Subtitle Font:</label>
+            <select id="subtitle_font" name="subtitle_font">
+                <option value="Arial">Arial (sans-serif)</option>
+            </select>
+        </div>
+
+        <div class="form-group">
+            <label for="pic_width">Pic Width:</label>
+            <input type="text" id="pic_width" name="pic_width" placeholder="Example: 720">
+        </div>
+
+        <div class="form-group">
+            <label for="pic_height">Pic Height:</label>
+            <input type="text" id="pic_height" name="pic_height" placeholder="Example: 1040">
         </div>
 
         <!-- Numbering Choices -->
         <div class="form-group">
-            <label for="numbering_choice">Numbering Choice:</label>
+            <label for="numbering_choice">Numbering:</label>
             <select id="numbering_choice" name="numbering_choice">
-                <option value="roman">Roman Numerals</option>
-                <option value="numeric">Numeric</option>
-            </select>
-        </div>
-
-        <!-- NEW: Choose Number Options -->
-        <div class="form-group">
-            <label for="number_options">Choose Number Options:</label>
-            <select id="number_options" name="number_options">
+                <option value="both">Show both Page No and Dress ID</option>
                 <option value="page_no">Show Page Number</option>
                 <option value="dress_id">Show Dress ID</option>
-                <option value="both">Show Both Page Number and Dress ID</option>
             </select>
         </div>
 
-        <!-- Checkbox for Translation -->
-        <div class="form-group">
-            <input type="checkbox" id="enable_translation" name="enable_translation" value="yes">
-            <label for="enable_translation">Enable Translation</label>
-        </div>
+        <!-- Dropdown for Translation Language Selection -->
+<div class="form-group">
+    <label for="translation_language">Translate to:</label>
+    <select id="translation_language" name="translation_language">
+        <option value="en">Telugu</option>
+        <option value="fr">French</option>
+        <option value="es">Spanish</option>
+        <option value="de">German</option>
+        <!-- Add other language options here -->
+    </select>
+</div>
 
-        <!-- Generate Button -->
+ <!-- Generate and Help Buttons -->
         <div class="form-group">
-            <input type="submit" value="Generate">
+            <input type="submit" value="Generate" class="action-button" style="margin-right: 20px;">
+            <button type="button" class="action-button" onclick="location.href='help.html'">Help</button>
         </div>
-
     </form>
 </div>
 
