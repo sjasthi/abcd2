@@ -16,7 +16,7 @@
         <!-- Textbox for Dress IDs -->
         <div class="form-group">
             <label for="dress_numbers">Dress Numbers:</label>
-            <input type="text" id="dress_numbers" name="dress_numbers" placeholder="Example: 1,2,3,4">
+            <textarea id="dress_numbers" name="dress_numbers" placeholder="Example: 1,2,3,4"></textarea>
         </div>
 
         <!-- Layout Choices -->
@@ -119,4 +119,6 @@
 
 </body>
 </html>
+
+
 
