@@ -13,13 +13,11 @@
 
     <form action="generated_book.php" method="post">
 
-        <!-- Textbox for Dress IDs -->
         <div class="form-group">
             <label for="dress_numbers">Dress Numbers:</label>
             <textarea id="dress_numbers" name="dress_numbers" placeholder="Example: 1,2,3,4"></textarea>
         </div>
 
-        <!-- Layout Choices -->
         <div class="form-group">
             <label for="layout">Layout:</label>
             <select id="layout" name="layout">
@@ -29,7 +27,6 @@
             </select>
         </div>
 
-        <!-- Sort Order Choices -->
         <div class="form-group">
             <label for="sort_order">Sort Order:</label>
             <select id="sort_order" name="sort_order">
@@ -39,7 +36,6 @@
             </select>
         </div>
 
-        <!-- Preferences -->
         <div class="form-group">
             <label for="text_size">Text size:</label>
             <input type="number" id="text_size" name="text_size" placeholder="Example: 14">
@@ -87,7 +83,6 @@
             <input type="text" id="pic_height" name="pic_height" placeholder="Example: 1040">
         </div>
 
-        <!-- Numbering Choices -->
         <div class="form-group">
             <label for="numbering_choice">Numbering:</label>
             <select id="numbering_choice" name="numbering_choice">
@@ -97,7 +92,6 @@
             </select>
         </div>
 
-        <!-- Dropdown for Translation Language Selection -->
 <div class="form-group">
     <label for="translation_language">Translate to:</label>
     <select id="translation_language" name="translation_language">
@@ -105,13 +99,11 @@
         <option value="fr">French</option>
         <option value="es">Spanish</option>
         <option value="de">German</option>
-        <!-- Add other language options here -->
     </select>
 </div>
 
- <!-- Generate and Help Buttons -->
         <div class="form-group">
-            <button type="button" class="action-button" onclick="window.open('http://localhost/ics-499/abcd2-Bears--main/pdf/book_form_pdf.php', '_blank')">Generate</button>
+            <button type="button" class="action-button" onclick="window.open('/abcd/pdf/book_form_pdf.php', '_blank')">Generate</button>
             <button type="button" class="action-button" onclick="location.href='book_form_help.php'">Help</button>
         </div>
     </form>

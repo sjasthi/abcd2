@@ -151,7 +151,6 @@ textarea:focus {
   box-shadow: 0 0 10px rgba(0, 123, 255, 0.5);
 }
 
-/* Adjustments for centering the buttons */
 .form-group:last-of-type {
   justify-content: center;
 }
