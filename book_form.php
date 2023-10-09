@@ -111,15 +111,14 @@
 
  <!-- Generate and Help Buttons -->
         <div class="form-group">
-			<button type="button" class="action-button" onclick="window.open('http://localhost/ics-499/abcd2-Bears--main/pdf/book_form_pdf.php', '_blank')">Generate</button>
-			<button type="button" class="action-button" onclick="window.open('', '_blank')">Help</button>
-		</div>
+            <input type="submit" value="Generate" class="action-button" style="margin-right: 20px;">
+            <button type="button" class="action-button" onclick="location.href='book_form_help.php'">Help</button>
+        </div>
     </form>
 </div>
 
 </body>
 </html>
-
 
 
 
