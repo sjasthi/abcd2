@@ -18,13 +18,12 @@ if(!isset($page_title)) { $page_title = 'Project ABCD'; }
     <title><?php echo htmlspecialchars($page_title);?></title>
     <!-- Bootstrap core CSS -->
     <link href="vendor/bootstrap/css/bootstrap.min.css" rel="stylesheet">
-    <!-- Custom styles for this template -->
     <link href="css/publishersdb.css" rel="stylesheet">
-    <link rel="stylesheet" href="css/header.css">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
-
     <link rel="stylesheet" type="text/css" href="https://cdn.datatables.net/1.10.19/css/jquery.dataTables.css">
     <link rel="stylesheet" type="text/css" href="https://cdn.datatables.net/buttons/1.5.2/css/buttons.dataTables.min.css">
+    <link rel="stylesheet" href="css/header.css"> 
+
     <style>#header{color: darkgoldenrod;}</style>
     <script src="https://kit.fontawesome.com/f40040d297.js" crossorigin="anonymous"></script>
     <script>
@@ -70,6 +69,7 @@ if(!isset($page_title)) { $page_title = 'Project ABCD'; }
         </form>-->
         <ul class="navbar-nav mr-right">
         <li class="nav-item">
+          
         <?php
         
         if (isset($_SESSION['role'])){
@@ -81,7 +81,8 @@ if(!isset($page_title)) { $page_title = 'Project ABCD'; }
             echo '<li class="nav-item active"><a class="nav-link" id="header" href="shop.php">Shop<span class="sr-only">(current)</span></a></li>';
             // Yeliz: Go to the Book Form Added 
             echo '<li class="nav-item active"><a class="nav-link" id="header" href="book_form.php" target="_blank">Go to the Book Form<span class="sr-only">(current)</span></a></li>';
-
+            // Yeliz:  "Sponsors" option
+            echo '<li class="nav-item"><a class="nav-link" id="header" href="sponsors.php" target="_blank">Sponsors</a></li>';
 
 
             
@@ -98,6 +99,8 @@ if(!isset($page_title)) { $page_title = 'Project ABCD'; }
             echo '<li class="nav-item active"><a class="nav-link" id="header" href="about.php">About<span class="sr-only">(current)</span></a></li>';
             echo '<li class="nav-item active"><a class="nav-link" id="header" href="help.php">Help<span class="sr-only">(current)</span></a></li>';
             echo '<li class="nav-item active"><a class="nav-link" id="header" href="shop.php">Shop<span class="sr-only">(current)</span></a></li>';
+            // Yeliz:  "Sponsors" option
+            echo '<li class="nav-item"><a class="nav-link" id="header" href="sponsors.php" target="_blank">Sponsors</a></li>'; 
             echo '<li class="nav-item active"><a class="nav-link" id="header" href="loginForm.php">Login<span class="sr-only">(current)</span></a></li>';
             }
             ?>

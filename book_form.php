@@ -1,14 +1,16 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Generate Book</title>
     <link rel="stylesheet" href="css/book_form_styles.css"> 
+    <?php include "header.php"; ?>
 </head>
 <body>
 
-<div class="form-container">
+<div class="book-form">
     <h2>Book Generation Form</h2>
 
     <form action="generated_book.php" method="post">
@@ -103,7 +105,7 @@
 </div>
 
         <div class="form-group">
-            <button type="button" class="action-button" onclick="window.open('/abcd/pdf/book_form_pdf.php', '_blank')">Generate</button>
+            <button type="button" class="action-button" onclick="window.open('/abcd/pdf/book_form_pdf.php', '_blank')">Generate HTML</button>
             <button type="button" class="action-button" onclick="location.href='book_form_help.php'">Help</button>
         </div>
     </form>

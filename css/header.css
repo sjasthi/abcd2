@@ -1,97 +1,71 @@
 body {
-
-    height: 100%;
-
+  height: 100%;
 }
 
-button[type=submit] {
-
-    background-color: orangered;
-    border: 0px;
-    color: white;
-    font-weight: bold;
-
+button[type="submit"] {
+  background-color: orangered;
+  border: 0px;
+  color: white;
+  font-weight: bold;
 }
 
 .fa-solid {
-    
-    padding-top: 10px;
-    padding-left: 3px;
-    font-size: 68px;
-
+  padding-top: 10px;
+  padding-left: 3px;
+  font-size: 68px;
 }
 
 .logoStyle {
-
-    padding-right: 50px;
-
+  padding-right: 50px;
 }
 
-
 .navbar {
-
-    padding: 0px !important;
-    position: fixed;
-    top: 0px;
-    width: 100%;
-
+  padding: 0px !important;
+  position: fixed;
+  top: 0px;
+  width: 100%;
 }
 
 .navbar-nav {
-
-    height: 100%;
-
+  height: 100%;
 }
 
 .navbar-collapse {
-
-    background-color: orangered;
-    color: white !important;
-
+  background-color: orangered;
+  color: white !important;
 }
 
 .nav-link {
-
-    color: white !important;
-    font-size: 20px;
-    font-weight: bold !important;
-    transition: transform 1s;
-    
-
+  color: white !important;
+  font-size: 20px;
+  font-weight: bold !important;
+  transition: transform 1s;
 }
 
 .nav-link:hover {
-
-    transform: rotateZ(-25deg);
-    
-
+  transform: rotateZ(-25deg);
 }
 
 .profileInfo {
-
-    display: flex;
-    align-items: center;
-    margin-left: 15px;
-    margin-right: 15px;
-
+  display: flex;
+  align-items: center;
+  margin-left: 15px;
+  margin-right: 15px;
 }
 
 .profileInfo p {
-    font-weight: bold;
-    margin: auto !important;
+  font-weight: bold;
+  margin: auto !important;
 }
 
 .search-container {
-
-    font-size: 20px;
-    padding-top: 5px;
-    padding-right: 50px;
-
+  font-size: 20px;
+  padding-top: 5px;
+  padding-right: 50px;
 }
 
 #userIcon {
-    font-size: 20px;
-    padding-right: 10px;
-    margin-bottom: 5px;
+  font-size: 20px;
+  padding-right: 10px;
+  margin-bottom: 5px;
 }
-
