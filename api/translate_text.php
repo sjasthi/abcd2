@@ -1,6 +1,6 @@
 <?php
 // Best practice would be to hide this API key in a .env file, but would require a package and additional configuration
-$apiKey = 'AIzaSyAHnHq5LBIfWLsVOMCaoXfjhqEzm-jhNso';
+$apiKey = 'AIzaSyBEcCCI8VAHl-ezAiQ6cv9cygDnio7zp5I';
 $url = 'https://translation.googleapis.com/language/translate/v2?key=' . $apiKey;
 
 $textToTranslate = '';
