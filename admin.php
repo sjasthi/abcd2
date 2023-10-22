@@ -45,6 +45,13 @@
             <td><a href="artistEdit.php"><i class="fa fa-palette" id="adIconEleven"></i><p class="iconLabel"><strong>artists</strong></p></a></td>
             <td><a href="resources.php"><i class="fa-solid fa-scroll" id="adIconTwelve"></i><p class="iconLabel"><strong>resources</strong></p></a></td>
             <td><a href="admin_query.php" class="adminLinks"><i class="fa fa-user IconUse" id="adIconOne"></i><p class="iconLabel"><strong>advanced query</strong></p></a></td>
+            <!--<td><a href="book_form.php" class="adminLinks" target="_blank"><i class="fa fa-code IconUse" id="generateHtmlIcon"></i><p class="iconLabel"><strong>Generate HTML</strong></p></a></td>..-->
+            <td>
+                <a href="book_form.php" class="adminLinks" target="_blank">
+                    <i class="fa fa-code IconUse" id="generateHtmlIcon"></i>
+                    <p class="iconLabel"><strong>Generate HTML</strong></p>
+                </a>
+            </td>
         </tr>
     </table>
 </div>
