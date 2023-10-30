@@ -1,4 +1,6 @@
 <?php
+include('api/translate_text.php');
+
 if ($_SERVER['REQUEST_METHOD'] === 'GET') {
     // Handle GET request
     echo 'This script should only be accessed through a POST request.';
@@ -49,6 +51,22 @@ if ($_SERVER['REQUEST_METHOD'] === 'GET') {
 				$image = $row["image_url"];
 				$ID = $row["id"];
 
+                
+                if (isset($_POST['translation_language'])) {
+                    $selectedLanguage = $_POST['translation_language'];
+        
+                    $translatedName = translateText($name, $selectedLanguage);
+                    $translatedDescriptionHeader = translateText('Description:', $selectedLanguage);
+                    $translatedDescription = translateText($description, $selectedLanguage);
+                    $translatedDidYouKnowHeader = translateText('Did You Know?', $selectedLanguage);
+                    $translatedDidYouKnow = translateText($did_you_know, $selectedLanguage);
+                } else {
+                    $translatedName = $name;
+                    $translatedDescriptionHeader = 'Description:';  
+                    $translatedDescription = $description;
+                    $translatedDidYouKnowHeader = 'Did You Know?';
+                    $translatedDidYouKnow = $did_you_know;
+                }
 				//Dress Name
 				echo '<div class="title" style="text-align: center;">';
 				echo '<li>';
@@ -69,12 +87,12 @@ if ($_SERVER['REQUEST_METHOD'] === 'GET') {
 				//Dress ID
 				echo 'ID: ' . $ID . '<br>';
 				//Dress Description
-				echo '<span style="color: blue; font-size: 28px">Description:</span><br>';
-				echo '<span style="flex: 1; padding: 10px; font-size: 28px;">' . $description . '</span><br><br>';
+				echo '<span style="color: blue; font-size: 28px">'. $translatedDescriptionHeader .'</span><br>';
+				echo '<span style="flex: 1; padding: 10px; font-size: 28px;">' . $translatedDescription . '</span><br><br>';
 				echo '<br>';
 				//Dress Did_You_Know
-				echo '<span style="color: blue; font-size: 28px">Did You Know?</span><br>';
-				echo '<span style="flex: 1; padding: 10px; font-size: 28px;">' . $did_you_know . '</span>';
+				echo '<span style="color: blue; font-size: 28px">'. $translatedDidYouKnowHeader. '</span><br>';
+				echo '<span style="flex: 1; padding: 10px; font-size: 28px;">' . $translatedDidYouKnow . '</span>';
 				echo '</div>';
 
 				echo '</div>';

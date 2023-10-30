@@ -97,7 +97,8 @@
 <div class="form-group">
     <label for="translation_language">Translate to:</label>
     <select id="translation_language" name="translation_language">
-        <option value="en">Telugu</option>
+        <option value=""></option>
+        <option value="te">Telugu</option>
         <option value="fr">French</option>
         <option value="es">Spanish</option>
         <option value="de">German</option>
