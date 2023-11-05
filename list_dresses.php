@@ -203,7 +203,7 @@ $GLOBALS['data'] = mysqli_query($db, $query);
                     } else{
                         echo '<tr>
                         
-                        <td> </span> <a href="displaythedress.php?id='.$row["id"].'">'.$row["name"].'</a></td>
+                        <td> </span> <a href="display_the_dress.php?id='.$row["id"].'">'.$row["name"].'</a></td>
                         <td>'.$row["description"].'</td>
                         <td>'.$row["did_you_know"].'</td>
                         <td>'.$row["category"].' </span> </td>
@@ -211,7 +211,7 @@ $GLOBALS['data'] = mysqli_query($db, $query);
                         <td>'.$row["state_name"].'</td>
                         <td>'.$row["key_words"].' </span> </td>
                         <td><img class="thumbnailSize" src="' . "images/dress_images/" .$row["image_url"]. '" alt="'.$row["image_url"].'"></td>
-                        <td><a class="btn btn-info btn-sm" href="displaythedress.php?id='.$row["id"].'">Display</a></td>
+                        <td><a class="btn btn-info btn-sm" href="display_the_dress.php?id='.$row["id"].'">Display</a></td>
 
                         
                     </tr>';    

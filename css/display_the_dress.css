@@ -35,7 +35,7 @@
     text-transform: uppercase;
     color: #000080;
     height: 100px;
-    font-size: 70px;
+    font-size: 48px;
     font-family: 'Kanit';
     font-weight: bold;
     text-shadow: 2px 2px 4px #cec6bd;
@@ -70,6 +70,35 @@
     background-color: white;
     z-index: -1;
     
+  }
+
+  @media (max-width: 768px) {
+    .container {
+      flex-direction: column;
+    }
+
+    .containerImage { 
+      margin-left: 0px !important;
+      margin-bottom: 30px;
+    }
+
+    .containerImage img {
+      height: 100%;
+    }
+
+    .containerTitle {
+      width: 100%;
+    }
+
+    .headTwo { 
+      font-size: 32px;
+    }
+  }
+  
+  @media (min-width: 768px) {
+    .containerTitle {
+      width: 75%;
+    }
   }
 
   .containerImage {
