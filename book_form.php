@@ -13,7 +13,7 @@
 <div class="book-form">
     <h2>Book Generation Form</h2>
 
-    <form action="generated_book.php" method="post">
+    <form action="generated_book.php" method="post" target="_blank" onsubmit="onclick='window.open('generated_book.php')'">
 
         <div class="form-group">
             <label for="dress_numbers">Dress Numbers:</label>
@@ -97,7 +97,8 @@
 <div class="form-group">
     <label for="translation_language">Translate to:</label>
     <select id="translation_language" name="translation_language">
-        <option value="en">Telugu</option>
+        <option value=""></option>
+        <option value="te">Telugu</option>
         <option value="fr">French</option>
         <option value="es">Spanish</option>
         <option value="de">German</option>
@@ -105,7 +106,7 @@
 </div>
 
         <div class="form-group">
-            <button type="button" class="action-button" onclick="window.open('/abcd/pdf/book_form_pdf.php', '_blank')">Generate HTML</button>
+            <input type="submit" value="Generate"class="action-button" style="margin-right: 20px;"></input>
             <button type="button" class="action-button" onclick="location.href='book_form_help.php'">Help</button>
         </div>
     </form>
