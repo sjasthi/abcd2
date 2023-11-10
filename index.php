@@ -47,6 +47,7 @@ echo '<div text-align: left>
     <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Kanit:wght@300&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="./css/responsive_style.css">
 </head>
 
 <body>
@@ -276,14 +277,14 @@ echo '<div text-align: left>
            <div> 
 <?php */
     $counter = 0;
-    echo "<table id = 'table_2'>";
+    // bootstrap responzive table div wrap
+    echo "<div class='table-responsive-lg' id='responsive_table_2'><table id = 'table_2'>";
     while($row = mysqli_fetch_array($res_data)){
         
         if($counter == 0 || $counter % 4 == 0)
         {
-            echo '<tr>';
+            echo '<tr class="row">';
         }
-
 
         $dress_id = $row['id'];
         $dress_name = $row['name'];
@@ -307,6 +308,7 @@ echo '<div text-align: left>
     }
 
     ?>
+    </table></div>
     
 <!--Data Table -->
 <!--<script type="text/javascript" charset="utf8"
@@ -353,7 +355,7 @@ echo '<div text-align: left>
         } );
         
     } );
-
+</script>
     </div>
     
 
