@@ -1,0 +1,79 @@
+@media all and (max-width: 1200px) {
+  .navbar-toggler-icon {
+    height: 4em !important;
+    width: 4em !important;
+  }
+
+  .nav-link {
+    font-size: 5vw !important;
+  }
+
+  .containerTitle {
+    width: 75%;
+    margin: auto;
+    height: 20vw;
+    justify-content: space-around;
+    margin-top: 10vw;
+  }
+
+  .headTwo {
+    height: 20vw;
+    font-size: 10vw;
+    text-shadow: .3vw .3vw .6vw #cec6bd;
+    letter-spacing: 1vw;
+  }
+
+  .container {
+    padding: 5% !important;
+    flex-direction: column;
+  }
+
+  .containerImage {
+    margin-left: 0;
+    margin-bottom: 1%;
+  }
+
+  .image {
+    width: 100%;
+    height: auto;
+  }
+
+  #table_2 tr {
+    justify-content: center;
+  }
+
+  .mainTitle {
+    font-size: 6.25vw;
+    text-shadow: .17vw .17vw .34vw #cec6bd;
+    letter-spacing: 1vw;
+  }
+
+  .subTitle {
+    font-size: 4vw;
+    text-shadow: .17vw .17vw .34vw #cec6bd;
+    letter-spacing: 1vw;
+  }
+
+  .h2,
+  h2 {
+    font-size: 4vw;
+  }
+
+  .selectTitle {
+    padding-top: 4vw;
+  }
+}
+
+@media all and (max-width: 600px) {
+  .pageLinksContainer {
+    display: block;
+    margin: auto;
+    padding-top: 4vw;
+    padding-bottom: 4vw;
+    text-align: center;
+  }
+
+  .dressSorting {
+    padding-left: 0px;
+  }
+}
