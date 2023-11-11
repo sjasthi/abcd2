@@ -1,24 +1,72 @@
-.sponsorContainer {
-  display: grid;
-  grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
-  gap: 20px;
-  padding: 2rem;
+/* Global HTML and Body styles */
+html,
+body {
+  height: 100%; /* Ensures HTML and body take full height of the viewport */
+  margin: 0; /* Remove default margin */
+}
+
+/* Body background style */
+body {
   background-image: url("../images/sponsor_logos/colorful.png"),
     linear-gradient(
       to bottom,
-      rgba(255, 255, 255, 0.8),
-      rgba(255, 255, 255, 0.8)
+      rgba(230, 249, 255, 0.5),
+      rgba(255, 255, 255, 0.5)
     );
   background-attachment: fixed;
   background-position: center center;
   background-repeat: no-repeat;
   background-size: cover;
+  min-height: 100vh; /* Ensures body takes at least the full viewport height */
+
+  display: flex;
+  flex-direction: column;
+}
+
+/* Ribbon style */
+.ribbon {
+  text-align: center;
+  margin: 50px auto;
+  padding: 20px 5px;
+  background: orangered;
+  color: white;
+  font-family: "Playfair Display", serif;
+  text-shadow: 1px 1px 2px rgba(0, 0, 0, 0.2);
+  font-size: 1.5em;
+  font-weight: bold;
+  border-radius: 5px;
+  box-shadow: 0px 8px 15px rgba(0, 0, 0, 0.1),
+    inset 0px 1px 1px rgba(255, 255, 255, 0.6);
+  border: 1px solid #ccc;
+  max-width: 30%;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+}
+
+.ribbon:hover {
+  background: #ff7f50; /* Lighter shade of orange */
+  box-shadow: 0px 10px 20px rgba(0, 0, 0, 0.2);
+}
+
+/* Sponsor section style */
+.sponsorSection {
+  background: transparent;
+  padding: 15px;
+  margin-bottom: 20px;
   border-radius: 10px;
-  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+  text-align: left; /* Align text to the left */
+}
+
+.logoContainer {
+  text-align: center; /* Center the logo */
+  padding: 10px;
 }
 
 .thumbnailSize {
-  width: 100%;
+  max-width: 200px; /* Adjust logo size */
   height: auto;
   border: 3px solid #ddd;
   border-radius: 5px;
@@ -30,18 +78,40 @@
   box-shadow: 0 6px 12px rgba(0, 0, 0, 0.2);
 }
 
+.textContainer {
+  text-align: center; /* Center align the text content */
+  margin-top: 10px; /* Space between logo and text */
+}
+
+.title,
+.words {
+  margin: 0; /* Remove default margins to align text properly */
+  padding: 5px 0; /* Add some padding for better spacing */
+}
+
 .title {
-  font-family: "Kanit", sans-serif;
-  font-size: 2rem;
-  color: #333;
+  font-family: "Kanit", sans-serif; /* Or choose another appealing font */
+  font-size: 4rem;
+  color: black; /* Change to black */
+  text-shadow: 1px 1px 2px rgba(0, 0, 0, 0.3); /* Optional text shadow for depth */
 }
 
 .words {
-  font-family: "Montserrat", sans-serif;
-  font-size: 1rem;
-  color: #555;
+  font-family: "Montserrat", sans-serif; /* Or choose another appealing font */
+  font-size: 2rem;
+  color: black; /* Change to black */
+  /* Optionally add text shadow or other styling here */
 }
 
+footer.page-footer {
+  padding: 2rem;
+  font-size: 1rem;
+  background: #333;
+  color: #fff;
+  text-align: center;
+}
+
+/* Responsive design adjustments */
 @media only screen and (max-width: 768px) {
   .sponsorContainer {
     grid-template-columns: 1fr;

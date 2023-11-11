@@ -13,7 +13,6 @@ body {
 
 @media (max-width: 768px) {
   body {
-    /* Adjust background size for smaller screens if necessary */
     background-size: auto 100%;
   }
 }
@@ -46,7 +45,7 @@ body {
 }
 
 .ribbon:hover {
-  background: #ff7f50; /* Lighter shade of orange */
+  background: #ff7f50;
   box-shadow: 0px 10px 20px rgba(0, 0, 0, 0.2);
 }
 
@@ -74,7 +73,7 @@ body {
 }
 
 .grid-item {
-  background: url("../images/pattern.png"); /* Background pattern */
+  background: url("../images/pattern.png");
   border: 1px solid #ddd;
   padding: 5px;
   text-align: center;
@@ -104,7 +103,7 @@ body {
 .grid-title {
   font-family: "Montserrat", sans-serif;
   font-weight: bold;
-  font-size: 1.5rem; /* Adjust font size as needed */
+  font-size: 1.5rem;
   color: black;
   margin-bottom: 10px;
 }
