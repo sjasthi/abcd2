@@ -16,6 +16,9 @@ if(!isset($page_title)) { $page_title = 'Project ABCD'; }
     <meta name="description" content="">
     <meta name="author" content="">
     <title><?php echo htmlspecialchars($page_title);?></title>
+    <!-- Google Font -->
+    <link href="https://fonts.googleapis.com/css?family=Playfair+Display:400,700&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;700&display=swap" rel="stylesheet">
     <!-- Bootstrap core CSS -->
     <link href="vendor/bootstrap/css/bootstrap.min.css" rel="stylesheet">
     <link href="css/publishersdb.css" rel="stylesheet">
@@ -23,8 +26,20 @@ if(!isset($page_title)) { $page_title = 'Project ABCD'; }
     <link rel="stylesheet" type="text/css" href="https://cdn.datatables.net/1.10.19/css/jquery.dataTables.css">
     <link rel="stylesheet" type="text/css" href="https://cdn.datatables.net/buttons/1.5.2/css/buttons.dataTables.min.css">
     <link rel="stylesheet" href="css/header.css"> 
+    
 
-    <style>#header{color: darkgoldenrod;}</style>
+     <style>
+        #header {
+            color: darkgoldenrod;
+        }
+
+        .thumbnailSize {
+            max-height: 100px; /* Limit the height */
+            max-width: 100px; /* Limit the width */
+            width: auto; /* Maintain the aspect ratio */
+            height: auto; /* Maintain the aspect ratio */
+        }
+    </style>
     <script src="https://kit.fontawesome.com/f40040d297.js" crossorigin="anonymous"></script>
     <script>
         // When the user scrolls the page, execute myFunction

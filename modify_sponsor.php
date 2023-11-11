@@ -45,7 +45,8 @@
                     <input type="text" class="form-control" name="type" value="'.$row["type"].'"><br>
                 </div>
                 <div>
-                    <label for="logo">Logo</label>
+                    <label for="logo">Logo (Upload new to replace)</label>
+                    <input type="file" class="form-control" name="logoToUpload"><br>
                     <input type="text" class="form-control" name="logo" value="'.$row["logo"].'"><br>
                 </div>
                 <div>
@@ -67,3 +68,4 @@
         }
     ?>
 </div>
+

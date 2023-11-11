@@ -34,8 +34,8 @@ $page = "sponsors.php";
         </div>
 
         <div>
-            <label>Logo (URL)</label> <br>
-            <input style="width:400px" class="form-control" type="text" name="logo"></input>
+            <label>Logo (Upload)</label> <br>
+            <input type="file" name="logoToUpload" id="logoToUpload">
         </div>
 
         <div>

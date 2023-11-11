@@ -8,87 +8,97 @@ $GLOBALS['data'] = mysqli_query($db, $query);
 
 $page_title = 'Project ABCD > Sponsors';
 include('header.php');
+
+if (!isset($_SESSION['role']) || $_SESSION['role'] != 'admin') {
+    echo '<link rel="stylesheet" href="css/viewers_style.css">';
+}
 ?>
 
-<style>
-    #title {
-        text-align: center;
-        color: darkgoldenrod;
-    }
-    thead input {
-        width: 100%;
-    }
-    .thumbnailSize{
-        height: 100px;
-        width: 100px;
-        transition:transform 0.25s ease;
-    }
-    .thumbnailSize:hover {
-        -webkit-transform:scale(3.5);
-        transform:scale(3.5);
-    }
-</style>
+<?php if (isset($_SESSION['role']) && $_SESSION['role'] == 'admin'): ?>
+    <!-- Admin View with Table Layout -->
+    <div class="container-fluid">
+        <h2 id="title">Sponsor Management</h2><br>
+        
+        <?php if (isset($_SESSION['role']) && $_SESSION['role'] == 'admin'): ?>
+            <button><a class="btn btn-sm" href="create_sponsor.php">Create New Sponsor</a></button>
+        <?php endif; ?>
+        
+        <table class="display" id="sponsorsTable" style="width:100%">
+            <div class="table responsive">
+                <thead>
+                <tr>
+                    <th>ID</th>
+                    <th>Name</th>
+                    <th>Type</th>
+                    <th>Logo</th>
+                    <th>Description</th>
+                    <th>Website URL</th>
+                    <th>Actions</th>
+                </tr>
+                </thead>
+                <tbody>
+                <?php
+                if ($data->num_rows > 0) {
+                    while ($row = $data->fetch_assoc()) {
+                        echo '<tr>
+                                <td>' . $row["sponsor_id"] . '</td>
+                                <td>' . $row["name"] . '</td>
+                                <td>' . $row["type"] . '</td>
+                                <td><img src="' . $row["logo"] . '" class="thumbnailSize"></td>
+                                <td>' . $row["description"] . '</td>
+                                <td><a href="' . $row["website_url"] . '" target="_blank">' . $row["website_url"] . '</a></td>
+                                <td>
+                                    <a class="btn btn-info btn-sm" href="display_the_sponsor.php?id=' . $row["sponsor_id"] . '">View</a>
+                                    <a class="btn btn-warning btn-sm" href="modify_sponsor.php?id=' . $row["sponsor_id"] . '">Edit</a>
+                                    <a class="btn btn-danger btn-sm" href="deleteSponsor.php?id=' . $row["sponsor_id"] . '">Delete</a>
+                                </td>
+                            </tr>';
+                    }
+                } else {
+                    echo "<tr><td colspan='7'>No sponsors found</td></tr>";
+                }
+                ?>
+                </tbody>
+            </div>
+        </table>
+    </div>
 
-<br><br>
-<div class="container-fluid">
-    <h2 id="title">Sponsor Management</h2><br>
+<?php else: ?>
+   
 
-    <?php if (isset($_SESSION['role']) && $_SESSION['role'] == 'admin'): ?>
-        <button><a class="btn btn-sm" href="create_sponsor.php">Create New Sponsor</a></button>
-    <?php endif; ?>
-    
-    <table class="display" id="sponsorsTable" style="width:100%">
-        <div class="table responsive">
-            <thead>
-            <tr>
-                <th>ID</th>
-                <th>Name</th>
-                <th>Type</th>
-                <th>Logo</th>
-                <th>Description</th>
-                <th>Website URL</th>
-                <th>Display</th>
-                <?php if (isset($_SESSION['role']) && $_SESSION['role'] == 'admin'): ?>
-                    <th>Modify</th>
-                    <th>Delete</th>
-                <?php endif; ?>
-            </tr>
-            </thead>
-            <tbody>
+    <div class="container-fluid">
+        <div class="ribbon">
+            <div>Our Supporters</div>
+            <div>SPONSORS & PARTNERS</div>
+        </div>
+        
+        <div class="sponsors-logo-top">
+            <!-- Loop through sponsors logos here and display them -->
             <?php
             if ($data->num_rows > 0) {
                 while ($row = $data->fetch_assoc()) {
-                    echo '<tr>
-                            <td>' . $row["sponsor_id"] . '</td>
-                            <td><a href="display_the_sponsor.php?id=' . $row["sponsor_id"] . '">' . $row["name"] . '</a></td>
-                            <td>' . $row["type"] . '</td>
-                            <td><img src="' . $row["logo"] . '" class="thumbnailSize"></td>
-                            <td>' . $row["description"] . '</td>
-                            <td><a href="' . $row["website_url"] . '" target="_blank">' . $row["website_url"] . '</a></td>
-                            <td><a class="btn btn-info btn-sm" href="display_the_sponsor.php?id=' . $row["sponsor_id"] . '">Display</a></td>';
-                    
-                    if (isset($_SESSION['role']) && $_SESSION['role'] == 'admin') {
-                        echo '<td><a class="btn btn-warning btn-sm" href="modify_sponsor.php?id=' . $row["sponsor_id"] . '">Modify</a></td>
-                              <td><a class="btn btn-danger btn-sm" href="deleteSponsor.php?id=' . $row["sponsor_id"] . '">Delete</a></td>';
-                    }
-
-                    echo '</tr>';
+                    echo '<div class="grid-item">
+                            <a href="display_the_sponsor.php?id=' . $row["sponsor_id"] . '" title="' . $row["name"] . '">
+                                <img src="' . $row["logo"] . '" alt="' . $row["name"] . '" class="grid-image">
+                                <div class="grid-title">' . $row["name"] . '</div>
+                            </a>
+                        </div>';
                 }
             } else {
-                echo "<tr><td colspan='7'>0 results</td></tr>";
+                echo "<div class='grid-no-data'>No Sponsors Found</div>";
             }
             ?>
-            </tbody>
         </div>
-    </table>
-</div>
+    </div>
+    <!-- The rest of the visitor content would go here -->
+<?php endif; ?>
 
-<!-- /.container -->
 <!-- Footer -->
 <footer class="page-footer text-center">
-    <p>Created for FA23 ICS 499</p>
+    <p>Created for FA23 ICS 499 ♡</p>
 </footer>
 
+<!-- Scripts -->
 <!--JQuery-->
 <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script> 
 
