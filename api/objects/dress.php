@@ -14,6 +14,11 @@ class Dress{
     public $image_url;
     public $status;
     public $notes;
+    private static $connection; 
+
+    public static function setConnection($conn) {
+        self::$connection = $conn;
+    }
 
     // constructor
     public function __construct() {}
@@ -61,6 +66,40 @@ class Dress{
             array_push($ids, $obj->id);
         }
         return $ids;
+    }
+
+    /*
+    * This function can take 0 to all of the parameters.
+    * All parameters are optional and are based off the sql table 'dresses'
+    */
+    public function addDress($name, $description, $did_you_know, $category, $type, $state_name, $key_words, $image_url, $status, $notes) {
+        $name = $this->escapeString($name);
+        $description = $this->escapeString($description);
+        $did_you_know = $this->escapeString($did_you_know);
+        $category = $this->escapeString($category);
+        $type = $this->escapeString($type);
+        $state_name = $this->escapeString($state_name);
+        $key_words = $this->escapeString($key_words);
+        $image_url = $this->escapeString($image_url);
+        $status = $this->escapeString($status);
+        $notes = $this->escapeString($notes);
+    
+        $sql = "INSERT INTO `dresses` (`name`, `description`, `did_you_know`, `category`, `type`, `state_name`, `key_words`, `image_url`, `status`, `notes`)
+                VALUES ('$name', '$description', '$did_you_know', '$category', '$type', '$state_name', '$key_words', '$image_url', '$status', '$notes')";
+    
+        $result = run_sql($sql);
+    
+        if ($result) {
+            $last_id = self::$connection->insert_id;
+            return $this->getById($last_id);
+        } else {
+            return false; 
+        }
+    }
+
+    private function escapeString($value) {
+        // Prevent SQL injection
+        return mysqli_real_escape_string(self::$connection, $value);
     }
 }
 ?>
