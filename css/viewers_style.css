@@ -58,18 +58,22 @@ body {
   font-style: italic;
 }
 .sponsors-logo-top {
-  display: flex;
-  flex-wrap: wrap;
-  justify-content: space-around;
+  display: grid;
   gap: 20px;
   padding: 2rem;
 }
 
-.grid-container {
-  display: grid;
+/* Grid Layout for Different Number of Items Per Row */
+.grid-container-4 {
+  grid-template-columns: repeat(4, 1fr);
+}
+
+.grid-container-3 {
+  grid-template-columns: repeat(3, 1fr);
+}
+
+.grid-container-2 {
   grid-template-columns: repeat(2, 1fr);
-  gap: 20px;
-  padding: 2rem;
 }
 
 .grid-item {

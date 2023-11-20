@@ -3,8 +3,15 @@ session_start();
 require 'bin/functions.php';
 require 'db_configuration.php';
 
-$query = "SELECT * FROM sponsors";
-$GLOBALS['data'] = mysqli_query($db, $query);
+// Define the number of sponsors per row
+define('NUMBER_OF_SPONSORS_PER_ROW', 2); // Change this number to 2, 3, or 4 as needed
+
+// Separate queries for organizations and individuals
+$query_org = "SELECT * FROM sponsors WHERE type='organization'";
+$data_org = mysqli_query($db, $query_org);
+
+$query_ind = "SELECT * FROM sponsors WHERE type='individual'";
+$data_ind = mysqli_query($db, $query_ind);
 
 $page_title = 'Project ABCD > Sponsors';
 include('header.php');
@@ -64,35 +71,55 @@ if (!isset($_SESSION['role']) || $_SESSION['role'] != 'admin') {
     </div>
 
 <?php else: ?>
-   
 
+    <!-- Viewer View -->
     <div class="container-fluid">
+        <!-- Our Supporters and SPONSORS & PARTNERS -->
         <div class="ribbon">
-            <div>Our Supporters</div>
-            <div>SPONSORS & PARTNERS</div>
-        </div>
-        
-        <div class="sponsors-logo-top">
-            <!-- Loop through sponsors logos here and display them -->
+             <div>Our Supporters</div>
+             <div>SPONSORS & PARTNERS</div>
+         </div>
+        <!-- Organizations Grid -->
+        <div class="ribbon"><div>Organizations</div></div>
+        <div class="sponsors-logo-top grid-container-<?php echo NUMBER_OF_SPONSORS_PER_ROW; ?>">
             <?php
-            if ($data->num_rows > 0) {
-                while ($row = $data->fetch_assoc()) {
+            if ($data_org->num_rows > 0) {
+                while ($row = $data_org->fetch_assoc()) {
                     echo '<div class="grid-item">
                             <a href="display_the_sponsor.php?id=' . $row["sponsor_id"] . '" title="' . $row["name"] . '">
                                 <img src="' . $row["logo"] . '" alt="' . $row["name"] . '" class="grid-image">
                                 <div class="grid-title">' . $row["name"] . '</div>
                             </a>
-                        </div>';
+                          </div>';
                 }
             } else {
-                echo "<div class='grid-no-data'>No Sponsors Found</div>";
+                echo "<div class='grid-no-data'>No Organizations Found</div>";
+            }
+            ?>
+        </div>
+
+        <!-- Individuals Grid -->
+        <div class="ribbon"><div>Individuals</div></div>
+        <div class="sponsors-logo-top grid-container-<?php echo NUMBER_OF_SPONSORS_PER_ROW; ?>">
+            <?php
+            if ($data_ind->num_rows > 0) {
+                while ($row = $data_ind->fetch_assoc()) {
+                    echo '<div class="grid-item">
+                            <a href="display_the_sponsor.php?id=' . $row["sponsor_id"] . '" title="' . $row["name"] . '">
+                                <img src="' . $row["logo"] . '" alt="' . $row["name"] . '" class="grid-image">
+                                <div class="grid-title">' . $row["name"] . '</div>
+                            </a>
+                          </div>';
+                }
+            } else {
+                echo "<div class='grid-no-data'>No Individuals Found</div>";
             }
             ?>
         </div>
     </div>
-    <!-- The rest of the visitor content would go here -->
 <?php endif; ?>
 
+   
 <!-- Footer -->
 <footer class="page-footer text-center">
     <p>Created for FA23 ICS 499 ♡</p>
