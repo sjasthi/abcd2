@@ -78,7 +78,7 @@
         <tbody>
             <?php
             include('header.php');
-            // Replace 'your_username', 'your_password', and 'abcd_db' with your actual database credentials
+            
             $servername = "localhost";
             $username = "root";
             $password = "";
@@ -166,7 +166,7 @@
 
     <script type="text/javascript" language="javascript">
         $(document).ready(function () {
-            // DataTable initialization
+            
             var table = $('#NLPTable').DataTable({
                 dom: 'lfrtBip',
                 buttons: [
@@ -174,7 +174,7 @@
                 ]
             });
 
-            // Add search functionality for each column
+            
             $('#NLPTable thead tr').clone(true).appendTo('#NLPTable thead');
             $('#NLPTable thead tr:eq(1) th').each(function (i) {
                 var title = $(this).text();
