@@ -116,6 +116,7 @@ if(!isset($page_title)) { $page_title = 'Project ABCD'; }
             echo '<li class="nav-item active"><a class="nav-link" id="header" href="shop.php">Shop<span class="sr-only">(current)</span></a></li>';
             // Yeliz:  "Sponsors" option
             echo '<li class="nav-item"><a class="nav-link" id="header" href="sponsors.php" target="_blank">Sponsors</a></li>'; 
+            echo '<li class="nav-item"><a class="nav-link" id="header" href="NLP_Analysis.php" target="_blank">NLP Analysis</a></li>'; 	
             echo '<li class="nav-item active"><a class="nav-link" id="header" href="loginForm.php">Login<span class="sr-only">(current)</span></a></li>';
             }
             ?>
