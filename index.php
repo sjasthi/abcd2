@@ -45,9 +45,16 @@ echo '<div text-align: left>
     <title>ABCD</title>
     <link href="css/index.css" rel="stylesheet">
     <link rel="preconnect" href="https://fonts.googleapis.com">
-<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link href="https://fonts.googleapis.com/css2?family=Kanit:wght@300&display=swap" rel="stylesheet">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Kanit:wght@300&display=swap" rel="stylesheet">
+    <style>
+    #searchLabel {
+        font-weight: bold;
+        
+    }
 
+
+</style>
 
 </head>
 
@@ -62,6 +69,7 @@ echo '<div text-align: left>
     ?>
 
     <?php
+   
     if (isset($_GET['preferencesUpdated'])) {
         if ($_GET["preferencesUpdated"] == "Success") {
             echo "<br><h3 align=center style='color:green'>Success! The Preferences have been updated!</h3>";
@@ -72,7 +80,7 @@ echo '<div text-align: left>
     // Step 1: Get the row_count and dresses_count from COOKIE or from defaults
     //=============================================================================
     // Hard code these defaults for now; Ideally, we can get these from the database.
-
+    $searchPerformed = false;
     $fav_dress = "Saree";
     $image_height = "350";
     $image_width = "250";
@@ -184,7 +192,22 @@ echo '<div text-align: left>
     $sort_param = isset($_GET['sort']) ? $_GET['sort'] : 'id'; // default to 'id' if no sort param is given
     $sql = "SELECT * FROM dresses ORDER BY ".$sort_param." ASC LIMIT " . $page_first_result . ',' . $no_of_records_per_page;
 
-    if(isset($_POST["id"])){
+    if(isset($_GET["submitSearch"])){
+        $searchID = mysqli_real_escape_string($db, $_GET['search']);
+        
+        // Check if the dress ID exists in the database
+        $checkIDQuery = "SELECT COUNT(*) AS count FROM dresses WHERE id = $searchID";
+        $checkIDResult = mysqli_query($db, $checkIDQuery);
+        $count = mysqli_fetch_assoc($checkIDResult)['count'];
+    
+        if($count > 0){
+            // Dress ID exists, retrieve the data
+            $sql = "SELECT * FROM dresses WHERE id = $searchID LIMIT " . $page_first_result . ',' . $no_of_records_per_page;
+        } else {
+            // Dress ID not found, set an error status
+            $errorStatus = "Sorry! ID $searchID is not found in our database.";
+        }
+    } else {
         $sql = "SELECT * FROM dresses ORDER BY id ASC LIMIT " . $page_first_result . ',' . $no_of_records_per_page;
     }
     if(isset($_POST["name"])){
@@ -217,8 +240,16 @@ echo '<div text-align: left>
         <button class="sortLink" type="submit" name="sort" value="category">Category</button>
         <button class="sortLink" type="submit" name="sort" value="type">Type</button>
         <button class="sortLink" type="submit" name="sort" value="state_name">State</button>
+        <label for="search" id="searchLabel">Search ID:</label>
+        <input type="text" id="search" name="search" placeholder="Enter a valid ID">
+        <button type="submit" name="submitSearch">Search</button>
     </form>
+<?php
 
+if(isset($errorStatus)){
+    echo "<p style='color: red;'>$errorStatus</p>";
+}
+?>
     </span>
     <span class="pageNavConatiner">
         <tr class="pageNav">
