@@ -3,10 +3,8 @@ session_start();
 require 'bin/functions.php';
 require 'db_configuration.php';
 
-// Define the number of sponsors per row
-define('NUMBER_OF_SPONSORS_PER_ROW', 2); // Change this number to 2, 3, or 4 as needed
+define('NUMBER_OF_SPONSORS_PER_ROW', 2);
 
-// Separate queries for organizations and individuals
 $query_org = "SELECT * FROM sponsors WHERE type='organization'";
 $data_org = mysqli_query($db, $query_org);
 
@@ -22,7 +20,6 @@ if (!isset($_SESSION['role']) || $_SESSION['role'] != 'admin') {
 ?>
 
 <?php if (isset($_SESSION['role']) && $_SESSION['role'] == 'admin'): ?>
-    <!-- Admin View with Table Layout -->
     <div class="container-fluid">
         <h2 id="title">Sponsor Management</h2><br>
         
@@ -45,8 +42,9 @@ if (!isset($_SESSION['role']) || $_SESSION['role'] != 'admin') {
                 </thead>
                 <tbody>
                 <?php
-                if ($data->num_rows > 0) {
-                    while ($row = $data->fetch_assoc()) {
+                // Display organization sponsors
+                if (isset($data_org) && $data_org->num_rows > 0) {
+                    while ($row = $data_org->fetch_assoc()) {
                         echo '<tr>
                                 <td>' . $row["sponsor_id"] . '</td>
                                 <td>' . $row["name"] . '</td>
@@ -61,7 +59,27 @@ if (!isset($_SESSION['role']) || $_SESSION['role'] != 'admin') {
                                 </td>
                             </tr>';
                     }
-                } else {
+                }
+                // Display individual sponsors
+                if (isset($data_ind) && $data_ind->num_rows > 0) {
+                    while ($row = $data_ind->fetch_assoc()) {
+                        echo '<tr>
+                                <td>' . $row["sponsor_id"] . '</td>
+                                <td>' . $row["name"] . '</td>
+                                <td>' . $row["type"] . '</td>
+                                <td><img src="' . $row["logo"] . '" class="thumbnailSize"></td>
+                                <td>' . $row["description"] . '</td>
+                                <td><a href="' . $row["website_url"] . '" target="_blank">' . $row["website_url"] . '</a></td>
+                                <td>
+                                    <a class="btn btn-info btn-sm" href="display_the_sponsor.php?id=' . $row["sponsor_id"] . '">View</a>
+                                    <a class="btn btn-warning btn-sm" href="modify_sponsor.php?id=' . $row["sponsor_id"] . '">Edit</a>
+                                    <a class="btn btn-danger btn-sm" href="deleteSponsor.php?id=' . $row["sponsor_id"] . '">Delete</a>
+                                </td>
+                            </tr>';
+                    }
+                }
+                // If no sponsors found
+                if ((!isset($data_org) || $data_org->num_rows == 0) && (!isset($data_ind) || $data_ind->num_rows == 0)) {
                     echo "<tr><td colspan='7'>No sponsors found</td></tr>";
                 }
                 ?>
@@ -69,7 +87,6 @@ if (!isset($_SESSION['role']) || $_SESSION['role'] != 'admin') {
             </div>
         </table>
     </div>
-
 <?php else: ?>
 
     <!-- Viewer View -->
