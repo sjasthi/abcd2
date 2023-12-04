@@ -29,7 +29,7 @@ if (!empty($sql)) {
 <!DOCTYPE html>
 <html>
 <head>
-    <!-- Head content including stylesheets and fonts -->
+    <link rel="stylesheet" href="css/display_the_sponsor.css">
 </head>
 <body>
     <!-- Navigation and other body content -->

@@ -7,15 +7,11 @@ body {
 
 /* Body background style */
 body {
-  background-image: url("../images/sponsor_logos/colorful.png"),
-    linear-gradient(
-      to bottom,
-      rgba(230, 249, 255, 0.5),
-      rgba(255, 255, 255, 0.5)
-    );
+  background-image: radial-gradient(black 1px, transparent 0);
+  background-repeat: repeat;
+  background-size: 10px 10px, cover;
   background-attachment: fixed;
   background-position: center center;
-  background-repeat: no-repeat;
   background-size: cover;
   min-height: 100vh; /* Ensures body takes at least the full viewport height */
 
