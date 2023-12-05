@@ -1,4 +1,7 @@
 error_log
 db_configuration.php
 db_configuration.php
-*.PNG
+# To ignore all PNG files regardless of case
+#*.png
+#*.PNG
+
