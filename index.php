@@ -11,6 +11,8 @@ include('header.php');
 
 /*$sort_array=['name', 'category', 'type' , 'state_name' , 'status'];
      
+this is commented out section
+
         $r = @$_GET['option'];
       
         $num = count($sort_array);
