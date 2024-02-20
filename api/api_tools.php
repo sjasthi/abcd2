@@ -7,7 +7,7 @@ function response($responseCode, $message, $data) {
     // Locally cache results for two hours
     header('Cache-Control: max-age=7200');
 
-    // JSON Header
+    // JSON Header which we will be sending with every request
     header('Content-type:application/json;charset=utf-8');
 
     http_response_code($responseCode);
