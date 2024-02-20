@@ -43,7 +43,7 @@
 
 <div class="row">
 
-<form action="bingo_code.php" method="post"> 
+<form action="bingo_code.php"  method="post"> 
 <div class="column" id="column1">
 Title: <br> <input type="text" name="title" value="SILC"><br><br>
 Number of rows: <br> <input type="text" name="rows"><br><br>
@@ -51,7 +51,7 @@ Number of columns: <br> <input type="text" name="cols"><br><br>
 Number of cards to generate: <br> <input type="number" min="1" max="25" value="10"name="cards"><br><br>
 </div>
 <div class="column">
-List (separate with comma): <br> <textarea name="list" rows="8" cols="50"></textarea><br>
+List (separate with commas): <br> <textarea name="list" rows="8" cols="50"></textarea><br>
 Randomize List <input type="checkbox" name="randomize"> &nbsp; &nbsp; &nbsp; 
 
 </div>
