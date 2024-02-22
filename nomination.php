@@ -34,9 +34,10 @@ verifyLogin($page);
             font-size: 10px;
         }
     </style>
-    <form action="create_the_dress.php" method="POST" enctype="multipart/form-data">
+    <form action="create_nomination.php" method="POST" enctype="multipart/form-data">
         <br>
-
+        <br>
+        
         <h3 id="title">Nominate</h3> <br>
 
         <div>
