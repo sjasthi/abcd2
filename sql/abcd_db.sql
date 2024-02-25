@@ -20,6 +20,20 @@ SET time_zone = "+00:00";
 --
 -- Database: `abcd_db`
 --
+-- --------------------------------------------------------
+
+--
+-- Table structure for table `nominations`
+--
+
+CREATE TABLE `nominations` (
+  `id` int(11) NOT NULL AUTO_INCREMENT,
+  `category` varchar(100) NOT NULL,
+  `name` varchar(50) NOT NULL,
+  `description` varchar(2000) NOT NULL,
+  `nominator` varchar(50) NOT NULL,
+  PRIMARY KEY (id)
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
 
 -- --------------------------------------------------------
 
