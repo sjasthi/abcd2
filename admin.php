@@ -38,6 +38,7 @@
             <td><a href="help.php"><i class="fa fa-circle-question" id="adIconSix"></i><p class="iconLabel"><strong>help</strong></p></a></td>
             <td><a href="games.php"><i class="fa fa-dice" id="adIconSeven"></i><p class="iconLabel"><strong>games</strong></p></a></td>
             <td><a href="my_favorite.php"><i class="fa fa-shirt" id="adIconEight"></i><p class="iconLabel"><strong>my favorite</strong></p></a></td>
+            <td><a href="manageNominations.php" class="adminLinks"><i class="fa-solid fa-trophy" id="adIconOne"></i><p class="iconLabel"><strong>Nomination</strong></p></a></td>
 </tr>
 <tr class="lastCol">
             <td><a href="reports_summary.php"><i class="fa fa-file-lines" id="adIconNine"></i><p class="iconLabel"><strong>reports summary</strong></p></a></td>

@@ -41,6 +41,12 @@ verifyLogin($page);
                     <label class="form-check-label" for="shero">Shero</label>
                 </div>
             </div>
+            <div class="form-check form-check-inline">
+                <div class="form-check-input">
+                    <input type="radio" id="other" name="category" value="Other" required>
+                    <label class="form-check-label" for="other">Other</label>
+                </div>
+            </div>
         </div>
 
         <div class="form-group">
