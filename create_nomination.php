@@ -1,4 +1,6 @@
 <?php
+session_start();
+
 
 include_once 'db_configuration.php';
 
@@ -13,6 +15,10 @@ include_once 'db_configuration.php';
              
     mysqli_query($db, $sql);
     #placeholder redirect until we figure out if we want to show user confirmation
-    header('location: index.php');
+    if($_SESSION['role'] == 'admin') {
+        header('Location: manageNominations.php');
+    } else {
+        header('Location: index.php');
+    }
 
 ?>
