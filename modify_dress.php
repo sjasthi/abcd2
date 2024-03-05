@@ -34,6 +34,8 @@
 #guidance {
         color: grey;
         font-size: 10px;
+}
+
 </style>
 <div class="container">
 <style>#title {text-align: center; color: darkgoldenrod;}</style>
@@ -184,5 +186,4 @@ else {
 ?>
 
 </div>
-
-
+</html>
