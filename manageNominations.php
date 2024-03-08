@@ -21,7 +21,7 @@
 <style>
     #title {
         text-align: center;
-        color: #FF8C00;
+        color: darkgoldenrod;
     }
     thead input {
         width: 100%;
