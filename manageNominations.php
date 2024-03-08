@@ -21,7 +21,7 @@
 <style>
     #title {
         text-align: center;
-        color: darkgoldenrod;
+        color: #FF8C00;
     }
     thead input {
         width: 100%;
@@ -151,7 +151,5 @@
 
 </script>
 
-
-?>
 </body>
 </html>

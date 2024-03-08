@@ -23,7 +23,7 @@ verifyLogin($page);
         <br>
 
         <h2 id="title">Create Your Nomination!</h2> 
-        <h5 id="subtitle">Please submit this form if you would like to nominate a Shero or Hero.</h5>
+        <h5 id="subtitle">Please submit this form if you would like to make a nomination.</h5>
         <br>
 
         <label style="font-weight: bold;">Please select the nomination type:</label>
