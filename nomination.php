@@ -58,9 +58,13 @@ verifyLogin($page);
             <textarea class="form-control" name="description" cols="55" rows="5" placeholder="Please enter a Description." required></textarea>
         </div>
 
+        <div class="form-group">
+            <!-- automatically include user's email in the nominator field (read only) -->
+            <label style="font-weight: bold;">Email</label> <br>
+            <input id="email" name ="nominator" value= <?php echo $_SESSION['email'] ?> readonly> 
+        </div>
+
         <div class="form-group text-left">
-            <!-- automatically include user's email in the nominator field -->
-            <input type="hidden" id="email" name ="nominator" value= <?php echo $_SESSION['email'] ?>> 
             <button type="submit" name="submit" class="btn btn-primary btn-md">Submit Nomination</button>
         </div>
 

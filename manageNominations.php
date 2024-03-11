@@ -42,7 +42,7 @@
     <h2 id="title">Resources List</h2><br>
     
     <div id="customerTableView">
-        <button><a class="btn btn-sm" href="nomination.php">Create a Nomination</a></button>
+        <a class="btn btn-primary btn-sm" href="nomination.php">Create a Nomination</a>
         <table class="display" id="nominationsTable" style="width:100%">
             <div class="table responsive">
                 <thead>
