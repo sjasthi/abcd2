@@ -38,7 +38,6 @@ if ($result->num_rows > 0) {
                 <label for="id">Id</label>
                 <input type="text" class="form-control" name="id" value="<?php echo $row["id"]; ?>" maxlength="5" style="width:400px" readonly><br>
             </div>
-
             <div>
                 <label for="category">Category</label>
                 <div class="form-group">
@@ -74,7 +73,7 @@ if ($result->num_rows > 0) {
             </div>
 
             <div class="btnContainer">
-                <button type="submit" name="submit" class="btn btn-primary btn-md align-items-center">Modify Nomination</button>
+                <button type="submit" name="update_nomination" class="btn btn-primary btn-md align-items-center">Modify Nomination</button>
             </div>
             <br>
             <br>

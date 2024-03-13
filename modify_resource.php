@@ -77,61 +77,60 @@ if ($result->num_rows > 0) {
         }
       }
       
+?>
 
 
-
-      echo '<h2 id="title">Modify Resource</h2><br>';
-      echo '<form action="modify_the_resource.php" method="POST" enctype="multipart/form-data">
+      <h2 id="title">Modify Resource</h2><br>;
+      <form action="modify_the_resource.php" method="POST" enctype="multipart/form-data">
       <br>
-      <h3>'.$row["name"].' </h3> <br>
+      <h3><?php echo $row["first_name"] ?> </h3> <br>
       
       <div>
         <label for="id">Id</label>
-        <input type="text" class="form-control" name="id" value="'.$row["id"].'"  maxlength="5" style=width:400px readonly><br>
+        <input type="text" class="form-control" name="id" value=<?php echo $row["id"] ?>  maxlength="5" style=width:400px readonly><br>
       </div>
       
       <div>
         <label for="name">Name</label>
-        <input type="text" class="form-control" name="name" value="'.$row["name"].'"  maxlength="255" style=width:400px required><br>
+        <input type="text" class="form-control" name="name" value=<?php echo $row["name"] ?>  maxlength="255" style=width:400px required><br>
       </div>
       
       <div>
       
         <label for="url">url</label>
-        <textarea style=width:400px class="form-control" name= "url" cols="55" rows="6" required>'.$row["url"].'</textarea>
+        <textarea style=width:400px class="form-control" name= "url" cols="55" rows="6" required><?php echo $row["url"] ?></textarea>
         </div>
           
 
       <div>
         <label for="type">Type</label> <label id="guidance"> (image, video, wiki, pdf, doc, audio, other)</label> <br>
-        <input type="text" class="form-control" name="type" value="'.$row["type"].'"  maxlength="255" style=width:400px required><br>
+        <input type="text" class="form-control" name="type" value=<?php echo $row["type"] ?>  maxlength="255" style=width:400px required><br>
       </div>
       
-        <div>
+      <div>
         <label for="notes">Notes</label>
-        <input type="text" class="form-control" name="notes" value="'.$row["notes"].'"  maxlength="255" style=width:400px><br>
+        <input type="text" class="form-control" name="notes" value=<?php echo $row["notes"] ?> maxlength="255" style=width:400px><br>
       </div>
 
-      
-      
       <br>
       <div class="text-left">
-          <button type="submit" name="submit" class="btn btn-primary btn-md align-items-center">Modify Resource</button>
+          <button type="submit" name="update_resource" class="btn btn-primary btn-md align-items-center">Modify Resource</button>
       </div>
       <br>
 
       <br> <br>
       
-      </form>';
-    
-    }//end while
-}//end if
-else {
+      </form>
+
+<?php
+}
+}else {
     echo "0 results";
 }//end else
 
 ?>
 
 </div>
+</html>
 
 
