@@ -21,7 +21,7 @@ if ($query_use) {
     header('location:manageNominations.php?Updated=Success');
 
 }else{
-    $error = "database failed update";
+    header('location:manageNominations.php?Updated=Failed&id='.$id);
 }
 
 }
