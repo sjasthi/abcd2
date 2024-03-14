@@ -7,7 +7,9 @@
 
 require 'bin/functions.php';
 require 'db_configuration.php';
+require 'chatbot.php';
 include('header.php');
+
 
 /*$sort_array=['name', 'category', 'type' , 'state_name' , 'status'];
      
