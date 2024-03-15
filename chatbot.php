@@ -1,85 +1,67 @@
 
 <!DOCTYPE html>
+
 <html lang="en">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href="./css/chatbot.css">
 </head>
+
 <body>
-<div class="chat-box">
-    <div class="chat-box-header">
-        <h3>Message Us</h3>
-        <p><i class="fa fa-times"></i></p>
-    </div>
-    <div class="chat-box-body">
-        <div class="chat-box-body-send">
-            <p>This is my message.</p>
-            <span>12:00</span>
-        </div>
-        <div class="chat-box-body-receive">
-            <p>This is my message.</p>
-            <span>12:00</span>
-        </div>
-        <div class="chat-box-body-receive">
-            <p>This is my message.</p>
-            <span>12:00</span>
-        </div>
-        <div class="chat-box-body-send">
-            <p>This is my message.</p>
-            <span>12:00</span>
-        </div>
-        <div class="chat-box-body-send">
-            <p>This is my message.</p>
-            <span>12:00</span>
-        </div>
-        <div class="chat-box-body-receive">
-            <p>This is my message.</p>
-            <span>12:00</span>
-        </div>
-        <div class="chat-box-body-receive">
-            <p>This is my message.</p>
-            <span>12:00</span>
-        </div>
-        <div class="chat-box-body-send">
-            <p>This is my message.</p>
-            <span>12:00</span>
-        </div>
-    </div>
-    <div class="chat-box-footer">
-        <button id="addExtra"><i class="fa fa-plus"></i></button>
-        <input placeholder="Enter Your Message" type="text" />
-        <i class="send far fa-paper-plane"></i>
-    </div>
-</div>
-<div class="chat-button"><span></span></div>
-<div class="modal">
-    <div class="modal-content">
-        <span class="modal-close-button">&times;</span>
-        <h1>Add What you want here.</h1>
-    </div>
-</div>
-</div>
-</body>
-</html>
-<script src='https://cdnjs.cloudflare.com/ajax/libs/jquery/2.1.3/jquery.min.js'></script>
-<script  src="./js/chatbot.js"> </script>
+
+<!-- <script src='https://cdnjs.cloudflare.com/ajax/libs/jquery/2.1.3/jquery.min.js'></script> -->
+<!-- <script src="./js/chatbot.js"></script> -->
+<script>
+function openForm() {
+    document.getElementById("myForm").style.display = "block";
+}
+  
+function closeForm() {
+    document.getElementById("myForm").style.display = "none";
+} 
+</script>
 
 <?php 
 /*********************************************************************************/
 //Code for getting info from OpenAI API
+session_start();
 $message = null;
 $result = null;
-if(isset($_POST['input'])) {
+$_SESSION['chat_history'] = null; // resetting history for now. third message in chat breaks the json messaging format for some reason.
+
+if (isset($_POST['input'])) {
+    
     $message = $_POST['input'];
+    $message = '{"role": "user", "content": "'.$message.'"}'; // jsonify it
+    
     $headers = [
         'Content-Type: application/json',
-        'Authorization: Bearer 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'
+        'Authorization: Bearer API-KEY-HERE'
     ];
     
     $ch = curl_init('https://api.openai.com/v1/chat/completions');
-    $json_data = '{"model":"gpt-3.5-turbo",
-        "messages": [{"role": "system", "content": "You are a chatbot for assisting users on a website."}, {"role": "user", "content": "'.$message.'"}]}';
+    $json_end_braces = ']}';
+    
+    if (isset($_SESSION['chat_history'])) { // if chat history already exitst, append the new message to prior history
+        $json_data = $_SESSION['chat_history'] . "," . $message;
+
+    } else { // no chat history yet
+        
+        // EXAMPLE JSON FORMAT FOR REFERENCE:
+        // $json_data = '{"model":"gpt-3.5-turbo",
+        //     "messages": [{"role": "system", "content": "You are a chatbot for assisting users on an educational website about Indian heroes and sheroes. The content includes history about traditional dresses and outfits worn by historical figures. Please assist them with questions related to this context."}, 
+        //     {"role": "user", "content": "'.$message.'"} ]}';
+
+        $json_data = '{"model":"gpt-3.5-turbo",
+            "messages": [{"role": "system", "content": "You are a chatbot for assisting users on an educational website about Indian heroes and sheroes. The content includes history about traditional dresses and outfits worn by historical figures. Please assist them with questions related to this context."}, 
+            '.$message.'';
+
+        $_SESSION['chat_history'] = $json_data;
+    }
+    // append the end braces to the json
+    $json_data = $json_data . $json_end_braces;
+
     curl_setopt_array($ch, [
         CURLOPT_HTTPHEADER => $headers,
         CURLOPT_RETURNTRANSFER => true,
@@ -92,23 +74,64 @@ if(isset($_POST['input'])) {
     $result = json_decode($response, true);
     
     /************************************************************************************/
-
+   
+    // now we append the response part to $_SESSION['chat_history'].
+    // format needed is: {"role": "assistant", "content": "response message here"},
     $result = $result['choices'][0]['message']['content'];
+    $response_message = '{"role": "assistant", "content": "'.$result.'"}'; // jsonify it
+    $_SESSION['chat_history'] = $_SESSION['chat_history'] . "," . $response_message; // append the response to the chat history
     
-    if(isset($_POST['past_messages'])){
+    if (isset($_POST['past_messages'])){
         $x = $_POST['past_messages'];
         $result = $x.$message."<br/>".$result."<br/>";
     }
 }
 ?>
 
-<form method="post" action="index.php"> <!-- change the action to whatever page you want it to be displayed on -->
+<!-- GITHUB EXAMPLE FORM -->
+
+<!-- change the action to whatever page you want it to be displayed on -->
+<!-- <form method="post" action="" hidden> 
     <input type="text" name="input" id="input" placeholder="Enter your question here.">
     <button class="p-2 bg-indigo-800 text-white rounded" name="past_messages" value="<?= $result?>">Submit</button>
-</form>
-<p>This might take awhile, please wait until the page is finished loading to enter a new prompt.</p>
-<?php 
-    if ($result != null) {
-    echo $result;
-    }
-?>
+</form> -->
+
+ <!-- DEBUG OUTPUTS -->
+<!-- <?php 
+    // if ($result != null) {
+    //     echo $result;
+    //     echo $_SESSION['chat_history']; // debugging
+    //     echo $json_data; // debugging
+    //     echo $message; // debugging
+    //     echo $response; // debugging
+    //     echo implode($result_json);
+    // }
+?> -->
+
+
+<!-- CHAT BOX -->
+<div class="chat-box-container">
+
+<button class="open-button" onclick="openForm()">Chat</button>
+
+<div class="chat-popup" id="myForm">
+  <form method="post" class="form-container" action="">
+    <h1>Chat</h1>
+
+    <div class="chat-messages">
+       <?php if ($result != null) { echo $result; } ?> 
+    </div>
+    
+    <label for="msg"><b>Message</b></label>
+    <textarea placeholder="Type your message.." name="input" required></textarea>
+
+    <button type="submit" class="btn">Send</button>
+    <button type="button" class="btn cancel" onclick="closeForm()">Close</button>
+  </form>
+</div> 
+
+</div>
+
+
+</body>
+</html>

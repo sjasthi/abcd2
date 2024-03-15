@@ -7,7 +7,7 @@
 
 require 'bin/functions.php';
 require 'db_configuration.php';
-require 'chatbot.php';
+include('chatbot.php');
 include('header.php');
 
 
