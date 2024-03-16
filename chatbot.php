@@ -45,7 +45,7 @@ if (isset($_POST['input'])) {
     
     $headers = [
         'Content-Type: application/json',
-        'Authorization: Bearer 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'
+        'Authorization: Bearer API here'
     ];
     
     $ch = curl_init('https://api.openai.com/v1/chat/completions');
@@ -147,7 +147,6 @@ if (isset($_POST['input'])) {
         $('message-input').val('');
         openForm();
         return false;
-  
 }); 
 </script>
 
