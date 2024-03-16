@@ -45,7 +45,7 @@ if (isset($_POST['input'])) {
     
     $headers = [
         'Content-Type: application/json',
-        'Authorization: Bearer INSERT API KEY HERE'
+        'Authorization: Bearer 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'
     ];
     
     $ch = curl_init('https://api.openai.com/v1/chat/completions');
@@ -133,20 +133,18 @@ if (isset($_POST['input'])) {
     <label id = "message-input" for="msg"><b>Message</b></label>
     <textarea placeholder="Type your message.." name="input" required></textarea>
 
-    <button id = "chat-submit" type="submit" class="btn" >Send</button>
+    <button id = "chat-submit" type="submit" class="btn" onclick = "openForm()" >Send</button>
     <button type="button" class="btn cancel" onclick ="closeForm()">Close</button>
   </form>
 </div> 
 
 <script src ="https://code.jquery.com/jquery-3.6.0.min.js">
-    event.preventDefault(); 
-    document.getElementById('chat-submit').addEventListener('click', function(event) { 
+    document.getElementById('#chat-submit').addEventListener('click', function(event) { 
         event.preventDefault(); 
-
-        var message = $('message-input').val().trim(); 
-        $('chat-box-container').append(message); 
-        $('message-input').val('');
-        openForm();
+        var message = $('#message-input').val().trim(); 
+        $('#chat-box-container').append(message); 
+        $('#message-input').val('');
+        
         return false;
 }); 
 </script>
