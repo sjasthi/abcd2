@@ -12,13 +12,41 @@
     position: fixed;
     bottom: 23px;
     right: 28px;
-    width: 280px;
+    width: 200px;
   }
 
   .chat-messages {
     height: 60%;
     overflow-y: scroll;
     margin-bottom: 5px;
+  }
+
+  .message-label {
+    font-weight: bold; /* Bold text */
+    margin-bottom: 5px; /* Margin below the label */
+  }
+
+  .user-message {
+    background-color: #e6f2ff; /* Light blue background for user's messages */
+    border-radius: 5px; /* Rounded corners */
+    padding: 10px; /* Padding around the message */
+    margin: 5px 0; /* Margin between messages */
+  }
+
+
+  .message {
+    background-color: #f2f2f2; 
+    border-radius: 5px;
+    padding: 10px;
+    margin: 5px 0; 
+  }
+
+  .error-message {
+    background-color: #ffe6e6; /* Light red background for errors */
+    border-radius: 5px; /* Rounded corners */
+    padding: 10px; /* Padding around the message */
+    margin: 5px 0; /* Margin between messages */
+    color: #cc0000; /* Red text color for errors */
   }
   
   /* The popup chat - hidden by default */
@@ -35,8 +63,8 @@
   
   /* Add styles to the form container */
   .form-container {
-    max-width: 300px;
-    padding: 10px;
+    max-width: 350px;
+    padding: 15px;
     background-color: white;
   }
   

@@ -1,10 +1,10 @@
 <?php
-
     if(!isset($_SESSION)) 
     { 
         session_start();
     } 
 ?>
+
 <!DOCTYPE html>
 
 <html lang="en">
@@ -26,9 +26,43 @@ function openForm() {
 function closeForm() {
     document.getElementById("myForm").style.display = "none";
 } 
-
 </script>
 
+<script src ="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+<script>
+$(document).ready(function () {
+    // Event for form submission
+    $(document).on('submit', '#chat-form', function (event) {
+        event.preventDefault(); // Prevent default form submission
+        var message = $('textarea[name="input"]').val(); // Get the message from the textarea
+        appendUserMessage(message); // Append the user's message to the chat box with label
+        sendMessageToChatbot(message); // Send the user's message to the chatbot
+    });
+
+    function appendUserMessage(message) {
+        $('#chat-messages').append('<div class="message-label">You:</div>'); // Add user label
+        $('#chat-messages').append('<div class="user-message">' + message + '</div>');
+        $('#chat-messages').scrollTop($('#chat-messages')[0].scrollHeight);
+    }
+
+    function sendMessageToChatbot(message) {
+        $.ajax({
+            type: 'POST',
+            url: '',
+            data: { input: message },
+            success: function (response) {
+                $('#chat-messages').append('<div class="message-label">Chatbot:</div>'); // Add chatbot label
+                $('#chat-messages').append('<div class="message">' + response + '</div>');
+                $('#chat-messages').scrollTop($('#chat-messages')[0].scrollHeight);
+            },
+            error: function (jqXHR, textStatus, errorThrown) {
+                $('#chat-messages').append('<div class="error-message">' + errorThrown + '</div>');
+                $('#chat-messages').scrollTop($('#chat-messages')[0].scrollHeight);
+            }
+        });
+    }
+});
+</script>
 
 
 <?php 
@@ -36,39 +70,21 @@ function closeForm() {
 //Code for getting info from OpenAI API
 $message = null;
 $result = null;
-$_SESSION['chat_history'] = null; // resetting history for now. third message in chat breaks the json messaging format for some reason.
+// $_SESSION['chat_history'] = null; // resetting history for now. third message in chat breaks the json messaging format for some reason.
 
 if (isset($_POST['input'])) {
-    
-    $message = $_POST['input'];
-    $message = '{"role": "user", "content": "'.$message.'"}'; // jsonify it
-    
+    // Interaction with the OpenAI API
+    $message = '{"role": "user", "content": "' . $_POST['input'] . '"}';
+
     $headers = [
         'Content-Type: application/json',
-        'Authorization: Bearer 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'
+        'Authorization: Bearer APIKEYHERE'
     ];
     
     $ch = curl_init('https://api.openai.com/v1/chat/completions');
-    $json_end_braces = ']}';
-    
-    if (isset($_SESSION['chat_history'])) { // if chat history already exitst, append the new message to prior history
-        $json_data = $_SESSION['chat_history'] . "," . $message;
-
-    } else { // no chat history yet
-        
-        // EXAMPLE JSON FORMAT FOR REFERENCE:
-        // $json_data = '{"model":"gpt-3.5-turbo",
-        //     "messages": [{"role": "system", "content": "You are a chatbot for assisting users on an educational website about Indian heroes and sheroes. The content includes history about traditional dresses and outfits worn by historical figures. Please assist them with questions related to this context."}, 
-        //     {"role": "user", "content": "'.$message.'"} ]}';
-
-        $json_data = '{"model":"gpt-3.5-turbo",
-            "messages": [{"role": "system", "content": "You are a chatbot for assisting users on an educational website about Indian heroes and sheroes. The content includes history about traditional dresses and outfits worn by historical figures. Please assist them with questions related to this context."}, 
-            '.$message.'';
-
-        $_SESSION['chat_history'] = $json_data;
-    }
-    // append the end braces to the json
-    $json_data = $json_data . $json_end_braces;
+    $json_data = '{"model":"gpt-3.5-turbo",
+        "messages": [{"role": "system", "content": "You are a chatbot for assisting users on an educational website about Indian heroes and sheroes. The content includes history about traditional dresses and outfits worn by historical figures. Please assist them with questions related to this context."}, 
+        ' . $message . ']}';
 
     curl_setopt_array($ch, [
         CURLOPT_HTTPHEADER => $headers,
@@ -78,79 +94,53 @@ if (isset($_POST['input'])) {
     ]);
     
     $response = curl_exec($ch);
-    curl_close($ch);
-    $result = json_decode($response, true);
-    
-    /************************************************************************************/
-   
-    // now we append the response part to $_SESSION['chat_history'].
-    // format needed is: {"role": "assistant", "content": "response message here"},
-    $result = $result['choices'][0]['message']['content'];
-    $response_message = '{"role": "assistant", "content": "'.$result.'"}'; // jsonify it
-    $_SESSION['chat_history'] = $_SESSION['chat_history'] . "," . $response_message; // append the response to the chat history
-    
-    if (isset($_POST['past_messages'])){
-        $x = $_POST['past_messages'];
-        $result = $x.$message."<br/>".$result."<br/>";
+    if ($response === false) {
+        echo "Request error: " . curl_error($ch);
+    } else {
+        $decoded_response = json_decode($response, true);
+        if (isset($decoded_response['error'])) {
+            // If an error occurred, echo the error message
+            echo $decoded_response['error']['message'];
+        } else {
+            // Echo only the response message
+            echo $decoded_response['choices'][0]['message']['content'];
+        }
     }
+    curl_close($ch);
+    exit(); // Stop further execution after sending the response
 }
 ?>
 
-<!-- GITHUB EXAMPLE FORM -->
-
-<!-- change the action to whatever page you want it to be displayed on -->
-<!-- <form method="post" action="" hidden> 
-    <input type="text" name="input" id="input" placeholder="Enter your question here.">
-    <button class="p-2 bg-indigo-800 text-white rounded" name="past_messages" value="<?= $result?>">Submit</button>
-</form> -->
-
  <!-- DEBUG OUTPUTS -->
 <!-- <?php 
-    // if ($result != null) {
-    //     echo $result;
-    //     echo $_SESSION['chat_history']; // debugging
-    //     echo $json_data; // debugging
-    //     echo $message; // debugging
-    //     echo $response; // debugging
-    //     echo implode($result_json);
-    // }
+    // echo $result;
+    // echo $_SESSION['chat_history'];
+    // echo $json_data;
+    // echo $response;
 ?> -->
 
 
 <!-- CHAT BOX -->
+
 <div class="chat-box-container">
 
 <button class="open-button" onclick="openForm()">Chat</button>
 
 <div class="chat-popup" id="myForm">
-  <form id ="chat-form" method="post" class="form-container" action="">
+  <form id="chat-form" method="post" class="form-container" role="form">
     <h1>Chat</h1>
 
-    <div class="chat-messages">
-       <?php if ($result != null) { echo $result; } ?> 
-    </div>
+     <div class="chat-messages" id="chat-messages"></div>
     
-    <label id = "message-input" for="msg"><b>Message</b></label>
-    <textarea placeholder="Type your message.." name="input" required></textarea>
+    <label id="message-input" for="msg"><b>Message</b></label>
+    <textarea placeholder="Type your message..." name="input" required></textarea>
 
-    <button id = "chat-submit" type="submit" class="btn" onclick = "openForm()" >Send</button>
-    <button type="button" class="btn cancel" onclick ="closeForm()">Close</button>
+    <button id="chat-submit" type="submit" class="btn" >Send</button>
+    <button type="button" class="btn cancel" onclick="closeForm()">Close</button>
   </form>
 </div> 
-
-<script src ="https://code.jquery.com/jquery-3.6.0.min.js">
-    document.getElementById('#chat-submit').addEventListener('click', function(event) { 
-        event.preventDefault(); 
-        var message = $('#message-input').val().trim(); 
-        $('#chat-box-container').append(message); 
-        $('#message-input').val('');
-        
-        return false;
-}); 
-</script>
-
-
 </div>
+
 
 
 </body>
