@@ -1,4 +1,10 @@
+<?php
 
+    if(!isset($_SESSION)) 
+    { 
+        session_start();
+    }
+?>
 <!DOCTYPE html>
 
 <html lang="en">
@@ -25,7 +31,6 @@ function closeForm() {
 <?php 
 /*********************************************************************************/
 //Code for getting info from OpenAI API
-session_start();
 $message = null;
 $result = null;
 $_SESSION['chat_history'] = null; // resetting history for now. third message in chat breaks the json messaging format for some reason.
