@@ -1,19 +1,37 @@
-.chat-box-container {font-family: Arial, Helvetica, sans-serif;}
-* {box-sizing: border-box;}
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+.chat-box-container {
+  font-family: Arial, Helvetica, sans-serif;
+  position: fixed;
+  bottom: 0;
+  right: 0;
+  width: 475px; 
+}
 
 /* Button used to open the chat form - fixed at the bottom of the page */
 .open-button {
-    background-color: #555;
-    color: white;
-    padding: 16px 20px;
-    border: none;
-    cursor: pointer;
-    opacity: 0.8;
-    position: fixed;
-    bottom: 23px;
-    right: 28px;
-    width: 200px;
-  }
+  background-color: #04AA6D;
+  color: white;
+  padding: 16px 20px;
+  border: none;
+  cursor: pointer;
+  opacity: 0.8;
+  position: fixed;
+  bottom: 23px;
+  right: 28px;
+  width: 150px;
+  transition: opacity 0.3s; /* Add transition for smooth hover effect */
+  border-radius: 15px; /* Add border-radius for rounded corners */
+}
+
+.open-button:hover {
+  opacity: 1; /* Increase opacity on hover */
+}
+
 
   .chat-messages {
     height: 60%;
@@ -53,7 +71,7 @@
   .chat-popup {
     display: none;
     position: fixed;
-    max-height: 90%;
+    max-height: 80%;
     overflow-y: scroll;
     bottom: 0;
     right: 15px;

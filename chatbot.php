@@ -1,9 +1,9 @@
-<?php
+<!-- <?php
     if(!isset($_SESSION)) 
     { 
         session_start();
     } 
-?>
+?> -->
 
 <!DOCTYPE html>
 
@@ -11,53 +11,70 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <script src="https://kit.fontawesome.com/a076d05399.js" crossorigin="anonymous"></script>
     <link rel="stylesheet" href="./css/chatbot.css">
 </head>
 
 <body>
 
-<!-- <script src='https://cdnjs.cloudflare.com/ajax/libs/jquery/2.1.3/jquery.min.js'></script> -->
-<!-- <script src="./js/chatbot.js"></script> -->
-<script>
-function openForm() {
-    document.getElementById("myForm").style.display = "block";
-}
-  
-function closeForm() {
-    document.getElementById("myForm").style.display = "none";
-} 
-</script>
 
 <script src ="https://code.jquery.com/jquery-3.6.0.min.js"></script>
 <script>
 $(document).ready(function () {
-    // Event for form submission
-    $(document).on('submit', '#chat-form', function (event) {
+    // Function to open the chat form
+    function openForm() {
+        $("#myForm").show();
+    }
+
+    // Function to close the chat form
+    function closeForm() {
+        $("#myForm").hide();
+    }
+
+    // Event listener for the "Chat" button
+    $(".open-button").click(openForm);
+
+    // Event listener for the "Close" button
+    $(".cancel").click(closeForm);
+
+    // Event listener for form submission
+    $('#chat-form').submit(function (event) {
         event.preventDefault(); // Prevent default form submission
         var message = $('textarea[name="input"]').val(); // Get the message from the textarea
-        appendUserMessage(message); // Append the user's message to the chat box with label
-        sendMessageToChatbot(message); // Send the user's message to the chatbot
+        if (message.trim() !== '') { // Check if the message is not empty
+            appendUserMessage(message); // Append the user's message to the chat box with label
+            sendMessageToChatbot(message); // Send the user's message to the chatbot
+        }
+        // Clear the textarea after submission
+        $('textarea[name="input"]').val('');
     });
 
     function appendUserMessage(message) {
-        $('#chat-messages').append('<div class="message-label">You:</div>'); // Add user label
+        $('#chat-messages').append('<div class="message-label">You:</div>'); // add user label
         $('#chat-messages').append('<div class="user-message">' + message + '</div>');
         $('#chat-messages').scrollTop($('#chat-messages')[0].scrollHeight);
     }
 
     function sendMessageToChatbot(message) {
+        // Disable form submission while the AJAX request is in progress
+        $('#chat-submit').prop('disabled', true);
+
         $.ajax({
             type: 'POST',
             url: '',
             data: { input: message },
             success: function (response) {
-                $('#chat-messages').append('<div class="message-label">Chatbot:</div>'); // Add chatbot label
+                $('#chat-messages').append('<div class="message-label">Chatbot:</div>'); // add chatbot label
                 $('#chat-messages').append('<div class="message">' + response + '</div>');
                 $('#chat-messages').scrollTop($('#chat-messages')[0].scrollHeight);
             },
             error: function (jqXHR, textStatus, errorThrown) {
-                $('#chat-messages').append('<div class="error-message">' + errorThrown + '</div>');
+                $('#chat-messages').append('<div class="error-message">Error: ' + errorThrown + '</div>');
                 $('#chat-messages').scrollTop($('#chat-messages')[0].scrollHeight);
+            },
+            complete: function() {
+                // Re-enable form submission after the request is completed
+                $('#chat-submit').prop('disabled', false);
             }
         });
     }
@@ -124,21 +141,23 @@ if (isset($_POST['input'])) {
 
 <div class="chat-box-container">
 
-<button class="open-button" onclick="openForm()">Chat</button>
+<button class="open-button">Chat  <i class="fa-regular fa-comment"></i></button>
+    <div class="chat-popup" id="myForm">
+    <form id="chat-form" class="form-container">
+        <div class="d-flex justify-content-between">
+            <h2>Chat</h2>
+            <h2><i class="fa-regular fa-comments"></i></h2>
+        </div>
 
-<div class="chat-popup" id="myForm">
-  <form id="chat-form" method="post" class="form-container" role="form">
-    <h1>Chat</h1>
+        <div class="chat-messages" id="chat-messages"></div>
+        
+        <label id="message-input" for="msg"><b>Message</b></label>
+        <textarea placeholder="Type your message..." name="input" required></textarea>
 
-     <div class="chat-messages" id="chat-messages"></div>
-    
-    <label id="message-input" for="msg"><b>Message</b></label>
-    <textarea placeholder="Type your message..." name="input" required></textarea>
-
-    <button id="chat-submit" type="submit" class="btn" >Send</button>
-    <button type="button" class="btn cancel" onclick="closeForm()">Close</button>
-  </form>
-</div> 
+        <button id="chat-submit" type="submit" class="btn">Send <i class="fa-regular fa-paper-plane"></i></button>
+        <button type="button" class="btn cancel">Close <i class="fa-regular fa-rectangle-xmark"></i></button>
+    </form>
+    </div> 
 </div>
 
 
