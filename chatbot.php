@@ -148,7 +148,6 @@ if (isset($_POST['input'])) {
         $('message-input').val('');
         openForm();
         return false;
-  
 }); 
 </script>
 
