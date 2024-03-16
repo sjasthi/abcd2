@@ -1,10 +1,4 @@
-<?php
 
-    if(!isset($_SESSION)) 
-    { 
-        session_start();
-    }
-?>
 <!DOCTYPE html>
 
 <html lang="en">
@@ -26,11 +20,15 @@ function openForm() {
 function closeForm() {
     document.getElementById("myForm").style.display = "none";
 } 
+
 </script>
+
+
 
 <?php 
 /*********************************************************************************/
 //Code for getting info from OpenAI API
+session_start();
 $message = null;
 $result = null;
 $_SESSION['chat_history'] = null; // resetting history for now. third message in chat breaks the json messaging format for some reason.
@@ -42,7 +40,7 @@ if (isset($_POST['input'])) {
     
     $headers = [
         'Content-Type: application/json',
-        'Authorization: Bearer API-KEY-HERE'
+        'Authorization: Bearer  Api here'
     ];
     
     $ch = curl_init('https://api.openai.com/v1/chat/completions');
@@ -120,20 +118,22 @@ if (isset($_POST['input'])) {
 <button class="open-button" onclick="openForm()">Chat</button>
 
 <div class="chat-popup" id="myForm">
-  <form method="post" class="form-container" action="">
+  <form id ="chat-form" method="post" class="form-container" action="">
     <h1>Chat</h1>
 
     <div class="chat-messages">
        <?php if ($result != null) { echo $result; } ?> 
     </div>
     
-    <label for="msg"><b>Message</b></label>
+    <label id = "message-input" for="msg"><b>Message</b></label>
     <textarea placeholder="Type your message.." name="input" required></textarea>
 
-    <button type="submit" class="btn">Send</button>
-    <button type="button" class="btn cancel" onclick="closeForm()">Close</button>
+    <button id = "chat-submit" type="submit" class="btn" onclick = "openForm()" >Send</button>
+    <button type="button" class="btn cancel" onclick ="closeForm()">Close</button>
   </form>
 </div> 
+
+
 
 </div>
 
