@@ -45,7 +45,7 @@ if (isset($_POST['input'])) {
     
     $headers = [
         'Content-Type: application/json',
-        'Authorization: Bearer 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'
+        'Authorization: Bearer INSERT API KEY HERE'
     ];
     
     $ch = curl_init('https://api.openai.com/v1/chat/completions');
@@ -139,6 +139,7 @@ if (isset($_POST['input'])) {
 </div> 
 
 <script src ="https://code.jquery.com/jquery-3.6.0.min.js">
+    event.preventDefault(); 
     document.getElementById('chat-submit').addEventListener('click', function(event) { 
         event.preventDefault(); 
 
