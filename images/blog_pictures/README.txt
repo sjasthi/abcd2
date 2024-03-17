@@ -1,0 +1,1 @@
+This is folder is meant to store images uploaded by create_blog_post.php to display in blogs.php
