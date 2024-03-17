@@ -1,0 +1,150 @@
+body {
+  text-align: center;
+  
+}
+
+h3 {
+  font-size: 36px;
+  font-weight: 900;
+  margin-bottom: 0;
+}
+
+h1 .accent-text {
+    text-align: center;
+    color: #000080;
+    font-family: 'Kanit';
+    text-transform: uppercase;
+    font-weight: bold;
+    font-size: 70px;
+    text-shadow: 2px 2px 4px #cec6bd;
+}
+
+header {
+  padding: 50px 0 25px;
+}
+
+input[type="file"]::file-selector-button {
+  background-color: orangered;
+  color: white;
+  font-weight: bold;
+  height: 40px;
+  border-radius: 4px;
+}
+
+input[type="submit"],
+button {
+  background-color: orangered;
+  color: white;
+  font-weight: bold;
+  padding: 14px 20px;
+  margin-top: 8px;
+  margin-bottom: 8px;
+  border: none;
+  border-radius: 4px;
+  cursor: pointer;
+}
+
+#container_2,
+#blog_creation_left,
+#blog_creation_right,
+#right {
+  display: inline-block;
+  padding: 50px;
+  vertical-align: top;
+}
+
+#blog_creation_left,
+#blog_creation_right {
+  width: 25%;
+  padding-right: 0;
+  padding-left: 0;
+}
+
+.blog_post {
+  width: 50%;
+  display: block;
+  margin-right: 25%;
+  margin-left: auto;
+  margin-top: 20px;
+  padding-bottom: 10px;
+  box-shadow: 5px 5px 5px #888888;
+  border-radius: 25px;
+  border-style: solid;
+  border-width: thin;
+}
+
+.blog_post p,
+.blog_post h3 {
+  text-align: left;
+  padding-left: 10px;
+  padding-right: 10px;
+}
+
+.blog_post h2 {
+  border-top: none;
+}
+
+.blog_link {
+  padding-bottom: 20px;
+  margin-bottom: 10px;
+}
+
+.blog_picture {
+  width: 80%;
+  height: auto;
+  margin: 10px;
+  box-shadow: 0 8px 16px 0 rgba(0, 0, 0, 0.2);
+  border-radius: 10px;
+}
+
+#blog_TOC {
+  float: left;
+  text-align: left;
+  width: 15%;
+  margin-left: 5%;
+  margin-right: 5%;
+  border-radius: 25px;
+  border-style: solid;
+  border-width: thin;
+}
+
+#TOC_title {
+  text-align: center;
+}
+
+#blog_TOC a {
+  cursor: pointer;
+}
+
+#blog_buttons {
+  width: 40%;
+  margin: auto;
+  padding-top: 10px;
+}
+
+#blog_next {
+  float: right;
+  min-width: 200px;
+}
+
+#blog_previous {
+  float: left;
+  min-width: 200px;
+}
+
+#blog_edit {
+  width: 50%;
+  margin: auto;
+  margin-top: 25px;
+  border-collapse: collapse;
+}
+
+#blog_edit .td_right {
+  width: 15%;
+  text-align: left;
+}
+
+#blog_edit .td_left {
+  width: 85%;
+  text-align: left;
+}
