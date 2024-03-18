@@ -95,7 +95,8 @@ if (isset($_POST['input'])) {
 
     $headers = [
         'Content-Type: application/json',
-        'Authorization: Bearer APIKEYHERE'
+        //'Authorization: Bearer APIKEYHERE'
+        'Authorization: Bearer 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'
     ];
     
     $ch = curl_init('https://api.openai.com/v1/chat/completions');

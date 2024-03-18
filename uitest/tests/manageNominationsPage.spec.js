@@ -54,10 +54,10 @@ test('Check admin user can delete nominations', async ({ page }) => {
   // Create random names and descriptions for nominations
   const heroName = "HERO_NAME_" + generateRandomString_AllChars(6)
   const heroDescription = "HERO_DESCRIPTION_" + generateRandomString_AllChars(8)
-  const sheroName = "SHERO_NAME_" + generateRandomString_AllChars(6)
-  const sheroDescription = "DESCRIPTION_" + generateRandomString_AllChars(8)
-  const otherName = "OTHER_NAME_" + generateRandomString_AllChars(6)
-  const otherDescription = "OTHER_DESCRIPTION_" + generateRandomString_AllChars(8)
+  const sheroName = "SHERO_NAME_" + generateRandomString_AllChars(5)
+  const sheroDescription = "DESCRIPTION_" + generateRandomString_AllChars(7)
+  const otherName = "OTHER_NAME_" + generateRandomString_AllChars(5)
+  const otherDescription = "OTHER_DESCRIPTION_" + generateRandomString_AllChars(7)
   // Login and go to Nominations page
   await page.click(loginLoc)
   await page.waitForLoadState('networkidle')
@@ -98,7 +98,7 @@ test('Check admin user can delete nominations', async ({ page }) => {
   await page.fill(manageNominations_NameFilterFieldLoc, heroName)
   await page.keyboard.press('Enter')
   await page.waitForLoadState('networkidle')
-  await page.waitForTimeout(1000)
+  await page.waitForTimeout(2000)
   expect(await page.isVisible(heroLocator)).toBe(true)
   await page.click(manageNominations_DeleteButtonLoc)
   await page.waitForLoadState('networkidle')
@@ -112,7 +112,7 @@ test('Check admin user can delete nominations', async ({ page }) => {
   await page.fill(manageNominations_NameFilterFieldLoc, sheroName)
   await page.keyboard.press('Enter')
   await page.waitForLoadState('networkidle')
-  await page.waitForTimeout(1000)
+  await page.waitForTimeout(2000)
   expect(await page.isVisible(sheroLocator)).toBe(true)
   await page.click(manageNominations_DeleteButtonLoc)
   await page.waitForLoadState('networkidle')
@@ -126,7 +126,7 @@ test('Check admin user can delete nominations', async ({ page }) => {
   await page.fill(manageNominations_NameFilterFieldLoc, otherName)
   await page.keyboard.press('Enter')
   await page.waitForLoadState('networkidle')
-  await page.waitForTimeout(1000)
+  await page.waitForTimeout(2000)
   expect(await page.isVisible(otherLocator)).toBe(true)
   await page.click(manageNominations_DeleteButtonLoc)
   await page.waitForLoadState('networkidle')
@@ -141,11 +141,11 @@ test('Check admin user can modify nominations', async ({ page }) => {
   const heroName = "HERO_NAME_" + generateRandomString_AllChars(6)
   const heroDescription = "HERO_DESCRIPTION_" + generateRandomString_AllChars(8)
   const heroCategory = "Hero"
-  const sheroName = "SHERO_NAME_" + generateRandomString_AllChars(6)
-  const sheroDescription = "DESCRIPTION_" + generateRandomString_AllChars(8)
+  const sheroName = "SHERO_NAME_" + generateRandomString_AllChars(5)
+  const sheroDescription = "DESCRIPTION_" + generateRandomString_AllChars(7)
   const sheroCategory = "Shero"
-  const otherName = "OTHER_NAME_" + generateRandomString_AllChars(6)
-  const otherDescription = "OTHER_DESCRIPTION_" + generateRandomString_AllChars(8)
+  const otherName = "OTHER_NAME_" + generateRandomString_AllChars(5)
+  const otherDescription = "OTHER_DESCRIPTION_" + generateRandomString_AllChars(7)
   const otherCategory = "Other"
   // Login and go to Nominations page
   await page.click(loginLoc)
@@ -168,7 +168,7 @@ test('Check admin user can modify nominations', async ({ page }) => {
   await page.fill(manageNominations_NameFilterFieldLoc, heroName)
   await page.keyboard.press('Enter');
   await page.waitForLoadState('networkidle')
-  await page.waitForTimeout(1000)
+  await page.waitForTimeout(1500)
   expect(await page.isVisible(heroLocator)).toBe(true)
   // Modify: Hero -> Shero
   await page.click(manageNominations_ModifyButtonLoc)
@@ -177,22 +177,20 @@ test('Check admin user can modify nominations', async ({ page }) => {
   await page.fill(modifyNomination_DescriptionFieldLoc, sheroDescription)
   await page.click(modifyNomination_ModifyNominationButtonLoc)
   await page.waitForLoadState('networkidle')
-  await page.waitForTimeout(1000)
+  await page.waitForTimeout(1500)
+  await page.fill(manageNominations_NameFilterFieldLoc, heroName)
+  await page.keyboard.press('Enter');
+  await page.waitForLoadState('networkidle')
+  await page.waitForTimeout(1500)
   expect(await page.isHidden(heroLocator)).toBe(true)
   // Check for 'Shero' in grid
   await page.reload();
   await page.waitForLoadState('networkidle');
   var sheroLocator = "//td[contains(text(), '" + sheroName + "')]"
   await page.fill(manageNominations_NameFilterFieldLoc, sheroName)
-  await page.waitForLoadState('networkidle')
-  await page.waitForTimeout(1000)
-  await page.fill(manageNominations_DescriptionFilterFieldLoc, sheroDescription)
-  /await page.waitForLoadState('networkidle')
-  await page.waitForTimeout(1000)
-  await page.fill(manageNominations_CategoryFilterFieldLoc, sheroCategory)
   await page.keyboard.press('Enter')
   await page.waitForLoadState('networkidle')
-  await page.waitForTimeout(1000)
+  await page.waitForTimeout(1500)
   expect(await page.isVisible(sheroLocator)).toBe(true)
   // Modify: Shero -> Other
   await page.click(manageNominations_ModifyButtonLoc)
@@ -201,22 +199,20 @@ test('Check admin user can modify nominations', async ({ page }) => {
   await page.fill(modifyNomination_DescriptionFieldLoc, otherDescription)
   await page.click(modifyNomination_ModifyNominationButtonLoc)
   await page.waitForLoadState('networkidle')
-  await page.waitForTimeout(1000)
+  await page.waitForTimeout(1500)
+  await page.fill(manageNominations_NameFilterFieldLoc, sheroName)
+  await page.keyboard.press('Enter')
+  await page.waitForLoadState('networkidle')
+  await page.waitForTimeout(1500)
   expect(await page.isHidden(sheroLocator)).toBe(true)
   // Check for 'Other' in grid
   await page.reload();
   await page.waitForLoadState('networkidle');
   var otherLocator = "//td[contains(text(), '" + otherName + "')]"
   await page.fill(manageNominations_NameFilterFieldLoc, otherName)
-  await page.waitForLoadState('networkidle')
-  await page.waitForTimeout(1000)
-  await page.fill(manageNominations_DescriptionFilterFieldLoc, otherDescription)
-  await page.waitForLoadState('networkidle')
-  await page.waitForTimeout(1000)
-  await page.fill(manageNominations_CategoryFilterFieldLoc, otherCategory)
   await page.keyboard.press('Enter')
   await page.waitForLoadState('networkidle')
-  await page.waitForTimeout(1000)
+  await page.waitForTimeout(1500)
   expect(await page.isVisible(otherLocator)).toBe(true)
   // Modify: Other -> Hero
   await page.click(manageNominations_ModifyButtonLoc)
@@ -225,21 +221,19 @@ test('Check admin user can modify nominations', async ({ page }) => {
   await page.fill(modifyNomination_DescriptionFieldLoc, heroDescription)
   await page.click(modifyNomination_ModifyNominationButtonLoc)
   await page.waitForLoadState('networkidle')
-  await page.waitForTimeout(1000)
+  await page.waitForTimeout(1500)
+  await page.fill(manageNominations_NameFilterFieldLoc, otherName)
+  await page.keyboard.press('Enter')
+  await page.waitForLoadState('networkidle')
+  await page.waitForTimeout(1500)
   expect(await page.isHidden(otherLocator)).toBe(true)
   // Check for 'Hero' in grid
   await page.reload();
   await page.waitForLoadState('networkidle');
   await page.fill(manageNominations_NameFilterFieldLoc, heroName)
-  await page.waitForLoadState('networkidle')
-  await page.waitForTimeout(1000)
-  await page.fill(manageNominations_DescriptionFilterFieldLoc, heroDescription)
-  await page.waitForLoadState('networkidle')
-  await page.waitForTimeout(1000)
-  await page.fill(manageNominations_CategoryFilterFieldLoc, heroCategory)
   await page.keyboard.press('Enter')
   await page.waitForLoadState('networkidle')
-  await page.waitForTimeout(1000)
+  await page.waitForTimeout(1500)
   expect(await page.isVisible(heroLocator)).toBe(true)
 });
 

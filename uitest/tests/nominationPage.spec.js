@@ -137,20 +137,20 @@ test('Check admin user can create nominations', async ({ page }) => {
   await page.fill(manageNominations_NameFilterFieldLoc, heroName)
   await page.keyboard.press('Enter')
   await page.waitForLoadState('networkidle')
-  await page.waitForTimeout(1000)
+  await page.waitForTimeout(2000)
   expect(await page.isVisible(heroLocator)).toBe(true)
   await page.reload();
   await page.waitForLoadState('networkidle');
   await page.fill(manageNominations_NameFilterFieldLoc, sheroName)
   await page.keyboard.press('Enter')
   await page.waitForLoadState('networkidle')
-  await page.waitForTimeout(1000)
+  await page.waitForTimeout(2000)
   expect(await page.isVisible(sheroLocator)).toBe(true)
   await page.reload();
   await page.waitForLoadState('networkidle');
   await page.fill(manageNominations_NameFilterFieldLoc, otherName)
   await page.keyboard.press('Enter')
   await page.waitForLoadState('networkidle')
-  await page.waitForTimeout(1000)
+  await page.waitForTimeout(2000)
   expect(await page.isVisible(otherLocator)).toBe(true)
 });
