@@ -27,7 +27,9 @@ const {
   adminPageTitleLoc,
   loginEmailFieldLoc,
   loginPasswordFieldLoc,
-  loginButtonLoc 
+  loginButtonLoc ,
+  blogPageTitleLoc,
+  blogLoc,
 } = Locators;
 
 const {
@@ -61,12 +63,16 @@ test('Checks each menu button (Including Admin buttons) is visible, enabled, cli
 
  // Check Home
  await page.click(homeLoc);
+ await page.waitForLoadState('networkidle')
+ await page.waitForTimeout(500)
  expect(await page.isVisible(homeLoc)).toBe(true)
  expect(await page.isEnabled(homeLoc)).toBe(true)
  expect(await page.isVisible(homePageTitleLoc)).toBe(true)
 
   // Check Dresses
   await page.click(dressesLoc);
+  await page.waitForLoadState('networkidle')
+  await page.waitForTimeout(500)
   expect(await page.isVisible(dressesLoc)).toBe(true)
   expect(await page.isEnabled(dressesLoc)).toBe(true)
   expect(await page.isVisible(dressesPageTitleLoc)).toBe(true)
@@ -74,36 +80,55 @@ test('Checks each menu button (Including Admin buttons) is visible, enabled, cli
   // Check artist
   await page.click(artistLoc);
   await page.waitForLoadState('networkidle')
+  await page.waitForTimeout(500)
   expect(await page.isVisible(artistLoc)).toBe(true)
   expect(await page.isEnabled(artistLoc)).toBe(true)
   expect(await page.isVisible(artistPageTitleLoc)).toBe(true)
 
   // Check Nomination
   await page.click(nominationLoc);
+  await page.waitForLoadState('networkidle')
+  await page.waitForTimeout(500)
   expect(await page.isVisible(nominationLoc)).toBe(true)
   expect(await page.isEnabled(nominationLoc)).toBe(true)
   expect(await page.isVisible(nominationPageTitleLoc)).toBe(true)
 
+  // Check Blog
+  await page.click(blogLoc);
+  await page.waitForLoadState('networkidle')
+  await page.waitForTimeout(500)
+  expect(await page.isVisible(blogLoc)).toBe(true)
+  expect(await page.isEnabled(blogLoc)).toBe(true)
+  expect(await page.isVisible(blogPageTitleLoc)).toBe(true)
+
   // Check About
   await page.click(aboutLoc);
+  await page.waitForLoadState('networkidle')
+  await page.waitForTimeout(500)
   expect(await page.isVisible(aboutLoc)).toBe(true)
   expect(await page.isEnabled(aboutLoc)).toBe(true)
   expect(await page.isVisible(aboutPageTitleLoc)).toBe(true)
 
   // Check Help
   await page.click(helpLoc);
+  await page.waitForLoadState('networkidle')
+  await page.waitForTimeout(500)
   expect(await page.isVisible(helpLoc)).toBe(true)
   expect(await page.isEnabled(helpLoc)).toBe(true)
   expect(await page.isVisible(helpPageTitleLoc)).toBe(true)
 
   // Check Shop
   await page.click(shopLoc);
+  await page.waitForLoadState('networkidle')
+  await page.waitForTimeout(500)
   expect(await page.isVisible(shopLoc)).toBe(true)
   expect(await page.isEnabled(shopLoc)).toBe(true)
   expect(await page.isVisible(shopPageTitleLoc)).toBe(true)
 
   // Check Admin
   await page.click(adminLoc);
+  await page.waitForLoadState('networkidle')
+  await page.waitForTimeout(500)
   expect(await page.isVisible(adminLoc)).toBe(true)
   expect(await page.isEnabled(adminLoc)).toBe(true)
   expect(await page.isVisible(adminPageTitleLoc)).toBe(true)
@@ -112,5 +137,7 @@ test('Checks each menu button (Including Admin buttons) is visible, enabled, cli
   expect(await page.isVisible(logoutLoc)).toBe(true)
   expect(await page.isEnabled(logoutLoc)).toBe(true)
   await page.click(logoutLoc); // User is redirected to home page
+  await page.waitForLoadState('networkidle')
+  await page.waitForTimeout(500)
   expect(await page.isVisible(homePageTitleLoc)).toBe(true)
 });
