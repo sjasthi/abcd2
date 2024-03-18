@@ -87,7 +87,7 @@ $(document).ready(function () {
 //Code for getting info from OpenAI API
 $message = null;
 $result = null;
-// $_SESSION['chat_history'] = null; // resetting history for now. third message in chat breaks the json messaging format for some reason.
+$_SESSION['chat_history'] = null; // resetting history for now. third message in chat breaks the json messaging format for some reason.
 
 if (isset($_POST['input'])) {
     // Interaction with the OpenAI API
