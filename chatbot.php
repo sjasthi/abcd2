@@ -11,7 +11,8 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <script src="https://kit.fontawesome.com/a076d05399.js" crossorigin="anonymous"></script>
+    <script src="https://kit.fontawesome.com/f40040d297.js" crossorigin="anonymous"></script>
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.3.1/dist/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
     <link rel="stylesheet" href="./css/chatbot.css">
 </head>
 
@@ -62,7 +63,7 @@ $(document).ready(function () {
         $.ajax({
             type: 'POST',
             url: '',
-            data: { input: message },
+            data: { input: JSON.stringify(message) }, // stringify to sanitize newline characters for json
             success: function (response) {
                 $('#chat-messages').append('<div class="message-label">Chatbot:</div>'); // add chatbot label
                 $('#chat-messages').append('<div class="message">' + response + '</div>');
@@ -91,12 +92,11 @@ $_SESSION['chat_history'] = null; // resetting history for now. third message in
 
 if (isset($_POST['input'])) {
     // Interaction with the OpenAI API
-    $message = '{"role": "user", "content": "' . $_POST['input'] . '"}';
+    $message = '{"role": "user", "content": "' . addslashes($_POST['input']) . '"}'; // escape newline characters to prevent json error
 
     $headers = [
         'Content-Type: application/json',
-        //'Authorization: Bearer APIKEYHERE'
-        'Authorization: Bearer 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'
+        'Authorization: Bearer APIKEYHERE'
     ];
     
     $ch = curl_init('https://api.openai.com/v1/chat/completions');
@@ -153,7 +153,7 @@ if (isset($_POST['input'])) {
         <div class="chat-messages" id="chat-messages"></div>
         
         <label id="message-input" for="msg"><b>Message</b></label>
-        <textarea placeholder="Type your message..." name="input" required></textarea>
+        <textarea placeholder="Type your message..." name="input" class="chatbox-text-area" required></textarea>
 
         <button id="chat-submit" type="submit" class="btn">Send <i class="fa-regular fa-paper-plane"></i></button>
         <button type="button" class="btn cancel">Close <i class="fa-regular fa-rectangle-xmark"></i></button>
