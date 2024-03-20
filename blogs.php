@@ -42,34 +42,41 @@ $page_title = 'Project ABCD2 Blog';
             echo '<button id="form_show_button" onclick="show_form();">Create Post</button>';
         }
       ?>
+
+    <div class="card blog-form-creation-container">
       <form id="blog_creation_form" action="create_blog_post.php" method="POST" enctype="multipart/form-data" hidden="hidden">
-        <div id=blog_creation_left>
-          <label>Blog Title</label>
-          <br>
-          <input type="text" name="title" maxlength=100 required>
-          <br>
+        <div class="form-row">
+          <div class="form-group col-md-6">
+            <label for="title">Blog Title</label>
+            <input type="text" name="title" class="form-control" maxlength=100 placeholder="Blog Title..." required>
+          </div>
+          <div class="form-group col-md-6">
+            <label for="author">Author</label>
+            <input type="text" name="author" class="form-control" maxlength=50 placeholder="Author Name..." required>
+          </div>
+        </div>
+        <div class="form-group">
           <label for="description">Description</label>
-          <br>
-          <textarea name="description" rows=9 cols=50 required></textarea>
+            <textarea name="description" class="form-control" rows=9 cols=50 placeholder="Enter your description..." required></textarea>
         </div>
-        <div id=blog_creation_right>
-          <label for="author">Author</label>
-          <br>
-          <input type="text" name="author" maxlength=50 required>
-          <br>
-          <label>Image(s)</label>
-          <br>
-          <input type="file" name="file[]" accept="image/*" multiple="multiple">
-          <br>
-          <label>Video Link</label>
-          <br>
-          <input type="text" name="video_link" maxlength=100 placeholder="Optional">
+
+        <div class="form-row">
+          <div class="form-group col-md-6">
+            <label>Image(s)</label>
+            <input type="file" name="file[]" class="form-control btn" accept="image/*" multiple="multiple">
+          </div>
+          <div class="form-group col-md-6">
+            <label>Video Link</label>
+            <input type="text" name="video_link" class="form-control" maxlength=100 placeholder="Optional">
+          </div>
         </div>
-        <br>
-        <input type="submit" name="create_post" value="Publish">
+        <input type="submit" name="create_post" value="Publish" class="btn btn-md">
       </form>
+    </div>
+
+
       <div>
-        <div id="blog_TOC">
+        <div id="blog_TOC" class="sticky-top" style="top: 120px;">
           <h3 id="TOC_title">Table of Contents</h3>
           <ul>
             <?php fill_TOC($db); ?>

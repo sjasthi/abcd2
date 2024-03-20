@@ -27,8 +27,9 @@ input[type="file"]::file-selector-button {
   background-color: orangered;
   color: white;
   font-weight: bold;
-  height: 40px;
+  height: auto;
   border-radius: 4px;
+  cursor: pointer;
 }
 
 input[type="submit"],
@@ -59,6 +60,19 @@ button {
   padding-right: 0;
   padding-left: 0;
 }
+
+.blog-form-creation-container {
+  flex: auto;
+  align-items: center;
+  margin: 20px;
+}
+
+#blog_creation_form {
+  margin: 20px;
+  min-width: 50%;
+  max-width: 100%;
+}
+
 
 .blog_post {
   width: 50%;
