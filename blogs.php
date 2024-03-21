@@ -23,25 +23,36 @@ $page_title = 'Project ABCD2 Blog';
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Kanit:wght@300&display=swap" rel="stylesheet">
     <link href="css/blog.css" rel="stylesheet">
-  <body>
-    <header class="inverse">
-      <div class="container">
-        <h1><span class="accent-text">Blog</span></h1>
-      </div>
-    </header>
+
     <script>
-      function show_form(){
+      function show_form() {
         var form = document.getElementById("blog_creation_form");
         var show_button = document.getElementById("form_show_button");
         form.removeAttribute("hidden");
         show_button.setAttribute("hidden", "hidden");
       }
+      function hide_form() {
+        var form = document.getElementById("blog_creation_form");
+        var show_button = document.getElementById("form_show_button");
+        form.setAttribute("hidden", "hidden");
+        show_button.removeAttribute("hidden");
+      }
+
     </script>
+
+  <body>
+    <div class="heading">
+      <div class="container">
+        <h1><span class="accent-text">Blog</span></h1>
+      </div>
+    </div>
+
       <?php
         if (isset($_SESSION['role'])) {
             echo '<button id="form_show_button" onclick="show_form();">Create Post</button>';
         }
       ?>
+
 
     <div class="card blog-form-creation-container">
       <form id="blog_creation_form" action="create_blog_post.php" method="POST" enctype="multipart/form-data" hidden="hidden">
@@ -70,7 +81,10 @@ $page_title = 'Project ABCD2 Blog';
             <input type="text" name="video_link" class="form-control" maxlength=100 placeholder="Optional">
           </div>
         </div>
-        <input type="submit" name="create_post" value="Publish" class="btn btn-md">
+        <div>
+          <button type="submit" name="create_post" value="Publish" class="btn btn-md">Publish</button>
+          <button id="cancel-button" type="button" onclick="hide_form();" class="btn btn-secondary btn-md">Cancel</button>
+        </div>
       </form>
     </div>
 
@@ -88,5 +102,6 @@ $page_title = 'Project ABCD2 Blog';
           <button id="blog_previous" onclick="handlePageButton('previous')" hidden="hidden">Previous</button>
           <button id="blog_next" onclick="handlePageButton('next')">Next</button>
       </div>
+
   </body>
 </html>

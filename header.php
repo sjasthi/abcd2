@@ -42,7 +42,7 @@ if (!isset($page_title)) {
 
 </head>
 
-<body onload="displayAdminFields('admin1')">
+<body onload="displayAdminFields('admin1')" class="navbar-body">
     <!-- Navigation -->
     <nav class="navbar navbar-expand-xl sticky navbar-light">
         <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
