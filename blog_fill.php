@@ -42,8 +42,8 @@
         $blog_body =
         '
         <div class="blog_post"  id="'. $row['Blog_Id'] . '">
-          <h2>' . $row['Title'] . '</h2>
-          <h3> By: ' . $row['Author'] . '</h3>
+          <h2 style="padding-top: 10px; font-weight: bold;">' . $row['Title'] . '</h2>
+          <h5 style="text-align: left; padding-left: 10px;"> By: ' . $row['Author'] . '</h5>
           <p>' . $row['Created_Time'] . '</p>
           <p>' . nl2br($row['Description']) . '</p> <br>
         ';

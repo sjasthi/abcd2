@@ -1,7 +1,5 @@
-body {
-
+.navbar-body {
     height: 100%;
-
 }
 
 button[type=submit] {
@@ -34,6 +32,7 @@ button[type=submit] {
     position: fixed;
     top: 0px;
     width: 100%;
+    z-index: 100 !important; /* make sure navbar overlays page content*/
 
 }
 

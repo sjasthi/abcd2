@@ -1,12 +1,26 @@
 body {
   text-align: center;
-  
+  position: relative;
+  z-index: 1;
 }
 
+/* @media (max-width: 1200px) {
+  #blog_TOC {
+    position: relative;
+  }
+} */
+
 h3 {
-  font-size: 36px;
-  font-weight: 900;
+  font-family: "Montserrat", sans-serif;
+  font-optical-sizing: auto;
+  /* font-size: 36px; */
+  /* font-weight: 500; */
   margin-bottom: 0;
+}
+
+h4, h5 {
+  font-family: "Montserrat", sans-serif;
+  font-optical-sizing: auto;
 }
 
 h1 .accent-text {
@@ -19,19 +33,20 @@ h1 .accent-text {
     text-shadow: 2px 2px 4px #cec6bd;
 }
 
-header {
-  padding: 50px 0 25px;
+.heading {
+  padding-top: 60px
 }
 
 input[type="file"]::file-selector-button {
   background-color: orangered;
   color: white;
   font-weight: bold;
-  height: 40px;
+  height: auto;
   border-radius: 4px;
+  cursor: pointer;
 }
 
-input[type="submit"],
+button[type="submit"],
 button {
   background-color: orangered;
   color: white;
@@ -43,6 +58,18 @@ button {
   border-radius: 4px;
   cursor: pointer;
 }
+
+#cancel-button {
+  color: white;
+  font-weight: bold;
+  padding: 14px 20px;
+  margin-top: 8px;
+  margin-bottom: 8px;
+  border: none;
+  border-radius: 4px;
+  cursor: pointer;
+}
+
 
 #container_2,
 #blog_creation_left,
@@ -60,13 +87,35 @@ button {
   padding-left: 0;
 }
 
+.blog-form-creation-container {
+  position: relative;
+  flex: auto;
+  align-items: center;
+  margin: 20px;
+  z-index: -1 !important;
+}
+
+
+#blog_creation_form {
+  position: relative;
+  margin: 20px;
+  min-width: 50%;
+  max-width: 100%;
+  z-index: -1 !important;
+}
+
+/* .blog-post-container {
+  
+} */
+
 .blog_post {
-  width: 50%;
+  /* width: 80%; */
   display: block;
-  margin-right: 25%;
+  margin-right: auto;
   margin-left: auto;
-  margin-top: 20px;
-  padding-bottom: 10px;
+  margin-top: auto;
+  margin-bottom: 20px;
+  padding-bottom: 20px;
   box-shadow: 5px 5px 5px #888888;
   border-radius: 25px;
   border-style: solid;
@@ -75,12 +124,16 @@ button {
 
 .blog_post p,
 .blog_post h3 {
+  font-family: "Montserrat", sans-serif;
+  font-optical-sizing: auto;
   text-align: left;
   padding-left: 10px;
   padding-right: 10px;
 }
 
 .blog_post h2 {
+  font-family: "Montserrat", sans-serif;
+  font-optical-sizing: auto;
   border-top: none;
 }
 
@@ -98,11 +151,11 @@ button {
 }
 
 #blog_TOC {
-  float: left;
+  /* float: left; */
   text-align: left;
-  width: 15%;
-  margin-left: 5%;
-  margin-right: 5%;
+  /* width: 50%; */
+  margin-left: auto;
+  margin-right: auto;
   border-radius: 25px;
   border-style: solid;
   border-width: thin;
