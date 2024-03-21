@@ -17,11 +17,10 @@ if (isset($_POST['id'])){
     $validate = true;
     $status = mysqli_real_escape_string($db, $_POST['status']);
     $notes = mysqli_real_escape_string($db, $_POST['notes']);
+    $tag_line = mysqli_real_escape_string($db, $_POST['tag_line']);
     //$validate = emailValidate($answer);
     
 
-    if($validate){
-    
         if($imageName != ""){
             $target_dir = "images/dress_images/";
             $target_file = $target_dir.$imageName;
@@ -67,7 +66,10 @@ if (isset($_POST['id'])){
                         key_words = '$key_words',
                         image_url = '$imageName',  
                         status = '$status',
-                        notes = '$notes'      
+                        notes = '$notes',
+                        tag_line = '$tag_line'
+ 
+                           
                     
                     WHERE id = '$id'";
 
@@ -89,7 +91,8 @@ if (isset($_POST['id'])){
                         state_name = '$state_name',
                         key_words = '$key_words',
                         status = '$status', 
-                        notes = '$notes'   
+                        notes = '$notes', 
+                        tag_line = '$tag_line'
                 
                 WHERE id = '$id'";
 
@@ -98,8 +101,9 @@ if (isset($_POST['id'])){
                 header('location: list_dresses.php?dressUpdated=Success');
                 }
     }else{
-        header('location: modify_dress.php?modify_dress=answerFailed&id='.$id);}
-}//end if
+        header('location: modify_dress.php?modify_dress=answerFailed&id='.$id);
+    }
+//end if
 
 /*function emailValidate($answer){
     global $choice1,$choice2,$choice3,$choice4;

@@ -25,7 +25,7 @@ if (isset($_COOKIE[$did_you_know_length_cookie_name])) {
 }
 //Cookies read
 
-$query = "SELECT id, name, LEFT (description, $description_length) as description, LEFT (did_you_know, $did_you_know_length) as did_you_know, category, type, state_name, key_words, image_url, status, notes FROM dresses";
+$query = "SELECT id, name,type, category, state_name, key_words, image_url, status, notes, tag_line FROM dresses";
 
 $GLOBALS['data'] = mysqli_query($db, $query);
 
@@ -88,18 +88,16 @@ $GLOBALS['data'] = mysqli_query($db, $query);
             <div class="table responsive">
                 <thead>
                 <tr>
-                    
                     <th>Name</th>
-                    <th>Description</th>
-                    <th>Did you know?</th>
                     <th>Category</th>
                     <th>Type</th>
                     <th>State Name </th>
                     <th>Key Words</th>
                     
-                    
                     <th>Image</th>
                     <th>Display</th>
+                    <th>Tag Line</th>
+
                     <?php
 
                         if(isset($_SESSION['role'])) {
@@ -117,25 +115,25 @@ $GLOBALS['data'] = mysqli_query($db, $query);
                 <div class="toggles">
                     <strong> Toggle column: </strong> 
                     <a id="toggle" class="toggle-vis" data-column="0">Name</a> - 
-                    <a id="toggle" class="toggle-vis" data-column="1">Description</a> -
-                    <a id="toggle" class="toggle-vis" data-column="2">Did You Know</a> -
-                    <a id="toggle" class="toggle-vis" data-column="3">Category</a> - 
-                    <a id="toggle" class="toggle-vis" data-column="4">Type</a> -
-                    <a id="toggle" class="toggle-vis" data-column="5">State Name</a> - 
-                    <a id="toggle" class="toggle-vis" data-column="6">Key Words</a> - 
-                    <a id="toggle" class="toggle-vis" data-column="7">Image</a> - 
-                    <a id="toggle" class="toggle-vis" data-column="8">Display</a> -
+                    <a id="toggle" class="toggle-vis" data-column="1">Category</a> - 
+                    <a id="toggle" class="toggle-vis" data-column="2">Type</a> -
+                    <a id="toggle" class="toggle-vis" data-column="3">State Name</a> - 
+                    <a id="toggle" class="toggle-vis" data-column="4">Key Words</a> - 
+                    <a id="toggle" class="toggle-vis" data-column="5">Image</a> - 
+                    <a id="toggle" class="toggle-vis" data-column="6">Display</a> -
+                    <a id="toggle" class="toggle-vis" data-column="7">Tag Line</a>
+                    
 
                     <?php
 
                         if(isset($_SESSION['role'])) {
-                        echo '<a id="toggle" class="toggle-vis" data-column="9">ID</a> - ';
-                        echo '<a id="toggle" class="toggle-vis" data-column="10">Status</a> - ';
-                        echo '<a id="toggle" class="toggle-vis" data-column="11">Notes</a> - ';
-                        echo '<a id="toggle" class="toggle-vis" data-column="12">Resource</a> - ';
-                        echo '<a id="toggle" class="toggle-vis" data-column="13">Modify</a> - ';
-                        echo '<a id="toggle" class="toggle-vis" data-column="14">Delete</a> ';
-                        }
+                        echo '- <a id="toggle" class="toggle-vis" data-column="8">ID</a> - ';
+                        echo '<a id="toggle" class="toggle-vis" data-column="9">Status</a> - ';
+                        echo '<a id="toggle" class="toggle-vis" data-column="10">Notes</a> - ';
+                        echo '<a id="toggle" class="toggle-vis" data-column="11">Resource</a> - ';
+                        echo '<a id="toggle" class="toggle-vis" data-column="12">Modify</a> - ';
+                        echo '<a id="toggle" class="toggle-vis" data-column="13">Delete</a> ';
+                        } 
                     ?>
                     
                     
@@ -152,8 +150,6 @@ $GLOBALS['data'] = mysqli_query($db, $query);
                     while($row = $data->fetch_assoc()) {
                     
                     $name = $row["name"];
-                    $description = $row["description"];
-                    $did_you_know = $row["did_you_know"];
                     $category = $row["category"];
                     $type = $row["type"];
                     $state_name = $row["state_name"];
@@ -162,6 +158,7 @@ $GLOBALS['data'] = mysqli_query($db, $query);
                     $ID = $row["id"];
                     $status = $row["status"];
                     $notes = $row["notes"];
+                    $tag_line = $row["tag_line"];
                     
 
                     if(isset($_SESSION['role']) && $_SESSION['role'] == 'admin') {
@@ -169,19 +166,19 @@ $GLOBALS['data'] = mysqli_query($db, $query);
                 <tr>
                 <td>
                     <div contenteditable="true" onBlur="updateValue(this,'name','<?php echo $ID; ?>')"><?php echo $name; ?></div></span> </td>
-                    <td><div contenteditable="true" onBlur="updateValue(this,'description','<?php echo $ID; ?>')"><?php echo $description; ?></div></span> </td>
-                    <td><div contenteditable="true" onBlur="updateValue(this,'did_you_know','<?php echo $ID; ?>')"><?php echo $did_you_know; ?></div></span> </td>
                     <td><div contenteditable="true" onBlur="updateValue(this,'category','<?php echo $ID; ?>')"><?php echo $category; ?></div></span> </td>
                     <td><div contenteditable="true" onBlur="updateValue(this,'type','<?php echo $ID; ?>')"><?php echo $type; ?></div></span> </td>
                     <td><div contenteditable="true" onBlur="updateValue(this,'state_name','<?php echo $ID; ?>')"><?php echo $state_name; ?></div></span> </td>
                     <td><div contenteditable="true" onBlur="updateValue(this,'key_words','<?php echo $ID; ?>')"><?php echo $key_words; ?></div></span> </td>
                     <?php echo '<td><img src="images/dress_images/'.$row["image_url"].'" style="width:100px;height:120px;">' ?>
                     <?php echo '<td><a class="btn btn-info btn-sm" href="display_the_dress.php?id='.$row["id"].'">Display</a></td>'; ?>
+                    <td><div contenteditable="true" onBlur="updateValue(this,'tag_line','<?php echo $ID; ?>')"><?php echo $tag_line; ?></div></span> </td>
                     
                     
                     
                     
                     
+                    <?php echo  $tag_line; ?>
                     <?php
                     if ($_SESSION['role'] == 'admin'){
                         echo '<td>';
@@ -200,18 +197,18 @@ $GLOBALS['data'] = mysqli_query($db, $query);
                     ?>
                 </tr>
                  <?php  
+                    // search bars to pop up table
                     } else{
                         echo '<tr>
                         
-                        <td> </span> <a href="displaythedress.php?id='.$row["id"].'">'.$row["name"].'</a></td>
-                        <td>'.$row["description"].'</td>
-                        <td>'.$row["did_you_know"].'</td>
+                        <td> </span> <a href="display_the_dress.php?id='.$row["id"].'">'.$row["name"].'</a></td>
                         <td>'.$row["category"].' </span> </td>
                         <td>'.$row["type"].'</td>
                         <td>'.$row["state_name"].'</td>
                         <td>'.$row["key_words"].' </span> </td>
                         <td><img class="thumbnailSize" src="' . "images/dress_images/" .$row["image_url"]. '" alt="'.$row["image_url"].'"></td>
-                        <td><a class="btn btn-info btn-sm" href="displaythedress.php?id='.$row["id"].'">Display</a></td>
+                        <td><a class="btn btn-info btn-sm" href="display_the_dress.php?id='.$row["id"].'">Display</a></td>
+                        <td>'.$row["tag_line"].' </span> </td>
 
                         
                     </tr>';    

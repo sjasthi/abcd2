@@ -123,6 +123,8 @@ echo '<div text-align: left>
     $id_sql = "SELECT `ID` FROM `dresses`";
     $name_sql = "SELECT `name` FROM `dresses`";
     $pic_sql = "SELECT `image_url` FROM `dresses`";
+    $all_sheroes = array(743,711,476,733,523,677,688,442,319,473,542,731,115,317,763,468,669,739,690,611,742,724,401,112,313,700,686,560,475,326,735,655,668,710,618,714,578,684,626,703,525,547,671,318,725,32,549,722,434,713,405,728,687,698,691,466,751,435,620,760,102,654,695,768,762,470,605,33,750,114,432,429,439,662,119,265,328,673,30,151,101,493,471,689,31,438,732,323,581,538,324,111,761,723,327,582,506,754,409,440,423,678,588,693,734,692,444,320,664,659,276,658,746,709,534,196,548,117,477,518,418,632,720,445,704,407,426,729,437,748,306,752,577,52,701,50,188,206,441,670,330,771,568,321,740,696,427,766,544,679,699,666,716,322,411,755,764,443,491,737,316,601,685,464,492,53,414,110,676,730,663,753,325,415,356,413,420,39,412,660,736,329,575,469,183,717,463,665,702,27,715,410,425,770,726,430,586,583,28,769,697,406,275,314,574,428,235,681,712,772,483,424,462,201,467,29,741,524,631,718,682,680,758,683,738,465,419,674,472,745,520,474,116,431,721,171,484,436,744,759,672,422,767,433,749,502,756,706,478,719,747,757,26,694,765,667);
+
     
     $Sort_string = @$_GET['sort'];
 
@@ -202,6 +204,8 @@ echo '<div text-align: left>
     if(isset($_POST["type"])){
         $sql = "SELECT * FROM dresses ORDER BY type ASC LIMIT " . $page_first_result . ',' . $no_of_records_per_page;
     }
+    if(isset($_POST['shero'])){
+    }
 
     $res_data = mysqli_query($db, $sql);
 
@@ -220,6 +224,7 @@ echo '<div text-align: left>
         <button class="sortLink" type="submit" name="sort" value="category">Category</button>
         <button class="sortLink" type="submit" name="sort" value="type">Type</button>
         <button class="sortLink" type="submit" name="sort" value="state_name">State</button>
+        <button class="sortLink" type="submit" name="sort" value="type">Sheroes</button>
     </form>
 
     </span>
