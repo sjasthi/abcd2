@@ -4,10 +4,23 @@ body {
   z-index: 1;
 }
 
+/* @media (max-width: 1200px) {
+  #blog_TOC {
+    position: relative;
+  }
+} */
+
 h3 {
-  font-size: 36px;
-  font-weight: 900;
+  font-family: "Montserrat", sans-serif;
+  font-optical-sizing: auto;
+  /* font-size: 36px; */
+  /* font-weight: 500; */
   margin-bottom: 0;
+}
+
+h4, h5 {
+  font-family: "Montserrat", sans-serif;
+  font-optical-sizing: auto;
 }
 
 h1 .accent-text {
@@ -82,9 +95,6 @@ button {
   z-index: -1 !important;
 }
 
-.card {
-  z-index: 1 !important;
-}
 
 #blog_creation_form {
   position: relative;
@@ -94,14 +104,18 @@ button {
   z-index: -1 !important;
 }
 
+/* .blog-post-container {
+  
+} */
 
 .blog_post {
-  width: 50%;
+  /* width: 80%; */
   display: block;
-  margin-right: 25%;
+  margin-right: auto;
   margin-left: auto;
-  margin-top: 20px;
-  padding-bottom: 10px;
+  margin-top: auto;
+  margin-bottom: 20px;
+  padding-bottom: 20px;
   box-shadow: 5px 5px 5px #888888;
   border-radius: 25px;
   border-style: solid;
@@ -110,12 +124,16 @@ button {
 
 .blog_post p,
 .blog_post h3 {
+  font-family: "Montserrat", sans-serif;
+  font-optical-sizing: auto;
   text-align: left;
   padding-left: 10px;
   padding-right: 10px;
 }
 
 .blog_post h2 {
+  font-family: "Montserrat", sans-serif;
+  font-optical-sizing: auto;
   border-top: none;
 }
 
@@ -133,11 +151,11 @@ button {
 }
 
 #blog_TOC {
-  float: left;
+  /* float: left; */
   text-align: left;
-  width: 15%;
-  margin-left: 5%;
-  margin-right: 5%;
+  /* width: 50%; */
+  margin-left: auto;
+  margin-right: auto;
   border-radius: 25px;
   border-style: solid;
   border-width: thin;

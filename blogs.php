@@ -22,6 +22,7 @@ $page_title = 'Project ABCD2 Blog';
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Kanit:wght@300&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Inconsolata:wght@200..900&family=Kantumruy+Pro:ital,wght@0,100..700;1,100..700&family=Montserrat:ital,wght@0,100..900;1,100..900&display=swap" rel="stylesheet">
     <link href="css/blog.css" rel="stylesheet">
 
     <script>
@@ -88,20 +89,25 @@ $page_title = 'Project ABCD2 Blog';
       </form>
     </div>
 
-
-      <div>
-        <div id="blog_TOC" class="sticky-top" style="top: 120px;">
-          <h3 id="TOC_title">Table of Contents</h3>
-          <ul>
-            <?php fill_TOC($db); ?>
-          </ul>
-        </div>
+    
+      <div class="blog-post-container d-flex flex-md-row bd-highlight flex-wrap">
+        <div class="p-3 flex-fill bd-highlight" style="width: 250px">
+          <div id="blog_TOC" class="sticky-top" style="top: 120px;">
+            <h3 id="TOC_title" style="font-weight: bold;">Table of Contents</h3>
+            <ul>
+              <?php fill_TOC($db); ?>
+            </ul>
+          </div>
+      </div>
+      <div class="p-3 flex-fill bd-highlight" style="width: 70%;">
         <?php fill_blog($db);
          ?>
+      </div>
+      </div>
         <div id="blog_buttons">
           <button id="blog_previous" onclick="handlePageButton('previous')" hidden="hidden">Previous</button>
           <button id="blog_next" onclick="handlePageButton('next')">Next</button>
-      </div>
+        </div>
 
   </body>
 </html>
