@@ -42,6 +42,7 @@ $page_title = 'Project ABCD2 Blog';
     </script>
 
   <body>
+  <div class="header-container" style="background-color: white;">
     <div class="heading">
       <div class="container">
         <h1><span class="accent-text">Blog</span></h1>
@@ -50,7 +51,7 @@ $page_title = 'Project ABCD2 Blog';
 
       <?php
         if (isset($_SESSION['role'])) {
-            echo '<button id="form_show_button" onclick="show_form();">Create Post</button>';
+            echo '<button id="form_show_button" onclick="show_form();" style="margin-bottom: 20px;">Create Post</button>';
         }
       ?>
 
@@ -89,25 +90,31 @@ $page_title = 'Project ABCD2 Blog';
       </form>
     </div>
 
+  </div>
+
     
       <div class="blog-post-container d-flex flex-md-row bd-highlight flex-wrap">
         <div class="p-3 flex-fill bd-highlight" style="width: 250px">
-          <div id="blog_TOC" class="sticky-top" style="top: 120px;">
-            <h3 id="TOC_title" style="font-weight: bold;">Table of Contents</h3>
-            <ul>
+          <div id="blog_TOC" class="sticky-top" style="top: 110px;">
+            <h3 id="TOC_title" class="accordion-header" style="font-weight: bold;">Table of Contents</h3>
+            
+            <ul class="list-group list-group-flush list-group-item-action">
               <?php fill_TOC($db); ?>
             </ul>
+
           </div>
-      </div>
-      <div class="p-3 flex-fill bd-highlight" style="width: 70%;">
-        <?php fill_blog($db);
-         ?>
-      </div>
-      </div>
-        <div id="blog_buttons">
-          <button id="blog_previous" onclick="handlePageButton('previous')" hidden="hidden">Previous</button>
-          <button id="blog_next" onclick="handlePageButton('next')">Next</button>
+        
         </div>
+        <div class="p-3 flex-fill bd-highlight" style="width: 70%;">
+          <?php fill_blog($db);
+          ?>
+        </div>
+      </div>
+
+      <div id="blog_buttons" class="d-flex justify-content-center">
+        <button id="blog_previous" class="btn btn-lg" onclick="handlePageButton('previous')" hidden="hidden">Previous</button>
+        <button id="blog_next" class="btn btn-lg" onclick="handlePageButton('next')">Next</button>
+      </div>
 
   </body>
 </html>

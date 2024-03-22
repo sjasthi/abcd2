@@ -43,7 +43,7 @@
         '
         <div class="blog_post"  id="'. $row['Blog_Id'] . '">
           <h2 style="padding-top: 10px; font-weight: bold;">' . $row['Title'] . '</h2>
-          <h5 style="text-align: left; padding-left: 10px;"> By: ' . $row['Author'] . '</h5>
+          <h5 style="text-align: left; margin-left: 20px;"> By: ' . $row['Author'] . '</h5>
           <p>' . $row['Created_Time'] . '</p>
           <p>' . nl2br($row['Description']) . '</p> <br>
         ';
@@ -63,7 +63,7 @@
     if ($result->num_rows > 0) {
       // Place title in TOC
       while($row = $result->fetch_assoc()) {
-        $TOC_Entry = '<li><a onclick="scrollToPost(\'' . $row['Blog_Id'] . '\')">' . $row['Title'] . '</a></li>';
+        $TOC_Entry = '<li class="list-group-item list-group-item-action" onclick="scrollToPost(\'' . $row['Blog_Id'] . '\')">' . $row['Title'] . '</a></li>';
         echo $TOC_Entry;
       }
     } else {

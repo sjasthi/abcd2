@@ -2,19 +2,23 @@ body {
   text-align: center;
   position: relative;
   z-index: 1;
-}
+  background:
+      conic-gradient(from -60deg at 50% calc(100%/3),#ffffff 0 120deg,#0000 0),
+      conic-gradient(from 120deg at 50% calc(200%/3),#ffffff 0 120deg,#0000 0),
+      conic-gradient(from  60deg at calc(200%/3),#ffffff 60deg,#ffe4d1 0 120deg,#0000 0),
+      conic-gradient(from 180deg at calc(100%/3),#fff9d1 60deg,#ffffff 0 120deg,#0000 0),
+      linear-gradient(90deg,#fff9d1 calc(100%/6),#ffe4d1 0 50%,
+      #fff9d1 0 calc(500%/6), #ffe4d1 0);
+  background-size: 333px 192px;
 
-/* @media (max-width: 1200px) {
-  #blog_TOC {
-    position: relative;
-  }
-} */
+
+
+
+}
 
 h3 {
   font-family: "Montserrat", sans-serif;
   font-optical-sizing: auto;
-  /* font-size: 36px; */
-  /* font-weight: 500; */
   margin-bottom: 0;
 }
 
@@ -70,29 +74,13 @@ button {
   cursor: pointer;
 }
 
-
-#container_2,
-#blog_creation_left,
-#blog_creation_right,
-#right {
-  display: inline-block;
-  padding: 50px;
-  vertical-align: top;
-}
-
-#blog_creation_left,
-#blog_creation_right {
-  width: 25%;
-  padding-right: 0;
-  padding-left: 0;
-}
-
 .blog-form-creation-container {
   position: relative;
   flex: auto;
   align-items: center;
-  margin: 20px;
-  z-index: -1 !important;
+  margin-right: 20px;
+  margin-left: 20px;
+  z-index: 1 !important;
 }
 
 
@@ -101,25 +89,29 @@ button {
   margin: 20px;
   min-width: 50%;
   max-width: 100%;
-  z-index: -1 !important;
+  margin-bottom: 10px;
+  z-index: 1 !important;
 }
 
-/* .blog-post-container {
-  
-} */
+.blog-post-container {
+  margin-top: 5px;
+  padding-left: 20px;
+  padding-right: 20px;
+}
 
 .blog_post {
   /* width: 80%; */
+  background-color: white;
   display: block;
   margin-right: auto;
   margin-left: auto;
   margin-top: auto;
   margin-bottom: 20px;
   padding-bottom: 20px;
-  box-shadow: 5px 5px 5px #888888;
-  border-radius: 25px;
-  border-style: solid;
-  border-width: thin;
+  border-radius: 5px;
+  box-shadow: 5px 5px 5px #00000060;
+  border: 1px solid rgb(145, 145, 145); 
+  scroll-margin: 110px; /* fixes the scroll to function not working correctly */
 }
 
 .blog_post p,
@@ -127,13 +119,14 @@ button {
   font-family: "Montserrat", sans-serif;
   font-optical-sizing: auto;
   text-align: left;
-  padding-left: 10px;
-  padding-right: 10px;
+  margin-left: 20px;
+  margin-right: 20px;
 }
 
 .blog_post h2 {
   font-family: "Montserrat", sans-serif;
   font-optical-sizing: auto;
+  margin-top: 10px;
   border-top: none;
 }
 
@@ -143,26 +136,28 @@ button {
 }
 
 .blog_picture {
-  width: 80%;
+  width: 50%;
   height: auto;
   margin: 10px;
-  box-shadow: 0 8px 16px 0 rgba(0, 0, 0, 0.2);
-  border-radius: 10px;
+  box-shadow: 0px 0px 9px 0px rgba(36, 36, 36, 0.2);
 }
 
 #blog_TOC {
-  /* float: left; */
+  background-color: white;
   text-align: left;
   /* width: 50%; */
+  padding-top: 8px;
   margin-left: auto;
   margin-right: auto;
-  border-radius: 25px;
-  border-style: solid;
-  border-width: thin;
+  border-radius: 5px;
+  box-shadow: 5px 5px 5px #00000060;
+  border: 1px solid rgb(145, 145, 145); 
+  z-index: 1;
 }
 
 #TOC_title {
   text-align: center;
+  margin-bottom: 5px;
 }
 
 #blog_TOC a {
@@ -170,18 +165,15 @@ button {
 }
 
 #blog_buttons {
-  width: 40%;
-  margin: auto;
-  padding-top: 10px;
+  gap: 20px;
+  padding-bottom: 100px;
 }
 
 #blog_next {
-  float: right;
   min-width: 200px;
 }
 
 #blog_previous {
-  float: left;
   min-width: 200px;
 }
 
