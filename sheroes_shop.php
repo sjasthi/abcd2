@@ -35,7 +35,7 @@
                         <button style="margin-top: 10px;" class="btn btn-lg btn-outline-success" type="button" onclick="alert('Coming Soon!')">Get my copy!</button>
                     </div>
                     <div class="row justify-content-center">
-                        <img class="sheroCover" src="images/sheroesbook.png" alt="Sheroes Book Cover">
+                        <img class="sheroCover" src="images/store_images/sheroesbook.png" alt="Sheroes Book Cover">
                     </div>
                 </div>
             </div>
