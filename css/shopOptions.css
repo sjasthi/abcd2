@@ -14,6 +14,7 @@ body {
     display: flex;
     align-items: center;
     margin-left: 5%;
+    margin-bottom: 100px;
 }
 
 .shopTitleContainer {
@@ -36,37 +37,37 @@ body {
 
 .shoppingContainer {
     background-color: white;
-    margin: auto;
-    margin-left: 0px;
-    height: 600px;
-    width: 1200px;
+    /* margin: auto; */
+    /* margin-left: 0px; */
+    /* height: 600px; */
+    /* width: 1200px; */
 
 }
 
 .shoppingContainer h2 {
-    color:goldenrod
+    color:goldenrod;
+    text-shadow: 3px 3px 3px rgba(196, 75, 14, 0.1);
 }
 
-.shopHeader {
-
+/* .shopHeader {
     padding-right: 100px;
     margin: auto;
     width: fit-content;
     padding-top: 200px;
 
-}
+} */
 
 .sheroCover {
-    display:block
+    width: 100%;
 }
 
 .linkContainer {
     
-    width: fit-content;
-    padding-top: 50px;
-    padding-bottom: 30px;
-    padding-left: 30px;
-    float: left;
+    /* width: fit-content; */
+    /* padding-top: 50px; */
+    /* padding-bottom: 30px;
+    padding-left: 30px; */
+    /* float: left; */
     background-color: white;
     display: flex;
     flex-direction: column;
@@ -83,9 +84,10 @@ body {
 .linkContainer a {
     padding: 30px;
     color: orangered;
-    text-decoration: none;
+    /* text-decoration: none; */
 }
 
 .activeLink {
-    
+    text-decoration: underline;
+    text-shadow: 6px 4px 6px rgba(255, 191, 15, 0.75);
   }
