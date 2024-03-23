@@ -43,6 +43,10 @@ body {
 
 }
 
+.shoppingContainer h2 {
+    color:goldenrod
+}
+
 .shopHeader {
 
     padding-right: 100px;
@@ -82,3 +86,6 @@ body {
     text-decoration: none;
 }
 
+.activeLink {
+    
+  }

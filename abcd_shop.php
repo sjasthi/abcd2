@@ -17,7 +17,7 @@
         <div>
         <div class="contentContainer">
         <div class="linkContainer">
-            <a href="./abcd_shop.php">ABCD</a>
+            <a class="activeLink" href="./abcd_shop.php">ABCD</a>
             <a href="./artists_shop.php">Artists</a>
             <a href="./redbubble_shop.php">Redbubble</a>
             <a href="./threadless_shop.php">Threadless</a>

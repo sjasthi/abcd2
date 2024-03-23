@@ -20,7 +20,7 @@
             <a href="./artists_shop.php">Artists</a>
             <a href="./redbubble_shop.php">Redbubble</a>
             <a href="./threadless_shop.php">Threadless</a>
-            <a href="./sheroes_shop.php">Sheroes</a>
+            <a class="activeLink" href="./sheroes_shop.php">Sheroes</a>
         </div>
         <div class="shoppingContainer">
             <h2 class="shopHeader">Click this button to get your copy of SHEROES!</h2>
