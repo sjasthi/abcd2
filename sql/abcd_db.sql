@@ -79,7 +79,8 @@ CREATE TABLE `dresses` (
   `key_words` varchar(500) DEFAULT NULL COMMENT 'any key words separate by comma',
   `image_url` varchar(100) DEFAULT NULL,
   `status` varchar(50) NOT NULL DEFAULT 'proposed' COMMENT 'proposed, approved, writeup_done, art_work_done, designed, completed',
-  `notes` varchar(500) NOT NULL
+  `notes` varchar(500) NOT NULL,
+  `tag_line` varchar(100) NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
 
 --
@@ -740,12 +741,11 @@ ALTER TABLE `resources`
 --
 ALTER TABLE `users`
   MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=10;
-
+COMMIT;
 --
 -- adding tag_line column
 --
-ALTER TABLE `dresses` ADD `tag_line` VARCHAR(100) CHARACTER SET utf8mb4 COLLATE utf8mb4_unicode_ci NULL DEFAULT NULL AFTER `notes`;
-COMMIT;
+
 
 /*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;
 /*!40101 SET CHARACTER_SET_RESULTS=@OLD_CHARACTER_SET_RESULTS */;
