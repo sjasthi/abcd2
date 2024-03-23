@@ -2,3 +2,5 @@ error_log
 db_configuration.php
 db_configuration.php
 *.PNG
+*.JPG
+*.JPEG
