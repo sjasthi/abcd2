@@ -19,6 +19,7 @@
             <a href="./artists_shop.php">Artists</a>
             <a href="./redbubble_shop.php">Redbubble</a>
             <a href="./threadless_shop.php">Threadless</a>
+            <a href="./sheroes_shop.php">Sheroes</a>
         </div>  
     </body>
 </html>

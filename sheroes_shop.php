@@ -13,8 +13,7 @@
         <div class="shopTitleContainer">
             <h1>Shop<h1>
             <i class="fa-solid fa-cart-shopping"></i>
-        </div>
-        <div>
+        </div>      
         <div class="contentContainer">
         <div class="linkContainer">
             <a href="./abcd_shop.php">ABCD</a>
@@ -24,8 +23,12 @@
             <a href="./sheroes_shop.php">Sheroes</a>
         </div>
         <div class="shoppingContainer">
-            <h2 class="shopHeader">Coming Soon!</h2>
-        </div>  
+            <h2 class="shopHeader">Click this button to get your copy of SHEROES!</h2>
+            <button style="margin:auto;" type="button" onclick="alert('Coming Soon!')">Get my copy!</button>
+            <div class="sheroCover">
+                <img src="images/sheroesbook.png" alt="Sheroes Book Cover">
+            </div>
+        </div>
         </div>
     </body>
 </html>
