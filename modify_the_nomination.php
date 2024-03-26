@@ -1,30 +1,29 @@
 <?php 
-include_once 'db_configuration.php';
+session_start();
+include 'db_configuration.php';
 
-if (isset($_POST['id'])){
-    $id = mysqli_real_escape_string($db, $_POST['id']);;
-    $category = mysqli_real_escape_string($db, $_POST['category']);
-    $name = mysqli_real_escape_string($db, $_POST['name']);
-    $description = mysqli_real_escape_string($db, $_POST['description']);
-}
-
-echo $id;
-echo $category;
-echo $name;
-echo $description;
+if (isset($_POST['update_nomination'])){
+    $id =  $_POST['id'];
+    $category = $_POST['category'];
+    $name = $_POST['name'];
+    $description =$_POST['description'];
 
 
-    $sql = "UPDATE nominations
+    $query = "UPDATE nominations
     SET category = '$category',
         name = '$name',
         description = '$description'
     Where id ='$id'";
 
-echo $sql;
+   $query_use = mysqli_query($db, $query);
 
-mysqli_query($db, $sql);
+if ($query_use) {
+    header('location:manageNominations.php?Updated=Success');
 
-header('location:manageNominations.php?Updated=Success');
+}else{
+    header('location:manageNominations.php?Updated=Failed&id='.$id);
+}
 
+}
 
 ?>;

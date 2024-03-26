@@ -142,6 +142,10 @@ if ($result->num_rows > 0) {
       <label for="key_words">Key words</label>
       <input type="text" class="form-control" name="key_words" value="'.$row["key_words"].'"  maxlength="255" style=width:400px ><br>
     </div>
+    <div>
+    <label for="tag_line">Tag Line</label>
+    <input type="text" class="form-control" name="tag_line" value="'.$row["tag_line"].'"  maxlength="255" style=width:400px ><br>
+  </div>
 
       <div>
             <label>Status</label> <br>

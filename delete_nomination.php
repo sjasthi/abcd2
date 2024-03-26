@@ -8,18 +8,15 @@
     //verifyLogin($page);
 
 ?>
+
+<head>
+<link href="css/deleteNomination.css" rel="stylesheet">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Kanit:wght@300&display=swap" rel="stylesheet">
+  
+</head>
 <div class="container">
-<style>#title {text-align: center; color: darkgoldenrod;}
-.thumbnailSize{
-        height: 100px;
-        width: 100px;
-        transition:transform 0.25s ease;
-    }
-    .thumbnailSize:hover {
-        -webkit-transform:scale(3.5);
-        transform:scale(3.5);
-    }
-</style>
 <?php
 include_once 'db_configuration.php';
 

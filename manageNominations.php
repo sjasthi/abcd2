@@ -39,10 +39,12 @@
 
 <!-- Page Content -->
 <div class="container-fluid">   
-    <h2 id="title">Resources List</h2><br>
     
     <div id="customerTableView">
-        <button><a class="btn btn-sm" href="nomination.php">Create a Nomination</a></button>
+
+    <h2 id="title">Manage Nominations</h2><br>
+
+        <a class="btn btn-primary btn-sm" href="nomination.php">Create a Nomination</a>
         <table class="display" id="nominationsTable" style="width:100%">
             <div class="table responsive">
                 <thead>
@@ -151,7 +153,5 @@
 
 </script>
 
-
-?>
 </body>
 </html>
