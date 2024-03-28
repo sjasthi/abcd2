@@ -176,11 +176,7 @@ $GLOBALS['data'] = mysqli_query($db, $query);
                     <?php echo '<td><a class="btn btn-info btn-sm" href="display_the_dress.php?id='.$row["id"].'">Display</a></td>'; ?>
                     
                     
-                    
-                    
-                    
-                    
-                    <?php echo  $tag_line; ?>
+                
                     <?php
                     if ($_SESSION['role'] == 'admin'){
                         echo '<td>';
