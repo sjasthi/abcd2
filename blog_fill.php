@@ -1,12 +1,17 @@
 <?php
 
+  // used to convert a traditional youtube link into an embedded video link.
+  function get_yt_embed_url($url) {
+    return str_replace('/watch?v=', '/embed/', $url);
+  }
+
   $status = session_status();
   if ($status == PHP_SESSION_NONE) {
     session_start();
   }
 
   function fill_blog($db) {
-    $MAX_POSTS = 5;
+    $MAX_POSTS = 10;
 
     $sql = "SELECT * FROM blogs ORDER BY Created_Time DESC";
     $result = mysqli_query($db, $sql);
@@ -27,9 +32,23 @@
           $number_of_posts = 0;
         }
         if ($row["Video_Link"] != NULL) {
-          $blog_link = '<a class="blog_link" href=' . $row["Video_Link"] . '> Video </a> </div>';
+          // $blog_video = '<a class="blog_link" href=' . $row["Video_Link"] . '> Video </a>';
+
+          // embed the youtube video
+          $blog_video = '<div style="width: 560px; height: 315px; float: none; clear: both; margin: 2px auto;">
+          <embed
+            src='. get_yt_embed_url($row["Video_Link"]) .'
+            wmode="transparent"
+            type="video/mp4"
+            width="100%" height="100%"
+            allow="autoplay; encrypted-media; picture-in-picture"
+            allowfullscreen
+            >
+          </div>';
+
+
         } else {
-          $blog_link = '</div>';
+          $blog_video = '';
         }
         $picture_sql = "SELECT Location FROM blog_pictures WHERE Blog_Id = " . $row["Blog_Id"];
         $picture_locations = mysqli_query($db, $picture_sql);
@@ -47,7 +66,15 @@
           <p>' . $row['Created_Time'] . '</p>
           <p>' . nl2br($row['Description']) . '</p> <br>
         ';
-        echo $blog_body.$blog_pictures.$blog_link;
+
+        $blog_admin_buttons = '
+        <div style="margin-top: 8px;">
+          <a class="btn btn-warning btn-sm" href="modify_blog.php?id='.$row["Blog_Id"].'">Modify</a>
+          <a class="btn btn-danger btn-sm" href="delete_blog.php?id='.$row["Blog_Id"].'">Delete</a> <br><br>
+        </div>
+        ';
+        
+        echo $blog_body.$blog_pictures.$blog_video.$blog_admin_buttons.'</div>';
         $number_of_posts += 1;
       }
       echo '</div>';

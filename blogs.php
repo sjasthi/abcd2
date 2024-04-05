@@ -106,8 +106,7 @@ $page_title = 'Project ABCD2 Blog';
         
         </div>
         <div class="p-3 flex-fill bd-highlight" style="width: 70%;">
-          <?php fill_blog($db);
-          ?>
+          <?php fill_blog($db); ?>
         </div>
       </div>
 
