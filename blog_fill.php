@@ -73,8 +73,11 @@
           <a class="btn btn-danger btn-sm" href="delete_blog.php?id='.$row["Blog_Id"].'">Delete</a> <br><br>
         </div>
         ';
-        
-        echo $blog_body.$blog_pictures.$blog_video.$blog_admin_buttons.'</div>';
+        if (isset($_SESSION['role']) && $_SESSION['role'] == 'admin') {
+          echo $blog_body.$blog_pictures.$blog_video.$blog_admin_buttons.'</div>';
+        } else {
+          echo $blog_body.$blog_pictures.$blog_video.'</div>';
+        }
         $number_of_posts += 1;
       }
       echo '</div>';
