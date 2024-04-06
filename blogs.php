@@ -65,7 +65,7 @@ $page_title = 'Project ABCD2 Blog';
           </div>
           <div class="form-group col-md-6">
             <label for="author">Author</label>
-            <input type="text" name="author" class="form-control" maxlength=50 placeholder="Author Name..." required>
+            <input type="text" name="author" class="form-control" value= <?php echo $_SESSION['email'] ?> readonly>
           </div>
         </div>
         <div class="form-group">
