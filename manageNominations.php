@@ -75,7 +75,6 @@
                         <td><a class="btn btn-warning btn-sm" href="modify_nomination.php?id='.$row["id"].'">Modify</a></td>
                         <td><a class="btn btn-danger btn-sm" href="delete_nomination.php?id='.$row["id"].'">Delete</a></td>
                             </tr>';
-                        //Display, Modify, and Delete buttons will not function as intended until we decide how we want to implement the CRUD operations. This is based on resources.php's data table
                     }//end while
                 }//end if
                 else {
