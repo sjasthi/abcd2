@@ -2,14 +2,19 @@ body {
   text-align: center;
   position: relative;
   z-index: 1;
-  background:
+  /* background:
       conic-gradient(from -60deg at 50% calc(100%/3),#ffffff 0 120deg,#0000 0),
       conic-gradient(from 120deg at 50% calc(200%/3),#ffffff 0 120deg,#0000 0),
       conic-gradient(from  60deg at calc(200%/3),#ffffff 60deg,#ffe4d1 0 120deg,#0000 0),
       conic-gradient(from 180deg at calc(100%/3),#fff9d1 60deg,#ffffff 0 120deg,#0000 0),
       linear-gradient(90deg,#fff9d1 calc(100%/6),#ffe4d1 0 50%,
       #fff9d1 0 calc(500%/6), #ffe4d1 0);
-  background-size: 333px 192px;
+  background-size: 333px 192px; */
+
+  background: white;
+  background-image: radial-gradient(black 1px, transparent 0);
+  background-size: 60px 60px;
+  background-position: -19px -19px;
 }
 
 h3 {
@@ -132,7 +137,8 @@ button {
 }
 
 .blog_picture {
-  width: 50%;
+  min-width: 40%;
+  max-width: 60% !important;
   height: auto;
   margin: 10px;
   box-shadow: 0px 0px 9px 0px rgba(36, 36, 36, 0.2);

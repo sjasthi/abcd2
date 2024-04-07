@@ -89,6 +89,7 @@ $GLOBALS['data'] = mysqli_query($db, $query);
                 <thead>
                 <tr>
                     <th>Name</th>
+                    <th>Tag Line</th>
                     <th>Category</th>
                     <th>Type</th>
                     <th>State Name </th>
@@ -96,7 +97,6 @@ $GLOBALS['data'] = mysqli_query($db, $query);
                     
                     <th>Image</th>
                     <th>Display</th>
-                    <th>Tag Line</th>
 
                     <?php
 
@@ -115,13 +115,14 @@ $GLOBALS['data'] = mysqli_query($db, $query);
                 <div class="toggles">
                     <strong> Toggle column: </strong> 
                     <a id="toggle" class="toggle-vis" data-column="0">Name</a> - 
-                    <a id="toggle" class="toggle-vis" data-column="1">Category</a> - 
-                    <a id="toggle" class="toggle-vis" data-column="2">Type</a> -
-                    <a id="toggle" class="toggle-vis" data-column="3">State Name</a> - 
-                    <a id="toggle" class="toggle-vis" data-column="4">Key Words</a> - 
-                    <a id="toggle" class="toggle-vis" data-column="5">Image</a> - 
-                    <a id="toggle" class="toggle-vis" data-column="6">Display</a> -
-                    <a id="toggle" class="toggle-vis" data-column="7">Tag Line</a>
+                    <a id="toggle" class="toggle-vis" data-column="1">Tag Line</a>-
+                    <a id="toggle" class="toggle-vis" data-column="2">Category</a> - 
+                    <a id="toggle" class="toggle-vis" data-column="3">Type</a> -
+                    <a id="toggle" class="toggle-vis" data-column="4">State Name</a> - 
+                    <a id="toggle" class="toggle-vis" data-column="5">Key Words</a> - 
+                    <a id="toggle" class="toggle-vis" data-column="6">Image</a> - 
+                    <a id="toggle" class="toggle-vis" data-column="7">Display</a> -
+                   
                     
 
                     <?php
@@ -150,6 +151,7 @@ $GLOBALS['data'] = mysqli_query($db, $query);
                     while($row = $data->fetch_assoc()) {
                     
                     $name = $row["name"];
+                    $tag_line = $row["tag_line"];
                     $category = $row["category"];
                     $type = $row["type"];
                     $state_name = $row["state_name"];
@@ -158,7 +160,6 @@ $GLOBALS['data'] = mysqli_query($db, $query);
                     $ID = $row["id"];
                     $status = $row["status"];
                     $notes = $row["notes"];
-                    $tag_line = $row["tag_line"];
                     
 
                     if(isset($_SESSION['role']) && $_SESSION['role'] == 'admin') {
@@ -166,19 +167,16 @@ $GLOBALS['data'] = mysqli_query($db, $query);
                 <tr>
                 <td>
                     <div contenteditable="true" onBlur="updateValue(this,'name','<?php echo $ID; ?>')"><?php echo $name; ?></div></span> </td>
+                    <td><div contenteditable="true" onBlur="updateValue(this,'tag_line','<?php echo $ID; ?>')"><?php echo $tag_line; ?></div></span> </td>
                     <td><div contenteditable="true" onBlur="updateValue(this,'category','<?php echo $ID; ?>')"><?php echo $category; ?></div></span> </td>
                     <td><div contenteditable="true" onBlur="updateValue(this,'type','<?php echo $ID; ?>')"><?php echo $type; ?></div></span> </td>
                     <td><div contenteditable="true" onBlur="updateValue(this,'state_name','<?php echo $ID; ?>')"><?php echo $state_name; ?></div></span> </td>
                     <td><div contenteditable="true" onBlur="updateValue(this,'key_words','<?php echo $ID; ?>')"><?php echo $key_words; ?></div></span> </td>
                     <?php echo '<td><img src="images/dress_images/'.$row["image_url"].'" style="width:100px;height:120px;">' ?>
                     <?php echo '<td><a class="btn btn-info btn-sm" href="display_the_dress.php?id='.$row["id"].'">Display</a></td>'; ?>
-                    <td><div contenteditable="true" onBlur="updateValue(this,'tag_line','<?php echo $ID; ?>')"><?php echo $tag_line; ?></div></span> </td>
                     
                     
-                    
-                    
-                    
-                    <?php echo  $tag_line; ?>
+                
                     <?php
                     if ($_SESSION['role'] == 'admin'){
                         echo '<td>';
@@ -202,13 +200,14 @@ $GLOBALS['data'] = mysqli_query($db, $query);
                         echo '<tr>
                         
                         <td> </span> <a href="display_the_dress.php?id='.$row["id"].'">'.$row["name"].'</a></td>
+                        <td>'.$row["tag_line"].' </span> </td>
                         <td>'.$row["category"].' </span> </td>
                         <td>'.$row["type"].'</td>
                         <td>'.$row["state_name"].'</td>
                         <td>'.$row["key_words"].' </span> </td>
                         <td><img class="thumbnailSize" src="' . "images/dress_images/" .$row["image_url"]. '" alt="'.$row["image_url"].'"></td>
                         <td><a class="btn btn-info btn-sm" href="display_the_dress.php?id='.$row["id"].'">Display</a></td>
-                        <td>'.$row["tag_line"].' </span> </td>
+                        
 
                         
                     </tr>';    
