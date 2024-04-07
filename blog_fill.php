@@ -52,12 +52,14 @@
         }
         $picture_sql = "SELECT Location FROM blog_pictures WHERE Blog_Id = " . $row["Blog_Id"];
         $picture_locations = mysqli_query($db, $picture_sql);
-        $blog_pictures = '';
+        $blog_pictures = '<div class="d-flex flex-wrap justify-content-center">';
         if ($picture_locations->num_rows > 0) {
           while($picture = $picture_locations->fetch_assoc()) {
             $blog_pictures = $blog_pictures . '<img class="blog_picture" src="'. $picture['Location'] . '"> <br>';
           }
         }
+        $blog_pictures = $blog_pictures . '</div>';
+
         $blog_body =
         '
         <div class="blog_post"  id="'. $row['Blog_Id'] . '">
@@ -70,7 +72,7 @@
         $blog_admin_buttons = '
         <div style="margin-top: 8px;">
           <a class="btn btn-warning btn-sm" href="modify_blog.php?id='.$row["Blog_Id"].'">Modify</a>
-          <a class="btn btn-danger btn-sm" href="delete_blog.php?id='.$row["Blog_Id"].'">Delete</a> <br><br>
+          <a class="btn btn-danger btn-sm" href="delete_blog.php?id='.$row["Blog_Id"].'" onclick="return confirm(\'Are you sure you would like to delete this blog post?\');">Delete</a> <br><br>
         </div>
         ';
         if (isset($_SESSION['role']) && $_SESSION['role'] == 'admin') {
