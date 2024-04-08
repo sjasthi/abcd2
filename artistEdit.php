@@ -46,6 +46,10 @@ $GLOBALS['data'] = mysqli_query($db, $query);
                     <th>WhatsApp</th>
                     <th>Art Site</th>
                     <th>Other</th>
+                    <th>Display</th>
+                    <th>Modify</th>
+                    <th>Delete</th>
+
                 </tr>
                 </thead>
                 <tbody>
@@ -69,35 +73,6 @@ $GLOBALS['data'] = mysqli_query($db, $query);
                 if ($data->num_rows > 0) {
                     // output data of each row
                     while($row = $data->fetch_assoc()) {
-                    $id = $row["id"];
-                    $name = $row["name"];
-                    $profile_picture = $row["profile_picture"];
-                    $description = $row["description"];
-                    $country = $row["country"];
-                    $facebook = $row["facebook"];
-                    $instagram = $row["instagram"];
-                    $twitter = $row["twitter"];
-                    $whatsapp = $row["whatsapp"];
-                    $art_site = $row["art_site"];
-                    $other = $row["other"];
-
-                    if(isset($_SESSION['role'])) {
-                        ?>
-                <tr>
-                    <td><?php echo $id; ?></td>
-                    <td><div contenteditable="true" onBlur="updateValue(this,'name','<?php echo $ID; ?>')"><?php echo $name; ?></div></span> </td>
-                    <?php echo '<td><img src="images/profile_images/'.$row["profile_picture"].'" style="width:100px;height:120px;">' ?>
-                    <td><div contenteditable="true" onBlur="updateValue(this,'description','<?php echo $ID; ?>')"><?php echo $description; ?></div></span> </td>
-                    <td><div contenteditable="true" onBlur="updateValue(this,'country','<?php echo $ID; ?>')"><?php echo $country; ?></div></span> </td>
-                    <td><div contenteditable="true" onBlur="updateValue(this,'facebook','<?php echo $ID; ?>')"><?php echo $facebook; ?></div></span> </td>
-                    <td><div contenteditable="true" onBlur="updateValue(this,'instagram','<?php echo $ID; ?>')"><?php echo $instagram; ?></div></span> </td>
-                    <td><div contenteditable="true" onBlur="updateValue(this,'twitter','<?php echo $ID; ?>')"><?php echo $twitter; ?></div></span> </td>
-                    <td><div contenteditable="true" onBlur="updateValue(this,'whatsapp','<?php echo $ID; ?>')"><?php echo $whatsapp; ?></div></span> </td>
-                    <td><div contenteditable="true" onBlur="updateValue(this,'art_site','<?php echo $ID; ?>')"><?php echo $art_site; ?></div></span> </td>
-                    <td><div contenteditable="true" onBlur="updateValue(this,'other','<?php echo $ID; ?>')"><?php echo $other; ?></div></span> </td>
-                </tr>
-                 <?php  
-                    } else{
                       echo '<tr>
                       <td>'.$row["id"].'</td>
                       <td> </span> <a href="display_the_artist.php?id='.$row["id"].'">'.$row["name"].'</a></td>
@@ -110,11 +85,15 @@ $GLOBALS['data'] = mysqli_query($db, $query);
                       <td>'.$row["whatsapp"].' </span> </td>
                       <td>'.$row["art_site"].' </span> </td>
                       <td>'.$row["other"].' </span> </td>
+                      <td><a class="btn btn-info btn-sm" href="display_the_artist.php?id='.$row["id"].'">Display</a></td>
+                      <td><a class="btn btn-warning btn-sm" href="modify_artist.php?id='.$row["id"].'">Modify</a></td>
+                      <td><a class="btn btn-danger btn-sm" href="delete_artist.php?id='.$row["id"].'">Delete</a></td>
+
                   </tr>';    
 
                     }//end while
                 }//end if
-            }//end second if 
+        //end second if 
   
                 ?>
 

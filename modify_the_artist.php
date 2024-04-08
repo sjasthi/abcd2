@@ -2,7 +2,7 @@
 
 include_once 'db_configuration.php';
 
-if (isset($_POST['id'])){
+if (isset($_POST['update_artist'])){
     
     $id = mysqli_real_escape_string($db, $_POST['id']);
     $name = mysqli_real_escape_string($db, $_POST['name']);
@@ -20,7 +20,7 @@ if (isset($_POST['id'])){
     //$validate = emailValidate($answer);
     
     
-    if($validate){
+   
         
         if($imageName != ""){
             $target_dir = "images/profile_images/";
@@ -99,7 +99,6 @@ if (isset($_POST['id'])){
         }
     }else{
         header('location: modify_artist.php?modify_artist=answerFailed&id='.$id);}
-}//end if
 
 /*function emailValidate($answer){
  global $choice1,$choice2,$choice3,$choice4;
