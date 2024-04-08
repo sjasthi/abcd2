@@ -69,7 +69,8 @@ if (!isset($page_title)) {
                 <li class="nav-item active"><a class="nav-link" id="header" href="nomination.php">Nomination<span class="sr-only">(current)</span></a></li>
                 <li class="nav-item active"><a class="nav-link" id="header" href="blogs.php">Blog<span class="sr-only">(current)</span></a></li>
                 <li class="nav-item active"><a class="nav-link" id="header" href="about.php">About<span class="sr-only">(current)</span></a></li>
-                <li class="nav-item active"><a class="nav-link" id="header" href="help.php">Help<span class="sr-only">(current)</span></a></li>
+                <!--Temporarily hidden from view per instructor direction -->
+                <!--<li class="nav-item active"><a class="nav-link" id="header" href="help.php">Help<span class="sr-only">(current)</span></a></li> -->
                 <li class="nav-item active"><a class="nav-link" id="header" href="shop.php">Shop<span class="sr-only">(current)</span></a></li>
                 <?php if (isset($_SESSION['role'])) { ?>
                     <?php if ($_SESSION['role'] == 'admin') { ?>
