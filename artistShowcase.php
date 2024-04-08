@@ -5,7 +5,10 @@ require 'bin/functions.php';
 require 'db_configuration.php';
 include('header.php');
 
-$query = "SELECT id, CONCAT(first_name,' ',last_name) AS name, profile_picture, description, country, facebook, instagram, twitter, whatsapp, art_site, other FROM artists LEFT JOIN users ON id = user_id";
+$query = "SELECT id, CONCAT(first_name,' ',last_name) AS name, profile_picture, description, country, facebook, instagram, twitter, whatsapp, art_site, other 
+          FROM artists 
+          LEFT JOIN users ON id = user_id
+          WHERE approval_status = 'approved'";
 $GLOBALS['data'] = mysqli_query($db, $query);
 ob_end_flush();
 ?>
@@ -50,8 +53,8 @@ ob_end_flush();
             }
 
             echo"
-                <td class='profile'>
-                    <img src='images/profile_images/$profile_picture'>
+                <td class='profile' >
+                    <img src='images/profile_images/$profile_picture' style='width: 100%; height: 100%;'>
                     <div class='aboutArtist'>
                         <div class='aboutArtistContent'>
                             <p><strong>About Me: </strong>$description</p>
