@@ -1,112 +1,43 @@
-<?php
+<?php 
+session_start();
+include 'db_configuration.php';
 
-include_once 'db_configuration.php';
+if (isset($_POST['update_artist']))
+{
+	$user_id =  $_POST['user_id'];
+	$profile_picture =  $_POST['profile_picture'];
+	$description =  $_POST['description'];
+	$country =  $_POST['country'];
+	$facebook =  $_POST['facebook'];
+	$instagram = $_POST['instagram'];
+	$twitter = $_POST['twitter'];
+	$whatsapp = $_POST['whatsapp'];
+	$art_site = $_POST['art_site'];
+	$other = $_POST['other'];
 
-if (isset($_POST['update_artist'])){
-    
-    $id = mysqli_real_escape_string($db, $_POST['id']);
-    $name = mysqli_real_escape_string($db, $_POST['name']);
-    $description = mysqli_real_escape_string($db, $_POST['description']);
-    $did_you_know = mysqli_real_escape_string($db, $_POST['did_you_know']);
-    $category = mysqli_real_escape_string($db, $_POST['category']);
-    $type = mysqli_real_escape_string($db, $_POST['type']);
-    $state_name = mysqli_real_escape_string($db, $_POST['state_name']);
-    $key_words = mysqli_real_escape_string($db, $_POST['key_words']);
-    $oldimage = mysqli_real_escape_string($db, $_POST['oldimage']);
-    $imageName = basename($_FILES["fileToUpload"]["name"]);
-    $validate = true;
-    $status = mysqli_real_escape_string($db, $_POST['status']);
-    $notes = mysqli_real_escape_string($db, $_POST['notes']);
-    //$validate = emailValidate($answer);
-    
-    
-   
-        
-        if($imageName != ""){
-            $target_dir = "images/profile_images/";
-            $target_file = $target_dir.$imageName;
-            $uploadOk = 1;
-            unlink($target_dir.$oldimage);
-            $imageFileType = strtolower(pathinfo($target_file,PATHINFO_EXTENSION));
-            // Check if image file is a actual image or fake image
-            if(isset($_POST["submit"])) {
-                $check = getimagesize($_FILES["fileToUpload"]["tmp_name"]);
-                if($check !== false) {
-                    $uploadOk = 1;
-                } else {
-                    header('location: modify_artist.php?modify_artist=fileRealFailed');
-                    $uploadOk = 0;
-                }
-            }
-            // Check if file already exists
-            if (file_exists($target_file)) {
-                header('location: modify_artist.php?modify_artist=fileExistFailed');
-                $uploadOk = 0;
-            }
-            
-            // Allow certain file formats
-            if($imageFileType != "jpg" && $imageFileType != "png" && $imageFileType != "jpeg"
-                && $imageFileType != "gif" ) {
-                    header('location: modify_artist.php?modify_artist=fileTypeFailed');
-                    $uploadOk = 0;
-                }
-                // Check if $uploadOk is set to 0 by an error
-                if ($uploadOk == 0) {
-                    
-                    // if everything is ok, try to upload file
-                } else {
-                    if (move_uploaded_file($_FILES["fileToUpload"]["tmp_name"], $target_file)) {
-                        
-                        $sql = "UPDATE dresses
-                    SET name = '$name',
-                        description = '$description',
-                        did_you_know = '$did_you_know',
-                        category = '$category',
-                        type = '$type',
-                        state_name = '$state_name',
-                        key_words = '$key_words',
-                        image_url = '$imageName',
-                        status = '$status',
-                        notes = '$notes'
-                        
-                    WHERE id = '$id'";
-                        
-                        mysqli_query($db, $sql);
-                        header('location: artistShowcase.php?artistUpdated=Success');
-                    }
-                }
-        }
-        else{
-            
-            //$image = $_SESSION["image"];
-            
-            $sql = "UPDATE dresses
-                SET name = '$name',
-                        description = '$description',
-                        did_you_know = '$did_you_know',
-                        category = '$category',
-                        type = '$type',
-                        state_name = '$state_name',
-                        key_words = '$key_words',
-                        status = '$status',
-                        notes = '$notes'
-                        
-                WHERE id = '$id'";
-            
-            mysqli_query($db, $sql);
-            
-            header('location: artistShowcase.php?artistUpdated=Success');
-        }
-    }else{
-        header('location: modify_artist.php?modify_artist=answerFailed&id='.$id);}
 
-/*function emailValidate($answer){
- global $choice1,$choice2,$choice3,$choice4;
- if($answer == $choice1 or $answer == $choice2 or $answer == $choice3 or $answer == $choice4){
- return true;
- }else{
- return false;
- }
- }
- */
-?>
+	$query = "UPDATE artists
+        SET user_id = '$user_id',
+			profile_picture = '$profile_picture',
+			description = '$description',
+			country = '$country',
+			facebook = '$facebook',
+			instagram = '$instagram',
+			twitter = '$twitter',
+			whatsapp = '$whatsapp',
+			art_site = '$art_site',
+			other = '$other'
+        WHERE user_id ='$user_id'";
+
+	$query_use = mysqli_query($db, $query);
+
+	if ($query_use)
+	{
+		header('location:artistEdit.php?Updated=Success');
+	}
+	else
+	{
+		header('location:artistEdit.php?Updated=Failed&id='.$id);
+	}
+}
+?>;
