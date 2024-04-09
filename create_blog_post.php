@@ -25,7 +25,9 @@ if (isset($_POST['create_post'])) {
       $fileDestination = 'images/blog_pictures/'.$fileNewName;
       move_uploaded_file($fileTMP, $fileDestination);
       array_push($fileNameArray, $fileDestination);
-    } else {
+    } else if($fileError === 4) {
+      //do nothing. No file was uploaded
+    }else {
       echo "There was an error uploading your file.";
     }
   }
