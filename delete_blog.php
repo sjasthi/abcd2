@@ -15,7 +15,6 @@ if (isset($_GET['id'])){
             WHERE Blog_Id = '$id'";
     
     mysqli_query($db, $sql2);
-    echo"Success!!";
     header('location: blogs.php');
 } else {
     echo '<h1>Nothing in id</h1>';
