@@ -92,7 +92,7 @@ if ($result->num_rows > 0) {
       
       <div>
         <label for="name">Name</label>
-        <input type="text" class="form-control" name="name" value=<?php echo $row["name"] ?>  maxlength="255" style=width:400px required><br>
+        <input type="text" class="form-control" name="name" value=<?php echo $row["name"] ?>  maxlength="255" style=width:400px readonly><br>
       </div>
       
       <div>
