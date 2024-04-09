@@ -17,8 +17,6 @@ if (isset($_POST['update_blog'])){
         Video_Link = '$video_link'
     WHERE Blog_Id ='$id'";
 
-    echo $query;
-
     $query_use = mysqli_query($db, $query);
 
     if ($query_use) {
