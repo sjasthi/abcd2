@@ -16,6 +16,7 @@ verifyLogin($page);
 
 <?php
 // here is the information to connect to the database
+//$mysqli = new MySQLi('localhost', 'root', '', 'abcd_db');
 $mysqli = new MySQLi('localhost', 'root', '', 'abcd_db');
 //$resultset = $mysqli->query("SELECT DISTINCT topic FROM topics ORDER BY topic ASC");
 ?>
