@@ -69,7 +69,7 @@ if ($id){
             </tr>
           </div>
           <div class ="container">
-            <div class='containerImage'><image class = 'image' src = images/dress_images/<?php echo $row["image_url"]; ?>></image></div>
+            <div class='containerImage'><image class = 'image' src = images/dress_images/<?php echo $row["profile_url"]; ?>></image></div>
             <div class="containerText">
               <h3 class= "title"><strong> Description: </strong></h3><p class= "words" ><?php echo $row["description"]; ?></p>
               <h3 class= "title"><strong> Did You Know? </strong></h3><p class= "words"><?php echo $row["did_you_know"]; ?></p>

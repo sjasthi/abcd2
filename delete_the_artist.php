@@ -10,7 +10,6 @@ if (isset($_POST['id'])){
             WHERE user_id = '$id'";
 
     mysqli_query($db, $sql);
-    echo"Success!!";
     header('location: artistEdit.php');
 }//end if
 ?>

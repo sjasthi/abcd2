@@ -43,7 +43,7 @@ if ($result->num_rows > 0) {
             <div class="form-group col-md-4">
                 <label for="profile_picture">Profile Picture:</label>
 				<div><?php echo '<td><img src="images/profile_images/'.$row["profile_picture"].'" style="width:300px;height:300px;">' ?></div>
-				<input style=width:400px type="file" onchange="loadFile(event)" name="profile_picture" id="fileToUpload" accept="image/jpg, image/jpeg, image/png" required title="Please enter an image file"></input>
+				<input style=width:400px type="file" onchange="loadFile(event)" name="profile_picture" id="fileToUpload" accept="image/jpg, image/jpeg, image/png" optional title="Please enter an image file"></input>
 				<img id="output" width="300" />
 			</div>
 
