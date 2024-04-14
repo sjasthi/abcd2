@@ -81,6 +81,14 @@ $page_title = 'Project ABCD2 Blog';
           <div class="form-group col-md-6">
             <label>Video Link</label>
             <input type="text" name="video_link" class="form-control" maxlength=100 placeholder="Optional">
+            <div id="extraLink1" style="style.display = none;">
+              <input type="text" name="video_link2" class="form-control" maxlength=100 placeholder="Optional">
+              <button id="secondLinkButton" type="button" onclick="showThirdLinkField()"> Add Additional Video Link</button>
+            </div>
+            <div id="extraLink2" style="style.display = none;">
+              <input type="text" name="video_link3" class="form-control" maxlength=100 placeholder="Optional">
+            </div>
+            <button id="firstLinkButton" type="button" onclick="showSecondLinkField()">Add Additional Video Link</button>
           </div>
         </div>
         <div>
@@ -114,6 +122,28 @@ $page_title = 'Project ABCD2 Blog';
         <button id="blog_previous" class="btn btn-sm" onclick="handlePageButton('previous')" hidden="hidden">< Previous Page</button>
         <button id="blog_next" class="btn btn-sm" onclick="handlePageButton('next')">Next Page ></button>
       </div>
+      <script>
+      function showSecondLinkField() {
+        var x = document.getElementById("extraLink1");
+        var y = document.getElementById("firstLinkButton");
+        if (x.style.display === "block") {
+          x.style.display = "none";
+        } else {
+          x.style.display = "block";
+          y.style.display = "none";
+        }
+      }
 
+      function showThirdLinkField() {
+        var x = document.getElementById("extraLink2");
+        var z = document.getElementById("secondLinkButton");
+        if (x.style.display === "block") {
+          x.style.display = "none";
+        } else {
+          x.style.display = "block";
+          z.style.display = "none";
+        }
+      }
+      </script>
   </body>
 </html>

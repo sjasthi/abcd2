@@ -56,8 +56,18 @@ if ($result->num_rows > 0) {
             </div>
 
             <div>
-                <label for="video_link">Video Link</label>
+                <label for="video_link">Video Links</label>
                 <input style="width:400px" class="form-control" name="video_link" value="<?php echo $row["Video_Link"]; ?>"> </input>
+            </div>
+
+            <div>
+                <label for="video_link"></label>
+                <input style="width:400px" class="form-control" name="video_link2" value="<?php echo $row["Video_Link2"]; ?>"> </input>
+            </div>
+
+            <div>
+                <label for="video_link"></label>
+                <input style="width:400px" class="form-control" name="video_link3" value="<?php echo $row["Video_Link3"]; ?>"> </input>
             </div>
 
             <div class="btnContainer">

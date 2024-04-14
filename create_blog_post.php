@@ -11,6 +11,8 @@ if (isset($_POST['create_post'])) {
   $author = mysqli_real_escape_string($db,$_POST['author']);
   $description = mysqli_real_escape_string($db,$_POST['description']);
   $video_link = mysqli_real_escape_string($db,$_POST['video_link']);
+  $video_link2 = mysqli_real_escape_string($db,$_POST['video_link2']);
+  $video_link3 = mysqli_real_escape_string($db,$_POST['video_link3']);
   $timestamp = mysqli_real_escape_string($db,date("Y-m-d H:i:s"));
   $fileNameArray = [];
   for($i = 0; $i < count($_FILES['file']['name']); $i++) {
@@ -38,6 +40,8 @@ if (isset($_POST['create_post'])) {
     '$author',
     '$description',
     '$video_link',
+    '$video_link2',
+    '$video_link3',
     '$timestamp',
     '$timestamp');";
 

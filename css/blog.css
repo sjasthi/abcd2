@@ -204,3 +204,11 @@ button {
   width: 85%;
   text-align: left;
 }
+
+#extraLink1 {
+  display: none;
+}
+
+#extraLink2 {
+  display: none;
+}

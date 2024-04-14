@@ -50,6 +50,44 @@
         } else {
           $blog_video = '';
         }
+        if ($row["Video_Link2"] != NULL) {
+          // $blog_video = '<a class="blog_link" href=' . $row["Video_Link"] . '> Video </a>';
+
+          // embed the youtube video
+          $blog_video2 = '<div style="width: 560px; height: 315px; float: none; clear: both; margin: 2px auto;">
+          <embed
+            src='. get_yt_embed_url($row["Video_Link2"]) .'
+            wmode="transparent"
+            type="video/mp4"
+            width="100%" height="100%"
+            allow="autoplay; encrypted-media; picture-in-picture"
+            allowfullscreen
+            >
+          </div>';
+
+
+        } else {
+          $blog_video2 = '';
+        }
+        if ($row["Video_Link3"] != NULL) {
+          // $blog_video = '<a class="blog_link" href=' . $row["Video_Link"] . '> Video </a>';
+
+          // embed the youtube video
+          $blog_video3 = '<div style="width: 560px; height: 315px; float: none; clear: both; margin: 2px auto;">
+          <embed
+            src='. get_yt_embed_url($row["Video_Link3"]) .'
+            wmode="transparent"
+            type="video/mp4"
+            width="100%" height="100%"
+            allow="autoplay; encrypted-media; picture-in-picture"
+            allowfullscreen
+            >
+          </div>';
+
+
+        } else {
+          $blog_video3 = '';
+        }
         $picture_sql = "SELECT Location FROM blog_pictures WHERE Blog_Id = " . $row["Blog_Id"];
         $picture_locations = mysqli_query($db, $picture_sql);
         $blog_pictures = '<div class="d-flex flex-wrap justify-content-center">';
@@ -76,7 +114,7 @@
         </div>
         ';
         if (isset($_SESSION['role']) && $_SESSION['role'] == 'admin') {
-          echo $blog_body.$blog_pictures.$blog_video.$blog_admin_buttons.'</div>';
+          echo $blog_body.$blog_pictures.$blog_video.$blog_video2.$blog_video3.$blog_admin_buttons.'</div>';
         } else {
           echo $blog_body.$blog_pictures.$blog_video.'</div>';
         }
