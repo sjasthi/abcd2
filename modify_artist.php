@@ -41,13 +41,15 @@ if ($result->num_rows > 0) {
 			
 
             <div class="form-group col-md-4">
-                <label for="profile_picture">Profile Picture:</label>
-				<div><?php echo '<td><img src="images/profile_images/'.$row["profile_picture"].'" style="width:300px;height:300px;">' ?></div>
-				<input style=width:400px type="file" onchange="loadFile(event)" name="profile_picture" id="fileToUpload" accept="image/jpg, image/jpeg, image/png" optional title="Please enter an image file"></input>
+				<label for="profile_picture">Profile Picture:</label>
+				<div>
+					<?php echo '<img src="images/profile_images/'.$row["profile_picture"].'" id="preview_image" style="width:300px;height:300px;">'; ?>
+				</div>
+				<input style="width:400px" type="file" name="new_profile_picture" id="fileToUpload" accept="image/jpg, image/jpeg, image/png" title="Please select an image file" onchange="previewImage(event)">
+				<br>
 				<img id="output" width="300" />
 			</div>
-
-		
+	
 			<div>
 				<label for="name">Artist Name</label>
 				<input type="text" class="form-control" name="name" value="<?php echo $row["name"]; ?>" maxlength="255" style="width:400px" required readonly><br>            
@@ -56,6 +58,16 @@ if ($result->num_rows > 0) {
 			<div>
 				<label for="user_id">User ID</label>
 				<input type="text" class="form-control" name="user_id" value="<?php echo $row["user_id"]; ?>" maxlength="255" style="width:400px" required readonly><br>            
+			</div>
+
+			<div>
+				<label for="approval_status">Approval Status</label>
+				<select name="approval_status" class="form-control" style="width:400px" required>
+					<option value="pending" <?php if($row["approval_status"] == 'pending') echo 'selected'; ?>>Pending</option>
+					<option value="approved" <?php if($row["approval_status"] == 'approved') echo 'selected'; ?>>Approved</option>
+					<option value="rejected" <?php if($row["approval_status"] == 'rejected') echo 'selected'; ?>>Rejected</option>
+				</select>
+				<br>            
 			</div>
 		
 			<div>
@@ -119,5 +131,17 @@ if ($result->num_rows > 0) {
         image.src = URL.createObjectURL(event.target.files[0]);
     };
 </script>
+
+<script>
+    function previewImage(event) {
+        var reader = new FileReader();
+        reader.onload = function() {
+            var output = document.getElementById('output');
+            output.src = reader.result;
+        }
+        reader.readAsDataURL(event.target.files[0]);
+    }
+</script>
+
 
 </html>

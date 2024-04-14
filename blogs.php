@@ -96,7 +96,7 @@ $page_title = 'Project ABCD2 Blog';
       <div class="blog-post-container d-flex flex-md-row bd-highlight flex-wrap">
         <div class="p-3 flex-fill bd-highlight" style="width: 250px">
           <div id="blog_TOC" class="sticky-top" style="top: 110px;">
-            <h3 id="TOC_title" class="accordion-header" style="font-weight: bold;">Table of Contents</h3>
+            <h3 id="TOC_title" class="accordion-header sticky-top" style="font-weight: bold">Table of Contents</h3>
             
             <ul class="list-group list-group-flush list-group-item-action">
               <?php fill_TOC($db); ?>
@@ -111,8 +111,8 @@ $page_title = 'Project ABCD2 Blog';
       </div>
 
       <div id="blog_buttons" class="d-flex justify-content-center">
-        <button id="blog_previous" class="btn btn-lg" onclick="handlePageButton('previous')" hidden="hidden">Previous</button>
-        <button id="blog_next" class="btn btn-lg" onclick="handlePageButton('next')">Next</button>
+        <button id="blog_previous" class="btn btn-sm" onclick="handlePageButton('previous')" hidden="hidden">< Previous Page</button>
+        <button id="blog_next" class="btn btn-sm" onclick="handlePageButton('next')">Next Page ></button>
       </div>
 
   </body>
