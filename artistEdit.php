@@ -26,8 +26,7 @@ $GLOBALS['data'] = mysqli_query($db, $query);
 <div class="container-fluid">
 <body>
 
-	<h1 id="title2">Artist Showcase</h1>
-    <h2 id="title">Scroll down to view artists and their products available for purchase using the site art.</h2><br>
+	<h1 id="title2">Manage Artist</h1>
     
     <div id="customerTableView">
         <button class="artistEditBtn"><a class="btn btn-sm" href="artistForm.php">Become an Affiliated Artist</a></button>
@@ -88,7 +87,7 @@ $GLOBALS['data'] = mysqli_query($db, $query);
                       <td>'.$row["art_site"].' </span> </td>
                       <td>'.$row["other"].' </span> </td>
                       <td>'.$row["approval_status"].' </span> </td>
-                      <td><a class="btn btn-info btn-sm" style="color: black;" href="display_the_artists.php?id='.$row["id"].'">Display</a></td>
+                      <td><a class="btn btn-info btn-sm" style="color: black;" href="display_the_artist.php?id='.$row["id"].'">Display</a></td>
                       <td><a class="btn btn-warning btn-sm" style="color: black;" href="modify_artist.php?user_id='.$row["id"].'">Modify</a></td>
                       <td><a class="btn btn-danger btn-sm" style="color: black;" href="delete_artist.php?id='.$row["id"].'">Delete</a></td>
 
