@@ -116,7 +116,7 @@
         if (isset($_SESSION['role']) && $_SESSION['role'] == 'admin') {
           echo $blog_body.$blog_pictures.$blog_video.$blog_video2.$blog_video3.$blog_admin_buttons.'</div>';
         } else {
-          echo $blog_body.$blog_pictures.$blog_video.'</div>';
+          echo $blog_body.$blog_pictures.$blog_video.$blog_video2.$blog_video3'</div>';
         }
         $number_of_posts += 1;
       }
