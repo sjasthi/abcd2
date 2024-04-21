@@ -75,6 +75,8 @@ ALTER TABLE `blog_pictures`
 --
 ALTER TABLE `blogs`
   MODIFY `Blog_Id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=2;
+  ADD `Video_Link2` VARCHAR(200) CHARACTER SET utf8mb4 COLLATE utf8mb4_general_ci NULL DEFAULT NULL AFTER `Video_Link`;
+  ADD `Video_Link3` VARCHAR(200) CHARACTER SET utf8mb4 COLLATE utf8mb4_general_ci NULL DEFAULT NULL AFTER `Video_Link2`;
 
 --
 -- AUTO_INCREMENT for table `blog_pictures`

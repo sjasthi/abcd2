@@ -18,11 +18,53 @@ ob_end_flush();
 
     <link rel="stylesheet" href="css/artistShowcase.css">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link href="https://fonts.googleapis.com/css2?family=Kanit:wght@300&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Kanit:wght@300&display=swap" rel="stylesheet">
     <script src="https://kit.fontawesome.com/f40040d297.js" crossorigin="anonymous"></script>
+    <style>
+        .warning-message {
+            background-color: #ffe4e1;
+            color: #ff0000;
+            padding: 15px;
+            margin-bottom: 20px;
+            font-size: 36;
+            font-weight: bold;
+            border: 5px solid #ff0000;
+            border-radius: 15px;
+            text-align: center;
+        }
+        .artistBtn a {
+        font-size: 36px; /* Set font size to 36 pixels */
+        padding: 10px 10; /* Add padding */
+        border-radius: 10px; /* Rounded corners */
+        text-decoration: none; /* Remove underline from link */
+        display: inline-block; /* Make the button a block element */
+        transition: background-color 0.3s ease; /* Smooth transition */
+        }
+
+        .artistBtn a:hover {
+            background-color: #green; /* Darker red on hover */
+        }
+        .profile {
+            border: 2px solid #ccc; /* Add border around the profile */
+            border-radius: 10px; /* Rounded corners */
+            padding: 10px; /* Add padding */
+            margin: 10px; /* Add margin */
+            box-shadow: 0 4px 8px 0 rgba(0,0,0,0.2); /* Add shadow */
+            transition: box-shadow 0.3s ease; /* Smooth transition for shadow */
+        }
+        .profile:hover {
+            box-shadow: 0 8px 16px 0 rgba(1,1,1,1); /* Increase shadow on hover */
+        }
+    </style>
 </head>
 <body>
     <h2 class="artistTitle">Artist Showcase</h2>
+    <?php
+        // Display warning message if it exists
+        if(isset($_GET['warning']) && $_GET['warning'] == 'profileExists') {
+            echo '<div class="warning-message">You already have an artist profile. You can only activate one artist profile.</div>';
+        }
+    ?>
     <div class="btnContainer">
         <button class="artistBtn"><a class="btn btn-sm" href="artistForm.php">Become an Affiliated Artist</a></button>
     </div>

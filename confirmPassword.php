@@ -1,36 +1,49 @@
 <?php
+   
+   error_reporting(E_ALL);
+   ini_set('display_errors', 1);
+
    require_once "db_configuration.php";
 if (isset($_POST["email"]) && isset($_POST["action"]) && ($_POST["action"]=="update")){
    $error="";
    $pass1 = $db->escape_string($_POST['pass']);
    $pass2 = $db->escape_string($_POST['cpass']);
    $email = $_POST["email"];
-   if ($pass1!=$pass2){
-   $error.= "<p>Password do not match, both password should be same.<br /><br /></p>";
-     }
-     if($error!=""){
+   if ($pass1 === $pass2) {
+      // Hash the new password, not the token
+      $hashedPassword = password_hash($pass1, PASSWORD_DEFAULT);
+   
+      // Prepare the SQL statement to prevent SQL injection
+      $updateQuery = $db->prepare("UPDATE `users` SET `hash`=? WHERE `email`=?");
+      $updateQuery->bind_param("ss", $hashedPassword, $email);
+      $updateQuery->execute();
+   
+      // Potentially check if the update was successful
+      if ($updateQuery->affected_rows === 1) {
+          // Redirect to login with success message
+          header("Location: loginForm.php?reset=success");
+      } else {
+          // Redirect to an error page or display an error
+          header("Location: confirmEmail.php?status=errorUpdate");
+      }
+   } else {
+      // Redirect with an error message if passwords do not match
       header("Location: confirmEmail.php?status=errorPassword");
-   }else{
-      $pass1 = password_hash($token, PASSWORD_DEFAULT);
-      mysqli_query($db, "UPDATE `users` SET `hash`='".$pass1."' WHERE `email`='".$email."';");
-      mysqli_query($db,"DELETE FROM `password_reset_temp` WHERE `email`='".$email."';");
-      header("Location: loginForm.php");
    }
    exit();
+   
 }
 ?>
 <?php
    include_once "header.php"; 
    if (isset($_GET["token"])){
-   $token = $_GET["token"];
-   $email = $_GET["email"];
-   $curDate = date("Y-m-d H:i:s");
-   $sql = "SELECT * FROM `password_reset_temp` WHERE `token`='".$token."' and `email`='".$email."';";
-   $result = mysqli_query($db, $sql);
-   if ($result !== FALSE && $result->num_rows > 0 ){ 
-      $row = $result->fetch_assoc();
-      $expDate = $row['expDate'];
-      if ($expDate >= $curDate) { ?>
+      $token = $_GET["token"];
+      $email = $_GET["email"];
+      $curDate = date("Y-m-d H:i:s");
+      $sql = "SELECT * FROM `users` WHERE `hash`='".$token."' and `email`='".$email."';";
+      $result = mysqli_query($db, $sql);
+
+?>
 <!DOCTYPE html>
 <html>
    <head>
@@ -76,6 +89,6 @@ if (isset($_POST["email"]) && isset($_POST["action"]) && ($_POST["action"]=="upd
       <script src="js/loginForm.js"></script>
    </body>
 </html>
-<?php }
+<?php 
    }
-}?>
+?>

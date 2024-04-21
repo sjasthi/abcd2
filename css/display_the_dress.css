@@ -57,6 +57,7 @@
   
   .words{
     font-family: "Kanit";
+    white-space: pre-wrap;
     width: 100%;
     align-content: left;
     text-align: justify;

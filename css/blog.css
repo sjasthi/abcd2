@@ -98,10 +98,10 @@ button {
   margin-top: 5px;
   padding-left: 20px;
   padding-right: 20px;
+  margin-bottom: 50px;
 }
 
 .blog_post {
-  /* width: 80%; */
   background-color: white;
   display: block;
   margin-right: auto;
@@ -147,8 +147,9 @@ button {
 #blog_TOC {
   background-color: white;
   text-align: left;
-  /* width: 50%; */
-  padding-top: 8px;
+  top: 110px;
+  max-height: 76vh;
+  overflow-y: auto;
   margin-left: auto;
   margin-right: auto;
   border-radius: 5px;
@@ -158,8 +159,10 @@ button {
 }
 
 #TOC_title {
+  background-color: white;
   text-align: center;
-  margin-bottom: 5px;
+  padding-top: 8px;
+  padding-bottom: 8px;
 }
 
 #blog_TOC a {
@@ -167,16 +170,22 @@ button {
 }
 
 #blog_buttons {
-  gap: 20px;
-  padding-bottom: 100px;
+  gap: 30px;
+  /* padding-bottom: 100px;  */
+  background-color: white;
+  position: fixed;
+  bottom: 0px;
+  width: 100%;
+  border-top: 1px solid rgb(145, 145, 145); 
+  z-index: 2;
 }
 
 #blog_next {
-  min-width: 200px;
+  min-width: 150px;
 }
 
 #blog_previous {
-  min-width: 200px;
+  min-width: 150px;
 }
 
 #blog_edit {
@@ -194,4 +203,12 @@ button {
 #blog_edit .td_left {
   width: 85%;
   text-align: left;
+}
+
+#extraLink1 {
+  display: none;
+}
+
+#extraLink2 {
+  display: none;
 }

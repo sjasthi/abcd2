@@ -60,9 +60,9 @@ CREATE TABLE `artists` (
 --
 
 INSERT INTO `artists` (`user_id`, `profile_picture`, `description`, `country`, `facebook`, `instagram`, `twitter`, `whatsapp`, `art_site`, `other`, `approval_status`) VALUES
-(1, 'AA1.png', 'This is a test description for a pending artist.', 'United States', 'testfacebook', 'testinstagram', 'testtwitter', 'testwhatsapp', 'testartsite', 'other', 'pending');
-(2, 'AA2.png', 'This is a test description for a accepted artist.', 'United States', 'testfacebook', 'testinstagram', 'testtwitter', 'testwhatsapp', 'testartsite', 'other', 'accepted');
-(2, 'AA3.png', 'This is a test description for a rejected artist.', 'United States', 'testfacebook', 'testinstagram', 'testtwitter', 'testwhatsapp', 'testartsite', 'other', 'rejected');
+(1, 'AA1.png', 'This is a test description for a pending artist.', 'United States', 'testfacebook', 'testinstagram', 'testtwitter', 'testwhatsapp', 'testartsite', 'other', 'pending'),
+(2, 'AA2.png', 'This is a test description for a accepted artist.', 'United States', 'testfacebook', 'testinstagram', 'testtwitter', 'testwhatsapp', 'testartsite', 'other', 'accepted'),
+(3, 'AA3.png', 'This is a test description for a rejected artist.', 'United States', 'testfacebook', 'testinstagram', 'testtwitter', 'testwhatsapp', 'testartsite', 'other', 'rejected');
 
 --
 -- Table structure for table `dresses`
