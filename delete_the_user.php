@@ -14,7 +14,6 @@ if (isset($_POST['id'])){
             WHERE id = '$id'";
 
     mysqli_query($db, $sql);
-    echo"Success!!";
     header('location: users.php?userDeleted=Success');
 }//end if
 ?>
