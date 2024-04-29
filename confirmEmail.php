@@ -39,7 +39,6 @@
                      <button class="button button-block" name="RESET" />Reset Password</button>
                   </div>
                   <?php
-// confirmEmail.php
 
 $status = $_GET['status'] ?? '';
 
