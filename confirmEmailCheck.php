@@ -30,17 +30,6 @@ function sendResetPasswordEmail($db,$email, $resetPasswordLink,$hashToken)
       $message .= "Click on the link below to reset your password:\n";
       $message .= $resetPasswordLink;
       $message .= "\n\nIf you did not request a password reset, please ignore this email.";
-      //$mail->isSMTP();                                      // Set mailer to use SMTP
-      //$mail->Host = 'ssl://smtp.gmail.com';  // Specify main and backup SMTP servers
-      //$mail->SMTPAuth = true;                               // Enable SMTP authentication
-      //$mail->Username = 'ics_abcd@projectabcd.com';                 // SMTP username
-      //$mail->Password = 'iLoveMetro';                           // SMTP password
-      //$mail->SMTPSecure = 'tls';                              
-      //$mail->setFrom('email@projectabcd.com', 'Mailer');
-      //$mail->addAddress($email, 'You');     // Add a recipient
-      //$mail->Subject = "Reset Your Password";
-      //$mail->Body    = $message; 
-      //$mail->send();
       $email_subject = "Password Reset Link";
       $email_headers = 'From:noreply@projectabcd.com'."\r\n";
       mail($email, $email_subject, $message, $email_headers);

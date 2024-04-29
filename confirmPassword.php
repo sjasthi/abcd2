@@ -10,7 +10,7 @@ if (isset($_POST["email"]) && isset($_POST["action"]) && ($_POST["action"]=="upd
    $pass2 = $db->escape_string($_POST['cpass']);
    $email = $_POST["email"];
    if ($pass1 === $pass2) {
-      // Hash the new password, not the token
+      // Hash the new password
       $hashedPassword = password_hash($pass1, PASSWORD_DEFAULT);
    
       // Prepare the SQL statement to prevent SQL injection

@@ -114,3 +114,11 @@ ob_flush();
   <script src="js/loginForm.js"></script>
 </body>
 </html>
+<?php
+
+$reset = $_GET['reset'] ?? '';
+
+if ($reset === 'success') {
+  echo "Password reset successful";
+}
+?>
