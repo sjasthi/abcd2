@@ -1,4 +1,5 @@
-<?php if ($_SERVER["REQUEST_METHOD"] == "POST") {
+<?php 
+   if ($_SERVER["REQUEST_METHOD"] == "POST") {
       if (isset($_POST["RESET"])) {
           require_once "confirmEmailCheck.php";
       } 
@@ -38,7 +39,6 @@
                      <button class="button button-block" name="RESET" />Reset Password</button>
                   </div>
                   <?php
-// confirmEmail.php
 
 $status = $_GET['status'] ?? '';
 
