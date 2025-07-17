@@ -2,6 +2,7 @@
     ob_start();
     session_start();
 
+    // Check if the user is logged in and has admin privileges
     if ($_SESSION['role'] != 'admin'){
         header('Location:index.php'); 
     }
