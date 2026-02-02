@@ -10,7 +10,6 @@ if (isset($_POST['id'])){
             WHERE id = '$id'";
 
     mysqli_query($db, $sql);
-    echo"Success!!";
     header('location: resources.php?ResourceDeleted=Success');
 }//end if
 ?>

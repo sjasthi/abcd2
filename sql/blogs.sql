@@ -32,6 +32,8 @@ CREATE TABLE `blogs` (
   `Author` varchar(50) DEFAULT NULL,
   `Description` text DEFAULT NULL,
   `Video_Link` varchar(200) DEFAULT NULL,
+  `Video_Link2` varchar(200) DEFAULT NULL,
+  `Video_Link3` varchar(200) DEFAULT NULL,
   `Modified_Time` datetime DEFAULT NULL,
   `Created_Time` datetime DEFAULT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
@@ -75,8 +77,6 @@ ALTER TABLE `blog_pictures`
 --
 ALTER TABLE `blogs`
   MODIFY `Blog_Id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=2;
-  ADD `Video_Link2` VARCHAR(200) CHARACTER SET utf8mb4 COLLATE utf8mb4_general_ci NULL DEFAULT NULL AFTER `Video_Link`;
-  ADD `Video_Link3` VARCHAR(200) CHARACTER SET utf8mb4 COLLATE utf8mb4_general_ci NULL DEFAULT NULL AFTER `Video_Link2`;
 
 --
 -- AUTO_INCREMENT for table `blog_pictures`
