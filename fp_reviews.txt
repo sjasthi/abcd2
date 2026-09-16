@@ -1,0 +1,13 @@
+FP1: 9/15
+1. ask AI to explain the repo 
+2. Download and deploy the repo to your local machine
+3. XAMPP, HTML/CSS/JS/JQuery/BootStrap (Frontend) PHP (Backend) MySQL (DB)
+4. Bring up the application as a normal user
+
+
+FP2: Review the issues list
+Identify any new bugs/issues
+"Review the repo and identify all the issues through static code analysis; And prioritize those issues for fixing"
+Log those issues
+
+FP3 onwards: Fix the issues / Need a plan.
