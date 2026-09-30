@@ -1,3 +1,19 @@
+Goals of the project:
+
+[1]  RAG based chatbot
+All the descriptions provided to the articles are put into a RAG database.
+And a CHATBOT is enabled to answer the questions in the context of the articles
+
+[2] Compiling based on different tags
+
+[3] (AI based article creation) Authoring of an article for a new character in the same style as the existing articles.
+
+[4] Stabilization / Fixing of the issues
+
+[5] Keeping the entries complete (status and tagging)
+
+=========================================================================================================================
+
 FP1: 9/15
 1. ask AI to explain the repo 
 2. Understand the gaps/issues
@@ -13,6 +29,17 @@ FP 2: 9/22
 
 FP3: Review the issues list
 Identify any new bugs/issues
-Log those issues
+Log those issues into  https://github.com/sjasthi/abcd2/issues
+I want to see all the issues you have found at this location https://github.com/sjasthi/abcd2/issues
 
-Fix the issues / Need a plan.
+
+FP4:  Issue List
+
+[1] Close the issues that are no longer valid:
+Review the existing issues at https://github.com/sjasthi/abcd2/issues and if something is no longer an issue, close the issue.
+
+[2] Open the issues you found during your testing.
+Goal: We need to have a comprehensive list of all the valid issues.
+
+
+FP5: we will come up with fix plan.
