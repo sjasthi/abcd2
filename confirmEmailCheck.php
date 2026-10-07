@@ -1,45 +1,49 @@
 <?php
-//Load Composer's autoloader
-require_once 'vendor/autoload.php';
-require_once 'db_configuration.php';
-$email = $db->escape_string($_POST['email']);
-$sql = "SELECT * FROM users WHERE email='$email'";
-$result = mysqli_query($db, $sql);
-if ($result !== false && $result->num_rows == 0 ){ // User doesn't exist   
-   header("Location: confirmEmail.php?status=error");
-   exit();
-}else{
-   $baseURL = "https://abcd2.projectabcd.com/confirmPassword.php"; // Replace with your actual domain and resetpassword.php path
-   $token = bin2hex(random_bytes(32)); // Generate a random token for the link
-   $hashToken = password_hash($token, PASSWORD_DEFAULT);
-   $link = $baseURL . "?token=" . $hashToken."&email=".$email; // Append the token as a query parameter to the link
-   sendResetPasswordEmail($db,$email, $link,$hashToken); // You need to implement this function to send the reset password email
-   header("Location: confirmEmail.php?status=success");
-   exit();
-   //ob_flush();
+/**
+ * confirmEmailCheck.php  -  Issue #11: step 1 of "Forgot password".
+ * Included by confirmEmail.php when the visitor submits their email address.
+ *
+ * What was wrong before:
+ *   - The link carried password_hash($token) - bcrypt text full of $ . / characters
+ *     that was never URL-encoded - and the page that received it compared it to the
+ *     user's PASSWORD hash, so a real link could never work.
+ *   - It wrote to a table (password_reset_temp) that does not exist in abcd_db.sql.
+ *   - It answered "No email found", which tells attackers which emails have accounts.
+ *   - The link pointed at a hard-coded production URL.
+ *
+ * What it does now:
+ *   - Always answers with the same message, whether or not the email exists.
+ *   - Creates a random single-use token (stored hashed, valid 1 hour) in user_tokens.
+ *   - Ignores repeat requests for the same account within a minute (anti-spam).
+ */
+require_once __DIR__ . '/token_helper.php';
+
+$email = trim($_POST['email'] ?? '');
+
+if (!filter_var($email, FILTER_VALIDATE_EMAIL)) {
+    header('Location: confirmEmail.php?status=invalid');
+    exit();
 }
-// Function to send the reset password email
-function sendResetPasswordEmail($db,$email, $resetPasswordLink,$hashToken)
-{
-   try{
-      $email_settings = parse_ini_file("config.ini");
-      ini_set('SMTP', $email_settings["SMTP"]);
-      ini_set('smtp_port', $email_settings["smtp_port"]);
-      ini_set('sendmail_from', $email_settings["sendmail_from"]);
-      $message = "Dear user,\n\n";
-      $message .= "Click on the link below to reset your password:\n";
-      $message .= $resetPasswordLink;
-      $message .= "\n\nIf you did not request a password reset, please ignore this email.";
-      $email_subject = "Password Reset Link";
-      $email_headers = 'From:noreply@projectabcd.com'."\r\n";
-      mail($email, $email_subject, $message, $email_headers);
-      $expFormat = mktime(
-         date("H"), date("i"), date("s"), date("m") ,date("d")+1, date("Y")
-         );
-      $expDate = date("Y-m-d H:i:s",$expFormat);
-      $sql = "INSERT INTO `password_reset_temp` (`email`, `token`, `expDate`) VALUES ('".$email."', '".$hashToken."', '".$expDate."');";
-      $result = mysqli_query($db, $sql);
-   }catch (Exception $e) {
-      //echo var_dump($mail->ErrorInfo);
-  }
-}?>
+
+$st = $db->prepare('SELECT id FROM users WHERE email = ?');
+$st->bind_param('s', $email);
+$st->execute();
+$user = $st->get_result()->fetch_assoc();
+
+if ($user && !token_recently_issued($db, (int)$user['id'], TOKEN_RESET, RESEND_COOLDOWN)) {
+    $token = create_token($db, (int)$user['id'], TOKEN_RESET, RESET_TTL);
+    $link  = app_base_url() . '/confirmPassword.php?token=' . $token;
+
+    $body = "Dear user,\n\n"
+          . "Click on the link below within 1 hour to reset your password:\n"
+          . $link . "\n\n"
+          . "If you did not request a password reset, please ignore this email.";
+
+    if (!send_app_mail($email, 'Password Reset Link', $body)) {
+        error_log('ABCD: could not send password reset email');   // visitor still sees the neutral message
+    }
+}
+
+// Identical response for "account exists" and "no such account".
+header('Location: confirmEmail.php?status=success');
+exit();

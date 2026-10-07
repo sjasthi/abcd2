@@ -1,0 +1,5 @@
+; Copy this file to config.local.ini (it is git-ignored) for testing on localhost.
+; It overrides config.ini, so the production settings stay untouched.
+URL = "http://localhost/abcd2"
+; "log" = no email is sent; the email is shown on screen so you can click the link.
+mail_mode = "log"

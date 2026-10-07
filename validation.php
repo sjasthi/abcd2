@@ -1,5 +1,87 @@
 <?php
-require 'db_configuration.php';
+/**
+ * validation.php  -  Issue #7: activates an account when the user clicks the
+ * link in their validation email, and lets them request a fresh link.
+ *
+ * Link format:  validation.php?token=<64 hex characters>
+ * (The old  ?email=...&email_validation=...  links are gone on purpose: their
+ *  10-character code came from only 1,001 possible values and was guessable.)
+ */
+require_once __DIR__ . '/token_helper.php';
+header('Referrer-Policy: no-referrer');   // keep the token out of Referer headers sent to CDNs
+
+$message = '';          // text shown to the visitor
+$activated = false;     // true after a successful activation
+$token = $_GET['token'] ?? '';
+
+if ($_SERVER['REQUEST_METHOD'] === 'POST' && isset($_POST['resend'])) {
+    /* ---------- "Send me a new validation email" button ---------- */
+    if (!csrf_valid($_POST['csrf'] ?? '')) {
+        $message = 'Your session expired. Please reload the page and try again.';
+    } elseif (empty($_SESSION['email'])) {
+        $message = 'Please log in first so we know which account to send the link to.';
+    } else {
+        $st = $db->prepare("SELECT id, email FROM users WHERE email = ? AND active <> 'yes'");
+        $st->bind_param('s', $_SESSION['email']);
+        $st->execute();
+        $user = $st->get_result()->fetch_assoc();
+
+        if ($user && token_recently_issued($db, (int)$user['id'], TOKEN_VERIFY, RESEND_COOLDOWN)) {
+            $message = 'A link was just sent. Please wait a minute before asking for another one.';
+        } else {
+            if ($user) {
+                // Accounts created before this fix may hold an old random code in `active`: normalise it.
+                $fix = $db->prepare("UPDATE users SET active = 'no' WHERE id = ?");
+                $fix->bind_param('i', $user['id']);
+                $fix->execute();
+
+                $newToken = create_token($db, (int)$user['id'], TOKEN_VERIFY, VERIFY_TTL);
+                $link = app_base_url() . '/validation.php?token=' . $newToken;
+                send_app_mail($user['email'], 'Signup | Validation',
+                    "Please click this link within 24 hours to activate your account:\n" . $link);
+            }
+            // Same wording whether or not the account exists, so this can't be used to probe emails.
+            $message = 'If that account still needs validating, a new link has been sent to your email.';
+        }
+    }
+
+} elseif ($token !== '') {
+    /* ---------- the visitor clicked the link in the email ---------- */
+    $found = is_string($token) ? find_valid_token($db, $token, TOKEN_VERIFY) : null;
+
+    if ($found) {
+        $db->begin_transaction();
+        try {
+            // consume_token() succeeds for exactly one request, so a link can't be replayed.
+            if (!consume_token($db, (int)$found['id'])) {
+                throw new RuntimeException('token already used');
+            }
+            $up = $db->prepare("UPDATE users SET active = 'yes', modified_time = CURDATE() WHERE id = ?");
+            $up->bind_param('i', $found['user_id']);
+            $up->execute();
+            $db->commit();
+            $activated = true;
+            $message = 'Your account has been activated. Please proceed to the login page.';
+        } catch (Throwable $e) {
+            $db->rollback();
+        }
+    }
+    if (!$activated) {
+        $message = 'This link is invalid or has expired. If your account is not active yet, request a new link below.';
+    }
+
+} elseif (!empty($_SESSION['email'])) {
+    /* ---------- shown right after registering, or after logging in before validating ---------- */
+    if (!empty($_SESSION['mail_failed'])) {
+        unset($_SESSION['mail_failed']);
+        $message = 'Your account was created, but we could not send the validation email. Please press "Send a new link" below.';
+    } else {
+        $message = 'A validation link was sent to your email ' . $_SESSION['email'] . '. Please click the link within 24 hours to activate your account.';
+    }
+} else {
+    $message = 'This URL is invalid. If you are trying to activate an account, it may already be active.';
+}
+
 include('header.php');
 ?>
 
@@ -12,46 +94,19 @@ include('header.php');
 <body>
     <div class="tab-content">
         <div id="login">
+            <p><?php echo esc_html($message); ?></p>
 
-            <?php
-            // (SU23-30) (Feature) user email validation
-            // this path is followed when user clicks the link in their validation email
-            if(isset($_GET['email']) && !empty($_GET['email']) AND isset($_GET['email_validation']) && !empty($_GET['email_validation'])){
-                // Verify user submission against database
-                $email = $db->escape_string($_GET['email']);
-                $email_validation = $db->escape_string($_GET['email_validation']);
-                $sql = "SELECT email, active FROM users WHERE email='".$email."' AND active='".$email_validation."'";
-                $match = run_sql($sql)->num_rows;
+            <?php echo dev_mail_preview_html(); ?>
 
-                // valid match
-                if($match > 0) {
-                    $sql = "UPDATE users SET active='yes' WHERE email='".$email."' AND active='".$email_validation."'";
-                    if (mysqli_query($db, $sql)) {
-                        // account successfully activated
-                        echo "Your account has been activated.</br>
-                        Please proceed to the login page.";
-                    }
-                }
-                else {
-                    // invalid URL or account already activated
-                    echo "This URL is invalid.</br>
-                    If you are trying to activate an account, then it may already be active.";
-                }
-
-            }
-            // this path is followed if the user's account is created but not activated
-            else if (isset($_SESSION['email'])){
-                // this shows after registration
-                echo "A validation link was sent to your email ".$_SESSION['email'].".</br>
-                Please click the link to activate your account.";
-                // TODO: add a button "click here to send a new validation email"
-            }
-            else {
-                // invalid URL or account already activated
-                echo "This URL is invalid.</br>
-                If you are trying to activate an account, then it may already be active.";
-            }
-            ?>
+            <?php if ($activated): ?>
+                <p><a href="loginForm.php">Go to the login page</a></p>
+            <?php elseif (!empty($_SESSION['email'])): ?>
+                <form action="validation.php" method="post">
+                    <input type="hidden" name="csrf" value="<?php echo esc_html(csrf_token()); ?>">
+                    <button class="button button-block" name="resend" value="1">Send a new link</button>
+                </form>
+            <?php endif; ?>
         </div>
     </div>
 </body>
+</html>
