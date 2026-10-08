@@ -98,3 +98,36 @@ thead input {
     flex-direction: row;
 
 }
+
+/* The 70px title wrapped badly on phones; clamp scales it between 32px and 70px */
+#title { font-size: clamp(32px, 6vw, 70px); }
+
+/* Horizontal scroll instead of the table running off the screen */
+.table-scroll { overflow-x: auto; -webkit-overflow-scrolling: touch; }
+
+/* Toggles wrap onto more lines on small screens instead of being cut off */
+.toggles { flex-wrap: wrap; gap: 6px 14px; justify-content: center; margin: 12px 0; }
+.toggle-vis { color: #4397fb; cursor: pointer; }
+.toggle-vis.off { color: #aaa; text-decoration: line-through; }
+
+/* Keep long names and keywords from stretching columns forever */
+#dressesTable td { vertical-align: middle; max-width: 260px; word-wrap: break-word; }
+#dressesTable thead tr.filters th { padding: 4px; }
+#dressesTable thead tr.filters input { width: 100%; min-width: 70px; font-size: 13px; }
+
+/* Smaller zoom so the hovered image doesn't cover half the table */
+.thumbnailSize { width: 80px; height: 96px; object-fit: contain; }
+.thumbnailSize:hover { transform: scale(2.2); position: relative; z-index: 10; }
+
+.empty { color: #bbb; }
+
+/* Admin inline editing: dashed outline shows the cell is editable, green/red flash after saving */
+.editable { min-height: 1.4em; padding: 2px 4px; border: 1px dashed transparent; border-radius: 3px; }
+.editable:hover, .editable:focus { border-color: #4397fb; outline: none; background: #fff; }
+.editable.saved { background: #d4edda; transition: background .3s; }
+.editable.save-error { background: #f8d7da; }
+
+/* Status badges */
+.status-badge { display: inline-block; padding: 3px 10px; border-radius: 12px; font-size: 13px; white-space: nowrap; background: #e9ecef; }
+.status-proposed { background: #fff3cd; color: #856404; }
+.status-art-work-done { background: #d4edda; color: #155724; }
