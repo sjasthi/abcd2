@@ -49,6 +49,11 @@ $page_title = 'Project ABCD2 Blog';
       </div>
     </div>
 
+      <!-- Link to the photo & video gallery -->
+      <a href="gallery.php" class="btn" style="background-color: #000080; color: white; font-weight: bold; margin-bottom: 20px; margin-right: 8px;">
+        <i class="fa fa-picture-o"></i> View Gallery
+      </a>
+
       <?php
         if (isset($_SESSION['role'])) {
             echo '<button id="form_show_button" onclick="show_form();" style="margin-bottom: 20px;">Create Post</button>';
