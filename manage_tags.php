@@ -58,6 +58,8 @@ include('header.php');
     <div class="button-group">
         <a href="edit_tag_list.php" class="btn">Modify Tag List</a>
         <a href="generate_tag_report.php" class="btn">Run Tag Report</a>
+        <!-- Issue #67: classify every dress into the fixed tags -->
+        <a href="ai_tagger.php" class="btn">AI-Assisted Tagger</a>
     </div>
 
     <!-- Load tags from file section -->
