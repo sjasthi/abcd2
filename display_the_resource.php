@@ -12,7 +12,9 @@
 
 <?php
 include('header.php');
-include_once 'db_configuration.php'; ?>
+include_once 'db_configuration.php';
+require_once 'youtube_helpers.php'; // Issue #68: shared YouTube player helper
+?>
 
 <div class="container">
 
@@ -43,12 +45,20 @@ if ($row_data->num_rows > 0) {
          print('<p class= "words">' 
          .'<img src="'.$row["url"].'"style="width:50%">'. '</p>');
 
-      } else if($row["type"] == 'video') {
-        print('<p class= "words"><iframe height="480" width="500"
-        src="'.$row["url"].'"> 
-       </iframe> ');
-
-      } 
+      } else if(strcasecmp($row["type"], 'video') == 0) {
+        // Issue #68: YouTube only plays "/embed/" addresses inside a frame, so a normal
+        // "watch?v=" or "youtu.be" link used to show an error. youtube_embed_html()
+        // converts any YouTube link into a working player.
+        $player = youtube_embed_html($row["url"], $row["name"]);
+        if ($player !== '') {
+          print('<div class= "words">' . $player . '</div>');
+        } else {
+          // Not a YouTube link: keep the previous behavior (frame the URL as-is).
+          print('<p class= "words"><iframe height="480" width="500"
+          src="'.htmlspecialchars($row["url"], ENT_QUOTES, 'UTF-8').'">
+         </iframe></p>');
+        }
+      }
       print('<h3 class= "title"> Notes </h3><p class= "words">' .$row["notes"]. '</p>' );
     }
 } else {

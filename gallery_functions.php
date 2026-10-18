@@ -13,6 +13,8 @@ if (session_status() == PHP_SESSION_NONE) {
     session_start();
 }
 
+require_once __DIR__ . '/youtube_helpers.php';
+
 // Folder (relative to the project root) where uploaded gallery files are saved.
 const GALLERY_UPLOAD_DIR = 'images/gallery/';
 
@@ -42,11 +44,19 @@ function gallery_ensure_table($db) {
         `Media_Type`  ENUM('image','video') NOT NULL,
         `File_Path`   VARCHAR(255) DEFAULT NULL,
         `Video_Url`   VARCHAR(255) DEFAULT NULL,
+        `Youtube_Link` VARCHAR(255) DEFAULT NULL,
         `Uploaded_By` VARCHAR(100) DEFAULT NULL,
         `Created_Time` DATETIME NOT NULL DEFAULT CURRENT_TIMESTAMP,
         PRIMARY KEY (`Gallery_Id`)
     ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci";
     mysqli_query($db, $sql);
+
+    // Tables created before the YouTube-link feature don't have the Youtube_Link column yet.
+    // Add it once, automatically, so nobody has to re-import sql/gallery.sql.
+    $check = mysqli_query($db, "SHOW COLUMNS FROM `gallery` LIKE 'Youtube_Link'");
+    if ($check && mysqli_num_rows($check) === 0) {
+        mysqli_query($db, "ALTER TABLE `gallery` ADD `Youtube_Link` VARCHAR(255) DEFAULT NULL AFTER `Video_Url`");
+    }
 }
 
 /** True when the logged-in user is an admin (same check admin.php uses). */
@@ -73,11 +83,9 @@ function gallery_check_csrf($token) {
  * Returns null if the link is not a YouTube link.
  */
 function gallery_youtube_id($url) {
-    $pattern = '~(?:youtube\.com/(?:watch\?(?:.*&)?v=|embed/|shorts/|live/)|youtu\.be/)([A-Za-z0-9_-]{11})~';
-    if (preg_match($pattern, $url, $m)) {
-        return $m[1];
-    }
-    return null;
+    // Uses the site-wide parser in youtube_helpers.php so the gallery, blogs and
+    // resources all recognize the same YouTube link formats (Issue #68).
+    return youtube_video_id($url);
 }
 
 /** Fetches all gallery items, newest first. */
