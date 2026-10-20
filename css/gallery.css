@@ -532,3 +532,88 @@ button[type=submit].g-delete:hover {
   .lb-prev { left: calc(50% - 60px); }
   .lb-next { right: calc(50% - 60px); }
 }
+
+/* ===== YouTube link on each card (Issue #68) ===== */
+
+/* Right side of the card footer: YouTube icon + admin Delete button */
+.g-foot-actions {
+  display: flex;
+  align-items: center;
+  gap: 6px;
+}
+
+/* Red YouTube icon + word "YouTube" that opens the video on YouTube (video cards only) */
+.g-youtube {
+  display: inline-flex;
+  align-items: center;
+  gap: 5px;
+  padding: 4px 10px;
+  border-radius: 999px;
+  color: #ff0000;            /* YouTube red */
+  font-size: 13px;
+  font-weight: 600;
+  text-decoration: none;
+  transition: background .15s ease;
+}
+
+.g-youtube .fa { font-size: 18px; }
+
+.g-youtube:hover,
+.g-youtube:focus-visible {
+  background: #ffecec;
+  color: #cc0000;
+  text-decoration: none;
+}
+
+/* Video card with no YouTube link saved yet: gray and not clickable */
+.g-youtube-none,
+.g-youtube-none:hover {
+  color: #9a9aa8;
+  background: none;
+  cursor: default;
+}
+
+/* Admin-only "Add YouTube link" box under the footer */
+.g-link-box {
+  margin-top: 10px;
+  padding-top: 8px;
+  border-top: 1px dashed var(--g-line);
+  font-size: 13px;
+}
+
+.g-link-box summary {
+  cursor: pointer;
+  color: var(--g-muted);
+  font-weight: 600;
+  list-style: none;          /* hide the default triangle */
+}
+
+.g-link-box summary::-webkit-details-marker { display: none; }
+
+.g-link-box summary .fa { color: #ff0000; margin-right: 4px; }
+
+.g-link-box[open] summary { margin-bottom: 8px; }
+
+.g-link-form .form-control { font-size: 13px; }
+
+.g-link-buttons {
+  display: flex;
+  gap: 6px;
+  margin-top: 6px;
+}
+
+.g-link-save,
+.g-link-remove {
+  border: 0;
+  border-radius: 4px;
+  padding: 4px 12px;
+  font-size: 13px;
+  font-weight: 600;
+  cursor: pointer;
+}
+
+.g-link-save { background: #ff0000; color: #fff; }
+.g-link-save:hover { background: #cc0000; }
+
+.g-link-remove { background: none; color: #b42318; }
+.g-link-remove:hover { background: #fdecea; }

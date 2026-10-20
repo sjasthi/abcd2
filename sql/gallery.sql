@@ -9,6 +9,7 @@ CREATE TABLE IF NOT EXISTS `gallery` (
   `Media_Type`   ENUM('image','video') NOT NULL,
   `File_Path`    VARCHAR(255) DEFAULT NULL,  -- images/gallery/... for uploaded files
   `Video_Url`    VARCHAR(255) DEFAULT NULL,  -- YouTube link (File_Path is NULL then)
+  `Youtube_Link` VARCHAR(255) DEFAULT NULL,  -- optional YouTube link attached to any item (shown as a YouTube icon)
   `Uploaded_By`  VARCHAR(100) DEFAULT NULL,
   `Created_Time` DATETIME NOT NULL DEFAULT CURRENT_TIMESTAMP,
   PRIMARY KEY (`Gallery_Id`)

@@ -66,7 +66,7 @@ unset($_SESSION['gallery_flash']);
           <div class="form-group col-md-6">
             <label for="g-title">Title</label>
             <input type="text" id="g-title" name="title" class="form-control" maxlength="100"
-                   placeholder="Optional (file name is used if blank)">
+                   placeholder="Optional (pictures without a title show no heading)">
           </div>
           <div class="form-group col-md-6">
             <label for="g-caption">Caption</label>
@@ -124,20 +124,31 @@ unset($_SESSION['gallery_flash']);
         $type      = $item['Media_Type'];
         $youtubeId = $item['Video_Url'] ? gallery_youtube_id($item['Video_Url']) : null;
         $date      = date('M j, Y', strtotime($item['Created_Time']));
+        $title     = trim($item['Title']);                 // may be blank for pictures
+        $label     = $title !== '' ? $title : ($type === 'image' ? 'Photo' : 'Video'); // for screen readers
+        // YouTube link shown on the card: only videos get one. Use the link the admin
+        // attached, or, for a YouTube-only item, the YouTube video itself.
+        $ytLink    = null;
+        if ($type === 'video') {
+            $ytLink = !empty($item['Youtube_Link']) ? $item['Youtube_Link']
+                    : ($youtubeId ? 'https://www.youtube.com/watch?v=' . $youtubeId : null);
+        }
+        // Admins can attach a link to uploaded video files (YouTube-only items already have one).
+        $canAttachLink = $isAdmin && $type === 'video' && !$youtubeId;
       ?>
         <article class="gallery-item" data-type="<?= gallery_e($type) ?>">
           <button type="button" class="gallery-thumb"
                   data-type="<?= gallery_e($type) ?>"
                   data-src="<?= gallery_e($item['File_Path']) ?>"
                   data-youtube="<?= gallery_e($youtubeId) ?>"
-                  data-title="<?= gallery_e($item['Title']) ?>"
+                  data-title="<?= gallery_e($title) ?>"
                   data-caption="<?= gallery_e($item['Caption']) ?>"
-                  aria-label="Open <?= gallery_e($item['Title']) ?>">
+                  aria-label="Open <?= gallery_e($label) ?>">
 
             <?php if ($type === 'image'): ?>
-              <img src="<?= gallery_e($item['File_Path']) ?>" alt="<?= gallery_e($item['Title']) ?>" loading="lazy">
+              <img src="<?= gallery_e($item['File_Path']) ?>" alt="<?= gallery_e($label) ?>" loading="lazy">
             <?php elseif ($youtubeId): ?>
-              <img src="https://img.youtube.com/vi/<?= gallery_e($youtubeId) ?>/hqdefault.jpg" alt="<?= gallery_e($item['Title']) ?>" loading="lazy">
+              <img src="https://img.youtube.com/vi/<?= gallery_e($youtubeId) ?>/hqdefault.jpg" alt="<?= gallery_e($label) ?>" loading="lazy">
             <?php else: ?>
               <!-- "#t=0.5" makes the browser show a frame from half a second in as the preview -->
               <video src="<?= gallery_e($item['File_Path']) ?>#t=0.5" preload="metadata" muted playsinline></video>
@@ -150,21 +161,66 @@ unset($_SESSION['gallery_flash']);
           </button>
 
           <div class="gallery-meta">
-            <h3 class="g-item-title"><?= gallery_e($item['Title']) ?></h3>
+            <?php if ($title !== ''): ?>
+              <!-- Heading only when a title was written; pictures without one show none -->
+              <h3 class="g-item-title"><?= gallery_e($title) ?></h3>
+            <?php endif; ?>
             <?php if ($item['Caption']): ?>
               <p class="g-item-caption"><?= gallery_e($item['Caption']) ?></p>
             <?php endif; ?>
             <div class="g-item-foot">
               <time datetime="<?= gallery_e($item['Created_Time']) ?>"><?= gallery_e($date) ?></time>
-              <?php if ($isAdmin): ?>
-                <form action="gallery_delete.php" method="POST"
-                      onsubmit="return confirm('Delete this item from the gallery?');">
+              <div class="g-foot-actions">
+                <?php if ($type === 'video'): ?>
+                  <?php if ($ytLink): ?>
+                    <!-- Video with a link: red YouTube icon + word, opens YouTube in a new tab -->
+                    <a class="g-youtube" href="<?= gallery_e($ytLink) ?>"
+                       target="_blank" rel="noopener noreferrer"
+                       aria-label="Watch <?= gallery_e($label) ?> on YouTube">
+                      <i class="fa fa-youtube-play" aria-hidden="true"></i> YouTube
+                    </a>
+                  <?php else: ?>
+                    <!-- Video without a link yet: gray, not clickable, says "none" -->
+                    <span class="g-youtube g-youtube-none">
+                      <i class="fa fa-youtube-play" aria-hidden="true"></i> YouTube: none
+                    </span>
+                  <?php endif; ?>
+                <?php endif; ?>
+                <?php if ($isAdmin): ?>
+                  <form action="gallery_delete.php" method="POST"
+                        onsubmit="return confirm('Delete this item from the gallery?');">
+                    <input type="hidden" name="csrf" value="<?= gallery_e($csrf) ?>">
+                    <input type="hidden" name="id" value="<?= (int)$item['Gallery_Id'] ?>">
+                    <button type="submit" class="g-delete" title="Delete"><i class="fa fa-trash"></i> Delete</button>
+                  </form>
+                <?php endif; ?>
+              </div>
+            </div>
+
+            <?php if ($canAttachLink): ?>
+              <!-- Admin only, video cards only: attach, change, or remove the YouTube link.
+                   <details> opens and closes on click without any JavaScript. -->
+              <details class="g-link-box">
+                <summary>
+                  <i class="fa fa-youtube-play" aria-hidden="true"></i>
+                  <?= empty($item['Youtube_Link']) ? 'Add YouTube link' : 'Change YouTube link' ?>
+                </summary>
+                <form action="gallery_link.php" method="POST" class="g-link-form">
                   <input type="hidden" name="csrf" value="<?= gallery_e($csrf) ?>">
                   <input type="hidden" name="id" value="<?= (int)$item['Gallery_Id'] ?>">
-                  <button type="submit" class="g-delete" title="Delete"><i class="fa fa-trash"></i> Delete</button>
+                  <input type="url" name="youtube_link" class="form-control form-control-sm" required
+                         placeholder="https://www.youtube.com/watch?v=..."
+                         value="<?= gallery_e($item['Youtube_Link'] ?? '') ?>">
+                  <div class="g-link-buttons">
+                    <button type="submit" class="g-link-save">Save</button>
+                    <?php if (!empty($item['Youtube_Link'])): ?>
+                      <!-- formnovalidate lets "Remove" submit even if the box is emptied -->
+                      <button type="submit" name="remove" value="1" class="g-link-remove" formnovalidate>Remove</button>
+                    <?php endif; ?>
+                  </div>
                 </form>
-              <?php endif; ?>
-            </div>
+              </details>
+            <?php endif; ?>
           </div>
         </article>
       <?php endforeach; ?>

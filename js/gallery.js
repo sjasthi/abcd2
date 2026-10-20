@@ -79,6 +79,7 @@
     }
     lbMedia.appendChild(el);
     lbTitle.textContent = d.title;
+    lbTitle.hidden = !d.title; // pictures without a title show no heading
     lbCaption.textContent = d.caption || '';
     lbCaption.hidden = !d.caption;
   }

@@ -91,8 +91,12 @@ if (!empty($_FILES['media']['name'][0])) {
             continue;
         }
 
-        // If the admin left the title blank, use the file name (without extension).
-        $itemTitle = $title !== '' ? $title : pathinfo($originalName, PATHINFO_FILENAME);
+        // Blank title: pictures get no heading at all; videos fall back to the file name.
+        if ($title !== '') {
+            $itemTitle = $title;
+        } else {
+            $itemTitle = $mediaType === 'image' ? '' : pathinfo($originalName, PATHINFO_FILENAME);
+        }
         $itemTitle = mb_substr($itemTitle, 0, 100);
         $noUrl = null;
 
