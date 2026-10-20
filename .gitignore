@@ -15,3 +15,5 @@ db_configuration.php
 # *.JPG
 # *.JPEG
 # *.GIF
+# AI settings with secret API keys (Issue #67): copy ai_config.sample.php to ai_config.php
+ai_config.php

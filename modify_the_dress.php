@@ -19,6 +19,17 @@ if (isset($_POST['id'])){
     $notes = mysqli_real_escape_string($db, $_POST['notes']);
     $tag_line = mysqli_real_escape_string($db, $_POST['tag_line']);
     //$validate = emailValidate($answer);
+
+    // ---- Tags ticked under "Assign Tags" (Issue #67) ----
+    // Saved to dress_tags as 'manual' tags. The old code wrote to dresses_tags_tbl, which only
+    // holds the tag list and has no dress_id column, so manual tags were never saved.
+    // Only tags from the fixed list are accepted. What is ticked becomes the dress's tags.
+    if (isset($_POST['tags_submitted'])) {
+        require_once 'tag_functions.php';
+        abcd_ensure_tag_tables($db);
+        $picked = array_intersect(abcd_tag_list(), (array)($_POST['tags'] ?? []));
+        abcd_save_manual_tags($db, (int)$_POST['id'], $picked);
+    }
     
 
         if($imageName != ""){
@@ -98,14 +109,6 @@ if (isset($_POST['id'])){
 
                 mysqli_query($db, $sql);
 
- //  TAG ASSIGNMENT LOGIC After saving dress info without image 
- mysqli_query($db, "DELETE FROM dresses_tags_tbl WHERE dress_id = '$id'");
- if (isset($_POST['tags'])) {
-     foreach ($_POST['tags'] as $tag) {
-         $tag = mysqli_real_escape_string($db, $tag);
-         mysqli_query($db, "INSERT INTO dresses_tags_tbl (dress_id, tag) VALUES ('$id', '$tag')");
-     }
- }
          
                 header('location: list_dresses.php?dressUpdated=Success');
                 }

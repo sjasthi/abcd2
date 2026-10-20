@@ -175,18 +175,19 @@ if ($result->num_rows > 0) {
 ?>  <!--  CLOSE the echo block -->
 
 <?php
-//  Load all tags from file
-$tag_list = file("abcd_tags.txt", FILE_IGNORE_NEW_LINES);
+// Issue #67: tags come from the same fixed list the Tag Report and AI tagger use
+// (reports/abcd_tags.txt), and assignments live in the dress_tags table.
+require_once 'tag_functions.php';
+abcd_ensure_tag_tables($db);
+$tag_list = abcd_tag_list();
 
-//  Load tags already assigned to this dress
-$existing_tags = [];
-$tag_result = mysqli_query($db, "SELECT tag FROM dresses_tags_tbl WHERE dress_id = $id");
-while ($tag_row = mysqli_fetch_assoc($tag_result)) {
-    $existing_tags[] = $tag_row['tag'];
-}
+//  Load tags already assigned to this dress (by hand or by the AI-Assisted Tagger)
+$existing_tags = abcd_get_dress_tags($db, (int)$id);
 ?>
 
 <h4>Assign Tags</h4>
+<!-- Tells modify_the_dress.php that the tag checkboxes were part of this form -->
+<input type="hidden" name="tags_submitted" value="1">
 <?php foreach ($tag_list as $tag): ?>
     <label>
         <input type="checkbox" name="tags[]" value="<?= htmlspecialchars($tag) ?>"
