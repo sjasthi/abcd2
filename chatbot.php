@@ -1,9 +1,8 @@
-<!-- <?php
-    if(!isset($_SESSION)) 
-    { 
+<?php
+    if (session_status() == PHP_SESSION_NONE) {
         session_start();
-    } 
-?> -->
+    }
+?>
 
 <!DOCTYPE html>
 
@@ -52,7 +51,19 @@ $(document).ready(function () {
 
     function appendUserMessage(message) {
         $('#chat-messages').append('<div class="message-label">You:</div>'); // add user label
-        $('#chat-messages').append('<div class="user-message">' + message + '</div>');
+        $('#chat-messages').append($('<div class="user-message"></div>').text(message));
+        $('#chat-messages').scrollTop($('#chat-messages')[0].scrollHeight);
+    }
+
+    // Shows text safely: .text() never turns user or model text into HTML (prevents XSS).
+    function appendBotMessage(text, sources) {
+        $('#chat-messages').append('<div class="message-label">Ask ABCD:</div>');
+        var box = $('<div class="message"></div>').text(text);
+        if (sources && sources.length) {
+            var titles = sources.map(function (s) { return s.title; }).join(', ');
+            box.append($('<div class="chat-sources"></div>').text('Source: ' + titles));
+        }
+        $('#chat-messages').append(box);
         $('#chat-messages').scrollTop($('#chat-messages')[0].scrollHeight);
     }
 
@@ -62,16 +73,15 @@ $(document).ready(function () {
 
         $.ajax({
             type: 'POST',
-            url: '',
-            data: { input: JSON.stringify(message) }, // stringify to sanitize newline characters for json
-            success: function (response) {
-                $('#chat-messages').append('<div class="message-label">Chatbot:</div>'); // add chatbot label
-                $('#chat-messages').append('<div class="message">' + response + '</div>');
-                $('#chat-messages').scrollTop($('#chat-messages')[0].scrollHeight);
+            url: 'rag_ask.php',
+            data: { question: message },
+            dataType: 'json',
+            success: function (res) {
+                appendBotMessage(res.answer, res.sources);
             },
-            error: function (jqXHR, textStatus, errorThrown) {
-                $('#chat-messages').append('<div class="error-message">Error: ' + errorThrown + '</div>');
-                $('#chat-messages').scrollTop($('#chat-messages')[0].scrollHeight);
+            error: function (jqXHR) {
+                var msg = (jqXHR.responseJSON && jqXHR.responseJSON.answer) || 'Something went wrong. Please try again.';
+                appendBotMessage(msg, []);
             },
             complete: function() {
                 // Re-enable form submission after the request is completed
@@ -83,59 +93,15 @@ $(document).ready(function () {
 </script>
 
 
-<?php 
-/*********************************************************************************/
-//Code for getting info from OpenAI API
-$message = null;
-$result = null;
-$_SESSION['chat_history'] = null; // resetting history for now. third message in chat breaks the json messaging format for some reason.
-
-if (isset($_POST['input'])) {
-    // Interaction with the OpenAI API
-    $message = '{"role": "user", "content": "' . addslashes($_POST['input']) . '"}'; // escape newline characters to prevent json error
-
-    $headers = [
-        'Content-Type: application/json',
-        'Authorization: Bearer APIKEYHERE'
-    ];
-    
-    $ch = curl_init('https://api.openai.com/v1/chat/completions');
-    $json_data = '{"model":"gpt-3.5-turbo",
-        "messages": [{"role": "system", "content": "You are a chatbot for assisting users on an educational website about Indian heroes and sheroes. The content includes history about traditional dresses and outfits worn by historical figures. Please assist them with questions related to this context."}, 
-        ' . $message . ']}';
-
-    curl_setopt_array($ch, [
-        CURLOPT_HTTPHEADER => $headers,
-        CURLOPT_RETURNTRANSFER => true,
-        CURLOPT_POST => 2,
-        CURLOPT_POSTFIELDS => $json_data
-    ]);
-    
-    $response = curl_exec($ch);
-    if ($response === false) {
-        echo "Request error: " . curl_error($ch);
-    } else {
-        $decoded_response = json_decode($response, true);
-        if (isset($decoded_response['error'])) {
-            // If an error occurred, echo the error message
-            echo $decoded_response['error']['message'];
-        } else {
-            // Echo only the response message
-            echo $decoded_response['choices'][0]['message']['content'];
-        }
-    }
-    curl_close($ch);
-    exit(); // Stop further execution after sending the response
-}
+<?php
+/*
+ * The answers now come from the "Ask ABCD" RAG pipeline (rag_ask.php):
+ * the question is matched against OUR dress entries only, and the AI model (if configured
+ * in ai_config.php) writes the answer from those entries. Questions the database cannot
+ * answer get the standard refusal message. The API key no longer lives in this file.
+ */
 ?>
 
- <!-- DEBUG OUTPUTS -->
-<!-- <?php 
-    // echo $result;
-    // echo $_SESSION['chat_history'];
-    // echo $json_data;
-    // echo $response;
-?> -->
 
 
 <!-- CHAT BOX -->
@@ -146,14 +112,14 @@ if (isset($_POST['input'])) {
     <div class="chat-popup" id="myForm">
     <form id="chat-form" class="form-container">
         <div class="d-flex justify-content-between">
-            <h2>Chat</h2>
+            <h2>Ask ABCD</h2>
             <h2><i class="fa-regular fa-comments"></i></h2>
         </div>
 
         <div class="chat-messages" id="chat-messages"></div>
         
         <label id="message-input" for="msg"><b>Message</b></label>
-        <textarea placeholder="Type your message..." name="input" class="chatbox-text-area" required></textarea>
+        <textarea placeholder="Ask about a dress, hero or shero..." name="input" class="chatbox-text-area" required></textarea>
 
         <button id="chat-submit" type="submit" class="btn">Send <i class="fa-regular fa-paper-plane"></i></button>
         <button type="button" class="btn cancel">Close <i class="fa-regular fa-rectangle-xmark"></i></button>

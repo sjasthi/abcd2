@@ -14,6 +14,9 @@ if (isset($_POST['id'])){
             WHERE id = '$id'";
 
     mysqli_query($db, $sql);
+    // Ask ABCD: remove the deleted entry from the chatbot's knowledge base
+    require_once 'rag_functions.php';
+    rag_sync_dress($db, (int)$id);
     header('location: list_dresses.php?dressDeleted=Success');
 }//end if
 ?>

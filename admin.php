@@ -55,6 +55,7 @@ include('header.php');
             <td><a href="artistEdit.php"><i class="fa fa-palette" id="adIconEleven"></i><p class="iconLabel"><strong>artists</strong></p></a></td>
             <td><a href="resources.php"><i class="fa-solid fa-scroll" id="adIconTwelve"></i><p class="iconLabel"><strong>resources</strong></p></a></td>
             <td><a href="admin_query.php" class="adminLinks"><i class="fa fa-user IconUse" id="adIconOne"></i><p class="iconLabel"><strong>advanced query</strong></p></a></td>
+            <td><a href="rag_ingest.php"><i class="fa fa-robot" id="adIconTwelve"></i><p class="iconLabel"><strong>ask abcd index</strong></p></a></td>
         </tr>
     </table>
 </div>

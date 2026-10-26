@@ -124,3 +124,10 @@
   .form-container .btn:hover, .open-button:hover {
     opacity: 1;
   }
+/* Ask ABCD: which database entries an answer came from */
+.chat-sources {
+    margin-top: 6px;
+    font-size: 0.8em;
+    opacity: 0.75;
+    font-style: italic;
+}
