@@ -46,6 +46,9 @@ include_once 'db_configuration.php';
                 VALUES ('$name', '$description', '$did_you_know', '$category', '$type', '$state_name', '$key_words', '$imageName', '$status', '$notes')";
     
                 mysqli_query($db, $sql);
+                // Ask ABCD: add the new entry to the chatbot's knowledge base
+                require_once 'rag_functions.php';
+                rag_sync_dress($db, mysqli_insert_id($db));
                 header('location: list_dresses.php?create_dress=success');
             }
         } 
