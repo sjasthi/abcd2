@@ -1,0 +1,218 @@
+/*
+ * chat_widget.css - the "Ask ABCD" chat balloon (chat_widget.php).
+ * Every rule is scoped under #abcd-chat so nothing leaks into the rest of the site,
+ * and nothing on the site (Bootstrap, page CSS) is relied on.
+ * Colours follow the site header (orangered).
+ */
+
+#abcd-chat {
+    --abcd-brand: #e03d00;          /* slightly deeper than the header's orangered, so white text stays readable */
+    --abcd-brand-hover: #c23400;
+    --abcd-bg: #ffffff;
+    --abcd-ink: #1f2328;
+    --abcd-muted: #6b6f76;
+    --abcd-user: #fff1ea;           /* the visitor's bubbles */
+    --abcd-bot: #f3f4f6;            /* the chatbot's bubbles */
+    --abcd-line: #e5e7eb;
+    position: fixed;
+    right: 24px;
+    bottom: 24px;
+    z-index: 1050;                  /* above Bootstrap's sticky navbar (1020) */
+    font-family: Arial, Helvetica, sans-serif;
+    font-size: 15px;
+    line-height: 1.45;
+    color: var(--abcd-ink);
+    pointer-events: none;           /* the empty part of the container never blocks clicks on the page */
+}
+
+#abcd-chat .abcd-chat-toggle,
+#abcd-chat .abcd-chat-panel { pointer-events: auto; }
+
+#abcd-chat *,
+#abcd-chat *::before,
+#abcd-chat *::after {
+    box-sizing: border-box;
+}
+
+/* ---------- The balloon ---------- */
+
+#abcd-chat .abcd-chat-toggle {
+    width: 60px;
+    height: 60px;
+    border: none;
+    border-radius: 50%;
+    background: var(--abcd-brand);
+    color: #fff;
+    cursor: pointer;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    box-shadow: 0 6px 18px rgba(0, 0, 0, 0.22);
+    transition: transform 0.15s ease, background 0.15s ease;
+    margin-left: auto;              /* keeps it on the right when the panel is open */
+}
+
+#abcd-chat .abcd-chat-toggle:hover { background: var(--abcd-brand-hover); transform: scale(1.06); }
+#abcd-chat .abcd-chat-toggle:focus-visible { outline: 3px solid #1a73e8; outline-offset: 3px; }
+
+/* Speech-bubble icon when closed, X when open */
+#abcd-chat .abcd-chat-icon-close { display: none; }
+#abcd-chat.is-open .abcd-chat-icon-open { display: none; }
+#abcd-chat.is-open .abcd-chat-icon-close { display: block; }
+
+/* ---------- The panel ---------- */
+
+#abcd-chat .abcd-chat-panel {
+    width: 360px;
+    height: 500px;
+    max-height: calc(100vh - 120px);
+    margin-bottom: 14px;
+    background: var(--abcd-bg);
+    border-radius: 14px;
+    box-shadow: 0 12px 36px rgba(0, 0, 0, 0.25);
+    display: flex;
+    flex-direction: column;
+    overflow: hidden;
+}
+
+#abcd-chat .abcd-chat-panel[hidden] { display: none; }
+
+#abcd-chat .abcd-chat-header {
+    background: var(--abcd-brand);
+    color: #fff;
+    padding: 12px 14px;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 8px;
+}
+
+#abcd-chat .abcd-chat-header strong { display: block; font-size: 16px; }
+#abcd-chat .abcd-chat-header span   { display: block; font-size: 12px; opacity: 0.9; }
+
+#abcd-chat .abcd-chat-close {
+    background: transparent;
+    border: none;
+    color: #fff;
+    font-size: 26px;
+    line-height: 1;
+    cursor: pointer;
+    padding: 0 4px;
+}
+
+/* ---------- Messages ---------- */
+
+#abcd-chat .abcd-chat-messages {
+    flex: 1;
+    overflow-y: auto;
+    padding: 14px;
+    display: flex;
+    flex-direction: column;
+    gap: 8px;
+}
+
+#abcd-chat .abcd-chat-msg {
+    max-width: 85%;
+    padding: 9px 12px;
+    border-radius: 12px;
+    white-space: pre-wrap;          /* keeps line breaks in answers */
+    word-wrap: break-word;
+}
+
+#abcd-chat .abcd-chat-msg.from-user {
+    align-self: flex-end;
+    background: var(--abcd-user);
+    border-bottom-right-radius: 4px;
+}
+
+#abcd-chat .abcd-chat-msg.from-bot {
+    align-self: flex-start;
+    background: var(--abcd-bot);
+    border-bottom-left-radius: 4px;
+}
+
+#abcd-chat .abcd-chat-source {
+    display: block;
+    margin-top: 6px;
+    font-size: 12px;
+    font-style: italic;
+    color: var(--abcd-muted);
+}
+
+/* "Typing" dots while waiting for an answer */
+#abcd-chat .abcd-chat-typing span {
+    display: inline-block;
+    width: 7px;
+    height: 7px;
+    margin: 0 2px;
+    border-radius: 50%;
+    background: var(--abcd-muted);
+    animation: abcd-chat-blink 1.2s infinite ease-in-out;
+}
+#abcd-chat .abcd-chat-typing span:nth-child(2) { animation-delay: 0.2s; }
+#abcd-chat .abcd-chat-typing span:nth-child(3) { animation-delay: 0.4s; }
+
+@keyframes abcd-chat-blink {
+    0%, 80%, 100% { opacity: 0.25; }
+    40%           { opacity: 1; }
+}
+
+/* ---------- Input row ---------- */
+
+#abcd-chat .abcd-chat-form {
+    display: flex;
+    gap: 8px;
+    padding: 10px;
+    border-top: 1px solid var(--abcd-line);
+    margin: 0;
+}
+
+#abcd-chat textarea {
+    flex: 1;
+    resize: none;
+    border: 1px solid var(--abcd-line);
+    border-radius: 10px;
+    padding: 9px 11px;
+    font: inherit;
+    color: inherit;
+    max-height: 96px;
+}
+
+#abcd-chat textarea:focus { outline: 2px solid var(--abcd-brand); border-color: transparent; }
+
+#abcd-chat .abcd-chat-send {
+    width: 42px;
+    border: none;
+    border-radius: 10px;
+    background: var(--abcd-brand);
+    color: #fff;
+    cursor: pointer;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+#abcd-chat .abcd-chat-send:disabled { opacity: 0.5; cursor: default; }
+
+/* Visually hidden, still read by screen readers */
+#abcd-chat .abcd-chat-sr {
+    position: absolute;
+    width: 1px;
+    height: 1px;
+    overflow: hidden;
+    clip: rect(0 0 0 0);
+    white-space: nowrap;
+}
+
+/* ---------- Phones: the panel fills the width ---------- */
+
+@media (max-width: 480px) {
+    #abcd-chat { right: 12px; bottom: 12px; left: 12px; }
+    #abcd-chat .abcd-chat-panel { width: 100%; height: 70vh; }
+    #abcd-chat .abcd-chat-toggle { width: 54px; height: 54px; }
+}
+
+@media (prefers-reduced-motion: reduce) {
+    #abcd-chat .abcd-chat-toggle { transition: none; }
+    #abcd-chat .abcd-chat-typing span { animation: none; opacity: 0.6; }
+}

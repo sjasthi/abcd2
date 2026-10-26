@@ -88,3 +88,5 @@ if (!isset($page_title)) {
             </ul>
         </div>
     </nav>
+    <!-- Ask ABCD chat balloon (RAG chatbot), shown on every page that uses this header -->
+    <?php include_once __DIR__ . '/chat_widget.php'; ?>
