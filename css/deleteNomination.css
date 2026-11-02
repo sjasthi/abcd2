@@ -74,3 +74,13 @@ body {
     justify-content: center;
 
 }
+/* Issue #62: spacing between Delete and Cancel, and the confirmation sentence */
+.btnContainer .btn + .btn {
+    margin-left: 10px;
+}
+
+.confirmText {
+    font-size: 18px;
+    text-align: center;
+    max-width: 600px;
+}
