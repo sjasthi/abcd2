@@ -42,6 +42,24 @@
     
     <div id="customerTableView">
 
+    <?php
+        // Issue #62: status messages after Modify/Delete, like the other list pages.
+        if (isset($_GET['Updated'])) {
+            if ($_GET['Updated'] == 'Success') {
+                echo '<div class="alert alert-success text-center">Success! The nomination has been modified!</div>';
+            } else {
+                echo '<div class="alert alert-danger text-center">Sorry, the nomination could not be modified.</div>';
+            }
+        }
+        if (isset($_GET['Deleted'])) {
+            if ($_GET['Deleted'] == 'Success') {
+                echo '<div class="alert alert-success text-center">Success! The nomination has been deleted!</div>';
+            } else {
+                echo '<div class="alert alert-danger text-center">Sorry, the nomination could not be deleted.</div>';
+            }
+        }
+    ?>
+
     <h2 id="title">Manage Nominations</h2><br>
 
         <a class="btn btn-primary btn-sm" href="nomination.php">Create a Nomination</a>
