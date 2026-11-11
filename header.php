@@ -75,10 +75,11 @@ if (!isset($page_title)) {
                 <!--Temporarily hidden from view per instructor direction -->
                 <!--<li class="nav-item active"><a class="nav-link" id="header" href="help.php">Help<span class="sr-only">(current)</span></a></li> -->
                 <li class="nav-item active"><a class="nav-link" id="header" href="shop.php">Shop<span class="sr-only">(current)</span></a></li>
-                <li class="nav-item active"><a class="nav-link" id="header" href="abcd_copyrights.php">Copyright<span class="sr-only">(current)</span></a></li>
                 <?php if (isset($_SESSION['role'])) { ?>
                     <?php if ($_SESSION['role'] == 'admin') { ?>
                         <li class="nav-item active"><a class="nav-link" id="header" href="admin.php">Admin<span class="sr-only">(current)</span></a></li>
+                        <!-- FP9: Copyrights (admin only) - lists copyright violations -->
+                        <li class="nav-item active"><a class="nav-link" id="header" href="abcd_copyrights.php">Copyrights<span class="sr-only">(current)</span></a></li>
                     <?php } ?>
 
                     <li class="nav-item active"><a class="nav-link" id="header" href="logout.php">Logout<span class="sr-only">(current)</span></a></li>
