@@ -1,5 +1,10 @@
 <?php
 session_start();
+// Issue #15: exporting the dresses data is for admins only, even if the address is typed in directly.
+if (!isset($_SESSION['role']) || $_SESSION['role'] !== 'admin') {
+    header('Location: loginForm.php');
+    exit;
+}
 include('header.php'); 
 ?>
 <html>

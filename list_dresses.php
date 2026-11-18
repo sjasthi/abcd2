@@ -277,12 +277,20 @@ $GLOBALS['data'] = mysqli_query($db, $query);
 <script type="text/javascript" language="javascript">
     $(document).ready( function () {
         
+        // Issue #15: the Copy / Excel / CSV / PDF export buttons are shown only to admins.
+        // For everyone else the 'B' (buttons) part is left out of the DataTables layout.
+        <?php if (isset($_SESSION['role']) && $_SESSION['role'] === 'admin') { ?>
         $('#ceremoniesTable').DataTable( {
             dom: 'lfrtBip',
             buttons: [
                 'copy', 'excel', 'csv', 'pdf'
             ] }
         );
+        <?php } else { ?>
+        $('#ceremoniesTable').DataTable( {
+            dom: 'lfrtip'
+        } );
+        <?php } ?>
 
         $('#ceremoniesTable thead tr').clone(true).appendTo( '#ceremoniesTable thead' );
         $('#ceremoniesTable thead tr:eq(1) th').each( function (i) {

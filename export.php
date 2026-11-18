@@ -1,4 +1,15 @@
 <?php
+// Issue #15: exporting the dresses data is for admins only. Hiding the buttons is not
+// enough on its own, because anyone could still open this page's address directly.
+if (session_status() === PHP_SESSION_NONE) {
+    session_start();
+}
+if (!isset($_SESSION['role']) || $_SESSION['role'] !== 'admin') {
+    header('Location: loginForm.php');
+    exit;
+}
+?>
+<?php
 require 'db_configuration.php';
 
 // $mysqli = mysqli_connect('localhost', 'root', '', 'abcd_db');
