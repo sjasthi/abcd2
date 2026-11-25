@@ -270,6 +270,10 @@ function rag_keyword_scores(array $chunks, $question) {
     }
     $n = count($chunks); $avg = $n ? $totalLen / $n : 1; $k1 = 1.4; $b = 0.75;
 
+    // Typo tolerance: a question word that appears in no entry ("madisaar") is replaced by the
+    // closest word that does ("madisar"), so small misspellings of names still find the entry.
+    $q = rag_fix_typos($q, $df);
+
     // Weight of each question word: rare words (names, places) matter most; a word that
     // appears in NO entry gets the highest weight, because it is something we know nothing about.
     $idf = [];
@@ -297,6 +301,38 @@ function rag_keyword_scores(array $chunks, $question) {
         $scores[$i] = ['score' => $score, 'hits' => $hits, 'coverage' => $idfTotal > 0 ? $matchedIdf / $idfTotal : 0];
     }
     return $scores;
+}
+
+/**
+ * Replaces misspelled question words with the closest word found in the entries.
+ *   $q  : unique question words (already lowercase, without stopwords)
+ *   $df : vocabulary of the entries [word => number of entries containing it]
+ * Only words of 4+ letters that appear in NO entry are corrected. Allowed edit distance:
+ * 1 letter for words of 4-6 letters, 2 letters for longer words. When several words are equally
+ * close, the most common one wins. Words with no close match are kept, so the refusal still
+ * happens for things the database really does not contain.
+ */
+function rag_fix_typos(array $q, array $df) {
+    $fixed = [];
+    foreach ($q as $word) {
+        $len = mb_strlen($word);
+        if (isset($df[$word]) || $len < 4 || !preg_match('/^[a-z]+$/', $word)) {
+            $fixed[] = $word;
+            continue;
+        }
+        $maxDist = $len <= 6 ? 1 : 2;
+        $best = null; $bestDist = PHP_INT_MAX; $bestDf = 0;
+        foreach ($df as $cand => $count) {
+            $cand = (string)$cand;
+            if (abs(strlen($cand) - $len) > $maxDist || $cand[0] !== $word[0]) continue;  // cheap filters first
+            $dist = levenshtein($word, $cand);
+            if ($dist <= $maxDist && ($dist < $bestDist || ($dist === $bestDist && $count > $bestDf))) {
+                $best = $cand; $bestDist = $dist; $bestDf = $count;
+            }
+        }
+        $fixed[] = $best ?? $word;
+    }
+    return array_values(array_unique($fixed));
 }
 
 /** Cosine similarity of two equal-length vectors (1 = same meaning, 0 = unrelated). */
